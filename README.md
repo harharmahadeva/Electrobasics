@@ -1,16 +1,33 @@
-# React + Vite
+# Sprint 001 - Design System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This package creates the ElectroBasics design system foundation.
 
-Currently, two official plugins are available:
+## How to apply
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Extract this ZIP.
+2. Open PowerShell in the extracted folder.
+3. Run:
 
-## React Compiler
+```powershell
+.\setup-sprint-001-design-system.ps1
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Then run in the project:
 
-## Expanding the ESLint configuration
+```powershell
+cd D:\Github\ElectroBasics
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Files included
+
+- `src/styles/theme.css`
+- `src/styles/globals.css`
+- `src/styles/animations.css`
+- `src/components/ui/EBButton/*`
+- `src/components/ui/EBCard/*`
+- `src/components/ui/EBInput/*`
+- `src/App.jsx`
+- `src/main.jsx`
+- `docs/ui-guidelines.md`
+- `CHANGELOG.patch.md`

@@ -1,0 +1,22 @@
+.eb-input {
+  display: grid;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.eb-input input {
+  min-height: 48px;
+  width: 100%;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: rgba(15, 23, 42, 0.72);
+  color: var(--text-primary);
+  padding: 0 16px;
+}
+
+.eb-input input:focus {
+  border-color: var(--color-secondary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.16);
+}

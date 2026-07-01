@@ -1,0 +1,10 @@
+@keyframes sparkPulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+
+@keyframes sparkScan {
+  0% { left: -40%; opacity: 0.35; }
+  50% { opacity: 1; }
+  100% { left: 102%; opacity: 0.35; }
+}

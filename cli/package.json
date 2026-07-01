@@ -1,0 +1,8 @@
+{
+  "name": "@electrobasics/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "eb": "./index.js"
+  }
+}

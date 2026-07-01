@@ -1,0 +1,8 @@
+.eb-card {
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-xl);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}

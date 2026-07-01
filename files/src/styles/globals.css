@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.2), transparent 34rem),
+    radial-gradient(circle at bottom right, rgba(6, 182, 212, 0.14), transparent 30rem),
+    var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  padding: 48px 0;
+}
+
+.hero-grid {
+  width: 100%;
+  display: grid;
+  gap: 24px;
+}
+
+.hero-card h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 8vw, 5.4rem);
+  letter-spacing: -0.06em;
+}
+
+.hero-copy {
+  max-width: 720px;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  line-height: 1.7;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--color-secondary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.spark-preview {
+  display: grid;
+  gap: 16px;
+}
+
+.spark-preview h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.spark-preview p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.spark-orb {
+  width: 100%;
+  height: 88px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--spark-red-soft), transparent);
+  border: 1px solid rgba(255, 49, 49, 0.35);
+  overflow: hidden;
+  position: relative;
+}
+
+.spark-orb span {
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  width: 38%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--spark-red), transparent);
+  filter: blur(1px);
+  animation: sparkScan 2.4s ease-in-out infinite;
+}
+
+@media (min-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1.35fr 0.85fr;
+    align-items: stretch;
+  }
+}
