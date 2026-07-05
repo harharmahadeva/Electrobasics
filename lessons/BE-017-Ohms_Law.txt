@@ -1,0 +1,275 @@
+ElectroBasics | Basic Electronics Bootcamp
+
+Lesson BE-017 : Ohm’s Law / ओम का नियम
+
+============================================================ METADATA
+============================================================ Course:
+Basic Electronics Bootcamp Module: 03 – Electricity Fundamentals Lesson
+ID: BE-017 Difficulty: Beginner / शुरुआती Duration: 60 Minutes XP Reward:
+100 XP Badge: Ohm Master ⚖️
+
+============================================================ LEARNING
+OBJECTIVES | सीखने के उद्देश्य
+============================================================
+
+English • Understand Ohm’s Law. • Learn the relationship between
+Voltage, Current and Resistance. • Use the formula V = I × R. • Solve
+simple calculations. • Predict circuit behavior before building it.
+
+हिन्दी • ओम का नियम समझना। • वोल्टेज, धारा और प्रतिरोध का संबंध सीखना। • V = I
+× R सूत्र का उपयोग करना। • सरल गणनाएँ करना। • सर्किट बनाने से पहले उसके व्यवहार
+का अनुमान लगाना।
+
+============================================================ REAL LIFE
+PROBLEM ============================================================
+
+Imagine turning on a garden hose.
+
+Higher water pressure pushes more water. A narrower pipe reduces the
+flow.
+
+Electrical circuits behave the same way.
+
+Voltage pushes. Resistance restricts. Current is the flow.
+
+============================================================ THEORY
+============================================================
+
+Ohm’s Law describes the relationship between:
+
+V = Voltage (Volt)
+
+I = Current (Ampere)
+
+R = Resistance (Ohm)
+
+Formula
+
+V = I × R
+
+From this:
+
+I = V ÷ R
+
+R = V ÷ I
+
+Simple Example
+
+Battery = 9V
+
+Resistor = 1kΩ
+
+Current is small.
+
+Now replace the resistor with 220Ω.
+
+Current increases.
+
+============================================================ OHM’S LAW
+TRIANGLE ============================================================
+
+        V
+      -----
+      I | R
+
+Cover the quantity you want to calculate.
+
+============================================================ INTERACTIVE
+SIMULATOR ============================================================
+
+Activity: Ohm’s Law Lab
+
+Controls
+
+• Voltage Slider (1–12V) • Resistance Slider (100Ω–10kΩ) • Formula
+Selector • Reset Button
+
+Live Display
+
+• Voltage (V) • Current (mA) • Resistance (Ω) • Formula Used • LED
+Brightness • Spark Explanation
+
+Challenge Mode
+
+Target: Keep LED brightness “Medium”.
+
+Students must adjust voltage and resistance until they reach the target.
+
+============================================================ PRACTICAL
+LAB ============================================================
+
+Components
+
+• Breadboard • LED • 220Ω Resistor • 470Ω Resistor • 1kΩ Resistor • 9V
+Battery • Digital Multimeter
+
+Tasks
+
+1.  Build an LED circuit.
+2.  Measure battery voltage.
+3.  Measure current.
+4.  Replace resistor values.
+5.  Compare current and brightness.
+6.  Verify the simulator prediction.
+
+============================================================ COMMON
+MISTAKES ============================================================
+
+❌ Mixing up V, I and R
+
+❌ Forgetting resistor units
+
+❌ Assuming more voltage is always better
+
+❌ Ignoring current limits
+
+============================================================
+TROUBLESHOOTING
+============================================================
+
+Wrong calculation?
+
+• Check units. • Verify resistor value. • Measure battery voltage again.
+• Compare with simulator.
+
+============================================================ ASSET
+MANIFEST ============================================================
+
+Hero Filename be017-hero.webp
+
+Prompt
+
+Premium macro photograph of a glowing LED breadboard circuit beside a
+notebook showing the Ohm’s Law triangle, digital multimeter, resistor
+assortment and battery on a dark electronics workbench, cyan PCB glow,
+warm amber lighting, realistic macro photography, landscape, no text.
+
+Image Filename ohms-law-triangle.webp
+
+Prompt
+
+Clean premium educational graphic of the Ohm’s Law triangle with V, I
+and R on a dark background.
+
+Image Filename voltage-current-resistance.webp
+
+Prompt
+
+Educational infographic illustrating voltage pushing current through a
+resistor into an LED using a water-pipe analogy, modern premium design.
+
+Image Filename resistor-comparison.webp
+
+Prompt
+
+Macro photograph comparing identical LED circuits using different
+resistor values with visible brightness difference.
+
+Spark Mascot Filename spark-ohm.webp
+
+Prompt
+
+Cute white robot holding a resistor, battery and calculator beside a
+glowing V=I×R formula, transparent background, premium 3D render.
+
+SVG Filename ohms-law-circuit.svg
+
+Description
+
+Battery, resistor, LED and ammeter with labels showing V, I and R.
+
+Animation Filename ohms-law-lab.json
+
+Description
+
+Interactive animation recalculating current as voltage and resistance
+sliders change.
+
+============================================================ SPARK
+GLOSSARY ============================================================
+
+Ohm’s Law | ओम का नियम Relationship between voltage, current and
+resistance. वोल्टेज, धारा और प्रतिरोध का संबंध।
+
+Voltage | वोल्टेज Electrical pressure.
+
+Current | धारा Flow of electric charge.
+
+Resistance | प्रतिरोध Opposes current flow.
+
+============================================================ SPARK
+SYSTEM PROMPT
+============================================================
+
+Teach only Lesson BE-017.
+
+Guide learners through calculations step by step.
+
+Use the water analogy whenever possible.
+
+Never skip the units.
+
+============================================================ SPARK
+SUGGESTED PROMPTS
+============================================================
+
+English
+
+• Explain Ohm’s Law simply. • Why did my LED become brighter? • How do I
+calculate current? • How do I calculate resistance?
+
+हिन्दी
+
+• ओम का नियम सरल भाषा में समझाइए। • LED अधिक चमकीली क्यों हुई? • धारा कैसे
+निकालें? • प्रतिरोध कैसे निकालें?
+
+============================================================ QUIZ
+============================================================
+
+1.  Ohm’s Law formula? Answer: V = I × R.
+
+2.  Unit of resistance? Answer: Ohm (Ω).
+
+3.  Increasing resistance usually? Answer: Decreases current.
+
+4.  Increasing voltage usually? Answer: Increases current.
+
+5.  Which three quantities are related? Answer: Voltage, Current and
+    Resistance.
+
+============================================================ HOMEWORK
+============================================================
+
+Use the simulator to test five different voltage and resistor
+combinations. Record the results and compare them with your practical
+measurements.
+
+============================================================ SUMMARY
+============================================================
+
+You learned how Voltage, Current and Resistance are connected through
+Ohm’s Law and used both a simulator and a real circuit to verify the
+relationship.
+
+============================================================ ACHIEVEMENT
+============================================================
+
+⚖️ Ohm Master
+
+============================================================ DEVELOPER
+NOTES ============================================================
+
+Interactive Widgets • Ohm’s Law Calculator • Voltage Slider • Resistance
+Slider • Live Formula Card • LED Brightness Indicator • Spark Coach
+
+React Components LessonHeader OhmsLawSimulator FormulaCard AssetGallery
+QuizPanel SummaryCard
+
+Assets Hero:1 Photos:4 SVG:1 Animation:1
+
+============================================================ NEXT MODULE
+============================================================
+
+Module 04 – Electronic Components
+
+BE-018 – Resistors / रेसिस्टर

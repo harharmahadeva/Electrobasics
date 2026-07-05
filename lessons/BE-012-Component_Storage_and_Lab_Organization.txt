@@ -1,0 +1,225 @@
+ElectroBasics | Basic Electronics Bootcamp
+
+Lesson BE-012 : Component Storage & Lab Organization / कंपोनेंट स्टोरेज और लैब संगठन
+
+============================================================ METADATA
+============================================================ Course:
+Basic Electronics Bootcamp Module: 02 – Electronics Tools Lesson ID:
+BE-012 Difficulty: Beginner / शुरुआती Duration: 35 Minutes XP Reward: 60
+XP Badge: Lab Organizer 📦
+
+============================================================ LEARNING
+OBJECTIVES | सीखने के उद्देश्य
+============================================================
+
+English • Organize electronic components properly. • Identify storage
+methods for resistors, capacitors, ICs and sensors. • Protect components
+from moisture and ESD. • Maintain a clean workbench.
+
+हिन्दी • इलेक्ट्रॉनिक कंपोनेंट्स को सही तरीके से व्यवस्थित करना। • विभिन्न घटकों के लिए
+उचित स्टोरेज सीखना। • नमी और ESD से सुरक्षा करना। • साफ और व्यवस्थित कार्यक्षेत्र
+बनाए रखना।
+
+============================================================ REAL LIFE
+PROBLEM ============================================================
+
+Imagine spending an hour searching for a single 220Ω resistor.
+
+Professional engineers label, sort and store every component so projects
+can be built quickly without mistakes.
+
+============================================================ THEORY
+============================================================
+
+Good Lab Organization
+
+• Label every storage box. • Separate resistors by value. • Store
+capacitors by type. • Keep ICs in anti-static foam or bags. • Store
+sensors and modules in separate compartments. • Use transparent drawer
+cabinets. • Return every tool after use.
+
+Never:
+
+❌ Throw mixed components into one box. ❌ Leave PCBs exposed to dust.
+❌ Store ICs without ESD protection.
+
+============================================================ INTERACTIVE
+ACTIVITY ============================================================
+
+Activity: Organize the Electronics Lab
+
+Student drags:
+
+• Resistors • Capacitors • LEDs • ICs • Modules • Sensors • Jumper Wires
+
+into the correct storage drawers.
+
+Spark gives hints and awards XP for a perfectly organized lab.
+
+============================================================ PRACTICAL
+LAB ============================================================
+
+Tasks
+
+1.  Create labels for your storage boxes.
+2.  Separate resistors by value.
+3.  Separate LEDs by color.
+4.  Place ICs in anti-static storage.
+5.  Arrange tools neatly on the workbench.
+
+============================================================ COMMON
+MISTAKES ============================================================
+
+❌ Mixing resistor values ❌ Storing ICs loosely ❌ Leaving wires
+tangled ❌ No labels on storage boxes
+
+============================================================
+TROUBLESHOOTING
+============================================================
+
+Can’t find parts?
+
+• Add labels. • Use transparent drawers. • Sort by category first, then
+value.
+
+============================================================ ASSET
+MANIFEST ============================================================
+
+Hero Filename be012-hero.webp
+
+Prompt
+
+Premium electronics workstation with neatly organized transparent
+component drawers, labeled resistor compartments, capacitor boxes, IC
+storage, breadboard, multimeter and tools arranged perfectly on a dark
+workbench with cyan PCB glow and warm amber lighting, realistic
+photography, landscape, no text.
+
+Image Filename component-drawers.webp
+
+Prompt
+
+Macro photograph of transparent component storage drawers filled with
+neatly labeled electronic components.
+
+Image Filename resistor-storage.webp
+
+Prompt
+
+Top-down macro photograph of resistors sorted by value in labeled
+storage compartments.
+
+Image Filename ic-esd-storage.webp
+
+Prompt
+
+Macro photograph of integrated circuits stored safely inside anti-static
+foam and ESD bags.
+
+Image Filename organized-workbench.webp
+
+Prompt
+
+Professional electronics workbench showing excellent cable management,
+organized tools and clean workspace.
+
+Spark Mascot Filename spark-organizer.webp
+
+Prompt
+
+Cute white robot organizing electronic components into labeled storage
+drawers, transparent background, premium 3D render.
+
+SVG Filename lab-layout.svg
+
+Description
+
+Illustration showing an ideal electronics workbench layout with storage
+locations.
+
+Animation Filename organize-lab.json
+
+Description
+
+Animated drag-and-drop organization game placing tools and components
+into correct storage.
+
+============================================================ SPARK
+GLOSSARY ============================================================
+
+Organizer | ऑर्गेनाइज़र Storage container for parts. घटकों को रखने का डिब्बा।
+
+Drawer Cabinet | ड्रॉअर कैबिनेट Multi-compartment storage. अनेक खानों वाला
+स्टोरेज।
+
+Label | लेबल Name used for identification. पहचान के लिए नाम।
+
+ESD Bag | ESD बैग Protects sensitive components. संवेदनशील घटकों की सुरक्षा
+करता है।
+
+============================================================ SPARK
+SYSTEM PROMPT
+============================================================
+
+Teach only BE-012.
+
+Promote good organization habits.
+
+Encourage labeling and ESD-safe storage.
+
+============================================================ SPARK
+SUGGESTED PROMPTS
+============================================================
+
+English • How should I store resistors? • Why label drawers? • How do I
+protect ICs?
+
+हिन्दी • रेसिस्टर कैसे रखें? • लेबल क्यों लगाएँ? • IC को सुरक्षित कैसे रखें?
+
+============================================================ QUIZ
+============================================================
+
+1.  Where should ICs be stored? Answer: In ESD-safe storage.
+
+2.  Should resistor values be mixed? Answer: No.
+
+3.  Why label storage boxes? Answer: Easy identification.
+
+4.  What keeps the lab efficient? Answer: Organization.
+
+5.  Should tools be returned after use? Answer: Yes.
+
+============================================================ HOMEWORK
+============================================================
+
+Organize your electronics kit, label every compartment and ask Spark to
+review your setup.
+
+============================================================ SUMMARY
+============================================================
+
+You learned how to organize tools, components and your workbench like a
+professional electronics lab.
+
+============================================================ ACHIEVEMENT
+============================================================
+
+📦 Lab Organizer
+
+============================================================ DEVELOPER
+NOTES ============================================================
+
+Interactive Widgets • Drag-and-Drop Organizer • Storage Matcher • Spark
+Review Panel
+
+React Components LessonHeader StorageGrid OrganizerGame AssetGallery
+QuizPanel SummaryCard
+
+Assets Hero:1 Photos:4 SVG:1 Animation:1
+
+============================================================ NEXT MODULE
+============================================================
+
+Module 03 – Electricity Fundamentals
+
+BE-013 – What is Electricity? / बिजली क्या है?

@@ -1,0 +1,24 @@
+.disclaimer-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 22px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(245, 166, 35, 0.06);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  color: var(--eb-amber);
+}
+
+.disclaimer-note strong {
+  display: block;
+  font-size: 13px;
+  color: var(--eb-text-primary);
+}
+
+.disclaimer-note p {
+  margin: 4px 0 0;
+  color: var(--eb-text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}

@@ -1,0 +1,152 @@
+.module-card {
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--eb-surface-card-from), var(--eb-surface-card-to));
+  border: 1px solid var(--eb-border-subtle);
+  border-radius: var(--eb-radius-card);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.module-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.module-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-family: var(--eb-font-mono);
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.module-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.module-card-top h3 {
+  font-family: var(--eb-font-display);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.module-card-top small {
+  display: block;
+  color: var(--eb-text-secondary);
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.module-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.module-field-label {
+  font-family: var(--eb-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--eb-text-muted);
+}
+
+.module-category-pill {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.module-description {
+  color: var(--eb-text-secondary);
+  font-size: 12.5px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.module-difficulty-pill {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.module-difficulty-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.dot-filled,
+.dot-empty {
+  width: 16px;
+  height: 5px;
+  border-radius: 3px;
+}
+
+.dot-empty {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.module-category-type-value {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--eb-text-secondary);
+}
+
+/* module accent: number + icon tile */
+.accent-blue .module-number { background: rgba(59, 130, 246, 0.18); color: #60a5fa; }
+.accent-green .module-number { background: rgba(74, 222, 128, 0.18); color: var(--eb-green); }
+.accent-purple .module-number { background: rgba(167, 139, 250, 0.18); color: var(--eb-purple); }
+.accent-amber .module-number { background: rgba(245, 166, 35, 0.18); color: var(--eb-amber); }
+.accent-teal .module-number { background: rgba(34, 211, 238, 0.18); color: var(--eb-cyan); }
+.accent-pink .module-number { background: rgba(236, 72, 153, 0.18); color: #f472b6; }
+
+.accent-blue .module-icon { background: rgba(59, 130, 246, 0.12); color: #60a5fa; }
+.accent-green .module-icon { background: rgba(74, 222, 128, 0.12); color: var(--eb-green); }
+.accent-purple .module-icon { background: rgba(167, 139, 250, 0.12); color: var(--eb-purple); }
+.accent-amber .module-icon { background: rgba(245, 166, 35, 0.12); color: var(--eb-amber); }
+.accent-teal .module-icon { background: rgba(34, 211, 238, 0.12); color: var(--eb-cyan); }
+.accent-pink .module-icon { background: rgba(236, 72, 153, 0.12); color: #f472b6; }
+
+.accent-blue .module-category-pill { background: rgba(59, 130, 246, 0.16); color: #60a5fa; }
+.accent-green .module-category-pill { background: rgba(74, 222, 128, 0.16); color: var(--eb-green); }
+.accent-purple .module-category-pill { background: rgba(167, 139, 250, 0.16); color: var(--eb-purple); }
+.accent-amber .module-category-pill { background: rgba(245, 166, 35, 0.16); color: var(--eb-amber); }
+.accent-teal .module-category-pill { background: rgba(34, 211, 238, 0.16); color: var(--eb-cyan); }
+.accent-pink .module-category-pill { background: rgba(236, 72, 153, 0.16); color: #f472b6; }
+
+.accent-blue { border-color: rgba(59, 130, 246, 0.25); }
+.accent-green { border-color: rgba(74, 222, 128, 0.25); }
+.accent-purple { border-color: rgba(167, 139, 250, 0.25); }
+.accent-amber { border-color: rgba(245, 166, 35, 0.25); }
+.accent-teal { border-color: rgba(34, 211, 238, 0.25); }
+.accent-pink { border-color: rgba(236, 72, 153, 0.25); }
+
+/* difficulty colors */
+.difficulty-green { background: rgba(74, 222, 128, 0.16); color: var(--eb-green); }
+.difficulty-blue { background: rgba(59, 130, 246, 0.16); color: #60a5fa; }
+.difficulty-amber { background: rgba(245, 166, 35, 0.16); color: var(--eb-amber); }
+.difficulty-red { background: rgba(239, 68, 68, 0.16); color: var(--eb-danger-text); }
+
+.dot-green { background: var(--eb-green); }
+.dot-blue { background: #60a5fa; }
+.dot-amber { background: var(--eb-amber); }
+.dot-red { background: var(--eb-danger); }

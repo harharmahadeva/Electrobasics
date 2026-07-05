@@ -1,0 +1,13 @@
+:root {
+  --md-bg: #050a12;
+  --md-card-bg: rgba(8, 18, 32, 0.82);
+  --md-cyan: #00e5ff;
+  --md-blue: #1677ff;
+  --md-yellow: #ffc928;
+  --md-green: #36d66b;
+  --md-purple: #a855f7;
+  --md-orange: #ff9f1c;
+  --md-text-primary: #f8fafc;
+  --md-text-secondary: #aab4c0;
+  --md-border: rgba(0, 229, 255, 0.16);
+}

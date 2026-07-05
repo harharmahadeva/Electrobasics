@@ -1,0 +1,842 @@
+# ElectroBasics — Claude Instruction File
+# Module 01 Detail Page — Desktop Version
+
+============================================================
+PURPOSE
+============================================================
+
+Build the desktop Module Detail Page for:
+
+Module 01 — Welcome & Electronics Lab
+Hindi Title: स्वागत है और इलेक्ट्रॉनिक्स लैब
+
+This page opens when the learner clicks Module 01 from the All Modules Overview page.
+
+The page must use the same dark futuristic ElectroBasics dashboard design.
+
+Important:
+Do not include any Upgrade, Pro, Premium, Subscription, Pricing, or Paywall button anywhere.
+
+============================================================
+DESIGN STYLE
+============================================================
+
+Use:
+- Dark navy / black futuristic background
+- Cyan, blue, yellow and purple neon accents
+- Glassmorphism cards
+- Thin glowing borders
+- Rounded corners
+- Premium electronics-lab feeling
+- Subtle circuit-board background pattern
+- Smooth hover states
+- Clear readable typography
+- Hindi text must be large enough to read
+
+Avoid:
+- White page background
+- Upgrade / Pro / Premium button
+- Crowded text
+- Tiny Hindi text
+- Too many animations at once
+- Random unrelated images
+
+Mood:
+Beginner-friendly, safe, welcoming, professional electronics lab.
+
+============================================================
+DESKTOP PAGE STRUCTURE
+============================================================
+
+Desktop layout must use:
+
+1. Top Navigation Bar
+2. Left Sidebar Navigation
+3. Main Content Area
+4. Right Sidebar Widgets
+
+Target desktop width:
+1440px to 1920px
+
+Suggested layout:
+- Sidebar width: around 240px
+- Main content: flexible center column
+- Right sidebar: around 320px
+- Gap between panels: 16px to 24px
+- Right sidebar can be sticky if possible
+
+============================================================
+TOP NAVIGATION BAR
+============================================================
+
+Top bar should include:
+
+Left:
+- ElectroBasics logo
+- Tagline: Learn • Build • Innovate
+
+Center:
+- Search bar
+- Placeholder: "Search lessons, topics, tools..."
+- Keyboard hint: ⌘ K
+
+Right:
+- Day streak widget
+  - Value: 12
+  - Label: Day Streak
+- Total XP widget
+  - Value: 450
+  - Label: Total XP
+- Notification bell icon with red badge: 3
+- User profile:
+  - Avatar
+  - Name: Sandeep
+  - Level 3
+  - Dropdown arrow
+
+Do not include:
+- Upgrade
+- Upgrade to Pro
+- Premium
+- Subscription
+- Pricing
+
+============================================================
+LEFT SIDEBAR NAVIGATION
+============================================================
+
+Sidebar items:
+
+- Dashboard
+- All Modules
+- Learn
+- Explore
+- Spark AI
+- Achievements
+- Leaderboards
+- Lab Tools
+- Community
+- Settings
+
+Active item:
+All Modules
+
+Active item style:
+- Blue/cyan glowing background
+- White text
+- Bright icon
+
+Bottom of sidebar:
+Small Spark help card.
+
+Content:
+Need Help?
+Ask Spark AI anytime!
+
+Use Spark robot image:
+spark-module01-guide.png
+
+No Upgrade card.
+
+============================================================
+MAIN CONTENT AREA
+============================================================
+
+------------------------------------------------------------
+BACK LINK
+------------------------------------------------------------
+
+At the top of main content:
+
+← Back to All Modules
+
+Click action:
+Return to All Modules Overview page.
+
+Style:
+Small cyan text with left arrow.
+Hover: brighter cyan.
+
+------------------------------------------------------------
+MODULE HERO CARD
+------------------------------------------------------------
+
+Create one large hero card.
+
+Content:
+
+Module number:
+01
+
+Module title:
+Welcome & Electronics Lab
+
+Hindi subtitle:
+स्वागत है और इलेक्ट्रॉनिक्स लैब
+
+Badges:
+- 4 Lessons
+- Very Easy
+- Orientation
+- 130 min (Est.)
+
+Description:
+Start your journey with safety, workspace setup, and understanding electronics basics before building real circuits.
+
+Primary button:
+Start Module
+
+Secondary button:
+Continue Module
+
+Secondary button subtitle:
+Resume from last lesson
+
+Hero card layout:
+- Left: Module icon, module number, title, badges, description, buttons
+- Right: Realistic electronics lab image blended into card
+- Use gradient overlay to keep text readable
+- Rounded corners and cyan border
+
+Module icon:
+Workbench + tools icon inside neon blue hexagon.
+
+Real picture needed:
+
+Image filename:
+module01-electronics-lab-hero.png
+
+Image type:
+Realistic hero photo / AI-generated realistic photo
+
+Where to use:
+Right side of Module 01 hero card.
+
+Purpose:
+Show a beginner-friendly electronics workspace and make Module 01 feel like entering the lab.
+
+Prompt:
+Premium realistic electronics beginner lab workbench, clean desk with breadboard, digital multimeter, jumper wires, small component organizer, safety glasses, desk lamp, oscilloscope in background, warm amber lighting, subtle cyan PCB glow, dark futuristic lab atmosphere, no text, no watermark, wide landscape composition.
+
+Claude implementation notes:
+Use this image as a dark blended background panel on the right side of the hero card.
+Add subtle left-to-right gradient overlay.
+Keep text on left side.
+Do not place important text directly over busy image details.
+
+------------------------------------------------------------
+MODULE OVERVIEW CARD
+------------------------------------------------------------
+
+Place below hero card, left side of two-column card row.
+
+Title:
+Module Overview
+
+Text:
+This module introduces you to the world of electronics. You will learn about safety, tools, workspace setup and how to handle electronic components safely.
+
+Icon:
+Info icon or glowing bulb icon.
+
+Optional real picture needed:
+
+Image filename:
+module01-workspace-overview.png
+
+Image type:
+Realistic workspace photo
+
+Where to use:
+Small visual inside Module Overview card or background thumbnail.
+
+Purpose:
+Show the learner what a clean beginner workspace looks like.
+
+Prompt:
+Clean beginner electronics workspace on a dark desk, breadboard, basic hand tools, digital multimeter, neatly arranged jumper wires, small labeled component boxes, notebook, good lighting, no clutter, realistic photo, no text, no watermark.
+
+Claude implementation notes:
+Use as small thumbnail on right side of overview card.
+Add a dark overlay if used as background.
+
+------------------------------------------------------------
+WHAT YOU'LL LEARN CARD
+------------------------------------------------------------
+
+Place below hero card, right side of two-column card row.
+
+Title:
+What You’ll Learn
+
+List:
+- Electronics lab safety rules
+- Essential tools and their uses
+- Workspace setup and organization
+- ESD and safe component handling
+
+Use icons:
+- Safety shield
+- Tool wrench
+- Workbench
+- Lightning / ESD symbol
+
+Style:
+Purple/cyan accent border.
+Checklist items with circular check icons.
+
+============================================================
+LESSONS IN THIS MODULE SECTION
+============================================================
+
+Create a large full-width lesson list card under the overview row.
+
+Header:
+Lessons in This Module
+
+Each lesson row should include:
+- Lesson number badge
+- Lesson icon
+- Lesson ID
+- English title
+- Hindi title
+- Duration
+- XP reward
+- Difficulty
+- Badge
+- Status button
+
+------------------------------------------------------------
+LESSON 01 ROW
+------------------------------------------------------------
+
+Lesson Number:
+01
+
+Lesson ID:
+BE-001
+
+English Title:
+Welcome to ElectroBasics
+
+Hindi Title:
+इलेक्ट्रोबेसिक्स में आपका स्वागत है
+
+Duration:
+25 min
+
+XP:
+30 XP
+
+Difficulty:
+Very Easy
+
+Badge:
+Welcome Explorer 🚀
+
+Status:
+Available
+
+Button:
+Start Lesson
+
+Suggested icon:
+Rocket / welcome icon
+
+Real image needed:
+
+Image filename:
+be001-lesson-thumbnail.png
+
+Image type:
+Realistic lesson thumbnail
+
+Where to use:
+Small thumbnail or icon background inside BE-001 lesson row.
+
+Purpose:
+Show beginner electronics learning environment.
+
+Prompt:
+Small realistic thumbnail of a beginner electronics desk with breadboard, LED, resistor, notebook and digital multimeter, dark premium style, cyan glow, warm desk light, no text, no watermark.
+
+Claude implementation notes:
+Use as 48px to 64px thumbnail or as subtle icon-card background.
+Keep row readable.
+
+------------------------------------------------------------
+LESSON 02 ROW
+------------------------------------------------------------
+
+Lesson Number:
+02
+
+Lesson ID:
+BE-002
+
+English Title:
+Electronics Lab Safety
+
+Hindi Title:
+इलेक्ट्रॉनिक्स लैब सुरक्षा
+
+Duration:
+35 min
+
+XP:
+40 XP
+
+Difficulty:
+Very Easy
+
+Badge:
+Safety First 🛡️
+
+Status:
+Locked until BE-001 complete
+
+Button:
+Locked
+
+Secondary text:
+Complete previous lesson
+
+Suggested icon:
+Shield icon
+
+Real image needed:
+
+Image filename:
+be002-lesson-thumbnail.png
+
+Image type:
+Realistic safety thumbnail
+
+Where to use:
+Small thumbnail or icon background inside BE-002 lesson row.
+
+Purpose:
+Show safety equipment and safe workspace.
+
+Prompt:
+Realistic electronics safety thumbnail with safety glasses, clean workbench, breadboard, multimeter, insulated tools, warning triangle icon style lighting, dark futuristic lab background, no text, no watermark.
+
+Claude implementation notes:
+Locked row should appear slightly dimmed but still readable.
+Do not hide the lesson details.
+
+------------------------------------------------------------
+LESSON 03 ROW
+------------------------------------------------------------
+
+Lesson Number:
+03
+
+Lesson ID:
+BE-003
+
+English Title:
+Workspace & Essential Tools
+
+Hindi Title:
+कार्यस्थान और आवश्यक उपकरण
+
+Duration:
+35 min
+
+XP:
+45 XP
+
+Difficulty:
+Very Easy
+
+Badge:
+Lab Ready 🧰
+
+Status:
+Locked until BE-002 complete
+
+Button:
+Locked
+
+Secondary text:
+Complete previous lesson
+
+Suggested icon:
+Toolbox / workbench icon
+
+Real image needed:
+
+Image filename:
+be003-lesson-thumbnail.png
+
+Image type:
+Realistic tools thumbnail
+
+Where to use:
+Small thumbnail or icon background inside BE-003 lesson row.
+
+Purpose:
+Show essential beginner tools.
+
+Prompt:
+Realistic close-up thumbnail of essential beginner electronics tools: digital multimeter, wire cutter, tweezers, screwdriver, jumper wires, breadboard and component box neatly arranged on dark desk, cyan accent glow, warm lighting, no text, no watermark.
+
+Claude implementation notes:
+Locked row should show lock icon and previous lesson requirement.
+
+------------------------------------------------------------
+LESSON 04 ROW
+------------------------------------------------------------
+
+Lesson Number:
+04
+
+Lesson ID:
+BE-004
+
+English Title:
+ESD & Safe Handling
+
+Hindi Title:
+ESD और सुरक्षित हैंडलिंग
+
+Duration:
+35 min
+
+XP:
+50 XP
+
+Difficulty:
+Very Easy
+
+Badge:
+ESD Guardian ⚡
+
+Status:
+Locked until BE-003 complete
+
+Button:
+Locked
+
+Secondary text:
+Complete previous lesson
+
+Suggested icon:
+Purple lightning / ESD icon
+
+Real image needed:
+
+Image filename:
+be004-lesson-thumbnail.png
+
+Image type:
+Realistic ESD thumbnail
+
+Where to use:
+Small thumbnail or icon background inside BE-004 lesson row.
+
+Purpose:
+Show ESD-safe handling.
+
+Prompt:
+Realistic close-up thumbnail of a hand wearing blue ESD wrist strap handling a small PCB by the edges on an ESD mat, anti-static bag nearby, dark electronics lab lighting, cyan glow, no text, no watermark.
+
+Claude implementation notes:
+Use purple/cyan accent for ESD row icon.
+
+------------------------------------------------------------
+BOTTOM UNLOCK MESSAGE
+------------------------------------------------------------
+
+Below lesson list, add locked next-module banner.
+
+Text:
+Complete all lessons in this module to unlock Module 02: Electronics Tools
+
+Icon:
+Lock icon + small yellow star
+
+Style:
+Thin yellow border, dark amber glow, centered text.
+
+============================================================
+RIGHT SIDEBAR WIDGETS
+============================================================
+
+------------------------------------------------------------
+MODULE PROGRESS CARD
+------------------------------------------------------------
+
+Title:
+Module Progress
+
+Progress ring:
+0%
+
+Text:
+0 / 4 Lessons Completed
+
+XP:
+0 XP Earned
+165 XP Total in Module
+
+Style:
+Blue/cyan progress ring.
+Glass card.
+Large number.
+
+------------------------------------------------------------
+SPARK SAYS CARD
+------------------------------------------------------------
+
+Title:
+Spark Says
+
+Message:
+Safety first, always! A good start makes you a great electronics engineer.
+
+Include Spark robot image.
+
+Real/3D mascot image needed:
+
+Image filename:
+spark-module01-guide.png
+
+Image type:
+3D mascot render
+
+Where to use:
+Right sidebar Spark Says card and small sidebar help card.
+
+Purpose:
+Make the module feel guided and friendly.
+
+Prompt:
+Cute white and silver robot mascot named Spark, cyan glowing eyes, friendly smile, small antenna, standing and pointing toward a safety checklist, transparent background, premium 3D render, no text.
+
+Claude implementation notes:
+Place robot on right side of Spark card.
+Speech bubble on left.
+Use same image in sidebar help card at smaller size.
+
+------------------------------------------------------------
+MODULE SUMMARY CARD
+------------------------------------------------------------
+
+Title:
+Module Summary
+
+Rows:
+Total Lessons: 4
+Total XP: 165 XP
+Estimated Time: 130 min
+Difficulty: Very Easy
+Category: Orientation
+
+Icon style:
+Small neon icons for book, star, clock, difficulty, category.
+
+------------------------------------------------------------
+REWARD FOR COMPLETION CARD
+------------------------------------------------------------
+
+Title:
+Reward for Completion
+
+Reward:
+Lab Beginner Badge
++200 XP
+
+Badge image needed:
+
+Image filename:
+module01-lab-beginner-badge.png
+
+Image type:
+Badge icon / 3D badge
+
+Where to use:
+Reward for Completion card.
+
+Purpose:
+Motivate learner to complete Module 01.
+
+Prompt:
+Premium 3D badge icon for beginner electronics lab achievement, shield shape with small workbench and tools symbol, purple and cyan neon glow, dark transparent background, no text, no watermark.
+
+Claude implementation notes:
+Use badge as 80px icon.
+Show +200 XP in yellow.
+
+============================================================
+BUTTON BEHAVIOR
+============================================================
+
+If no lesson completed:
+Primary hero button = Start Module
+Action: open BE-001.
+
+If some progress:
+Primary hero button = Continue Module
+Action: open next incomplete lesson.
+
+If all complete:
+Primary hero button = Review Module
+Action: open module review or BE-001.
+
+Lesson buttons:
+- BE-001 available: Start Lesson
+- BE-002 to BE-004 locked initially
+- Locked button disabled
+- Show requirement text under locked button
+
+============================================================
+COLOR RULES
+============================================================
+
+Dark background:
+#050A12 or similar
+
+Main card background:
+rgba(8, 18, 32, 0.82)
+
+Cyan accent:
+#00E5FF
+
+Blue active:
+#1677FF
+
+Yellow XP/reward:
+#FFC928
+
+Green difficulty:
+#36D66B
+
+Purple category:
+#A855F7
+
+Orange warnings:
+#FF9F1C
+
+Text primary:
+#F8FAFC
+
+Text secondary:
+#AAB4C0
+
+============================================================
+ACCESSIBILITY RULES
+============================================================
+
+- Text contrast must be high.
+- Hindi text must be readable.
+- Buttons must have visible focus states.
+- Use aria-labels for icon buttons.
+- Locked buttons should explain why they are locked.
+- Progress ring must also have text percentage.
+
+============================================================
+CLAUDE DATA OBJECT
+============================================================
+
+Use this data as source of truth:
+
+const module01 = {
+  id: "module-01",
+  number: "01",
+  title: "Welcome & Electronics Lab",
+  hindiTitle: "स्वागत है और इलेक्ट्रॉनिक्स लैब",
+  category: "Orientation",
+  difficulty: "Very Easy",
+  lessonCount: 4,
+  totalXP: 165,
+  rewardXP: 200,
+  estimatedMinutes: 130,
+  status: "available",
+  progress: {
+    completedLessons: 0,
+    totalLessons: 4,
+    percent: 0,
+    xpEarned: 0
+  },
+  description:
+    "Start your journey with safety, workspace setup, and understanding electronics basics before building real circuits.",
+  heroImage: "module01-electronics-lab-hero.png",
+  sparkImage: "spark-module01-guide.png",
+  rewardBadgeImage: "module01-lab-beginner-badge.png",
+  lessons: [
+    {
+      order: 1,
+      id: "BE-001",
+      title: "Welcome to ElectroBasics",
+      hindiTitle: "इलेक्ट्रोबेसिक्स में आपका स्वागत है",
+      durationMinutes: 25,
+      xp: 30,
+      difficulty: "Very Easy",
+      badge: "Welcome Explorer 🚀",
+      thumbnail: "be001-lesson-thumbnail.png",
+      status: "available",
+      button: "Start Lesson"
+    },
+    {
+      order: 2,
+      id: "BE-002",
+      title: "Electronics Lab Safety",
+      hindiTitle: "इलेक्ट्रॉनिक्स लैब सुरक्षा",
+      durationMinutes: 35,
+      xp: 40,
+      difficulty: "Very Easy",
+      badge: "Safety First 🛡️",
+      thumbnail: "be002-lesson-thumbnail.png",
+      status: "locked",
+      unlockRequirement: "Complete BE-001",
+      button: "Locked"
+    },
+    {
+      order: 3,
+      id: "BE-003",
+      title: "Workspace & Essential Tools",
+      hindiTitle: "कार्यस्थान और आवश्यक उपकरण",
+      durationMinutes: 35,
+      xp: 45,
+      difficulty: "Very Easy",
+      badge: "Lab Ready 🧰",
+      thumbnail: "be003-lesson-thumbnail.png",
+      status: "locked",
+      unlockRequirement: "Complete BE-002",
+      button: "Locked"
+    },
+    {
+      order: 4,
+      id: "BE-004",
+      title: "ESD & Safe Handling",
+      hindiTitle: "ESD और सुरक्षित हैंडलिंग",
+      durationMinutes: 35,
+      xp: 50,
+      difficulty: "Very Easy",
+      badge: "ESD Guardian ⚡",
+      thumbnail: "be004-lesson-thumbnail.png",
+      status: "locked",
+      unlockRequirement: "Complete BE-003",
+      button: "Locked"
+    }
+  ]
+};
+
+============================================================
+FINAL REQUIREMENT
+============================================================
+
+The finished desktop page should look like a premium dark ElectroBasics dashboard module-detail screen.
+
+It must clearly answer:
+- What is this module?
+- What will the learner learn?
+- How many lessons are inside?
+- Which lesson can they start?
+- What is locked and why?
+- What reward will they get?
+- What should Spark say?
+
+No Upgrade / Pro / Premium button anywhere.

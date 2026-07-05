@@ -1,0 +1,10 @@
+.eb-shell-body {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 880px) {
+  .eb-shell-body {
+    padding-bottom: 90px;
+  }
+}

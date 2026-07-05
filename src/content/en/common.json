@@ -1,0 +1,153 @@
+{
+  "search": "Search anything...",
+  "level": "Level 3",
+
+  "welcome": "Welcome Back!",
+  "loginSub": "Sign in to continue your learning journey",
+  "userId": "User ID",
+  "emailAddress": "Email Address",
+  "password": "Password",
+  "forgot": "Forgot Password?",
+  "signIn": "Sign In",
+  "orContinue": "or continue with",
+  "noAccount": "Don't have an account?",
+  "signUp": "Sign Up",
+
+  "greeting": "Good Evening, Sandeep 👋",
+  "greetingSub": "Welcome back to your electronics lab.",
+  "dayStreak": "Day Streak",
+  "novice": "Novice Engineer",
+
+  "continueLearning": "CONTINUE LEARNING",
+  "lesson03": "Lesson 03",
+  "ohmsLaw": "Ohm's Law",
+  "basicElec": "Basic Electronics",
+  "complete": "Complete",
+  "resumeLesson": "Resume Lesson",
+  "lessonInfo": "Lesson Info",
+
+  "sparkTitle": "SPARK AI TERMINAL",
+  "sparkMsg": "Need help with Ohm's Law or any electronics concept? I'm here to help!",
+  "askPlaceholder": "Ask anything about electronics...",
+  "chipOhm": "Explain Ohm's Law",
+  "chipSeries": "Series vs Parallel",
+  "chipVoltage": "What is Voltage?",
+
+  "progressGauge": "PROGRESS GAUGE",
+  "overallProgress": "Overall Progress",
+  "lessonsCompleted": "Lessons Completed",
+  "quizzesPassed": "Quizzes Passed",
+  "timeLearned": "Time Learned",
+
+  "courseLibrary": "COURSE LIBRARY",
+  "viewAll": "View All",
+  "activityTimeline": "ACTIVITY TIMELINE",
+  "viewFullActivity": "View Full Activity",
+  "achievementsLabel": "ACHIEVEMENTS",
+  "weeklyGoal": "WEEKLY GOAL",
+  "lessons": "Lessons",
+  "doingGreat": "You're doing great! 🚀",
+  "viewGoals": "View Goals",
+
+  "lessonContent": "Lesson Content",
+  "ohmFormula": "Ohm's Law Formula",
+  "ohmBody": "Ohm's Law states that the current through a conductor between two points is directly proportional to the voltage across the two points.",
+  "where": "Where,",
+  "vVolt": "V = Voltage (Volts)",
+  "iCurr": "I = Current (Amperes)",
+  "rRes": "R = Resistance (Ohms)",
+  "askSpark": "Ask Spark AI",
+  "notesBtn": "Notes",
+  "bookmark": "Bookmark",
+  "prev": "Previous",
+  "next": "Next",
+  "takeQuiz": "Take Quiz",
+
+  "quiz": "Quiz",
+  "quizName": "Ohm's Law Quiz",
+  "questionOf": "Question 2 of 10",
+  "quizQ": "According to Ohm's Law, which of the following is correct?",
+  "showExplanation": "View Explanation",
+  "answered": "Answered",
+  "current": "Current",
+
+  "greatJob": "Great Job! 🎉",
+  "scoredOut": "You scored 9 out of 10",
+  "correct": "Correct",
+  "incorrect": "Incorrect",
+  "timeTaken": "Time Taken",
+  "reviewAnswers": "Review Answers",
+  "backToLesson": "Back to Lesson",
+  "keepPracticing": "Keep practicing to achieve 100%!",
+
+  "mcqReview": "MCQ Review",
+  "reviewQ": "Q2. According to Ohm's Law, which of the following is correct?",
+  "yourAnswer": "Your Answer",
+  "correctAnswer": "Correct Answer",
+  "explanation": "Explanation",
+  "explBody": "Ohm's Law states that voltage (V) equals current (I) multiplied by resistance (R).",
+
+  "myNotes": "My Notes",
+  "keyPoints": "Key Points",
+  "addNote": "Add New Note",
+  "saveNote": "Save Note",
+
+  "sparkQ": "Explain why resistance affects the voltage in a circuit?",
+  "sparkA": "Great question! According to Ohm's Law (V = I × R), if current stays constant and resistance (R) increases, the voltage (V) across the component also increases. Resistance opposes the flow of current, creating a voltage drop. Would you like a worked example?",
+
+  "continueLessonTitle": "Continue Lesson",
+  "lessonProgress": "Lesson Progress",
+  "continueBtn": "Continue",
+
+  "navHome": "Home",
+  "navLessons": "Courses",
+  "navSpark": "Spark",
+  "navQuiz": "Quiz",
+  "navNotes": "Notes",
+
+  "courses": [
+    { "key": "basic", "name": "Basic Electronics", "lessons": "12 / 28 Lessons", "pct": 43, "tag": "IC CHIP" },
+    { "key": "analog", "name": "Analog Electronics", "lessons": "8 / 24 Lessons", "pct": 33, "tag": "WAVEFORM" },
+    { "key": "digital", "name": "Digital Electronics", "lessons": "6 / 26 Lessons", "pct": 23, "tag": "1010 LOGIC" },
+    { "key": "sensors", "name": "Sensors & Actuators", "lessons": "2 / 18 Lessons", "pct": 11, "tag": "SENSOR" }
+  ],
+  "activities": [
+    { "key": "completed", "icon": "check", "title": "Completed Lesson 02", "sub": "Kirchhoff's Voltage Law", "time": "2h ago" },
+    { "key": "quiz", "icon": "quiz", "title": "Quiz Score: 90%", "sub": "Ohm's Law Quiz", "time": "5h ago" },
+    { "key": "started", "icon": "play", "title": "Started Lesson 03", "sub": "Ohm's Law", "time": "Yesterday" }
+  ],
+  "achievements": [
+    { "key": "ohms-expert", "icon": "ohm", "title": "Ohm's Expert", "sub": "Score 90% in Ohm's Law Quiz" },
+    { "key": "consistent-learner", "icon": "calendar", "title": "Consistent Learner", "sub": "Maintain a 7 day learning streak" },
+    { "key": "circuit-explorer", "icon": "hex", "title": "Circuit Explorer", "sub": "Complete 10 lessons" }
+  ],
+  "lessonSteps": [
+    { "n": 1, "label": "Introduction" },
+    { "n": 2, "label": "What is Resistance?" },
+    { "n": 3, "label": "Ohm's Law Formula", "cur": true },
+    { "n": 4, "label": "Real Life Examples" },
+    { "n": 5, "label": "Solved Examples" },
+    { "n": 6, "label": "Summary" }
+  ],
+  "lessonTabLabels": ["Lesson", "Explanation", "Simulation", "Notes"],
+  "quizOptions": ["V = I / R", "V = I × R", "R = V − I", "I = V ÷ R"],
+  "notesList": [
+    { "title": "Ohm's Law", "cur": true },
+    { "title": "Kirchhoff's Laws" },
+    { "title": "Series Circuit" },
+    { "title": "Parallel Circuit" }
+  ],
+  "notesBody": [
+    "Voltage is directly proportional to current.",
+    "Resistance stays constant for a given conductor.",
+    "Units: V (Volt), I (Ampere), R (Ohm)."
+  ],
+  "reviewLabels": ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6"],
+  "progressSteps": [
+    { "label": "Introduction", "done": true },
+    { "label": "What is Resistance?", "done": true },
+    { "label": "Ohm's Law Formula", "cur": true },
+    { "label": "Real Life Examples" },
+    { "label": "Solved Examples" }
+  ]
+}

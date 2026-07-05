@@ -1,0 +1,19 @@
+:root {
+  --eb-radius-card: 20px;
+  --eb-radius-card-lg: 24px;
+  --eb-radius-control: 12px;
+  --eb-radius-pill: 20px;
+  --eb-radius-icon: 11px;
+
+  --eb-pad-card: 22px;
+  --eb-pad-panel: 26px;
+
+  --eb-gap-grid: 18px;
+  --eb-gap-inner: 12px;
+
+  --eb-shadow-button: 0 8px 24px rgba(245, 166, 35, 0.3);
+  --eb-shadow-button-hero: 0 10px 30px rgba(245, 166, 35, 0.35);
+  --eb-shadow-card: 0 10px 40px rgba(0, 0, 0, 0.45);
+
+  --eb-breakpoint-mobile: 880px;
+}

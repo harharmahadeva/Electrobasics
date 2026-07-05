@@ -1,0 +1,87 @@
+.progress-gauge {
+  background: linear-gradient(180deg, rgba(11, 26, 19, 0.92), rgba(9, 16, 13, 0.92));
+  border: 1px solid rgba(74, 222, 128, 0.22);
+  border-radius: var(--eb-radius-card);
+  padding: var(--eb-pad-card);
+}
+
+.pg-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--eb-green);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  margin-bottom: 14px;
+}
+
+.pg-ring-wrap {
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.pg-ring {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 40px rgba(74, 222, 128, 0.18);
+}
+
+.pg-ring-inner {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: #0a130f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pg-ring-inner strong {
+  font-family: var(--eb-font-display);
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.pg-ring-inner strong span {
+  font-size: 16px;
+}
+
+.pg-ring-inner small {
+  font-size: 12px;
+  color: var(--eb-text-secondary);
+}
+
+.pg-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.pg-stats div {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(120, 150, 200, 0.1);
+  border-radius: 12px;
+  padding: 12px 6px;
+}
+
+.pg-stats strong {
+  font-family: var(--eb-font-display);
+  font-weight: 700;
+  font-size: 19px;
+  display: block;
+}
+
+.pg-stats span {
+  font-size: 11px;
+  color: var(--eb-text-secondary);
+  margin-top: 2px;
+  display: block;
+}

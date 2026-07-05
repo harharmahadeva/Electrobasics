@@ -1,0 +1,29 @@
+.coming-soon {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 26px clamp(16px, 3vw, 34px) 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.coming-soon-card {
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(180deg, var(--eb-surface-card-from), var(--eb-surface-card-to));
+  border: 1px solid var(--eb-border-subtle);
+  border-radius: var(--eb-radius-card);
+  padding: 48px 24px;
+}
+
+.coming-soon-card h1 {
+  font-family: var(--eb-font-display);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.coming-soon-card p {
+  color: var(--eb-text-secondary);
+  font-size: 14px;
+  margin: 0;
+}

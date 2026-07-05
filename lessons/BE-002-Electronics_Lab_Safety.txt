@@ -1,0 +1,422 @@
+# ElectroBasics | Basic Electronics Bootcamp
+# Lesson BE-002 : Electronics Lab Safety / इलेक्ट्रॉनिक्स लैब सुरक्षा
+
+============================================================
+METADATA
+============================================================
+
+Course: Basic Electronics Bootcamp
+Module: Module 01 – Welcome & Electronics Lab
+Lesson ID: BE-002
+Difficulty: Beginner / शुरुआती
+Estimated Duration: 35 Minutes
+XP Reward: 40 XP
+Achievement Badge: Safety First 🛡️
+Language: English + Hindi
+Audience: Absolute beginner students
+
+============================================================
+LESSON PURPOSE
+============================================================
+
+This lesson is written for a learner who may have never touched electronic components before. Keep all explanations practical, visual and friendly. The lesson must combine text, real images, diagrams, Spark AI support and hands-on activity.
+
+यह पाठ ऐसे विद्यार्थी के लिए है जिसने शायद पहले कभी इलेक्ट्रॉनिक घटकों को हाथ नहीं लगाया। भाषा सरल, दृश्य और प्रैक्टिकल होनी चाहिए।
+
+============================================================
+LEARNING OBJECTIVES | सीखने के उद्देश्य
+============================================================
+
+English
+• Understand why safety comes before circuits.
+• Recognize common beginner hazards.
+• Learn safe battery and tool habits.
+• Know what to do if something smells hot or burns.
+• Prepare for hands-on electronics responsibly.
+
+हिन्दी
+• समझना कि सर्किट से पहले सुरक्षा क्यों आती है।
+• शुरुआती खतरों को पहचानना।
+• बैटरी और उपकरणों की सुरक्षित आदतें सीखना।
+• गर्मी या जलने की गंध आने पर क्या करना है जानना।
+• प्रैक्टिकल इलेक्ट्रॉनिक्स के लिए जिम्मेदारी से तैयार होना।
+
+============================================================
+REAL-LIFE PROBLEM | वास्तविक जीवन की समस्या
+============================================================
+
+English
+A beginner may think small batteries and LEDs are always harmless. But short circuits, reverse polarity, overheated batteries, sharp tools and careless wiring can damage parts or cause injury.
+
+हिन्दी
+शुरुआती विद्यार्थी सोच सकता है कि छोटी बैटरी और LED हमेशा सुरक्षित हैं। लेकिन शॉर्ट सर्किट, उलटी ध्रुवीयता, गर्म बैटरी, तेज़ उपकरण और लापरवाह वायरिंग नुकसान या चोट पहुँचा सकते हैं।
+
+Teaching Note:
+Start the lesson with this problem. Do not begin with a definition. Beginners learn faster when they first understand why the topic matters.
+
+============================================================
+BEGINNER-FRIENDLY THEORY | शुरुआती सिद्धांत
+============================================================
+
+English
+Lab safety is the first skill of electronics. Most beginner circuits use low voltage, but unsafe habits can still damage components or tools. A safe learner always checks the workspace, disconnects power before rewiring, keeps liquids away, uses correct polarity and stops immediately if there is heat, smoke or burning smell.
+
+Important safety habits:
+1. Keep the workspace clean and dry.
+2. Keep food and drinks away.
+3. Turn power OFF before changing wires.
+4. Never short battery terminals.
+5. Check + and − polarity before powering.
+6. Do not touch hot soldering irons or heated parts.
+7. Wear eye protection when cutting component leads.
+8. Ask Spark before continuing if something behaves unexpectedly.
+
+Safety is not fear. Safety is control.
+
+हिन्दी
+लैब सुरक्षा इलेक्ट्रॉनिक्स का पहला कौशल है। शुरुआती सर्किट सामान्यतः कम वोल्टेज के होते हैं, लेकिन गलत आदतें घटकों और उपकरणों को नुकसान पहुँचा सकती हैं। सुरक्षित विद्यार्थी हमेशा कार्यक्षेत्र जाँचता है, वायर बदलने से पहले पावर OFF करता है, तरल पदार्थ दूर रखता है, सही ध्रुवीयता उपयोग करता है और गर्मी, धुआँ या जलने की गंध होने पर तुरंत रुकता है।
+
+महत्वपूर्ण आदतें:
+1. कार्यक्षेत्र साफ और सूखा रखें।
+2. खाना-पीना दूर रखें।
+3. वायर बदलने से पहले पावर OFF करें।
+4. बैटरी टर्मिनल शॉर्ट न करें।
+5. + और − ध्रुवीयता जाँचें।
+6. गर्म सोल्डरिंग आयरन या गर्म पार्ट न छुएँ।
+7. लीड काटते समय आँखों की सुरक्षा करें।
+
+Teacher Tone:
+Use short sentences. Avoid unnecessary formulas unless the lesson needs them. Whenever a new technical word appears, Spark should explain it using the glossary.
+
+============================================================
+GUIDED VISUAL LEARNING FLOW
+============================================================
+
+Recommended lesson page flow:
+
+1. Hero image
+2. Real-life problem
+3. Learning objectives
+4. Main infographic or annotated image
+5. Spark guided explanation
+6. Real photo gallery
+7. Interactive activity / simulator
+8. Practical lab
+9. Common mistakes
+10. Troubleshooting
+11. Quiz
+12. Homework
+13. Summary
+14. Achievement
+
+Mobile Rule:
+Never show a large infographic as one unreadable image on mobile. Slice it into cards or provide zoom/pinch.
+
+============================================================
+INTERACTIVE ACTIVITY / SIMULATOR
+============================================================
+
+Safety Checklist Gate. Before entering any future lab, the learner must tick: power off, dry hands, no liquids, correct polarity checked, resistor included for LED, tools organized.
+
+Implementation Notes:
+For MVP, this can be a static interactive-looking card. Later it can become a real simulator. Include Spark hints and a “Show me why” button.
+
+============================================================
+PRACTICAL LAB | प्रैक्टिकल लैब
+============================================================
+
+Inspect your desk. Remove water bottles, food, unnecessary metal objects and clutter. Place your tools on one side and components in a container. Take a photo and ask Spark: 'Is my workspace safe?'
+
+Safety Reminder:
+Before any wiring or measurement, power must be OFF unless the step explicitly says to power ON. Check polarity. Ask Spark if unsure.
+
+============================================================
+COMMON BEGINNER MISTAKES | सामान्य शुरुआती गलतियाँ
+============================================================
+
+• Changing jumper wires while power is ON.
+• Keeping tea, coffee or water near circuits.
+• Shorting a battery with wire.
+• Using damaged wires or leaking batteries.
+• Ignoring heat or burning smell.
+
+============================================================
+TROUBLESHOOTING GUIDE | समस्या समाधान
+============================================================
+
+• If a component gets hot, turn power OFF immediately.
+• If a battery heats up, disconnect it and do not reuse it until checked.
+• If you smell burning, stop and ask Spark to review your wiring.
+• If a tool is sharp or hot, place it in a safe zone.
+
+============================================================
+IMAGE / ASSET PLAN
+============================================================
+
+Important:
+Every image below must have a teaching role. The filename should be used exactly so Claude can wire the lesson page to the correct assets.
+
+
+Asset 01
+
+Filename:
+be002-hero.png
+
+Asset Type:
+Hero infographic
+
+Where / When to Use:
+Top of lesson
+
+Purpose:
+Make safety feel important and professional.
+
+Prompt to Generate:
+Safety First electronics lab poster, clean workbench, safety glasses, multimeter, breadboard, battery safety icons, warning triangle, dark navy background, cyan and amber accents, large readable text, no watermark.
+
+Claude Implementation Notes:
+Use as hero poster. On mobile, slice into safety-rule cards.
+Images must be used as learning objects, not decoration. Add captions. On mobile, large posters should be converted into swipeable sections or zoomable panels. Add Spark explanation beside or below each important image.
+
+
+Asset 02
+
+Filename:
+be002-safe-workspace.png
+
+Asset Type:
+Annotated real photo
+
+Where / When to Use:
+Workspace safety section
+
+Purpose:
+Show correct safe setup.
+
+Prompt to Generate:
+Realistic clean electronics workspace with breadboard, multimeter, safety glasses, tools neatly arranged, labels for no liquids, good lighting, dry hands, organized wires, dark premium style.
+
+Claude Implementation Notes:
+Use with clickable hotspots.
+Images must be used as learning objects, not decoration. Add captions. On mobile, large posters should be converted into swipeable sections or zoomable panels. Add Spark explanation beside or below each important image.
+
+
+Asset 03
+
+Filename:
+be002-unsafe-actions.png
+
+Asset Type:
+Common mistakes infographic
+
+Where / When to Use:
+Common mistakes
+
+Purpose:
+Visually warn against unsafe habits.
+
+Prompt to Generate:
+Six-panel infographic showing unsafe electronics habits: drink near circuit, wet hands, shorting battery, power on while rewiring, touching hot soldering iron, no eye protection while cutting leads, clear red warning marks.
+
+Claude Implementation Notes:
+Use as spot-the-mistake challenge.
+Images must be used as learning objects, not decoration. Add captions. On mobile, large posters should be converted into swipeable sections or zoomable panels. Add Spark explanation beside or below each important image.
+
+
+Asset 04
+
+Filename:
+be002-spark-safety.png
+
+Asset Type:
+Mascot
+
+Where / When to Use:
+Spark safety reminder
+
+Purpose:
+Spark reinforces safety habits.
+
+Prompt to Generate:
+Cute white robot wearing safety glasses holding a safety checklist, transparent background, premium 3D render.
+
+Claude Implementation Notes:
+Use in Spark panel.
+Images must be used as learning objects, not decoration. Add captions. On mobile, large posters should be converted into swipeable sections or zoomable panels. Add Spark explanation beside or below each important image.
+
+
+============================================================
+SPARK AI ROLE FOR THIS LESSON
+============================================================
+
+Spark should:
+• Explain the topic in simple English and Hindi.
+• Ask the learner to observe the images.
+• Point out the most important visual details.
+• Give hints before giving answers.
+• Encourage safe habits.
+• Avoid advanced topics unless the learner asks, and even then keep it brief.
+
+Spark should not:
+• Overwhelm the learner with advanced math.
+• Skip safety.
+• Assume prior knowledge.
+• Use images as decoration only.
+
+============================================================
+SPARK GLOSSARY | Spark शब्दावली
+============================================================
+
+Safety | सुरक्षा
+Meaning: Working in a way that avoids injury and damage.
+Beginner Example: Spark should show this word using the lesson images and real-life examples.
+
+Short Circuit | शॉर्ट सर्किट
+Meaning: An unwanted low-resistance path that can cause high current.
+Beginner Example: Spark should show this word using the lesson images and real-life examples.
+
+Polarity | ध्रुवीयता
+Meaning: Correct + and − direction of a component or power source.
+Beginner Example: Spark should show this word using the lesson images and real-life examples.
+
+Hazard | खतरा
+Meaning: Something that can cause harm.
+Beginner Example: Spark should show this word using the lesson images and real-life examples.
+
+Power OFF | पावर बंद
+Meaning: Disconnecting energy before changing a circuit.
+Beginner Example: Spark should show this word using the lesson images and real-life examples.
+
+============================================================
+SPARK SYSTEM PROMPT
+============================================================
+
+You are Spark, the ElectroBasics AI mentor.
+
+You are teaching Lesson BE-002: Electronics Lab Safety / इलेक्ट्रॉनिक्स लैब सुरक्षा.
+
+Rules:
+1. Teach only this lesson's scope.
+2. Use beginner-friendly English and Hindi.
+3. Use real-life analogies.
+4. Refer to the listed images and diagrams.
+5. Ask short checking questions.
+6. Do not jump to advanced topics.
+7. If the learner is confused, simplify and use an example.
+8. If the learner asks for practical work, remind them of safety first.
+
+============================================================
+SPARK SUGGESTED PROMPTS
+============================================================
+
+English:
+• Explain this lesson in very simple words.
+• What should I notice in the main image?
+• Give me one real-life example.
+• Ask me three practice questions.
+• What mistake should I avoid?
+• Explain this in Hindi also.
+• How is this used in a real electronics lab?
+• Give me a memory trick.
+
+हिन्दी:
+• इस पाठ को बहुत सरल भाषा में समझाइए।
+• मुख्य चित्र में मुझे क्या देखना चाहिए?
+• एक वास्तविक उदाहरण दीजिए।
+• मुझसे तीन अभ्यास प्रश्न पूछिए।
+• मुझे कौन-सी गलती से बचना चाहिए?
+• इसे अंग्रेज़ी में भी समझाइए।
+• यह वास्तविक इलेक्ट्रॉनिक्स लैब में कैसे उपयोग होता है?
+• याद रखने की आसान ट्रिक बताइए।
+
+============================================================
+QUIZ | प्रश्नोत्तरी
+============================================================
+
+Q1. What should you do before changing wiring?
+Answer: Turn power OFF.
+Explanation: This question checks basic understanding and should be shown with a simple hint if the learner is wrong.
+
+Q2. Should drinks be kept near circuits?
+Answer: No.
+Explanation: This question checks basic understanding and should be shown with a simple hint if the learner is wrong.
+
+Q3. What can a short circuit cause?
+Answer: High current, heat, battery drain or damage.
+Explanation: This question checks basic understanding and should be shown with a simple hint if the learner is wrong.
+
+Q4. Why check polarity?
+Answer: To avoid damaging components.
+Explanation: This question checks basic understanding and should be shown with a simple hint if the learner is wrong.
+
+Q5. What should you do if something smells burnt?
+Answer: Stop, power off and inspect safely.
+Explanation: This question checks basic understanding and should be shown with a simple hint if the learner is wrong.
+
+============================================================
+HOMEWORK | गृहकार्य
+============================================================
+
+1. Review all lesson images.
+2. Write one sentence for each image explaining what it teaches.
+3. Complete the practical lab or observation activity.
+4. Ask Spark to quiz you once in English and once in Hindi.
+5. Save one doubt/question for the next lesson.
+
+============================================================
+SUMMARY | सारांश
+============================================================
+
+English:
+In this lesson, you learned the concept step by step using beginner theory, real images, guided visual learning, Spark AI, a practical activity, common mistakes and troubleshooting.
+
+हिन्दी:
+इस पाठ में आपने शुरुआती सिद्धांत, वास्तविक चित्र, Spark AI, प्रैक्टिकल गतिविधि, सामान्य गलतियाँ और समस्या समाधान के माध्यम से विषय को चरण-दर-चरण सीखा।
+
+============================================================
+ACHIEVEMENT UNLOCKED
+============================================================
+
+Safety First 🛡️
+
+Achievement Message:
+You completed another step in your electronics journey. Keep building slowly and safely.
+
+============================================================
+DEVELOPER NOTES FOR CLAUDE
+============================================================
+
+Required React Sections:
+• LessonHeader
+• HeroAsset
+• BilingualLearningObjectives
+• RealLifeProblemCard
+• TheoryBlock
+• GuidedImagePanel
+• AssetGallery
+• InteractiveActivityCard
+• PracticalLabCard
+• CommonMistakesGallery
+• TroubleshootingPanel
+• SparkPanel
+• GlossaryPanel
+• QuizPanel
+• HomeworkPanel
+• SummaryCard
+• AchievementCard
+• NextLessonCard
+
+Asset Handling:
+• Hero image is top full-width.
+• Infographics must be readable on mobile.
+• Real photos go in galleries.
+• Diagrams/SVGs should support zoom.
+• Animations can be replaced by static image in MVP.
+• Add captions for every image.
+• Provide English/Hindi toggle for all text.
+
+============================================================
+NEXT LESSON
+============================================================
+
+BE-003 – Workspace & Essential Tools / कार्यक्षेत्र और आवश्यक उपकरण

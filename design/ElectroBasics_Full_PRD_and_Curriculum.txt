@@ -1,0 +1,1021 @@
+
+ELECTROBASICS — COMPLETE PRODUCT, CURRICULUM, DASHBOARD & VISUAL ASSET HANDOVER
+================================================================================
+
+Purpose of this document
+------------------------
+This file is intended as a handover document for Claude or another AI/dev team.
+It captures the agreed product direction, dashboard design, course structure,
+lesson-card requirements, real image requirements, and implementation expectations.
+
+PROJECT SUMMARY
+---------------
+Product name: ElectroBasics
+Product type: Interactive electronics learning platform
+Target users: Beginners, students, hobbyists, diploma/engineering students, makers
+Primary platform: Web app / PWA
+Future platforms: Android, iOS, desktop wrapper
+Core experience: Learn electronics through interactive lessons, real component images,
+breadboard activities, simulations, quizzes, projects, and Spark AI guidance.
+
+ElectroBasics should NOT look like:
+- A generic admin dashboard
+- A school LMS
+- Bootstrap/Material dashboard
+- A flat CRUD app
+- A student project
+
+ElectroBasics SHOULD feel like:
+- Brilliant.org + Duolingo + Apple + Linear + an electronics lab bench
+- Premium, dark, neon-accented, engineering-inspired
+- Visual, practical, interactive, friendly, and confidence-building
+
+VISUAL DESIGN SPECIFICATION
+---------------------------
+Approved dashboard design direction:
+- Dark near-black background
+- PCB/circuit border decoration
+- Premium glass cards
+- Accent colors by section:
+  - Continue Learning: orange / amber
+  - Spark AI Terminal: cyan
+  - Progress Gauge: green
+  - Course Library: amber
+  - Activity Timeline: blue
+  - Achievements: gold
+  - Weekly Goal: purple
+- Rich illustrations and real electronic imagery
+- Clear hierarchy: Continue Learning + Spark + Progress are primary
+- Responsive mobile version stacks cards vertically
+- Mobile version has bottom navigation
+
+Desktop dashboard layout:
+1. Header row
+2. Welcome / hero row with streak and level cards
+3. Main row:
+   - Continue Learning
+   - Spark AI Terminal
+   - Progress Gauge
+4. Bottom row:
+   - Course Library
+   - Activity Timeline
+   - Achievements
+   - Weekly Goal
+
+Mobile dashboard layout order:
+1. Mobile header
+2. Welcome hero
+3. Streak and level cards
+4. Continue Learning
+5. Spark AI Terminal
+6. Progress Gauge
+7. Course Library
+8. Activity Timeline
+9. Achievements
+10. Weekly Goal
+11. Bottom navigation
+
+DASHBOARD CARDS
+---------------
+
+1. Header
+Content:
+- ElectroBasics logo
+- Search input
+- Notification icon with unread badge
+- Language icon
+- Theme toggle
+- User avatar
+- User name
+- Current level
+
+2. Welcome Hero
+Content:
+- Large greeting: “Good Evening, Sandeep”
+- Subtitle: “Welcome back to your electronics lab.”
+- Lightning/circuit visual
+- Should not look generic; should feel like an electronics workbench welcome.
+
+3. Day Streak Card
+Content:
+- Flame visual
+- “12”
+- “Day Streak”
+- Small motivational text
+
+4. Level Card
+Content:
+- Level badge
+- “Level 3”
+- “Novice Engineer”
+- XP progress bar
+- Example: 320 / 600 XP
+
+5. Continue Learning Card
+This is the most important dashboard card.
+Content:
+- Label: CONTINUE LEARNING
+- Lesson 03
+- Ohm’s Law
+- Basic Electronics
+- Large lesson artwork showing a breadboard circuit with LED, resistor, IC
+- Circular progress indicator: 42%
+- Resume Lesson button
+- Lesson Info secondary button
+
+Visual style:
+- Orange/amber accent
+- Slightly warmer lighting than rest of dashboard
+- Should look like a hardware lab card, not a flat info card
+
+6. Spark AI Terminal
+Content:
+- Spark AI Terminal title
+- Friendly Spark robot mascot
+- Chat bubble:
+  “Need help with Ohm’s Law or any electronics concept? I’m here to help!”
+- Input box: “Ask anything about electronics...”
+- Send button
+- Suggested prompts:
+  - Explain Ohm’s Law
+  - Series vs Parallel
+  - What is Voltage?
+
+Visual style:
+- Cyan glow
+- Terminal-like but friendly
+- Futuristic AI assistant
+
+7. Progress Gauge
+Content:
+- Circular radial progress: 42%
+- “Overall Progress”
+- Stats:
+  - 18 Lessons Completed
+  - 7 Quizzes Passed
+  - 4h 32m Time Learned
+
+Visual style:
+- Green accent
+- Instrument/gauge aesthetic
+- Should look like a digital multimeter/oscilloscope hybrid
+
+8. Course Library
+Content:
+- Basic Electronics
+- Analog Electronics
+- Digital Electronics
+- Sensors & Actuators
+Each card:
+- Real/illustrated electronics thumbnail
+- Lesson count
+- Progress bar
+- Color accent
+
+Visual style:
+- Course cards, not list items
+- Thumbnails must be visual and electronics-related
+
+9. Activity Timeline
+Content:
+- Completed Lesson 02
+- Quiz Score: 90%
+- Started Lesson 03
+- Time labels
+
+Visual style:
+- Timeline with blue accent icons
+- Compact and clean
+
+10. Achievements
+Content:
+- Ohm’s Expert
+- Consistent Learner
+- Circuit Explorer
+
+Visual style:
+- Gold badges
+- Premium achievement styling
+
+11. Weekly Goal
+Content:
+- 4 / 7 Lessons
+- Circular progress
+- “You’re doing great!”
+- View Goals button
+
+Visual style:
+- Purple accent
+- Motivation card
+
+REAL IMAGE / VISUAL ASSET RULES
+--------------------------------
+Production UI should use real photographs or high-quality custom illustrations.
+Avoid emojis in production UI.
+
+Use real photos in:
+- Lesson cards
+- Component pages
+- Quiz questions
+- Breadboard activities
+- Spark analysis tasks
+- Course thumbnails
+- Achievements where relevant
+
+Required visual asset categories:
+1. Components
+2. Breadboards
+3. Instruments
+4. PCBs
+5. ICs
+6. Sensors
+7. Motors
+8. Microcontrollers
+9. Robots
+10. Course thumbnails
+11. Dashboard cards
+12. Spark mascot
+
+COURSE STRUCTURE OVERVIEW
+-------------------------
+
+COURSE 01 — BASIC ELECTRONICS
+Difficulty: Beginner
+Accent color: Orange
+Estimated lessons: 60
+Goal: Teach absolute beginners the foundations of electronics through real components,
+breadboard practice, instruments, and practical circuits.
+
+Module 1: Electricity Fundamentals
+01. Welcome to ElectroBasics
+02. What is Electricity?
+03. Current
+04. Voltage
+05. Resistance
+06. Ohm’s Law
+07. Power
+08. Energy
+09. SI Units
+10. Basic Circuit Symbols
+
+Module 2: Components
+11. Resistor
+12. Potentiometer
+13. Capacitor
+14. Inductor
+15. Diode
+16. LED
+17. Zener Diode
+18. LDR
+19. Thermistor
+20. Fuse
+
+Module 3: Measuring Instruments
+21. Digital Multimeter
+22. Continuity Test
+23. Voltage Measurement
+24. Current Measurement
+25. Resistance Measurement
+26. Clamp Meter
+27. Oscilloscope Introduction
+28. Signal Generator
+
+Module 4: Breadboard
+29. Breadboard Basics
+30. Power Rails
+31. Rows and Columns
+32. Jumper Wires
+33. Common Mistakes
+34. Building First Circuit
+35. LED Circuit
+36. Switch Circuit
+37. Parallel Circuit
+38. Series Circuit
+
+Module 5: Circuit Theory
+39. Series Circuits
+40. Parallel Circuits
+41. Kirchhoff Current Law
+42. Kirchhoff Voltage Law
+43. Voltage Divider
+44. Current Divider
+45. Power Dissipation
+46. Efficiency
+
+Module 6: Practical Circuits
+47. LED Blinker
+48. Night Lamp
+49. Battery Indicator
+50. Fan Controller
+51. Relay Circuit
+52. Buzzer Circuit
+53. Sensor Circuit
+54. Door Alarm
+55. Light Sensor
+56. Mini Project
+
+Module 7: Revision & Certification
+57. Quiz
+58. Practical Assessment
+59. Final Challenge
+60. Certification
+
+LESSON CARD IMAGE PLAN — BASIC ELECTRONICS
+------------------------------------------
+Each lesson card needs one thumbnail. Below is the required image direction.
+
+01 Welcome to ElectroBasics
+Image: premium electronics workbench with PCB traces, breadboard, tools, warm/cyan light.
+
+02 What is Electricity?
+Image: glowing electron flow through a wire, battery and bulb visual.
+
+03 Current
+Image: copper wire with flowing charge visualization, ammeter in background.
+
+04 Voltage
+Image: multimeter probes measuring AA battery voltage.
+
+05 Resistance
+Image: macro photo of resistors with color bands.
+
+06 Ohm’s Law
+Image: breadboard LED circuit with resistor, current path overlay.
+
+07 Power
+Image: LED brightness comparison or power dissipation resistor heat glow.
+
+08 Energy
+Image: battery pack powering small circuit.
+
+09 SI Units
+Image: clean engineering measurement card with symbols A, V, Ω, W.
+
+10 Basic Circuit Symbols
+Image: schematic symbols on blueprint/PCB background.
+
+11 Resistor
+Image: carbon film resistor macro, color bands visible.
+
+12 Potentiometer
+Image: rotary potentiometer close-up.
+
+13 Capacitor
+Image: electrolytic, ceramic, and film capacitors.
+
+14 Inductor
+Image: copper coil inductor close-up.
+
+15 Diode
+Image: 1N4007 diode macro with polarity marking.
+
+16 LED
+Image: red LED lit on breadboard.
+
+17 Zener Diode
+Image: zener diode close-up with voltage regulation diagram hint.
+
+18 LDR
+Image: light dependent resistor with light beam.
+
+19 Thermistor
+Image: thermistor sensor with temperature gradient.
+
+20 Fuse
+Image: glass fuse close-up.
+
+21 Digital Multimeter
+Image: digital multimeter on bench.
+
+22 Continuity Test
+Image: multimeter continuity probes touching wire.
+
+23 Voltage Measurement
+Image: probes measuring voltage on breadboard.
+
+24 Current Measurement
+Image: multimeter inserted in series with circuit.
+
+25 Resistance Measurement
+Image: resistor measured by multimeter.
+
+26 Clamp Meter
+Image: clamp meter around current-carrying wire.
+
+27 Oscilloscope Introduction
+Image: oscilloscope screen with sine wave.
+
+28 Signal Generator
+Image: function generator display and knob.
+
+29 Breadboard Basics
+Image: clean empty breadboard top view.
+
+30 Power Rails
+Image: breadboard rails highlighted red/blue.
+
+31 Rows and Columns
+Image: breadboard row/column connection diagram.
+
+32 Jumper Wires
+Image: colorful jumper wires arranged neatly.
+
+33 Common Mistakes
+Image: crossed wires / wrong breadboard wiring with warning mark.
+
+34 Building First Circuit
+Image: first LED circuit on breadboard.
+
+35 LED Circuit
+Image: LED + resistor + battery/breadboard circuit.
+
+36 Switch Circuit
+Image: tactile switch controlling LED.
+
+37 Parallel Circuit
+Image: parallel LEDs/resistors on breadboard.
+
+38 Series Circuit
+Image: series components on breadboard.
+
+39 Series Circuits
+Image: schematic and physical series circuit hybrid.
+
+40 Parallel Circuits
+Image: schematic and breadboard parallel circuit hybrid.
+
+41 Kirchhoff Current Law
+Image: node junction with current arrows.
+
+42 Kirchhoff Voltage Law
+Image: loop circuit with voltage arrows.
+
+43 Voltage Divider
+Image: two-resistor divider with output probe.
+
+44 Current Divider
+Image: parallel resistor current split visualization.
+
+45 Power Dissipation
+Image: resistor heat glow / heatsink.
+
+46 Efficiency
+Image: gauge showing input/output power.
+
+47 LED Blinker
+Image: 555 timer LED blinker on breadboard.
+
+48 Night Lamp
+Image: LDR-based night lamp circuit.
+
+49 Battery Indicator
+Image: LED battery level indicator circuit.
+
+50 Fan Controller
+Image: DC fan with control circuit.
+
+51 Relay Circuit
+Image: relay module switching load.
+
+52 Buzzer Circuit
+Image: buzzer module on breadboard.
+
+53 Sensor Circuit
+Image: sensor + LED/logic output circuit.
+
+54 Door Alarm
+Image: reed switch or sensor alarm circuit.
+
+55 Light Sensor
+Image: LDR sensor lighting circuit.
+
+56 Mini Project
+Image: small assembled mini electronics project.
+
+57 Quiz
+Image: neon question mark with circuit board background.
+
+58 Practical Assessment
+Image: hands testing circuit with multimeter.
+
+59 Final Challenge
+Image: final electronics lab challenge board.
+
+60 Certification
+Image: certificate with trophy and circuit badge.
+
+COURSE 02 — ANALOG ELECTRONICS
+Difficulty: Intermediate
+Accent: Purple
+Suggested lessons: 45
+
+Modules:
+1. Semiconductor Basics
+2. Diodes & Rectifiers
+3. Filters
+4. BJT Transistors
+5. MOSFETs
+6. Amplifiers
+7. Oscillators
+8. Power Supplies
+
+Core lesson topics:
+- Semiconductor materials
+- PN junction
+- Forward and reverse bias
+- Diode IV curve
+- Half-wave rectifier
+- Full-wave rectifier
+- Bridge rectifier
+- Capacitor filter
+- Zener regulator
+- Clippers
+- Clampers
+- BJT structure
+- NPN / PNP
+- Biasing
+- Common emitter amplifier
+- Common collector amplifier
+- MOSFET basics
+- Op-amp introduction
+- Inverting amplifier
+- Non-inverting amplifier
+- Comparator
+- Oscillators
+- Linear power supply
+
+Real images:
+- BC547 transistor
+- 2N2222 transistor
+- IRF540 MOSFET
+- LM358 op amp
+- 1N4007 diode
+- Bridge rectifier module
+- Transformer
+- Capacitor bank
+- Breadboard amplifier circuit
+- Oscilloscope waveform captures
+
+COURSE 03 — DIGITAL ELECTRONICS
+Difficulty: Intermediate
+Accent: Blue
+Suggested lessons: 45
+
+Modules:
+1. Number Systems
+2. Logic Gates
+3. Boolean Algebra
+4. Combinational Logic
+5. Sequential Logic
+6. Counters
+7. Registers
+8. Memory
+
+Core lesson topics:
+- Binary numbers
+- Decimal to binary
+- Hexadecimal
+- Logic levels
+- AND, OR, NOT
+- NAND, NOR, XOR, XNOR
+- Truth tables
+- Boolean algebra
+- Karnaugh maps
+- Half adder
+- Full adder
+- Multiplexer
+- Demultiplexer
+- Encoder
+- Decoder
+- Latch
+- Flip-flops
+- Counters
+- Registers
+- 7-segment display
+- Introduction to FPGA/CPLD
+
+Real images:
+- 7400 series ICs
+- DIP IC close-ups
+- Logic gate trainer kit
+- 7-segment display
+- Logic analyzer
+- Breadboard logic circuit
+
+COURSE 04 — EMBEDDED SYSTEMS
+Difficulty: Advanced beginner to intermediate
+Accent: Green
+Suggested lessons: 50
+
+Modules:
+1. Microcontroller Basics
+2. Arduino
+3. ESP32
+4. GPIO
+5. ADC
+6. PWM
+7. Timers
+8. Interrupts
+9. Communication
+10. Embedded Projects
+
+Core lesson topics:
+- What is a microcontroller?
+- Arduino Uno overview
+- Arduino Nano
+- ESP32 overview
+- Raspberry Pi Pico overview
+- GPIO input/output
+- Digital read/write
+- Analog input
+- PWM output
+- Timers
+- Interrupts
+- UART
+- SPI
+- I2C
+- Sensor reading
+- Motor control
+- LCD/OLED display
+- Embedded mini project
+
+Real images:
+- Arduino Uno
+- Arduino Nano
+- ESP32 DevKit
+- Raspberry Pi Pico
+- Breadboard connections
+- USB programming
+- Sensor modules
+
+COURSE 05 — SENSORS & ACTUATORS
+Difficulty: Intermediate
+Accent: Cyan/Green
+Suggested lessons: 40
+
+Modules:
+1. Sensor Basics
+2. Light Sensors
+3. Temperature Sensors
+4. Distance Sensors
+5. Motion Sensors
+6. Gas Sensors
+7. Actuators
+
+Core lessons:
+- What is a sensor?
+- Analog vs digital sensors
+- LDR
+- IR sensor
+- Ultrasonic HC-SR04
+- LM35
+- DHT11/DHT22
+- PIR sensor
+- Gas sensor MQ series
+- Hall effect sensor
+- Accelerometer
+- Gyroscope
+- Relay
+- Buzzer
+- Servo
+- Motor driver
+
+Real images:
+- Sensor modules close-up
+- Wiring to Arduino/ESP32
+- Output graphs
+- Real use cases
+
+COURSE 06 — MOTORS & DRIVERS
+Difficulty: Intermediate
+Accent: Red/Orange
+Suggested lessons: 35
+
+Core topics:
+- DC motor
+- Servo motor
+- Stepper motor
+- BLDC motor
+- H-Bridge
+- L298N driver
+- Motor power supply
+- PWM speed control
+- Direction control
+- Encoder feedback
+- Motor protection
+- Practical robot drive
+
+Real images:
+- DC motor
+- Servo
+- Stepper
+- BLDC
+- L298N
+- Motor driver wiring
+- Robot chassis
+
+COURSE 07 — COMMUNICATION PROTOCOLS
+Difficulty: Advanced
+Accent: Cyan
+Suggested lessons: 40
+
+Core topics:
+- Serial communication basics
+- UART
+- SPI
+- I2C
+- CAN
+- RS232
+- RS485
+- USB basics
+- Bluetooth
+- WiFi
+- LoRa
+- MQTT
+- HTTP
+- Debugging communication
+
+Real images:
+- Logic analyzer
+- Oscilloscope serial waveform
+- ESP32 WiFi project
+- I2C OLED wiring
+- LoRa module
+
+COURSE 08 — PCB DESIGN
+Difficulty: Intermediate
+Accent: Green
+Suggested lessons: 30
+
+Core topics:
+- Schematic capture
+- Component libraries
+- Footprints
+- Netlists
+- PCB layout
+- Ground plane
+- Routing
+- Design rules
+- Gerber files
+- Ordering PCBs
+- Soldering
+- Assembly
+- Testing
+
+Tools:
+- KiCad
+- EasyEDA
+
+Real images:
+- Bare PCB
+- Assembled PCB
+- KiCad screenshots
+- EasyEDA screenshots
+- Gerber viewer
+- Soldering process
+
+COURSE 09 — POWER ELECTRONICS
+Difficulty: Advanced
+Accent: Amber
+Suggested lessons: 40
+
+Core topics:
+- Power supply basics
+- Transformer
+- Rectifier
+- Linear regulator
+- LDO
+- Buck converter
+- Boost converter
+- Buck-boost converter
+- SMPS basics
+- Battery charging
+- Protection circuits
+- Heat management
+
+Real images:
+- SMPS board
+- Buck converter module
+- Boost converter module
+- LM7805
+- XL4015
+- Battery charger board
+- Heatsink
+
+COURSE 10 — IOT DEVELOPMENT
+Difficulty: Advanced
+Accent: Cyan/Blue
+Suggested lessons: 45
+
+Core topics:
+- IoT architecture
+- ESP32 WiFi
+- MQTT
+- HTTP
+- Firebase
+- Cloud dashboard
+- OTA update
+- Sensor publishing
+- Device control
+- Home automation
+- Security basics
+
+Real images:
+- ESP32
+- Cloud dashboard screenshots
+- IoT sensor node
+- Mobile control interface
+
+COURSE 11 — ROBOTICS
+Difficulty: Advanced
+Accent: Purple/Red
+Suggested lessons: 40
+
+Core topics:
+- Robot basics
+- Chassis
+- Motor control
+- Line follower
+- Obstacle avoidance
+- Bluetooth robot
+- Gesture robot
+- PID control
+- Sensors
+- Navigation basics
+- Robot project
+
+Real images:
+- Robot chassis
+- Line follower
+- Ultrasonic robot
+- Motor driver
+- Arduino robot wiring
+
+COURSE 12 — AI FOR ELECTRONICS
+Difficulty: Expert
+Accent: Purple
+Suggested lessons: 30
+
+Core topics:
+- TinyML
+- Edge AI
+- ESP32 Camera
+- Image classification
+- Voice recognition
+- Sensor classification
+- Predictive maintenance
+- Circuit image recognition
+- AI-assisted troubleshooting
+
+Real images:
+- ESP32-CAM
+- Edge AI board
+- Camera module
+- Voice sensor
+- Classification dashboard
+
+LESSON PAGE UI REQUIREMENTS
+---------------------------
+Each lesson page should include:
+- Lesson title
+- Course/module breadcrumb
+- Learning objectives
+- Concept explainer
+- Real image panel
+- Diagram panel
+- Breadboard builder
+- Simulation
+- Spark chat panel
+- Quiz panel
+- Progress footer
+- Next lesson CTA
+
+Cards inside lesson:
+- Concept Card
+- Component Card
+- Circuit Diagram Card
+- Real Build Card
+- Try It Card
+- Spark Explains Card
+- Quiz Card
+- Challenge Card
+- Summary Card
+
+SPARK AI BEHAVIOR
+-----------------
+Spark must:
+- Explain concepts simply
+- Offer Hindi/English bilingual support
+- Ask checking questions
+- Generate quizzes
+- Analyze uploaded circuit/breadboard photos
+- Identify components
+- Explain schematics
+- Help debug circuits
+- Suggest practical builds
+
+Spark tone:
+- Friendly
+- Encouraging
+- Clear
+- No overcomplicated jargon
+- Practical
+
+GAMIFICATION
+------------
+XP:
+- Lesson complete: 20 XP
+- Quiz passed: 30 XP
+- Practical build: 50 XP
+- Project: 100 XP
+- Daily streak bonus: 10 XP
+
+Levels:
+1. Curious Beginner
+2. Circuit Explorer
+3. Novice Engineer
+4. Lab Builder
+5. Component Master
+6. Circuit Designer
+7. Embedded Maker
+8. System Builder
+9. Electronics Engineer
+10. Spark Certified
+
+Achievements:
+- First Circuit
+- Ohm’s Expert
+- Resistor Reader
+- Breadboard Pro
+- Multimeter Master
+- LED Wizard
+- Sensor Explorer
+- Code + Circuit
+- PCB Beginner
+- Project Builder
+
+TECHNICAL ARCHITECTURE
+----------------------
+React structure:
+src/
+  pages/
+    LoginPage.jsx
+    dashboard-v2/
+      DashboardV2.jsx
+      DashboardV2.css
+  components/
+    dashboard-v2/
+      Header/
+      Hero/
+      StreakCard/
+      LevelCard/
+      ContinueLearning/
+      SparkTerminal/
+      ProgressGauge/
+      CourseLibrary/
+      ActivityTimeline/
+      Achievements/
+      WeeklyGoal/
+      MobileNav/
+  assets/
+    dashboard/
+    lessons/
+    courses/
+    spark/
+    icons/
+    svg/
+  services/
+  hooks/
+  context/
+  content/
+
+Use:
+- React Router
+- CSS modules or scoped CSS files
+- Lucide icons
+- Custom SVGs
+- Local assets only
+
+Do NOT:
+- Use external random image URLs in production
+- Use emojis in final production UI
+- Commit placeholder UI
+- Use admin dashboard styling
+
+IMPLEMENTATION NOTE FOR CLAUDE
+------------------------------
+Build DashboardV2 from the approved desktop and mobile reference images.
+Do not try to evolve the placeholder dashboard.
+Rebuild the complete dashboard as a cohesive premium UI.
+If needed, create placeholder SVG/illustration assets locally, but structure them
+so real photographs can replace them later.
+
+The final result should visually resemble the approved mockup:
+- Desktop dashboard with dark neon electronics UI
+- Mobile responsive dashboard with bottom navigation
+- Premium course and lesson cards
+- Spark AI Terminal
+- Progress Gauge
+- Continue Learning hero card
+
+END OF SPEC

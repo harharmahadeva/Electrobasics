@@ -1,0 +1,1094 @@
+# ElectroBasics | Basic Electronics Bootcamp
+# Lesson BE-019 : Resistor Color Code / रेसिस्टर कलर कोड
+
+============================================================
+METADATA
+============================================================
+
+Course: Basic Electronics Bootcamp
+Module: Module 04 – Electronic Components
+Lesson ID: BE-019
+Difficulty: Beginner / शुरुआती
+Estimated Duration: 65 Minutes
+XP Reward: 110 XP
+Achievement Badge: Color Code Champion 🌈
+Language: English + Hindi
+Audience: Absolute beginner students
+
+============================================================
+LESSON PURPOSE
+============================================================
+
+This lesson teaches beginners how to read resistor color bands step by step.
+Many resistors do not have numbers printed on them. Instead, they use color bands.
+A learner must be able to identify the value before using the resistor in a circuit.
+
+यह पाठ शुरुआती विद्यार्थियों को रेसिस्टर के रंगीन बैंड पढ़ना सिखाता है।
+कई रेसिस्टर पर संख्या लिखी नहीं होती। उनकी वैल्यू रंगीन बैंड से पता चलती है।
+सर्किट में रेसिस्टर लगाने से पहले उसका मान पहचानना ज़रूरी है।
+
+============================================================
+LEARNING OBJECTIVES | सीखने के उद्देश्य
+============================================================
+
+English
+• Understand why resistors use color bands.
+• Learn the meaning of each color digit from 0 to 9.
+• Read 4-band resistors.
+• Understand multiplier and tolerance bands.
+• Decode common resistor values such as 220Ω, 330Ω, 1kΩ and 10kΩ.
+• Verify the decoded value using a digital multimeter.
+• Avoid common mistakes while reading bands.
+
+हिन्दी
+• समझना कि रेसिस्टर पर रंगीन बैंड क्यों होते हैं।
+• 0 से 9 तक रंगों के अंक सीखना।
+• 4-बैंड रेसिस्टर पढ़ना।
+• मल्टीप्लायर और टॉलरेंस बैंड समझना।
+• 220Ω, 330Ω, 1kΩ और 10kΩ जैसे सामान्य मान निकालना।
+• डिजिटल मल्टीमीटर से वैल्यू की पुष्टि करना।
+• रंगीन बैंड पढ़ते समय सामान्य गलतियों से बचना।
+
+============================================================
+REAL-LIFE PROBLEM | वास्तविक जीवन की समस्या
+============================================================
+
+English
+You are building a simple LED circuit. The circuit needs a 220Ω resistor.
+Your resistor kit contains many resistors, but none of them have "220Ω" printed clearly.
+Instead, each resistor has colored rings.
+
+If you pick the wrong resistor:
+• The LED may be too dim.
+• The LED may burn out.
+• The circuit may not behave as expected.
+• Troubleshooting becomes confusing.
+
+हिन्दी
+आप एक सरल LED सर्किट बना रहे हैं। सर्किट को 220Ω रेसिस्टर चाहिए।
+आपके रेसिस्टर किट में कई रेसिस्टर हैं, लेकिन उन पर साफ-साफ "220Ω" नहीं लिखा है।
+हर रेसिस्टर पर रंगीन पट्टियाँ बनी हैं।
+
+अगर आप गलत रेसिस्टर चुनते हैं:
+• LED बहुत कम चमक सकती है।
+• LED जल सकती है।
+• सर्किट सही तरह से काम नहीं करेगा।
+• समस्या ढूँढना मुश्किल हो जाएगा।
+
+============================================================
+BEGINNER-FRIENDLY THEORY | शुरुआती सिद्धांत
+============================================================
+
+English
+
+A resistor color code is a system used to show the resistor's value using colored bands.
+Each color represents a number.
+
+A resistor can have:
+• 4 color bands
+• 5 color bands
+• 6 color bands
+
+In this beginner lesson, we focus mainly on 4-band resistors because they are common in starter kits.
+
+------------------------------------------------------------
+4-BAND RESISTOR STRUCTURE
+------------------------------------------------------------
+
+Band 1 = First digit
+Band 2 = Second digit
+Band 3 = Multiplier
+Band 4 = Tolerance
+
+Example:
+
+Red - Red - Brown - Gold
+
+Step 1:
+Red = 2
+
+Step 2:
+Red = 2
+
+Step 3:
+Brown multiplier = ×10
+
+Step 4:
+Gold tolerance = ±5%
+
+So the value is:
+
+22 × 10 = 220Ω ±5%
+
+This means the actual resistor value may be slightly above or below 220Ω.
+
+------------------------------------------------------------
+COLOR DIGIT TABLE
+------------------------------------------------------------
+
+Black  = 0
+Brown  = 1
+Red    = 2
+Orange = 3
+Yellow = 4
+Green  = 5
+Blue   = 6
+Violet = 7
+Grey   = 8
+White  = 9
+
+------------------------------------------------------------
+COMMON MULTIPLIERS
+------------------------------------------------------------
+
+Black  = ×1
+Brown  = ×10
+Red    = ×100
+Orange = ×1,000
+Yellow = ×10,000
+Green  = ×100,000
+Blue   = ×1,000,000
+
+Gold   = ×0.1
+Silver = ×0.01
+
+------------------------------------------------------------
+COMMON TOLERANCE COLORS
+------------------------------------------------------------
+
+Brown  = ±1%
+Red    = ±2%
+Gold   = ±5%
+Silver = ±10%
+
+Tolerance tells how much the real resistor value can vary from the marked value.
+
+Example:
+A 220Ω resistor with ±5% tolerance can be around:
+
+Lower limit:
+220Ω - 5% = 209Ω
+
+Upper limit:
+220Ω + 5% = 231Ω
+
+So if your multimeter reads 218Ω or 224Ω, the resistor is still normal.
+
+------------------------------------------------------------
+HOW TO FIND THE READING DIRECTION
+------------------------------------------------------------
+
+The tolerance band is usually gold, silver, brown or red and is often separated slightly from the other bands.
+Hold the resistor so the tolerance band is on the right side.
+Then read from left to right.
+
+------------------------------------------------------------
+5-BAND RESISTORS
+------------------------------------------------------------
+
+A 5-band resistor has:
+Band 1 = First digit
+Band 2 = Second digit
+Band 3 = Third digit
+Band 4 = Multiplier
+Band 5 = Tolerance
+
+Example:
+Brown - Black - Black - Brown - Brown
+
+100 × 10 = 1000Ω = 1kΩ ±1%
+
+5-band resistors are often more precise.
+This lesson introduces them lightly. The main beginner focus is 4-band resistors.
+
+हिन्दी
+
+रेसिस्टर कलर कोड एक प्रणाली है जिसमें रंगीन पट्टियों से रेसिस्टर का मान बताया जाता है।
+हर रंग एक संख्या को दर्शाता है।
+
+रेसिस्टर में हो सकते हैं:
+• 4 रंगीन बैंड
+• 5 रंगीन बैंड
+• 6 रंगीन बैंड
+
+इस शुरुआती पाठ में हम मुख्य रूप से 4-बैंड रेसिस्टर पर ध्यान देंगे, क्योंकि ये स्टार्टर किट में सामान्य होते हैं।
+
+------------------------------------------------------------
+4-बैंड रेसिस्टर संरचना
+------------------------------------------------------------
+
+बैंड 1 = पहला अंक
+बैंड 2 = दूसरा अंक
+बैंड 3 = मल्टीप्लायर
+बैंड 4 = टॉलरेंस
+
+उदाहरण:
+
+Red - Red - Brown - Gold
+
+Step 1:
+Red = 2
+
+Step 2:
+Red = 2
+
+Step 3:
+Brown multiplier = ×10
+
+Step 4:
+Gold tolerance = ±5%
+
+तो वैल्यू है:
+
+22 × 10 = 220Ω ±5%
+
+इसका अर्थ है कि वास्तविक वैल्यू 220Ω से थोड़ी कम या ज्यादा हो सकती है।
+
+============================================================
+MEMORY TRICK | याद रखने की ट्रिक
+============================================================
+
+English
+Use this common memory order:
+
+Black, Brown, Red, Orange, Yellow, Green, Blue, Violet, Grey, White
+
+Beginner rhythm:
+Black 0, Brown 1, Red 2, Orange 3,
+Yellow 4, Green 5, Blue 6,
+Violet 7, Grey 8, White 9.
+
+हिन्दी
+रंगों को सीढ़ी की तरह याद रखें:
+
+Black, Brown, Red, Orange, Yellow, Green, Blue, Violet, Grey, White
+
+यह 0 से 9 तक की रंग सीढ़ी है।
+
+============================================================
+STEP-BY-STEP DECODING METHOD
+============================================================
+
+Use this method every time:
+
+Step 1:
+Find the tolerance band.
+Usually gold or silver is tolerance.
+Keep it on the right side.
+
+Step 2:
+Read the first color.
+This is the first digit.
+
+Step 3:
+Read the second color.
+This is the second digit.
+
+Step 4:
+Read the third color.
+This is the multiplier.
+
+Step 5:
+Read the fourth color.
+This is tolerance.
+
+Step 6:
+Calculate:
+First two digits × multiplier = resistance value.
+
+Step 7:
+Verify using a multimeter if available.
+
+Example 1:
+Brown - Black - Red - Gold
+
+Brown = 1
+Black = 0
+Red multiplier = ×100
+Gold = ±5%
+
+10 × 100 = 1000Ω = 1kΩ ±5%
+
+Example 2:
+Orange - Orange - Brown - Gold
+
+Orange = 3
+Orange = 3
+Brown multiplier = ×10
+Gold = ±5%
+
+33 × 10 = 330Ω ±5%
+
+Example 3:
+Yellow - Violet - Red - Gold
+
+Yellow = 4
+Violet = 7
+Red multiplier = ×100
+Gold = ±5%
+
+47 × 100 = 4700Ω = 4.7kΩ ±5%
+
+============================================================
+COMMON BEGINNER VALUES
+============================================================
+
+220Ω:
+Red - Red - Brown - Gold
+
+330Ω:
+Orange - Orange - Brown - Gold
+
+470Ω:
+Yellow - Violet - Brown - Gold
+
+1kΩ:
+Brown - Black - Red - Gold
+
+10kΩ:
+Brown - Black - Orange - Gold
+
+100kΩ:
+Brown - Black - Yellow - Gold
+
+1MΩ:
+Brown - Black - Green - Gold
+
+============================================================
+GUIDED VISUAL LEARNING FLOW
+============================================================
+
+Recommended lesson page flow:
+
+1. Hero image showing color-banded resistors.
+2. Real-life problem: choose correct resistor for LED.
+3. Large color code chart.
+4. Spark explains the chart.
+5. Interactive resistor band decoder.
+6. Real resistor photo gallery.
+7. Worked examples.
+8. Practical multimeter verification.
+9. Common mistakes.
+10. Quiz with image-based questions.
+11. Homework.
+12. Achievement.
+
+Mobile Rule:
+Do not show a huge color-code chart as one unreadable image.
+Use a swipeable color table:
+• Card 1: Digits
+• Card 2: Multipliers
+• Card 3: Tolerance
+• Card 4: Worked examples
+
+============================================================
+INTERACTIVE ACTIVITY / SIMULATOR
+============================================================
+
+Activity Name:
+Virtual Resistor Color Code Decoder
+
+User Experience:
+The learner sees a resistor with four blank bands.
+The learner taps each band and selects a color.
+
+Controls:
+• Band 1 color picker
+• Band 2 color picker
+• Multiplier color picker
+• Tolerance color picker
+• Reset button
+• Check answer button
+
+Live Output:
+• Resistance value
+• Tolerance
+• Minimum possible value
+• Maximum possible value
+• Beginner explanation from Spark
+
+Example:
+Student selects:
+Band 1 = Red
+Band 2 = Red
+Band 3 = Brown
+Band 4 = Gold
+
+Output:
+220Ω ±5%
+Minimum: 209Ω
+Maximum: 231Ω
+
+Spark says:
+"Great! Red and Red make 22. Brown multiplies by 10. Gold means ±5% tolerance."
+
+Challenge Mode:
+Spark gives a target value:
+"Create a 1kΩ resistor."
+
+Student must choose:
+Brown - Black - Red - Gold
+
+MVP Implementation:
+If full simulator is not ready, create clickable cards for common resistor values and show decoded results.
+
+============================================================
+PRACTICAL LAB | प्रैक्टिकल लैब
+============================================================
+
+Lab Name:
+Decode and Verify Resistors
+
+Required Components:
+• 5 through-hole resistors
+• Digital multimeter
+• Notebook
+• Pen or pencil
+• Good lighting
+• Optional magnifying glass
+
+Safety:
+Resistance measurement should be done with circuit power OFF.
+Never measure resistance in a powered circuit.
+
+Steps:
+
+1. Pick one resistor.
+2. Locate the tolerance band.
+3. Place tolerance band on the right side.
+4. Read colors from left to right.
+5. Decode the value using the color table.
+6. Write predicted value in notebook.
+7. Set multimeter to resistance mode.
+8. Touch probes to resistor leads.
+9. Read measured value.
+10. Compare predicted value and measured value.
+
+Observation Table:
+
+Resistor No. | Band Colors | Predicted Value | Measured Value | Tolerance OK?
+1            |              |                 |                |
+2            |              |                 |                |
+3            |              |                 |                |
+4            |              |                 |                |
+5            |              |                 |                |
+
+Expected Learning:
+The measured value does not have to be exactly equal to the color code value.
+Tolerance explains small differences.
+
+============================================================
+COMMON BEGINNER MISTAKES | सामान्य शुरुआती गलतियाँ
+============================================================
+
+• Reading the resistor backwards.
+• Ignoring the gold or silver tolerance band.
+• Confusing red and orange.
+• Confusing brown and black in poor lighting.
+• Thinking tolerance means the resistor is faulty.
+• Forgetting to multiply.
+• Confusing 1kΩ with 10kΩ.
+• Measuring resistance while the resistor is connected in a powered circuit.
+• Touching both resistor leads with fingers while measuring, which can affect high resistance readings.
+• Assuming all resistors use 4 bands.
+
+============================================================
+TROUBLESHOOTING GUIDE | समस्या समाधान
+============================================================
+
+Problem:
+The value seems completely wrong.
+
+Check:
+• Are you reading from the correct side?
+• Did you identify the tolerance band?
+• Did you use the correct multiplier?
+• Is the resistor still connected to a circuit?
+• Is the multimeter in resistance mode?
+
+Problem:
+The measured value is slightly different.
+
+Explanation:
+That is normal because of tolerance.
+
+Problem:
+The colors are hard to identify.
+
+Solution:
+Use bright light or magnifier.
+Compare with another resistor.
+Ask Spark to help if you upload a photo.
+
+Problem:
+The multimeter shows OL.
+
+Possible Reasons:
+• Resistance is higher than selected range.
+• Probe contact is poor.
+• Meter is in wrong mode.
+• Resistor lead is oxidized or dirty.
+
+============================================================
+IMAGE / ASSET PLAN
+============================================================
+
+Important:
+Every asset below must teach something. The filename should be used exactly so Claude can connect the lesson UI to the correct image.
+
+------------------------------------------------------------
+Asset 01
+------------------------------------------------------------
+
+Filename:
+be019-hero-resistor-color-code.png
+
+Asset Type:
+Hero banner / realistic macro photo
+
+Where / When to Use:
+Top of lesson page.
+
+Purpose:
+Introduce resistor color bands visually and make the lesson feel practical.
+
+Prompt to Generate:
+Premium macro photograph of multiple through-hole resistors with vivid color bands arranged beside a digital multimeter and a simple LED breadboard circuit, dark electronics workbench, cyan PCB glow, warm amber lighting, shallow depth of field, realistic educational style, no text, no watermark.
+
+Claude Implementation Notes:
+Use full-width on desktop. On mobile, crop around the clearest resistor bands and LED circuit. Add caption: "Resistor values are often shown using color bands."
+
+------------------------------------------------------------
+Asset 02
+------------------------------------------------------------
+
+Filename:
+be019-color-code-chart.png
+
+Asset Type:
+Educational infographic chart
+
+Where / When to Use:
+After theory introduction.
+
+Purpose:
+Show color digits, multipliers and tolerance in one reference chart.
+
+Prompt to Generate:
+Clean beginner-friendly resistor color code chart with columns for color, digit, multiplier and tolerance. Include colors: black, brown, red, orange, yellow, green, blue, violet, grey, white, gold, silver. White background, dark blue headings, large readable text, student-friendly, no watermark.
+
+Claude Implementation Notes:
+Desktop can show full chart. Mobile must split into tabs: Digits, Multipliers, Tolerance. Add search/filter if possible.
+
+------------------------------------------------------------
+Asset 03
+------------------------------------------------------------
+
+Filename:
+be019-four-band-resistor-diagram.svg
+
+Asset Type:
+SVG diagram
+
+Where / When to Use:
+4-band resistor structure section.
+
+Purpose:
+Explain which band means digit, multiplier and tolerance.
+
+Prompt to Generate:
+Create a clean vector SVG diagram of a horizontal resistor with four colored band positions labeled Band 1 First Digit, Band 2 Second Digit, Band 3 Multiplier, Band 4 Tolerance. Use simple arrows and large labels. No clutter.
+
+Claude Implementation Notes:
+Make each band clickable. When tapped, show Spark explanation of that band. SVG should scale cleanly on mobile.
+
+------------------------------------------------------------
+Asset 04
+------------------------------------------------------------
+
+Filename:
+be019-reading-direction.png
+
+Asset Type:
+Concept infographic
+
+Where / When to Use:
+How to find reading direction section.
+
+Purpose:
+Prevent the common mistake of reading backwards.
+
+Prompt to Generate:
+Educational infographic showing a resistor with gold tolerance band on the right side. Add arrows showing read from left to right. Include a wrong example with red cross where gold band is on left and reading is incorrect. Clean white background, large labels.
+
+Claude Implementation Notes:
+Use as "Read Direction" card. Add a small quiz: "Which side should the gold band be on?"
+
+------------------------------------------------------------
+Asset 05
+------------------------------------------------------------
+
+Filename:
+be019-220-ohm-example.png
+
+Asset Type:
+Worked example infographic
+
+Where / When to Use:
+Worked examples section.
+
+Purpose:
+Teach decoding using the most common LED resistor value.
+
+Prompt to Generate:
+Beginner infographic showing a resistor with bands Red Red Brown Gold. Step-by-step calculation: Red=2, Red=2, Brown=×10, Gold=±5%, 22×10=220Ω ±5%. Clean educational style, large readable text.
+
+Claude Implementation Notes:
+Use as first worked example. Add "Try it yourself" button before revealing answer.
+
+------------------------------------------------------------
+Asset 06
+------------------------------------------------------------
+
+Filename:
+be019-common-values-cards.png
+
+Asset Type:
+Comparison card set
+
+Where / When to Use:
+Common beginner values section.
+
+Purpose:
+Help learners recognize frequent resistor values quickly.
+
+Prompt to Generate:
+A set of clean educational cards showing common resistor color codes: 220Ω Red Red Brown Gold, 330Ω Orange Orange Brown Gold, 470Ω Yellow Violet Brown Gold, 1kΩ Brown Black Red Gold, 10kΩ Brown Black Orange Gold. Include resistor illustrations and values, large readable labels.
+
+Claude Implementation Notes:
+Desktop: grid cards. Mobile: horizontal swipe carousel. Each card should open Spark explanation.
+
+------------------------------------------------------------
+Asset 07
+------------------------------------------------------------
+
+Filename:
+be019-real-resistor-gallery.jpg
+
+Asset Type:
+Real photo gallery image
+
+Where / When to Use:
+Real component gallery.
+
+Purpose:
+Show how real resistor colors look under actual lighting, not just perfect diagrams.
+
+Prompt to Generate:
+High-resolution real photograph of assorted through-hole resistors of different sizes and color bands on a neutral background, sharp focus, natural lighting, educational reference photo, no text, no watermark.
+
+Claude Implementation Notes:
+Use as zoomable image. Add hotspot mode where learner can tap a resistor and try to decode it.
+
+------------------------------------------------------------
+Asset 08
+------------------------------------------------------------
+
+Filename:
+be019-multimeter-verification.png
+
+Asset Type:
+Real lab photo
+
+Where / When to Use:
+Practical lab section.
+
+Purpose:
+Show how to verify resistor value with a digital multimeter.
+
+Prompt to Generate:
+Realistic close-up photo of a digital multimeter in resistance mode measuring a through-hole resistor with red and black probes touching resistor leads, display showing approximately 220 ohms, clean electronics workbench, beginner-friendly composition.
+
+Claude Implementation Notes:
+Use in lab step. Add caption: "Measure resistance only when the circuit is powered OFF."
+
+------------------------------------------------------------
+Asset 09
+------------------------------------------------------------
+
+Filename:
+be019-color-decoder-ui.png
+
+Asset Type:
+UI mockup / simulator reference
+
+Where / When to Use:
+Interactive activity section.
+
+Purpose:
+Guide Claude in building the virtual resistor color decoder.
+
+Prompt to Generate:
+Dark futuristic ElectroBasics UI mockup for a resistor color code decoder. Center shows a large resistor with four editable color bands. Left panel has color picker buttons. Right panel shows calculated resistance, tolerance, min value, max value and Spark explanation. Neon cyan and amber accents, beginner-friendly.
+
+Claude Implementation Notes:
+Use as design reference for actual React component. Controls should be interactive in the coded lesson.
+
+------------------------------------------------------------
+Asset 10
+------------------------------------------------------------
+
+Filename:
+be019-common-mistakes.png
+
+Asset Type:
+Common mistakes infographic
+
+Where / When to Use:
+Common mistakes section.
+
+Purpose:
+Show mistakes visually so beginners can recognize them quickly.
+
+Prompt to Generate:
+Four-panel beginner electronics infographic showing common resistor color code mistakes: reading backwards, confusing red and orange, ignoring tolerance band, measuring resistance in powered circuit. Use clear icons, red X marks, simple labels, dark blue header, white background.
+
+Claude Implementation Notes:
+Use as "Spot the Mistake" exercise. Learner taps mistake and Spark explains.
+
+------------------------------------------------------------
+Asset 11
+------------------------------------------------------------
+
+Filename:
+be019-spark-color-code.png
+
+Asset Type:
+Spark mascot
+
+Where / When to Use:
+Spark AI help card and achievement section.
+
+Purpose:
+Make the lesson friendly and guided.
+
+Prompt to Generate:
+Cute white and silver robot mascot named Spark holding a magnifying glass over a color-banded resistor, cyan glowing eyes, friendly expression, transparent background, premium 3D render, no text.
+
+Claude Implementation Notes:
+Use beside Spark panel. Do not use as main educational diagram.
+
+------------------------------------------------------------
+Asset 12
+------------------------------------------------------------
+
+Filename:
+be019-color-band-animation.json
+
+Asset Type:
+Lottie animation / animation spec
+
+Where / When to Use:
+Before simulator and during explanation.
+
+Purpose:
+Animate how bands convert into resistance value.
+
+Prompt to Generate:
+Lottie animation specification: A four-band resistor appears. Band 1 highlights and becomes digit 2. Band 2 highlights and becomes digit 2. Band 3 highlights and becomes ×10. Band 4 highlights and becomes ±5%. Digits combine into 22 × 10 = 220Ω ±5%. Smooth educational motion, dark ElectroBasics style.
+
+Claude Implementation Notes:
+If Lottie is not available, create a 5-step animation using React state and CSS transitions.
+
+============================================================
+SPARK AI ROLE FOR THIS LESSON
+============================================================
+
+Spark should:
+• Help learners read resistor bands slowly.
+• Ask learners to identify the tolerance band first.
+• Explain digit, multiplier and tolerance separately.
+• Use the color chart and worked examples.
+• Encourage checking with a multimeter.
+• Remind students that tolerance differences are normal.
+• Use Hindi explanations when the learner asks or when the Hindi section is active.
+
+Spark should not:
+• Overwhelm learners with rare 6-band resistor details.
+• Jump into SMD resistor codes yet unless asked.
+• Assume the learner already knows powers of ten.
+• Make the learner feel bad for mixing up colors.
+
+============================================================
+SPARK GLOSSARY | Spark शब्दावली
+============================================================
+
+Resistor Color Code | रेसिस्टर कलर कोड
+Meaning:
+A color system used to show resistor value.
+Beginner Example:
+Red Red Brown Gold means 220Ω ±5%.
+
+Band | बैंड
+Meaning:
+A colored stripe on a resistor.
+Beginner Example:
+A 4-band resistor has four colored stripes.
+
+Digit | अंक
+Meaning:
+A number represented by a color.
+Beginner Example:
+Red represents digit 2.
+
+Multiplier | गुणक
+Meaning:
+The value by which the first digits are multiplied.
+Beginner Example:
+Brown multiplier means ×10.
+
+Tolerance | सहनशीलता
+Meaning:
+Allowed variation from the marked resistor value.
+Beginner Example:
+Gold means ±5%.
+
+Ohm | ओम
+Meaning:
+Unit of resistance.
+Beginner Example:
+220Ω means 220 ohms.
+
+Kilo-ohm | किलो-ओम
+Meaning:
+One thousand ohms.
+Beginner Example:
+1kΩ = 1000Ω.
+
+Mega-ohm | मेगा-ओम
+Meaning:
+One million ohms.
+Beginner Example:
+1MΩ = 1,000,000Ω.
+
+============================================================
+SPARK SYSTEM PROMPT
+============================================================
+
+You are Spark, the ElectroBasics AI mentor.
+
+You are teaching Lesson BE-019: Resistor Color Code / रेसिस्टर कलर कोड.
+
+Rules:
+1. Teach only resistor color code basics.
+2. Focus mainly on 4-band resistors.
+3. Explain digit, multiplier and tolerance step by step.
+4. Use simple English and Hindi.
+5. Use the lesson images and charts.
+6. Always remind the learner to find the tolerance band first.
+7. If learner gives band colors, decode slowly and show calculation.
+8. If learner uploads a resistor photo, help identify colors but mention uncertainty if lighting is poor.
+9. Do not teach SMD resistor code in detail in this lesson.
+10. Encourage multimeter verification.
+
+============================================================
+SPARK SUGGESTED PROMPTS
+============================================================
+
+English:
+• What does Red Red Brown Gold mean?
+• How do I know which side to read from?
+• Why is my multimeter value not exactly 220Ω?
+• Give me five resistor color code practice questions.
+• Explain multiplier in simple words.
+• What is tolerance?
+• Help me decode Brown Black Red Gold.
+• How can I remember resistor colors?
+
+हिन्दी:
+• Red Red Brown Gold का मतलब क्या है?
+• रेसिस्टर किस तरफ से पढ़ना है?
+• मेरा मल्टीमीटर 220Ω बिल्कुल क्यों नहीं दिखा रहा?
+• मुझे पाँच रेसिस्टर कलर कोड अभ्यास प्रश्न दीजिए।
+• मल्टीप्लायर को सरल भाषा में समझाइए।
+• टॉलरेंस क्या होता है?
+• Brown Black Red Gold को decode कीजिए।
+• रेसिस्टर के रंग कैसे याद रखें?
+
+============================================================
+QUIZ | प्रश्नोत्तरी
+============================================================
+
+Q1. In a 4-band resistor, what does Band 1 represent?
+Answer:
+First digit.
+
+Q2. What does the multiplier band do?
+Answer:
+It multiplies the first digits.
+
+Q3. What value is Red Red Brown Gold?
+Answer:
+220Ω ±5%.
+
+Q4. What does Gold tolerance mean?
+Answer:
+±5%.
+
+Q5. Which side should usually be on the right when reading a 4-band resistor?
+Answer:
+The tolerance band.
+
+Q6. What value is Brown Black Red Gold?
+Answer:
+1kΩ ±5%.
+
+Q7. Is it normal for a 220Ω resistor to measure 218Ω?
+Answer:
+Yes.
+
+Q8. Should resistance be measured while the circuit is powered ON?
+Answer:
+No.
+
+Q9. What color represents digit 3?
+Answer:
+Orange.
+
+Q10. What color represents digit 5?
+Answer:
+Green.
+
+============================================================
+IMAGE-BASED QUIZ IDEAS
+============================================================
+
+Quiz Image 1:
+Show four resistors. Ask:
+"Which one is 220Ω?"
+
+Quiz Image 2:
+Show one resistor with gold band on the left and right. Ask:
+"Which direction is correct?"
+
+Quiz Image 3:
+Show Red Red Brown Gold. Ask:
+"What is the value?"
+
+Quiz Image 4:
+Show Brown Black Orange Gold. Ask:
+"Is this 1kΩ or 10kΩ?"
+
+Quiz Image 5:
+Show multimeter reading 224Ω for a 220Ω resistor. Ask:
+"Is this resistor faulty?"
+
+============================================================
+HOMEWORK | गृहकार्य
+============================================================
+
+1. Find five resistors from your kit.
+2. Place each resistor on white paper under good light.
+3. Write the band colors.
+4. Decode the resistance value.
+5. Measure with a multimeter if available.
+6. Compare decoded value and measured value.
+7. Ask Spark to check your results.
+
+Hindi Homework:
+1. अपने किट से पाँच रेसिस्टर चुनिए।
+2. उन्हें अच्छी रोशनी में सफेद कागज़ पर रखिए।
+3. उनके रंग लिखिए।
+4. वैल्यू निकालिए।
+5. मल्टीमीटर से मापिए।
+6. दोनों वैल्यू की तुलना कीजिए।
+7. Spark से अपना उत्तर जाँचने को कहिए।
+
+============================================================
+SUMMARY | सारांश
+============================================================
+
+English:
+In this lesson, you learned how resistor color bands show resistance value. You learned the color digits, multiplier, tolerance, reading direction, common resistor values and multimeter verification. You can now decode common 4-band resistors used in beginner circuits.
+
+हिन्दी:
+इस पाठ में आपने सीखा कि रेसिस्टर के रंगीन बैंड उसकी वैल्यू कैसे बताते हैं। आपने रंगों के अंक, मल्टीप्लायर, टॉलरेंस, पढ़ने की दिशा, सामान्य रेसिस्टर वैल्यू और मल्टीमीटर से पुष्टि करना सीखा। अब आप शुरुआती सर्किट में उपयोग होने वाले सामान्य 4-बैंड रेसिस्टर पढ़ सकते हैं।
+
+============================================================
+ACHIEVEMENT UNLOCKED
+============================================================
+
+🌈 Color Code Champion
+
+Achievement Message:
+You can now read the secret color language printed on resistors.
+
+हिन्दी:
+अब आप रेसिस्टर की रंगीन भाषा पढ़ सकते हैं।
+
+============================================================
+DEVELOPER NOTES FOR CLAUDE
+============================================================
+
+Required React Sections:
+• LessonHeader
+• HeroAsset
+• BilingualLearningObjectives
+• RealLifeProblemCard
+• TheoryBlock
+• ColorCodeChart
+• FourBandResistorDiagram
+• ReadingDirectionCard
+• WorkedExamples
+• CommonValuesCarousel
+• ResistorColorDecoderSimulator
+• PracticalLabCard
+• CommonMistakesGallery
+• TroubleshootingPanel
+• SparkPanel
+• GlossaryPanel
+• QuizPanel
+• ImageQuizPanel
+• HomeworkPanel
+• SummaryCard
+• AchievementCard
+• NextLessonCard
+
+Simulator Requirements:
+• Four clickable bands.
+• Color picker for each band.
+• Live calculation.
+• Tolerance range calculation.
+• Reset button.
+• Challenge mode.
+• Spark explanation output.
+
+Mobile Notes:
+• Use accordion sections.
+• Color chart must be split into tabs/cards.
+• Worked examples should be swipe cards.
+• The decoder simulator should fit one screen width.
+• Use large tap targets for color buttons.
+• Add zoom for resistor photos.
+
+Data Structure Suggestion:
+colors = [
+  { name: "Black", digit: 0, multiplier: 1 },
+  { name: "Brown", digit: 1, multiplier: 10, tolerance: 1 },
+  { name: "Red", digit: 2, multiplier: 100, tolerance: 2 },
+  { name: "Orange", digit: 3, multiplier: 1000 },
+  { name: "Yellow", digit: 4, multiplier: 10000 },
+  { name: "Green", digit: 5, multiplier: 100000 },
+  { name: "Blue", digit: 6, multiplier: 1000000 },
+  { name: "Violet", digit: 7 },
+  { name: "Grey", digit: 8 },
+  { name: "White", digit: 9 },
+  { name: "Gold", multiplier: 0.1, tolerance: 5 },
+  { name: "Silver", multiplier: 0.01, tolerance: 10 }
+]
+
+============================================================
+NEXT LESSON
+============================================================
+
+BE-020 – Capacitors / कैपेसिटर

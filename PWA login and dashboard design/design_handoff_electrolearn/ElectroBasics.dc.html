@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { background: #06080d; font-family: 'IBM Plex Sans','Noto Sans Devanagari',sans-serif; -webkit-font-smoothing: antialiased; }
+    ::placeholder { color: #55617a; }
+    input:focus, textarea:focus { outline: none; }
+    @keyframes ebFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes ebBlink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+    @media (max-width: 880px) {
+      .eb-desk { display: none !important; }
+      .eb-split { grid-template-columns: 1fr !important; }
+      .eb-pad-nav { padding-bottom: 90px !important; }
+    }
+    @media (min-width: 881px) {
+      .eb-mob { display: none !important; }
+    }
+  </style>
+</helmet>
+
+<div style="min-height: 100vh; width: 100%; position: relative; overflow-x: hidden; color: #e8edf7; background:
+    radial-gradient(1100px 700px at 12% -5%, rgba(245,166,35,.10), transparent 60%),
+    radial-gradient(1000px 700px at 95% 8%, rgba(120,90,240,.12), transparent 60%),
+    radial-gradient(900px 800px at 60% 110%, rgba(34,211,238,.08), transparent 55%),
+    #06080d;">
+
+  <div style="position: fixed; inset: 0; pointer-events: none; opacity: .5; z-index: 0; background-image:
+      linear-gradient(rgba(90,120,170,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90,120,170,.05) 1px, transparent 1px);
+      background-size: 46px 46px; mask-image: radial-gradient(ellipse at 50% 40%, #000 40%, transparent 90%);"></div>
+
+  <!-- ===================== LOGIN ===================== -->
+  <sc-if value="{{ isLogin }}" hint-placeholder-val="{{ true }}">
+  <div style="position: relative; z-index: 2; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;">
+    <div style="position: absolute; top: 22px; right: 22px; display: flex; gap: 4px; background: rgba(14,19,29,.85); border: 1px solid rgba(120,150,200,.16); border-radius: 11px; padding: 4px;">
+      <button onClick="{{ setEn }}" style="{{ enStyle }}">EN&nbsp; English</button>
+      <button onClick="{{ setHi }}" style="{{ hiStyle }}">HI&nbsp; हिंदी</button>
+    </div>
+    <div style="width: 100%; max-width: 430px;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 26px;">
+        <div style="width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; background: linear-gradient(145deg,#f5a623,#e8790f); box-shadow: 0 8px 26px rgba(245,166,35,.4); font-size: 26px;">⚡</div>
+        <span style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 26px; letter-spacing: -.5px;">ElectroBasics</span>
+      </div>
+      <div style="background: linear-gradient(180deg, rgba(20,26,38,.92), rgba(12,16,25,.92)); border: 1px solid rgba(120,150,200,.14); border-radius: 22px; padding: 34px 30px 30px; box-shadow: 0 30px 80px rgba(0,0,0,.55);">
+        <h1 style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-size: 25px; font-weight: 700; margin: 0 0 6px;">{{ t.welcome }} 👋</h1>
+        <p style="margin: 0 0 26px; color: #8b97ac; font-size: 14px;">{{ t.loginSub }}</p>
+        <label style="display: block; font-size: 12px; font-weight: 600; letter-spacing: .3px; color: #9aa6bc; margin-bottom: 8px;">{{ t.email }}</label>
+        <div style="display: flex; align-items: center; gap: 10px; background: #0c111b; border: 1px solid rgba(120,150,200,.16); border-radius: 12px; padding: 0 14px; margin-bottom: 18px;">
+          <span style="color: #5b6a86; font-size: 15px;">✉</span>
+          <input type="email" placeholder="youremail@gmail.com" style="flex: 1; background: transparent; border: none; color: #e8edf7; font-size: 15px; padding: 14px 0; font-family: inherit;">
+        </div>
+        <label style="display: block; font-size: 12px; font-weight: 600; letter-spacing: .3px; color: #9aa6bc; margin-bottom: 8px;">{{ t.password }}</label>
+        <div style="display: flex; align-items: center; gap: 10px; background: #0c111b; border: 1px solid rgba(120,150,200,.16); border-radius: 12px; padding: 0 14px; margin-bottom: 14px;">
+          <span style="color: #5b6a86; font-size: 15px;">🔒</span>
+          <input type="password" placeholder="••••••••" style="flex: 1; background: transparent; border: none; color: #e8edf7; font-size: 15px; padding: 14px 0; font-family: inherit;">
+          <span style="color: #5b6a86;">👁</span>
+        </div>
+        <div style="text-align: right; margin-bottom: 22px;"><a href="#" style="color: #f5a623; text-decoration: none; font-weight: 500; font-size: 13px;">{{ t.forgot }}</a></div>
+        <button onClick="{{ goDash }}" style="width: 100%; border: none; cursor: pointer; padding: 15px; border-radius: 12px; font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 15px; color: #1a1204; background: linear-gradient(145deg,#f5b643,#e8790f); box-shadow: 0 10px 30px rgba(245,166,35,.35);">{{ t.signIn }}</button>
+        <div style="display: flex; align-items: center; gap: 12px; margin: 22px 0;">
+          <div style="flex: 1; height: 1px; background: rgba(120,150,200,.14);"></div>
+          <span style="font-size: 12px; color: #8b97ac;">{{ t.orContinue }}</span>
+          <div style="flex: 1; height: 1px; background: rgba(120,150,200,.14);"></div>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <button onClick="{{ goDash }}" style="flex: 1; cursor: pointer; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 16px; color: #cdd6e6; background: #0c111b; border: 1px solid rgba(120,150,200,.16);">G</button>
+          <button onClick="{{ goDash }}" style="flex: 1; cursor: pointer; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 16px; color: #cdd6e6; background: #0c111b; border: 1px solid rgba(120,150,200,.16);"></button>
+          <button onClick="{{ goDash }}" style="flex: 1; cursor: pointer; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 14px; color: #cdd6e6; background: #0c111b; border: 1px solid rgba(120,150,200,.16);">GitHub</button>
+        </div>
+      </div>
+      <p style="text-align: center; margin: 22px 0 0; color: #8b97ac; font-size: 14px;">{{ t.noAccount }} <a href="#" style="color: #22d3ee; text-decoration: none; font-weight: 600;">{{ t.signUp }}</a></p>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== CHROME: HEADER ===================== -->
+  <sc-if value="{{ showChrome }}" hint-placeholder-val="{{ true }}">
+  <div style="position: relative; z-index: 5;">
+    <!-- desktop header -->
+    <div class="eb-desk" style="display: flex; align-items: center; gap: 18px; padding: 16px clamp(16px,3vw,34px); border-bottom: 1px solid rgba(120,150,200,.1); position: sticky; top: 0; background: rgba(6,8,13,.85); backdrop-filter: blur(10px); z-index: 20;">
+      <div style="display: flex; align-items: center; gap: 11px; cursor: pointer;" onClick="{{ goDash }}">
+        <div style="width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: linear-gradient(145deg,#f5a623,#e8790f); box-shadow: 0 6px 20px rgba(245,166,35,.4); font-size: 22px;">⚡</div>
+        <span style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 20px; letter-spacing: -.5px;">ElectroBasics</span>
+      </div>
+      <div style="flex: 1; max-width: 520px; display: flex; align-items: center; gap: 10px; background: rgba(14,19,29,.85); border: 1px solid rgba(120,150,200,.14); border-radius: 12px; padding: 11px 15px; margin: 0 auto;">
+        <span style="color: #5b6a86;">⌕</span>
+        <span style="flex: 1; color: #55617a; font-size: 14px;">{{ t.search }}</span>
+        <span style="font-family: 'IBM Plex Mono'; font-size: 12px; color: #5b6a86; border: 1px solid rgba(120,150,200,.18); border-radius: 6px; padding: 2px 7px;">⌘K</span>
+      </div>
+      <div style="display: flex; gap: 4px; background: rgba(14,19,29,.85); border: 1px solid rgba(120,150,200,.16); border-radius: 11px; padding: 4px;">
+        <button onClick="{{ setEn }}" style="{{ enStyle }}">EN</button>
+        <button onClick="{{ setHi }}" style="{{ hiStyle }}">HI</button>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="position: relative; font-size: 18px; color: #9aa6bc; cursor: pointer;">🔔<span style="position: absolute; top: -6px; right: -7px; background: #ef4444; color: #fff; font-size: 10px; font-weight: 700; border-radius: 20px; padding: 1px 5px;">3</span></div>
+        <span style="font-size: 17px; color: #9aa6bc; cursor: pointer;">☀</span>
+        <div style="display: flex; align-items: center; gap: 9px; cursor: pointer;" onClick="{{ logout }}">
+          <div style="width: 38px; height: 38px; border-radius: 11px; background: linear-gradient(145deg,#2b3448,#1a2130); display: grid; place-items: center; font-weight: 700; font-size: 13px; color: #cfd8e8; border: 1px solid rgba(120,150,200,.2);">SN</div>
+          <div style="line-height: 1.25;"><div style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 13px;">Sandeep</div><div style="font-size: 11px; color: #f5a623;">{{ t.level }}</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- mobile header -->
+    <div class="eb-mob" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-bottom: 1px solid rgba(120,150,200,.1); position: sticky; top: 0; background: rgba(6,8,13,.9); backdrop-filter: blur(10px); z-index: 20;">
+      <div style="display: flex; align-items: center; gap: 9px; cursor: pointer;" onClick="{{ goDash }}">
+        <div style="width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(145deg,#f5a623,#e8790f); font-size: 18px;">⚡</div>
+        <span style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 17px;">ElectroBasics</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="display: flex; gap: 3px; background: rgba(14,19,29,.85); border: 1px solid rgba(120,150,200,.16); border-radius: 9px; padding: 3px;">
+          <button onClick="{{ setEn }}" style="{{ enStyleSm }}">EN</button>
+          <button onClick="{{ setHi }}" style="{{ hiStyleSm }}">HI</button>
+        </div>
+        <div style="position: relative; font-size: 17px; color: #9aa6bc;">🔔<span style="position: absolute; top: -5px; right: -6px; background: #ef4444; color: #fff; font-size: 9px; font-weight: 700; border-radius: 20px; padding: 0 4px;">3</span></div>
+        <div onClick="{{ logout }}" style="width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(145deg,#2b3448,#1a2130); display: grid; place-items: center; font-weight: 700; font-size: 12px; color: #cfd8e8; border: 1px solid rgba(120,150,200,.2); cursor: pointer;">SN</div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== DASHBOARD ===================== -->
+  <sc-if value="{{ vDash }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="Dashboard" class="eb-pad-nav" style="position: relative; z-index: 2; max-width: 1420px; margin: 0 auto; padding: 26px clamp(16px,3vw,34px) 48px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center; margin-bottom: 22px;">
+      <div style="flex: 1; min-width: 280px; display: flex; align-items: center; gap: 18px;">
+        <div style="width: 66px; height: 66px; border-radius: 17px; display: grid; place-items: center; font-size: 34px; background: radial-gradient(circle at 40% 30%, rgba(245,166,35,.28), rgba(245,166,35,.06)); border: 1px solid rgba(245,166,35,.3); animation: ebFloat 4s ease-in-out infinite;">⚡</div>
+        <div>
+          <h1 style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-size: clamp(24px,3.2vw,34px); font-weight: 700; margin: 0; letter-spacing: -.6px;">{{ t.greeting }}</h1>
+          <p style="margin: 6px 0 0; color: #8b97ac; font-size: 14px;">{{ t.greetingSub }}</p>
+        </div>
+      </div>
+      <div style="min-width: 150px; display: flex; align-items: center; gap: 13px; background: rgba(14,19,29,.85); border: 1px solid rgba(120,150,200,.14); border-radius: 16px; padding: 15px 20px;">
+        <span style="font-size: 27px;">🔥</span>
+        <div><div style="font-family: 'Space Grotesk'; font-size: 23px; font-weight: 700; line-height: 1;">12</div><div style="color: #8b97ac; font-size: 12px; margin-top: 3px;">{{ t.dayStreak }}</div></div>
+      </div>
+      <div style="min-width: 250px; display: flex; align-items: center; gap: 14px; background: linear-gradient(135deg, rgba(124,92,240,.16), rgba(14,19,29,.85)); border: 1px solid rgba(150,120,240,.28); border-radius: 16px; padding: 14px 20px;">
+        <div style="width: 40px; height: 46px; display: grid; place-items: center; font-size: 20px; color: #c4b5fd;">✦</div>
+        <div style="flex: 1;">
+          <div style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 700; font-size: 15px;">{{ t.level }}</div>
+          <div style="color: #b7a8e8; font-size: 12px; margin-bottom: 7px;">{{ t.novice }}</div>
+          <div style="height: 6px; border-radius: 20px; background: rgba(255,255,255,.08); overflow: hidden;"><div style="height: 100%; width: 53%; border-radius: 20px; background: linear-gradient(90deg,#a78bfa,#7c5cf0);"></div></div>
+          <div style="text-align: right; font-family: 'IBM Plex Mono'; font-size: 11px; color: #9aa6bc; margin-top: 4px;">320 / 600 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-bottom: 18px;">
+      <!-- continue learning -->
+      <div style="background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(245,166,35,.18); border-radius: 20px; padding: 22px;">
+        <div style="display: flex; align-items: center; gap: 9px; color: #f5a623; font-weight: 600; font-size: 13px; letter-spacing: .6px; margin-bottom: 16px;">〜 {{ t.continueLearning }}</div>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 130px;">
+            <div style="color: #8b97ac; font-size: 13px;">{{ t.lesson03 }}</div>
+            <div style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-size: 24px; font-weight: 700; margin: 2px 0 3px;">{{ t.ohmsLaw }}</div>
+            <div style="color: #8b97ac; font-size: 13px;">{{ t.basicElec }}</div>
+          </div>
+          <div style="width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(#f5a623 151deg, rgba(255,255,255,.07) 0);">
+            <div style="width: 68px; height: 68px; border-radius: 50%; background: #0d121c; display: grid; place-items: center; text-align: center;"><div><div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 19px;">42<span style="font-size: 12px;">%</span></div><div style="font-size: 10px; color: #8b97ac;">{{ t.complete }}</div></div></div>
+          </div>
+        </div>
+        <div style="margin: 16px 0; height: 120px; border-radius: 14px; border: 1px solid rgba(120,150,200,.14); background: repeating-linear-gradient(45deg, rgba(120,150,200,.05) 0 12px, transparent 12px 24px), #0c111b; display: grid; place-items: center;"><span style="font-family: 'IBM Plex Mono'; font-size: 12px; color: #55617a;">[ breadboard photo ]</span></div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button onClick="{{ goLesson }}" style="flex: 1; min-width: 140px; cursor: pointer; border: none; padding: 13px; border-radius: 12px; font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 14px; color: #1a1204; background: linear-gradient(145deg,#f5b643,#e8790f); box-shadow: 0 8px 24px rgba(245,166,35,.3);">{{ t.resumeLesson }} &nbsp;→</button>
+          <button onClick="{{ goContinue }}" style="cursor: pointer; padding: 13px 18px; border-radius: 12px; font-weight: 600; font-size: 14px; color: #cdd6e6; background: #0c111b; border: 1px solid rgba(120,150,200,.16);">{{ t.lessonInfo }}</button>
+        </div>
+      </div>
+      <!-- spark -->
+      <div style="background: linear-gradient(180deg, rgba(10,26,32,.92), rgba(9,15,22,.92)); border: 1px solid rgba(34,211,238,.22); border-radius: 20px; padding: 22px; cursor: pointer;" onClick="{{ goSpark }}">
+        <div style="display: flex; align-items: center; gap: 9px; color: #22d3ee; font-weight: 600; font-size: 13px; letter-spacing: .6px; margin-bottom: 16px;">🤖 {{ t.sparkTitle }}</div>
+        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 16px;">
+          <div style="flex: 1; background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.2); border-radius: 14px; padding: 15px; font-size: 14px; line-height: 1.5; color: #cbeef5;">{{ t.sparkMsg }}</div>
+          <div style="width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center; font-size: 34px; background: radial-gradient(circle, rgba(34,211,238,.3), transparent 70%); animation: ebFloat 3.5s ease-in-out infinite;">🤖</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; background: #0a1119; border: 1px solid rgba(34,211,238,.2); border-radius: 13px; padding: 4px 4px 4px 16px; margin-bottom: 14px;">
+          <span style="flex: 1; color: #55617a; font-size: 14px;">{{ t.askPlaceholder }}</span>
+          <span style="width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(145deg,#22d3ee,#0891b2); color: #04141a; font-size: 16px; display: grid; place-items: center;">➤</span>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <span style="font-size: 13px; color: #7fe3f2; background: rgba(34,211,238,.09); border: 1px solid rgba(34,211,238,.22); border-radius: 20px; padding: 7px 14px;">{{ t.chipOhm }}</span>
+          <span style="font-size: 13px; color: #7fe3f2; background: rgba(34,211,238,.09); border: 1px solid rgba(34,211,238,.22); border-radius: 20px; padding: 7px 14px;">{{ t.chipSeries }}</span>
+          <span style="font-size: 13px; color: #7fe3f2; background: rgba(34,211,238,.09); border: 1px solid rgba(34,211,238,.22); border-radius: 20px; padding: 7px 14px;">{{ t.chipVoltage }}</span>
+        </div>
+      </div>
+      <!-- progress gauge -->
+      <div style="background: linear-gradient(180deg, rgba(11,26,19,.92), rgba(9,16,13,.92)); border: 1px solid rgba(74,222,128,.22); border-radius: 20px; padding: 22px;">
+        <div style="display: flex; align-items: center; gap: 9px; color: #4ade80; font-weight: 600; font-size: 13px; letter-spacing: .6px; margin-bottom: 14px;">◔ {{ t.progressGauge }}</div>
+        <div style="display: grid; place-items: center; margin-bottom: 16px;">
+          <div style="width: 140px; height: 140px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(#4ade80 151deg, rgba(255,255,255,.06) 0); box-shadow: 0 0 40px rgba(74,222,128,.18);">
+            <div style="width: 108px; height: 108px; border-radius: 50%; background: #0a130f; display: grid; place-items: center; text-align: center;"><div><div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 32px;">42<span style="font-size: 16px;">%</span></div><div style="font-size: 12px; color: #8b97ac;">{{ t.overallProgress }}</div></div></div>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 10px;">
+          <div style="text-align: center; background: rgba(255,255,255,.03); border: 1px solid rgba(120,150,200,.1); border-radius: 12px; padding: 12px 6px;"><div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 19px;">18</div><div style="font-size: 11px; color: #8b97ac; margin-top: 2px;">{{ t.lessonsCompleted }}</div></div>
+          <div style="text-align: center; background: rgba(255,255,255,.03); border: 1px solid rgba(120,150,200,.1); border-radius: 12px; padding: 12px 6px;"><div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 19px;">7</div><div style="font-size: 11px; color: #8b97ac; margin-top: 2px;">{{ t.quizzesPassed }}</div></div>
+          <div style="text-align: center; background: rgba(255,255,255,.03); border: 1px solid rgba(120,150,200,.1); border-radius: 12px; padding: 12px 6px;"><div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 19px;">4h 32m</div><div style="font-size: 11px; color: #8b97ac; margin-top: 2px;">{{ t.timeLearned }}</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;">
+      <div style="grid-column: span 2; min-width: 260px; background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(120,150,200,.14); border-radius: 20px; padding: 22px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+          <div style="display: flex; align-items: center; gap: 9px; color: #e8edf7; font-weight: 600; font-size: 13px; letter-spacing: .6px;">📦 {{ t.courseLibrary }}</div>
+          <a href="#" onClick="{{ goLesson }}" style="color: #22d3ee; font-size: 13px; text-decoration: none; font-weight: 500;">{{ t.viewAll }}</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 14px;">
+          <sc-for list="{{ courses }}" as="c" hint-placeholder-count="4">
+            <div onClick="{{ goLesson }}" style="cursor: pointer;">
+              <div style="{{ c.tileStyle }}"><span style="font-family: 'IBM Plex Mono'; font-size: 10px; color: rgba(255,255,255,.55);">{{ c.tag }}</span></div>
+              <div style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 14px;">{{ c.name }}</div>
+              <div style="color: #8b97ac; font-size: 12px; margin: 4px 0 8px;">{{ c.lessons }}</div>
+              <div style="height: 5px; border-radius: 20px; background: rgba(255,255,255,.07); overflow: hidden;"><div style="{{ c.barStyle }}"></div></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="min-width: 240px; background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(120,150,200,.14); border-radius: 20px; padding: 22px;">
+        <div style="display: flex; align-items: center; gap: 9px; color: #22d3ee; font-weight: 600; font-size: 13px; letter-spacing: .6px; margin-bottom: 18px;">📶 {{ t.activityTimeline }}</div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <sc-for list="{{ activities }}" as="a" hint-placeholder-count="3">
+            <div style="display: flex; gap: 12px; align-items: flex-start;">
+              <div style="{{ a.iconStyle }}">{{ a.icon }}</div>
+              <div style="flex: 1;"><div style="font-weight: 600; font-size: 13px;">{{ a.title }}</div><div style="color: #8b97ac; font-size: 12px; margin-top: 2px;">{{ a.sub }}</div></div>
+              <div style="color: #5b6a86; font-size: 11px; white-space: nowrap;">{{ a.time }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 18px; color: #22d3ee; font-size: 13px; text-decoration: none; font-weight: 500;">{{ t.viewFullActivity }} →</a>
+      </div>
+      <div style="min-width: 240px; background: linear-gradient(180deg, rgba(24,20,34,.9), rgba(13,11,20,.9)); border: 1px solid rgba(150,120,240,.2); border-radius: 20px; padding: 22px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+          <div style="display: flex; align-items: center; gap: 9px; color: #c4b5fd; font-weight: 600; font-size: 13px; letter-spacing: .6px;">🏅 {{ t.achievementsLabel }}</div>
+          <a href="#" style="color: #a78bfa; font-size: 13px; text-decoration: none; font-weight: 500;">{{ t.viewAll }}</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+          <sc-for list="{{ achievements }}" as="ac" hint-placeholder-count="3">
+            <div style="display: flex; gap: 13px; align-items: center;">
+              <div style="{{ ac.iconStyle }}">{{ ac.icon }}</div>
+              <div style="flex: 1;"><div style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 14px;">{{ ac.title }}</div><div style="color: #8b97ac; font-size: 12px; margin-top: 2px;">{{ ac.sub }}</div></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="min-width: 240px; background: linear-gradient(180deg, rgba(24,20,34,.9), rgba(13,11,20,.9)); border: 1px solid rgba(150,120,240,.2); border-radius: 20px; padding: 22px; display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: center; gap: 9px; color: #c4b5fd; font-weight: 600; font-size: 13px; letter-spacing: .6px; margin-bottom: 16px;">◎ {{ t.weeklyGoal }}</div>
+        <div style="display: grid; place-items: center; margin: 6px 0 14px;">
+          <div style="width: 132px; height: 132px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(#a78bfa 206deg, rgba(255,255,255,.06) 0); box-shadow: 0 0 40px rgba(150,120,240,.2);">
+            <div style="width: 104px; height: 104px; border-radius: 50%; background: #120e1c; display: grid; place-items: center; text-align: center;"><div><div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 28px;">4 <span style="font-size: 16px; color: #8b97ac;">/ 7</span></div><div style="font-size: 12px; color: #8b97ac;">{{ t.lessons }}</div></div></div>
+          </div>
+        </div>
+        <p style="text-align: center; color: #b7a8e8; font-size: 13px; margin: 0 0 16px;">{{ t.doingGreat }}</p>
+        <button style="cursor: pointer; border: 1px solid rgba(150,120,240,.35); background: rgba(150,120,240,.12); color: #d3c6f7; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 14px;">{{ t.viewGoals }} &nbsp;→</button>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== LESSON VIEW ===================== -->
+  <sc-if value="{{ vLesson }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="Lesson View" class="eb-pad-nav" style="position: relative; z-index: 2; max-width: 1180px; margin: 0 auto; padding: 26px clamp(16px,3vw,34px) 48px;">
+    <div class="eb-split" style="display: grid; grid-template-columns: 260px 1fr; gap: 20px; align-items: start;">
+      <div style="background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(120,150,200,.14); border-radius: 18px; padding: 18px;">
+        <div style="color: #f5a623; font-weight: 600; font-size: 12px; letter-spacing: .6px; margin-bottom: 14px;">☰ {{ t.lessonContent }}</div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <sc-for list="{{ lessonSteps }}" as="s" hint-placeholder-count="6">
+            <div style="{{ s.style }}"><span style="opacity:.6;">{{ s.n }}.</span> {{ s.label }}</div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(120,150,200,.14); border-radius: 18px; padding: 24px;">
+        <div style="color: #8b97ac; font-size: 13px;">{{ t.lesson03 }} · {{ t.basicElec }}</div>
+        <h1 style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-size: 28px; font-weight: 700; margin: 4px 0 18px;">{{ t.ohmsLaw }}</h1>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+          <sc-for list="{{ lessonTabs }}" as="tb" hint-placeholder-count="4">
+            <span onClick="{{ tb.onClick }}" style="{{ tb.style }}">{{ tb.label }}</span>
+          </sc-for>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+          <div style="font-size: 16px; font-weight: 600; color: #f5c76a;">{{ t.ohmFormula }}</div>
+          <p style="margin: 0; color: #c3ccdb; font-size: 15px; line-height: 1.7;">{{ t.ohmBody }}</p>
+          <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: stretch;">
+            <div style="flex: 1; min-width: 220px; background: #0c111b; border: 1px solid rgba(245,166,35,.2); border-radius: 14px; padding: 22px; display: grid; place-items: center;">
+              <div style="text-align: center;">
+                <div style="font-family: 'Space Grotesk'; font-size: 40px; font-weight: 700; color: #f5a623; letter-spacing: 2px;">V = I × R</div>
+                <div style="margin-top: 16px; text-align: left; display: inline-block; color: #c3ccdb; font-size: 14px; line-height: 1.9;">
+                  <div style="color: #8b97ac; margin-bottom: 4px;">{{ t.where }}</div>
+                  <div>{{ t.vVolt }}</div><div>{{ t.iCurr }}</div><div>{{ t.rRes }}</div>
+                </div>
+              </div>
+            </div>
+            <div style="flex: 1; min-width: 220px; border-radius: 14px; border: 1px solid rgba(120,150,200,.14); background: repeating-linear-gradient(45deg, rgba(120,150,200,.05) 0 12px, transparent 12px 24px), #0c111b; display: grid; place-items: center; min-height: 180px;"><span style="font-family: 'IBM Plex Mono'; font-size: 12px; color: #55617a;">[ circuit diagram ]</span></div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 22px 0 6px;">
+          <button onClick="{{ goSpark }}" style="cursor: pointer; border: none; padding: 11px 18px; border-radius: 11px; font-weight: 600; font-size: 14px; color: #04141a; background: linear-gradient(145deg,#22d3ee,#0891b2);">🤖 {{ t.askSpark }}</button>
+          <button onClick="{{ goNotes }}" style="cursor: pointer; padding: 11px 18px; border-radius: 11px; font-weight: 600; font-size: 14px; color: #cdd6e6; background: #0c111b; border: 1px solid rgba(120,150,200,.16);">🗒 {{ t.notesBtn }}</button>
+          <button style="cursor: pointer; padding: 11px 18px; border-radius: 11px; font-weight: 600; font-size: 14px; color: #cdd6e6; background: #0c111b; border: 1px solid rgba(120,150,200,.16);">🔖 {{ t.bookmark }}</button>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(120,150,200,.1);">
+          <button onClick="{{ goDash }}" style="cursor: pointer; padding: 11px 18px; border-radius: 11px; font-weight: 600; font-size: 14px; color: #cdd6e6; background: #0c111b; border: 1px solid rgba(120,150,200,.16);">← {{ t.prev }}</button>
+          <span style="font-family: 'IBM Plex Mono'; font-size: 13px; color: #8b97ac;">3 / 6</span>
+          <button onClick="{{ goQuiz }}" style="cursor: pointer; border: none; padding: 11px 22px; border-radius: 11px; font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 14px; color: #1a1204; background: linear-gradient(145deg,#f5b643,#e8790f);">{{ t.takeQuiz }} →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== QUIZ (MCQ) ===================== -->
+  <sc-if value="{{ vQuiz }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="Quiz" class="eb-pad-nav" style="position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; padding: 26px clamp(16px,3vw,34px) 48px;">
+    <div class="eb-split" style="display: grid; grid-template-columns: 240px 1fr; gap: 20px; align-items: start;">
+      <div style="background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(120,150,200,.14); border-radius: 18px; padding: 20px;">
+        <div style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 700; font-size: 17px;">{{ t.quiz }}</div>
+        <div style="color: #8b97ac; font-size: 13px; margin: 3px 0 18px;">{{ t.quizName }}</div>
+        <div style="color: #9aa6bc; font-size: 12px; margin-bottom: 10px;">{{ t.questionOf }}</div>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
+          <sc-for list="{{ quizNav }}" as="q" hint-placeholder-count="10">
+            <div style="{{ q.style }}">{{ q.n }}</div>
+          </sc-for>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 18px; font-size: 12px; color: #8b97ac;">
+          <div style="display: flex; align-items: center; gap: 8px;"><span style="width: 11px; height: 11px; border-radius: 3px; background: #4ade80;"></span>{{ t.answered }}</div>
+          <div style="display: flex; align-items: center; gap: 8px;"><span style="width: 11px; height: 11px; border-radius: 3px; background: #22d3ee;"></span>{{ t.current }}</div>
+        </div>
+      </div>
+      <div style="background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(120,150,200,.14); border-radius: 18px; padding: 26px;">
+        <div style="color: #9aa6bc; font-family: 'IBM Plex Mono'; font-size: 13px; margin-bottom: 16px;">{{ t.questionOf }}</div>
+        <h2 style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-size: 22px; font-weight: 600; margin: 0 0 24px; line-height: 1.4;">{{ t.quizQ }}</h2>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <sc-for list="{{ quizOpts }}" as="o" hint-placeholder-count="4">
+            <div onClick="{{ o.onClick }}" style="{{ o.style }}"><span style="{{ o.letterStyle }}">{{ o.letter }}</span>{{ o.text }}</div>
+          </sc-for>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 28px;">
+          <button onClick="{{ goReview }}" style="cursor: pointer; padding: 11px 18px; border-radius: 11px; font-weight: 600; font-size: 14px; color: #22d3ee; background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.24);">{{ t.showExplanation }}</button>
+          <button onClick="{{ goResult }}" style="cursor: pointer; border: none; padding: 12px 24px; border-radius: 11px; font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 14px; color: #1a1204; background: linear-gradient(145deg,#f5b643,#e8790f);">{{ t.next }} →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== TEST RESULT ===================== -->
+  <sc-if value="{{ vResult }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="Test Result" class="eb-pad-nav" style="position: relative; z-index: 2; max-width: 920px; margin: 0 auto; padding: 40px clamp(16px,3vw,34px) 48px;">
+    <div style="background: linear-gradient(180deg, rgba(18,23,34,.92), rgba(11,15,23,.92)); border: 1px solid rgba(74,222,128,.24); border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 0 60px rgba(74,222,128,.08);">
+      <div style="font-size: 54px; margin-bottom: 8px;">🏆</div>
+      <div style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-size: 22px; font-weight: 700;">{{ t.greatJob }}</div>
+      <div style="display: grid; place-items: center; margin: 24px 0;">
+        <div style="width: 176px; height: 176px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(#4ade80 324deg, rgba(255,255,255,.06) 0); box-shadow: 0 0 50px rgba(74,222,128,.25);">
+          <div style="width: 138px; height: 138px; border-radius: 50%; background: #0a130f; display: grid; place-items: center;"><div style="font-family: 'Space Grotesk'; font-size: 46px; font-weight: 700; color: #4ade80;">90<span style="font-size: 24px;">%</span></div></div>
+        </div>
+      </div>
+      <div style="color: #c3ccdb; font-size: 15px; margin-bottom: 28px;">{{ t.scoredOut }}</div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 520px; margin: 0 auto 30px;">
+        <div style="background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.2); border-radius: 14px; padding: 16px;"><div style="font-family: 'Space Grotesk'; font-size: 26px; font-weight: 700; color: #4ade80;">9</div><div style="font-size: 12px; color: #8b97ac; margin-top: 4px;">{{ t.correct }}</div></div>
+        <div style="background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.2); border-radius: 14px; padding: 16px;"><div style="font-family: 'Space Grotesk'; font-size: 26px; font-weight: 700; color: #ef6b6b;">1</div><div style="font-size: 12px; color: #8b97ac; margin-top: 4px;">{{ t.incorrect }}</div></div>
+        <div style="background: rgba(255,255,255,.03); border: 1px solid rgba(120,150,200,.12); border-radius: 14px; padding: 16px;"><div style="font-family: 'Space Grotesk'; font-size: 26px; font-weight: 700;">04:32</div><div style="font-size: 12px; color: #8b97ac; margin-top: 4px;">{{ t.timeTaken }}</div></div>
+      </div>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <button onClick="{{ goReview }}" style="cursor: pointer; border: none; padding: 13px 26px; border-radius: 12px; font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 14px; color: #1a1204; background: linear-gradient(145deg,#f5b643,#e8790f);">{{ t.reviewAnswers }}</button>
+        <button onClick="{{ goLesson }}" style="cursor: pointer; padding: 13px 26px; border-radius: 12px; font-weight: 600; font-size: 14px; color: #cdd6e6; background: #0c111b; border: 1px solid rgba(120,150,200,.16);">{{ t.backToLesson }}</button>
+      </div>
+      <div style="color: #8b97ac; font-size: 13px; margin-top: 22px;">{{ t.keepPracticing }}</div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== MCQ REVIEW ===================== -->
+  <sc-if value="{{ vReview }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="MCQ Review" class="eb-pad-nav" style="position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; padding: 26px clamp(16px,3vw,34px) 48px;">
+    <div class="eb-split" style="display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: start;">
+      <div style="background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(120,150,200,.14); border-radius: 18px; padding: 18px;">
+        <div style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 700; font-size: 15px; margin-bottom: 14px;">{{ t.mcqReview }}</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <sc-for list="{{ reviewNav }}" as="r" hint-placeholder-count="6">
+            <div style="{{ r.rowStyle }}"><span>{{ r.label }}</span><span style="{{ r.markStyle }}">{{ r.mark }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(120,150,200,.14); border-radius: 18px; padding: 26px;">
+        <h2 style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-size: 19px; font-weight: 600; margin: 0 0 22px; line-height: 1.4;">{{ t.reviewQ }}</h2>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; align-items: center; gap: 14px; padding: 15px 18px; border-radius: 12px; background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.25);">
+            <span style="width: 26px; height: 26px; border-radius: 7px; background: #ef4444; color: #fff; display: grid; place-items: center; font-size: 14px;">✕</span>
+            <div><div style="font-size: 12px; color: #f0a0a0;">{{ t.yourAnswer }}</div><div style="font-size: 15px; font-weight: 600;">V = I / R</div></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px; padding: 15px 18px; border-radius: 12px; background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.25);">
+            <span style="width: 26px; height: 26px; border-radius: 7px; background: #4ade80; color: #04140a; display: grid; place-items: center; font-size: 14px;">✓</span>
+            <div><div style="font-size: 12px; color: #9fe6b8;">{{ t.correctAnswer }}</div><div style="font-size: 15px; font-weight: 600;">V = I × R</div></div>
+          </div>
+        </div>
+        <div style="margin-top: 24px; background: #0c111b; border: 1px solid rgba(120,150,200,.14); border-radius: 14px; padding: 20px;">
+          <div style="color: #f5c76a; font-weight: 600; font-size: 14px; margin-bottom: 10px;">💡 {{ t.explanation }}</div>
+          <p style="margin: 0; color: #c3ccdb; font-size: 15px; line-height: 1.7;">{{ t.explBody }}</p>
+          <div style="font-family: 'Space Grotesk'; font-size: 26px; font-weight: 700; color: #f5a623; margin-top: 14px; letter-spacing: 1px;">V = I × R</div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 24px;">
+          <button onClick="{{ goResult }}" style="cursor: pointer; padding: 11px 18px; border-radius: 11px; font-weight: 600; font-size: 14px; color: #cdd6e6; background: #0c111b; border: 1px solid rgba(120,150,200,.16);">← {{ t.backToLesson }}</button>
+          <button onClick="{{ goDash }}" style="cursor: pointer; border: none; padding: 11px 22px; border-radius: 11px; font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 14px; color: #1a1204; background: linear-gradient(145deg,#f5b643,#e8790f);">{{ t.next }} →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== NOTES ===================== -->
+  <sc-if value="{{ vNotes }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="Notes" class="eb-pad-nav" style="position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; padding: 26px clamp(16px,3vw,34px) 48px;">
+    <div class="eb-split" style="display: grid; grid-template-columns: 240px 1fr; gap: 20px; align-items: start;">
+      <div style="background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(120,150,200,.14); border-radius: 18px; padding: 18px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;"><div style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 700; font-size: 15px;">🗒 {{ t.myNotes }}</div></div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <sc-for list="{{ notesList }}" as="n" hint-placeholder-count="4">
+            <div style="{{ n.style }}">{{ n.title }}</div>
+          </sc-for>
+        </div>
+        <button style="width: 100%; margin-top: 16px; cursor: pointer; border: 1px dashed rgba(120,150,200,.3); background: transparent; color: #9aa6bc; padding: 11px; border-radius: 11px; font-weight: 600; font-size: 13px;">+ {{ t.addNote }}</button>
+      </div>
+      <div style="background: linear-gradient(180deg, rgba(18,23,34,.9), rgba(11,15,23,.9)); border: 1px solid rgba(120,150,200,.14); border-radius: 18px; padding: 26px;">
+        <h2 style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-size: 22px; font-weight: 700; margin: 0 0 18px;">{{ t.ohmsLaw }}</h2>
+        <div style="background: #0c111b; border: 1px solid rgba(245,166,35,.2); border-radius: 14px; padding: 20px; margin-bottom: 20px; text-align: center;"><div style="font-family: 'Space Grotesk'; font-size: 34px; font-weight: 700; color: #f5a623; letter-spacing: 2px;">V = I × R</div></div>
+        <div style="color: #f5c76a; font-weight: 600; font-size: 14px; margin-bottom: 12px;">{{ t.keyPoints }}</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px;">
+          <sc-for list="{{ notesBody }}" as="p" hint-placeholder-count="3">
+            <div style="display: flex; gap: 10px; align-items: flex-start; color: #c3ccdb; font-size: 15px; line-height: 1.5;"><span style="color: #4ade80; margin-top: 2px;">▹</span>{{ p }}</div>
+          </sc-for>
+        </div>
+        <textarea placeholder="{{ t.addNote }}..." style="width: 100%; min-height: 90px; resize: vertical; background: #0c111b; border: 1px solid rgba(120,150,200,.16); border-radius: 12px; padding: 14px; color: #e8edf7; font-size: 14px; font-family: inherit; margin-bottom: 16px;"></textarea>
+        <div style="display: flex; gap: 12px; justify-content: flex-end;">
+          <button onClick="{{ goDash }}" style="cursor: pointer; padding: 11px 20px; border-radius: 11px; font-weight: 600; font-size: 14px; color: #cdd6e6; background: #0c111b; border: 1px solid rgba(120,150,200,.16);">{{ t.backToLesson }}</button>
+          <button style="cursor: pointer; border: none; padding: 11px 22px; border-radius: 11px; font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 14px; color: #1a1204; background: linear-gradient(145deg,#f5b643,#e8790f);">{{ t.saveNote }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== SPARK AI ===================== -->
+  <sc-if value="{{ vSpark }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="Spark AI" class="eb-pad-nav" style="position: relative; z-index: 2; max-width: 820px; margin: 0 auto; padding: 26px clamp(16px,3vw,34px) 48px;">
+    <div style="background: linear-gradient(180deg, rgba(10,26,32,.92), rgba(9,15,22,.92)); border: 1px solid rgba(34,211,238,.24); border-radius: 22px; padding: 24px; display: flex; flex-direction: column; min-height: 560px;">
+      <div style="display: flex; align-items: center; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid rgba(34,211,238,.15); margin-bottom: 20px;">
+        <div style="width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-size: 24px; background: radial-gradient(circle, rgba(34,211,238,.3), transparent 70%);">🤖</div>
+        <div><div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 18px;">Spark AI</div><div style="color: #22d3ee; font-size: 12px;">● Online</div></div>
+      </div>
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 18px;">
+        <div style="align-self: flex-end; max-width: 78%; background: linear-gradient(145deg,#f5b643,#e8790f); color: #1a1204; padding: 14px 18px; border-radius: 16px 16px 4px 16px; font-size: 15px; line-height: 1.5;">{{ t.sparkQ }}</div>
+        <div style="align-self: flex-start; max-width: 82%; display: flex; gap: 12px;">
+          <div style="width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-size: 18px; background: radial-gradient(circle, rgba(34,211,238,.3), transparent 70%); flex-shrink: 0;">🤖</div>
+          <div style="background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.2); color: #cbeef5; padding: 15px 18px; border-radius: 16px 16px 16px 4px; font-size: 15px; line-height: 1.65;">{{ t.sparkA }}</div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 14px;">
+        <span style="font-size: 13px; color: #7fe3f2; background: rgba(34,211,238,.09); border: 1px solid rgba(34,211,238,.22); border-radius: 20px; padding: 7px 14px;">{{ t.chipOhm }}</span>
+        <span style="font-size: 13px; color: #7fe3f2; background: rgba(34,211,238,.09); border: 1px solid rgba(34,211,238,.22); border-radius: 20px; padding: 7px 14px;">{{ t.chipSeries }}</span>
+        <span style="font-size: 13px; color: #7fe3f2; background: rgba(34,211,238,.09); border: 1px solid rgba(34,211,238,.22); border-radius: 20px; padding: 7px 14px;">{{ t.chipVoltage }}</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; background: #0a1119; border: 1px solid rgba(34,211,238,.2); border-radius: 13px; padding: 5px 5px 5px 16px;">
+        <input placeholder="{{ t.askPlaceholder }}" style="flex: 1; background: transparent; border: none; color: #e8edf7; font-size: 14px; padding: 11px 0; font-family: inherit;">
+        <button style="width: 42px; height: 42px; border: none; cursor: pointer; border-radius: 10px; background: linear-gradient(145deg,#22d3ee,#0891b2); color: #04141a; font-size: 17px;">➤</button>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== CONTINUE LESSON ===================== -->
+  <sc-if value="{{ vContinue }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="Continue Lesson" class="eb-pad-nav" style="position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 30px clamp(16px,3vw,34px) 48px;">
+    <div style="background: linear-gradient(180deg, rgba(18,23,34,.92), rgba(11,15,23,.92)); border: 1px solid rgba(245,166,35,.2); border-radius: 22px; padding: 26px;">
+      <div style="color: #f5a623; font-weight: 600; font-size: 13px; letter-spacing: .6px; margin-bottom: 18px;">〜 {{ t.continueLessonTitle }}</div>
+      <div style="display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-bottom: 20px;">
+        <div style="flex: 1; min-width: 150px;">
+          <div style="color: #8b97ac; font-size: 13px;">{{ t.lesson03 }}</div>
+          <div style="font-family: 'Space Grotesk','Noto Sans Devanagari'; font-size: 26px; font-weight: 700; margin: 2px 0 3px;">{{ t.ohmsLaw }}</div>
+          <div style="color: #8b97ac; font-size: 13px;">{{ t.basicElec }}</div>
+        </div>
+        <div style="width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(#f5a623 151deg, rgba(255,255,255,.07) 0);"><div style="width: 68px; height: 68px; border-radius: 50%; background: #0d121c; display: grid; place-items: center; text-align: center;"><div><div style="font-family: 'Space Grotesk'; font-weight: 700; font-size: 19px;">42<span style="font-size: 12px;">%</span></div><div style="font-size: 10px; color: #8b97ac;">{{ t.complete }}</div></div></div></div>
+      </div>
+      <div style="height: 120px; border-radius: 14px; border: 1px solid rgba(120,150,200,.14); background: repeating-linear-gradient(45deg, rgba(120,150,200,.05) 0 12px, transparent 12px 24px), #0c111b; display: grid; place-items: center; margin-bottom: 20px;"><span style="font-family: 'IBM Plex Mono'; font-size: 12px; color: #55617a;">[ breadboard photo ]</span></div>
+      <button onClick="{{ goLesson }}" style="width: 100%; cursor: pointer; border: none; padding: 14px; border-radius: 12px; font-family: 'Space Grotesk','Noto Sans Devanagari'; font-weight: 600; font-size: 15px; color: #1a1204; background: linear-gradient(145deg,#f5b643,#e8790f); box-shadow: 0 8px 24px rgba(245,166,35,.3); margin-bottom: 24px;">{{ t.continueBtn }} →</button>
+      <div style="color: #9aa6bc; font-weight: 600; font-size: 13px; margin-bottom: 14px;">{{ t.lessonProgress }}</div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <sc-for list="{{ progressSteps }}" as="s" hint-placeholder-count="5">
+          <div style="{{ s.rowStyle }}"><span style="{{ s.dotStyle }}">{{ s.mark }}</span><span style="{{ s.textStyle }}">{{ s.label }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== BOTTOM NAV (mobile) ===================== -->
+  <sc-if value="{{ showChrome }}" hint-placeholder-val="{{ true }}">
+  <div class="eb-mob" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; display: flex; background: rgba(10,13,20,.96); backdrop-filter: blur(12px); border-top: 1px solid rgba(120,150,200,.12); padding: 8px 6px calc(8px + env(safe-area-inset-bottom));">
+    <sc-for list="{{ navItems }}" as="ni" hint-placeholder-count="5">
+      <div onClick="{{ ni.onClick }}" style="{{ ni.style }}"><span style="font-size: 18px;">{{ ni.icon }}</span><span>{{ ni.label }}</span></div>
+    </sc-for>
+  </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'en', view: 'login', selected: null, tab: 0 };
+
+  en = {
+    search: "Search anything...", level: "Level 3",
+    welcome: "Welcome Back!", loginSub: "Sign in to continue your learning journey", email: "Email", password: "Password", forgot: "Forgot Password?", signIn: "Sign In", orContinue: "or continue with", noAccount: "Don't have an account?", signUp: "Sign Up",
+    greeting: "Good Evening, Sandeep 👋", greetingSub: "Welcome back to your electronics lab.", dayStreak: "Day Streak", novice: "Novice Engineer",
+    continueLearning: "CONTINUE LEARNING", lesson03: "Lesson 03", ohmsLaw: "Ohm's Law", basicElec: "Basic Electronics", complete: "Complete", resumeLesson: "Resume Lesson", lessonInfo: "Lesson Info",
+    sparkTitle: "SPARK AI TERMINAL", sparkMsg: "Need help with Ohm's Law or any electronics concept? I'm here to help!", askPlaceholder: "Ask anything about electronics...", chipOhm: "Explain Ohm's Law", chipSeries: "Series vs Parallel", chipVoltage: "What is Voltage?",
+    progressGauge: "PROGRESS GAUGE", overallProgress: "Overall Progress", lessonsCompleted: "Lessons Completed", quizzesPassed: "Quizzes Passed", timeLearned: "Time Learned",
+    courseLibrary: "COURSE LIBRARY", viewAll: "View All", activityTimeline: "ACTIVITY TIMELINE", viewFullActivity: "View Full Activity", achievementsLabel: "ACHIEVEMENTS", weeklyGoal: "WEEKLY GOAL", lessons: "Lessons", doingGreat: "You're doing great! 🚀", viewGoals: "View Goals",
+    lessonContent: "Lesson Content", ohmFormula: "Ohm's Law Formula", ohmBody: "Ohm's Law states that the current through a conductor between two points is directly proportional to the voltage across the two points.", where: "Where,", vVolt: "V = Voltage (Volts)", iCurr: "I = Current (Amperes)", rRes: "R = Resistance (Ohms)", askSpark: "Ask Spark AI", notesBtn: "Notes", bookmark: "Bookmark", prev: "Previous", next: "Next", takeQuiz: "Take Quiz",
+    quiz: "Quiz", quizName: "Ohm's Law Quiz", questionOf: "Question 2 of 10", quizQ: "According to Ohm's Law, which of the following is correct?", showExplanation: "View Explanation", answered: "Answered", current: "Current",
+    greatJob: "Great Job! 🎉", scoredOut: "You scored 9 out of 10", correct: "Correct", incorrect: "Incorrect", timeTaken: "Time Taken", reviewAnswers: "Review Answers", backToLesson: "Back to Lesson", keepPracticing: "Keep practicing to achieve 100%!",
+    mcqReview: "MCQ Review", reviewQ: "Q2. According to Ohm's Law, which of the following is correct?", yourAnswer: "Your Answer", correctAnswer: "Correct Answer", explanation: "Explanation", explBody: "Ohm's Law states that voltage (V) equals current (I) multiplied by resistance (R).",
+    myNotes: "My Notes", keyPoints: "Key Points", addNote: "Add New Note", saveNote: "Save Note",
+    sparkQ: "Explain why resistance affects the voltage in a circuit?", sparkA: "Great question! According to Ohm's Law (V = I × R), if current stays constant and resistance (R) increases, the voltage (V) across the component also increases. Resistance opposes the flow of current, creating a voltage drop. Would you like a worked example?",
+    continueLessonTitle: "Continue Lesson", lessonProgress: "Lesson Progress", continueBtn: "Continue",
+    navHome: "Home", navLessons: "Courses", navSpark: "Spark", navQuiz: "Quiz", navNotes: "Notes",
+    courses: [
+      { name: "Basic Electronics", lessons: "12 / 28 Lessons", pct: 43, color: "#f5a623", tag: "IC CHIP", bg: "linear-gradient(135deg,#3a2a10,#1a1206)" },
+      { name: "Analog Electronics", lessons: "8 / 24 Lessons", pct: 33, color: "#4ade80", tag: "WAVEFORM", bg: "linear-gradient(135deg,#0f2a1c,#08160f)" },
+      { name: "Digital Electronics", lessons: "6 / 26 Lessons", pct: 23, color: "#22d3ee", tag: "1010 LOGIC", bg: "linear-gradient(135deg,#0d2630,#081319)" },
+      { name: "Sensors & Actuators", lessons: "2 / 18 Lessons", pct: 11, color: "#a78bfa", tag: "SENSOR", bg: "linear-gradient(135deg,#241a34,#120d1c)" },
+    ],
+    activities: [
+      { icon: "✓", color: "#4ade80", bg: "rgba(74,222,128,.14)", title: "Completed Lesson 02", sub: "Kirchhoff's Voltage Law", time: "2h ago" },
+      { icon: "☑", color: "#22d3ee", bg: "rgba(34,211,238,.14)", title: "Quiz Score: 90%", sub: "Ohm's Law Quiz", time: "5h ago" },
+      { icon: "▶", color: "#f5a623", bg: "rgba(245,166,35,.14)", title: "Started Lesson 03", sub: "Ohm's Law", time: "Yesterday" },
+    ],
+    achievements: [
+      { icon: "Ω", color: "#f5a623", bg: "rgba(245,166,35,.12)", border: "rgba(245,166,35,.3)", title: "Ohm's Expert", sub: "Score 90% in Ohm's Law Quiz" },
+      { icon: "📅", color: "#22d3ee", bg: "rgba(34,211,238,.12)", border: "rgba(34,211,238,.3)", title: "Consistent Learner", sub: "Maintain a 7 day learning streak" },
+      { icon: "⬡", color: "#4ade80", bg: "rgba(74,222,128,.12)", border: "rgba(74,222,128,.3)", title: "Circuit Explorer", sub: "Complete 10 lessons" },
+    ],
+    lessonSteps: [
+      { n: 1, label: "Introduction" }, { n: 2, label: "What is Resistance?" }, { n: 3, label: "Ohm's Law Formula", cur: true }, { n: 4, label: "Real Life Examples" }, { n: 5, label: "Solved Examples" }, { n: 6, label: "Summary" },
+    ],
+    lessonTabLabels: ["Lesson", "Explanation", "Simulation", "Notes"],
+    quizOptions: ["V = I / R", "V = I × R", "R = V − I", "I = V ÷ R"],
+    notesList: [{ title: "Ohm's Law", cur: true }, { title: "Kirchhoff's Laws" }, { title: "Series Circuit" }, { title: "Parallel Circuit" }],
+    notesBody: ["Voltage is directly proportional to current.", "Resistance stays constant for a given conductor.", "Units: V (Volt), I (Ampere), R (Ohm)."],
+    reviewLabels: ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6"],
+    progressSteps: [
+      { label: "Introduction", done: true }, { label: "What is Resistance?", done: true }, { label: "Ohm's Law Formula", cur: true }, { label: "Real Life Examples" }, { label: "Solved Examples" },
+    ],
+  };
+
+  hi = {
+    search: "यहाँ खोजें...", level: "लेवल 3",
+    welcome: "स्वागत है!", loginSub: "अपने सीखने की यात्रा शुरू करने के लिए लॉगिन करें", email: "ईमेल", password: "पासवर्ड", forgot: "पासवर्ड भूल गए?", signIn: "लॉगिन करें", orContinue: "या इनसे लॉगिन करें", noAccount: "खाता नहीं है?", signUp: "साइन अप करें",
+    greeting: "नमस्ते, संदीप! 👋", greetingSub: "आज कुछ नया सीखते हैं।", dayStreak: "दिन की स्ट्रीक", novice: "नॉविस इंजीनियर",
+    continueLearning: "जारी रखें", lesson03: "पाठ 03", ohmsLaw: "ओम का नियम", basicElec: "बेसिक इलेक्ट्रॉनिक्स", complete: "पूर्ण", resumeLesson: "पाठ जारी रखें", lessonInfo: "पाठ जानकारी",
+    sparkTitle: "स्पार्क AI असिस्टेंट", sparkMsg: "ओम के नियम या किसी भी इलेक्ट्रॉनिक्स अवधारणा में मदद चाहिए? मैं यहाँ मदद के लिए हूँ!", askPlaceholder: "इलेक्ट्रॉनिक्स के बारे में कुछ भी पूछें...", chipOhm: "ओम का नियम", chipSeries: "सीरीज़ vs पैरलल", chipVoltage: "वोल्टेज क्या है?",
+    progressGauge: "प्रगति (प्रोग्रेस गेज)", overallProgress: "कुल प्रगति", lessonsCompleted: "पाठ पूरे", quizzesPassed: "क्विज़ पूरे", timeLearned: "समय सीखा",
+    courseLibrary: "कोर्स लाइब्रेरी", viewAll: "सभी देखें", activityTimeline: "गतिविधि", viewFullActivity: "सभी गतिविधियाँ देखें", achievementsLabel: "उपलब्धियां", weeklyGoal: "साप्ताहिक लक्ष्य", lessons: "पाठ", doingGreat: "आप बहुत अच्छा कर रहे हैं! 🚀", viewGoals: "लक्ष्य देखें",
+    lessonContent: "पाठ सामग्री", ohmFormula: "ओम का नियम सूत्र", ohmBody: "ओम के नियम के अनुसार, किसी चालक में बहने वाली धारा उस पर लगे वोल्टेज के समानुपाती होती है।", where: "जहाँ,", vVolt: "V = वोल्टेज (वोल्ट)", iCurr: "I = धारा (एम्पियर)", rRes: "R = प्रतिरोध (ओम)", askSpark: "स्पार्क AI से पूछें", notesBtn: "नोट्स", bookmark: "बुकमार्क", prev: "पिछला", next: "अगला", takeQuiz: "क्विज़ लें",
+    quiz: "क्विज़", quizName: "ओम का नियम क्विज़", questionOf: "प्रश्न 2 / 10", quizQ: "ओम के नियम का सही सूत्र क्या है?", showExplanation: "व्याख्या देखें", answered: "उत्तर दिया", current: "वर्तमान",
+    greatJob: "शानदार! 🎉", scoredOut: "आपने 10 में से 9 पास किया", correct: "सही उत्तर", incorrect: "गलत", timeTaken: "समय लिया", reviewAnswers: "उत्तर समीक्षा करें", backToLesson: "पाठ पर वापस जाएं", keepPracticing: "100% पाने के लिए अभ्यास जारी रखें!",
+    mcqReview: "उत्तर समीक्षा", reviewQ: "प्रश्न 2. ओम के नियम का सही सूत्र क्या है?", yourAnswer: "आपका उत्तर", correctAnswer: "सही उत्तर", explanation: "व्याख्या", explBody: "ओम के नियम के अनुसार, वोल्टेज (V) धारा (I) और प्रतिरोध (R) के गुणनफल के बराबर होता है।",
+    myNotes: "मेरे नोट्स", keyPoints: "मुख्य बिंदु", addNote: "नया नोट जोड़ें", saveNote: "नोट सहेजें",
+    sparkQ: "समझाएं कि प्रतिरोध सर्किट में वोल्टेज को कैसे प्रभावित करता है?", sparkA: "बढ़िया सवाल! ओम के नियम (V = I × R) के अनुसार, यदि धारा स्थिर रहे और प्रतिरोध (R) बढ़े, तो कंपोनेंट पर वोल्टेज (V) भी बढ़ जाता है। प्रतिरोध धारा के प्रवाह का विरोध करता है, जिससे वोल्टेज ड्रॉप बनता है। क्या आप एक उदाहरण देखना चाहेंगे?",
+    continueLessonTitle: "जारी रखें", lessonProgress: "पाठ प्रगति", continueBtn: "पाठ जारी रखें",
+    navHome: "होम", navLessons: "कोर्स", navSpark: "स्पार्क", navQuiz: "क्विज़", navNotes: "नोट्स",
+    courses: [
+      { name: "बेसिक इलेक्ट्रॉनिक्स", lessons: "12 / 28 पाठ", pct: 43, color: "#f5a623", tag: "IC CHIP", bg: "linear-gradient(135deg,#3a2a10,#1a1206)" },
+      { name: "एनालॉग इलेक्ट्रॉनिक्स", lessons: "8 / 24 पाठ", pct: 33, color: "#4ade80", tag: "WAVEFORM", bg: "linear-gradient(135deg,#0f2a1c,#08160f)" },
+      { name: "डिजिटल इलेक्ट्रॉनिक्स", lessons: "6 / 26 पाठ", pct: 23, color: "#22d3ee", tag: "1010 LOGIC", bg: "linear-gradient(135deg,#0d2630,#081319)" },
+      { name: "सेंसर और एक्चुएटर्स", lessons: "2 / 18 पाठ", pct: 11, color: "#a78bfa", tag: "SENSOR", bg: "linear-gradient(135deg,#241a34,#120d1c)" },
+    ],
+    activities: [
+      { icon: "✓", color: "#4ade80", bg: "rgba(74,222,128,.14)", title: "पाठ 02 पूरा किया", sub: "किरचॉफ वोल्टेज नियम", time: "2 घं. पहले" },
+      { icon: "☑", color: "#22d3ee", bg: "rgba(34,211,238,.14)", title: "क्विज़ स्कोर: 90%", sub: "ओम का नियम क्विज़", time: "5 घं. पहले" },
+      { icon: "▶", color: "#f5a623", bg: "rgba(245,166,35,.14)", title: "पाठ 03 शुरू किया", sub: "ओम का नियम", time: "कल" },
+    ],
+    achievements: [
+      { icon: "Ω", color: "#f5a623", bg: "rgba(245,166,35,.12)", border: "rgba(245,166,35,.3)", title: "ओम एक्सपर्ट", sub: "ओम क्विज़ में 90% स्कोर करें" },
+      { icon: "📅", color: "#22d3ee", bg: "rgba(34,211,238,.12)", border: "rgba(34,211,238,.3)", title: "निरंतर सीखने वाला", sub: "7 दिन की स्ट्रीक बनाए रखें" },
+      { icon: "⬡", color: "#4ade80", bg: "rgba(74,222,128,.12)", border: "rgba(74,222,128,.3)", title: "सर्किट एक्सप्लोरर", sub: "10 पाठ पूरे करें" },
+    ],
+    lessonSteps: [
+      { n: 1, label: "परिचय" }, { n: 2, label: "प्रतिरोध क्या है?" }, { n: 3, label: "ओम का नियम सूत्र", cur: true }, { n: 4, label: "रियल लाइफ उदाहरण" }, { n: 5, label: "हल किए उदाहरण" }, { n: 6, label: "सारांश" },
+    ],
+    lessonTabLabels: ["पाठ", "व्याख्या", "सिमुलेशन", "नोट्स"],
+    quizOptions: ["V = I / R", "V = I × R", "R = V − I", "I = V ÷ R"],
+    notesList: [{ title: "ओम का नियम", cur: true }, { title: "किरचॉफ के नियम" }, { title: "सीरीज़ सर्किट" }, { title: "पैरलल सर्किट" }],
+    notesBody: ["वोल्टेज धारा के समानुपाती होता है।", "किसी चालक के लिए प्रतिरोध स्थिर रहता है।", "इकाइयाँ: V (वोल्ट), I (एम्पियर), R (ओम)।"],
+    reviewLabels: ["प्र1", "प्र2", "प्र3", "प्र4", "प्र5", "प्र6"],
+    progressSteps: [
+      { label: "परिचय", done: true }, { label: "प्रतिरोध क्या है?", done: true }, { label: "ओम का नियम सूत्र", cur: true }, { label: "रियल लाइफ उदाहरण" }, { label: "हल किए उदाहरण" },
+    ],
+  };
+
+  renderVals() {
+    const lang = this.state.lang, v = this.state.view;
+    const d = lang === 'hi' ? this.hi : this.en;
+    const onS = "background:linear-gradient(145deg,#f5b643,#e8790f);color:#1a1204;";
+    const offS = "background:transparent;color:#9aa6bc;";
+    const togBase = "padding:6px 14px;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer;border:none;white-space:nowrap;";
+    const togBaseSm = "padding:5px 10px;border-radius:7px;font-weight:600;font-size:12px;cursor:pointer;border:none;";
+
+    const stepBase = "padding:11px 12px;border-radius:10px;font-size:13px;color:#9aa6bc;cursor:pointer;";
+    const stepCur = "padding:11px 12px;border-radius:10px;font-size:13px;color:#f5c76a;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.25);font-weight:600;cursor:pointer;";
+    const lessonSteps = d.lessonSteps.map(s => ({ n: s.n, label: s.label, style: s.cur ? stepCur : stepBase }));
+
+    const tabActive = "cursor:pointer;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;color:#1a1204;background:linear-gradient(145deg,#f5b643,#e8790f);";
+    const tabIdle = "cursor:pointer;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:500;color:#9aa6bc;background:#0c111b;border:1px solid rgba(120,150,200,.16);";
+    const lessonTabs = d.lessonTabLabels.map((label, i) => ({ label, style: this.state.tab === i ? tabActive : tabIdle, onClick: () => this.setState({ tab: i }) }));
+
+    const noteBase = "padding:11px 12px;border-radius:10px;font-size:13px;color:#c3ccdb;cursor:pointer;";
+    const noteCur = "padding:11px 12px;border-radius:10px;font-size:13px;color:#f5c76a;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.22);font-weight:600;cursor:pointer;";
+    const notesList = d.notesList.map(n => ({ title: n.title, style: n.cur ? noteCur : noteBase }));
+
+    const qOptBase = "display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:13px;cursor:pointer;font-size:15px;border:1px solid rgba(120,150,200,.16);background:#0c111b;color:#cdd6e6;";
+    const qOptSel = "display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:13px;cursor:pointer;font-size:15px;border:1px solid #22d3ee;background:rgba(34,211,238,.12);color:#e8f8fc;";
+    const letBase = "width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:14px;border:1px solid rgba(120,150,200,.3);color:#9aa6bc;flex-shrink:0;";
+    const letSel = "width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:14px;background:#22d3ee;color:#04141a;flex-shrink:0;";
+    const quizOpts = d.quizOptions.map((text, i) => ({ text, letter: "ABCD"[i], style: this.state.selected === i ? qOptSel : qOptBase, letterStyle: this.state.selected === i ? letSel : letBase, onClick: () => this.setState({ selected: i }) }));
+
+    const navCellBase = "flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:6px 0;font-size:11px;";
+    const navDefs = [["dashboard", "🏠", "navHome"], ["lesson", "📖", "navLessons"], ["spark", "🤖", "navSpark"], ["quiz", "✎", "navQuiz"], ["notes", "🗒", "navNotes"]];
+    const navItems = navDefs.map(([key, icon, lk]) => ({ key, icon, label: d[lk], style: navCellBase + (v === key ? "color:#f5a623;" : "color:#7c8aa3;"), onClick: () => this.setState({ view: key, selected: null }) }));
+
+    // quiz question navigator 1-10 (Q1 answered, Q2 current)
+    const qnBase = "aspect-ratio:1;display:grid;place-items:center;border-radius:8px;font-size:13px;font-weight:600;background:#0c111b;border:1px solid rgba(120,150,200,.14);color:#9aa6bc;";
+    const qnAns = "aspect-ratio:1;display:grid;place-items:center;border-radius:8px;font-size:13px;font-weight:600;background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.4);color:#4ade80;";
+    const qnCur = "aspect-ratio:1;display:grid;place-items:center;border-radius:8px;font-size:13px;font-weight:700;background:rgba(34,211,238,.18);border:1px solid #22d3ee;color:#22d3ee;";
+    const quizNav = [1,2,3,4,5,6,7,8,9,10].map(n => ({ n, style: n === 1 ? qnAns : (n === 2 ? qnCur : qnBase) }));
+
+    // course tiles (precomputed style strings)
+    const courses = d.courses.map(c => ({
+      name: c.name, lessons: c.lessons, tag: c.tag,
+      tileStyle: "height:96px;border-radius:13px;border:1px solid rgba(120,150,200,.14);background:" + c.bg + ";display:grid;place-items:center;margin-bottom:11px;",
+      barStyle: "height:100%;width:" + c.pct + "%;border-radius:20px;background:" + c.color + ";",
+    }));
+
+    // activity timeline (precomputed icon style)
+    const activities = d.activities.map(a => ({
+      icon: a.icon, title: a.title, sub: a.sub, time: a.time,
+      iconStyle: "width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:14px;flex-shrink:0;background:" + a.bg + ";color:" + a.color + ";",
+    }));
+
+    // achievements (precomputed icon style)
+    const achievements = d.achievements.map(a => ({
+      icon: a.icon, title: a.title, sub: a.sub,
+      iconStyle: "width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:18px;flex-shrink:0;background:" + a.bg + ";color:" + a.color + ";border:1px solid " + a.border + ";",
+    }));
+
+    // review side nav (precomputed style strings)
+    const reviewNav = d.reviewLabels.map((label, i) => {
+      const wrong = i === 1;
+      const color = wrong ? "#ef6b6b" : "#4ade80";
+      const bg = wrong ? "rgba(239,68,68,.1)" : "rgba(74,222,128,.08)";
+      const border = wrong ? "rgba(239,68,68,.25)" : "rgba(74,222,128,.2)";
+      return {
+        label, mark: wrong ? "✕" : "✓",
+        rowStyle: "display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:10px;font-size:13px;background:" + bg + ";border:1px solid " + border + ";",
+        markStyle: "color:" + color + ";",
+      };
+    });
+
+    // continue lesson progress steps (precomputed style strings)
+    const progressSteps = d.progressSteps.map(s => {
+      const dotBg = s.done ? "#4ade80" : (s.cur ? "#f5a623" : "rgba(120,150,200,.15)");
+      const dotColor = s.done ? "#04140a" : (s.cur ? "#1a1204" : "#8b97ac");
+      const textColor = s.done || s.cur ? "#e8edf7" : "#8b97ac";
+      return {
+        label: s.label, mark: s.done ? "✓" : "",
+        rowStyle: "display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:11px;background:" + (s.cur ? "rgba(245,166,35,.1)" : "transparent") + ";",
+        dotStyle: "width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;background:" + dotBg + ";color:" + dotColor + ";",
+        textStyle: "font-size:14px;color:" + textColor + ";",
+      };
+    });
+
+    return {
+      t: d, lang,
+      enStyle: togBase + (lang === 'en' ? onS : offS), hiStyle: togBase + (lang === 'hi' ? onS : offS),
+      enStyleSm: togBaseSm + (lang === 'en' ? onS : offS), hiStyleSm: togBaseSm + (lang === 'hi' ? onS : offS),
+      setEn: () => this.setState({ lang: 'en' }), setHi: () => this.setState({ lang: 'hi' }),
+      isLogin: v === 'login', showChrome: v !== 'login',
+      vDash: v === 'dashboard', vLesson: v === 'lesson', vQuiz: v === 'quiz', vResult: v === 'result', vReview: v === 'review', vNotes: v === 'notes', vSpark: v === 'spark', vContinue: v === 'continue',
+      goDash: () => this.setState({ view: 'dashboard', selected: null }),
+      goLesson: () => this.setState({ view: 'lesson' }),
+      goQuiz: () => this.setState({ view: 'quiz' }),
+      goResult: () => this.setState({ view: 'result' }),
+      goReview: () => this.setState({ view: 'review' }),
+      goNotes: () => this.setState({ view: 'notes' }),
+      goSpark: () => this.setState({ view: 'spark' }),
+      goContinue: () => this.setState({ view: 'continue' }),
+      logout: () => this.setState({ view: 'login' }),
+      courses, activities, achievements,
+      lessonSteps, lessonTabs, notesList, notesBody: d.notesBody, quizOpts, quizNav, reviewNav, progressSteps, navItems,
+    };
+  }
+}
+</script>
+</body>
+</html>

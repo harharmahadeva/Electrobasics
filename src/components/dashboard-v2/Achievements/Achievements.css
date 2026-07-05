@@ -1,0 +1,85 @@
+.achievements {
+  min-width: 240px;
+  background: linear-gradient(180deg, var(--eb-surface-card-from), var(--eb-surface-card-to));
+  border: 1px solid var(--eb-border-subtle);
+  border-radius: var(--eb-radius-card);
+  padding: var(--eb-pad-card);
+}
+
+.ach-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.ach-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--eb-amber);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+}
+
+.ach-header a {
+  color: var(--eb-cyan);
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ach-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ach-item {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--eb-border-subtle);
+}
+
+.ach-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ach-item:first-child {
+  padding-top: 0;
+}
+
+.ach-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: rgba(245, 166, 35, 0.12);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  color: var(--eb-amber);
+}
+
+.ach-item:nth-child(3) .ach-icon {
+  background: rgba(74, 222, 128, 0.12);
+  border-color: rgba(74, 222, 128, 0.3);
+  color: var(--eb-green);
+}
+
+.ach-item strong {
+  display: block;
+  font-family: var(--eb-font-display);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ach-item small {
+  display: block;
+  color: var(--eb-text-secondary);
+  font-size: 12px;
+  margin-top: 2px;
+}

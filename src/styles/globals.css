@@ -1,0 +1,55 @@
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./animations.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--eb-bg);
+  color: var(--eb-text-primary);
+  font-family: var(--eb-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::placeholder {
+  color: var(--eb-text-muted-2);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+.eb-shell {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  color: var(--eb-text-primary);
+  background:
+    radial-gradient(1100px 700px at 12% -5%, rgba(245, 166, 35, 0.1), transparent 60%),
+    radial-gradient(1000px 700px at 95% 8%, rgba(120, 90, 240, 0.12), transparent 60%),
+    radial-gradient(900px 800px at 60% 110%, rgba(34, 211, 238, 0.08), transparent 55%),
+    var(--eb-bg);
+}
+
+.eb-shell-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(90, 120, 170, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 120, 170, 0.05) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 40%, transparent 90%);
+}

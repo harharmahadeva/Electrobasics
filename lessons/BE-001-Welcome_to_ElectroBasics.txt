@@ -1,0 +1,409 @@
+# ElectroBasics | Basic Electronics Bootcamp
+# Lesson BE-001 : Welcome to ElectroBasics / इलेक्ट्रोबेसिक्स में आपका स्वागत है
+
+============================================================
+METADATA
+============================================================
+
+Course: Basic Electronics Bootcamp
+Module: Module 01 – Welcome & Electronics Lab
+Lesson ID: BE-001
+Difficulty: Beginner / शुरुआती
+Estimated Duration: 25 Minutes
+XP Reward: 30 XP
+Achievement Badge: Welcome Explorer 🚀
+Language: English + Hindi
+Audience: Absolute beginner students
+
+============================================================
+LESSON PURPOSE
+============================================================
+
+This lesson is written for a learner who may have never touched electronic components before. Keep all explanations practical, visual and friendly. The lesson must combine text, real images, diagrams, Spark AI support and hands-on activity.
+
+यह पाठ ऐसे विद्यार्थी के लिए है जिसने शायद पहले कभी इलेक्ट्रॉनिक घटकों को हाथ नहीं लगाया। भाषा सरल, दृश्य और प्रैक्टिकल होनी चाहिए।
+
+============================================================
+LEARNING OBJECTIVES | सीखने के उद्देश्य
+============================================================
+
+English
+• Understand what ElectroBasics is and why electronics matters.
+• Know how the beginner bootcamp is structured.
+• Understand how Spark AI will help during lessons.
+• Learn how visual assets, labs, quizzes and projects work together.
+• Feel confident starting from absolute zero.
+
+हिन्दी
+• समझना कि ElectroBasics क्या है और इलेक्ट्रॉनिक्स क्यों महत्वपूर्ण है।
+• बिगिनर बूटकैंप की संरचना समझना।
+• Spark AI कैसे सहायता करेगा यह जानना।
+• चित्र, लैब, क्विज़ और प्रोजेक्ट साथ में कैसे काम करते हैं समझना।
+• बिल्कुल शुरुआत से सीखने का आत्मविश्वास पाना।
+
+============================================================
+REAL-LIFE PROBLEM | वास्तविक जीवन की समस्या
+============================================================
+
+English
+A complete beginner wants to learn electronics but does not know where to start, what tools are needed, what is safe, or how circuits are built. This first lesson removes that confusion and gives the learner a clear path.
+
+हिन्दी
+एक बिल्कुल शुरुआती विद्यार्थी इलेक्ट्रॉनिक्स सीखना चाहता है, लेकिन उसे नहीं पता कि शुरुआत कहाँ से करे, कौन से उपकरण चाहिए, सुरक्षा कैसे रखनी है और सर्किट कैसे बनते हैं। यह पहला पाठ इस भ्रम को दूर करता है।
+
+Teaching Note:
+Start the lesson with this problem. Do not begin with a definition. Beginners learn faster when they first understand why the topic matters.
+
+============================================================
+BEGINNER-FRIENDLY THEORY | शुरुआती सिद्धांत
+============================================================
+
+English
+Electronics is the practice of controlling electricity using components such as resistors, LEDs, capacitors, sensors, ICs and microcontrollers. Electronics is present in mobile phones, laptops, routers, washing machines, cars, medical devices, robots and satellites.
+
+ElectroBasics is designed as a practical learning journey. You will not only read theory; you will see real components, study clear infographics, use interactive simulations, build circuits on a breadboard, answer quizzes and ask Spark whenever you get stuck.
+
+The course begins with safety and tools because beginners should know how to work correctly before connecting power. After that, you will learn electricity, voltage, current, resistance, Ohm's Law, real electronic components, circuit building, measurements, troubleshooting and mini projects.
+
+The most important rule: you do not need to memorize everything on day one. Electronics becomes easy when you see, touch, build, test and repeat.
+
+हिन्दी
+इलेक्ट्रॉनिक्स वह विधा है जिसमें रेसिस्टर, LED, कैपेसिटर, सेंसर, IC और माइक्रोकंट्रोलर जैसे घटकों की सहायता से बिजली को नियंत्रित किया जाता है। यह मोबाइल, लैपटॉप, राउटर, वॉशिंग मशीन, कार, मेडिकल उपकरण, रोबोट और उपग्रहों में मौजूद है।
+
+ElectroBasics एक प्रैक्टिकल सीखने की यात्रा है। यहाँ आप केवल सिद्धांत नहीं पढ़ेंगे; आप वास्तविक घटक देखेंगे, साफ इन्फोग्राफिक समझेंगे, इंटरैक्टिव सिमुलेशन उपयोग करेंगे, ब्रेडबोर्ड पर सर्किट बनाएँगे, क्विज़ हल करेंगे और अटकने पर Spark से पूछेंगे।
+
+कोर्स सुरक्षा और उपकरणों से शुरू होता है क्योंकि पावर जोड़ने से पहले सही तरीके से काम करना सीखना ज़रूरी है। फिर आप बिजली, वोल्टेज, धारा, प्रतिरोध, ओम का नियम, वास्तविक घटक, सर्किट बनाना, मापन, समस्या समाधान और मिनी प्रोजेक्ट सीखेंगे।
+
+Teacher Tone:
+Use short sentences. Avoid unnecessary formulas unless the lesson needs them. Whenever a new technical word appears, Spark should explain it using the glossary.
+
+============================================================
+GUIDED VISUAL LEARNING FLOW
+============================================================
+
+Recommended lesson page flow:
+
+1. Hero image
+2. Real-life problem
+3. Learning objectives
+4. Main infographic or annotated image
+5. Spark guided explanation
+6. Real photo gallery
+7. Interactive activity / simulator
+8. Practical lab
+9. Common mistakes
+10. Troubleshooting
+11. Quiz
+12. Homework
+13. Summary
+14. Achievement
+
+Mobile Rule:
+Never show a large infographic as one unreadable image on mobile. Slice it into cards or provide zoom/pinch.
+
+============================================================
+INTERACTIVE ACTIVITY / SIMULATOR
+============================================================
+
+Course Roadmap Explorer. The learner taps each module card: Safety, Tools, Electricity, Components, Breadboard, Measurements, Projects and Certificate. Spark explains what the module contains and why it appears in that order.
+
+Implementation Notes:
+For MVP, this can be a static interactive-looking card. Later it can become a real simulator. Include Spark hints and a “Show me why” button.
+
+============================================================
+PRACTICAL LAB | प्रैक्टिकल लैब
+============================================================
+
+Find five electronic devices at home. For each device, write what it does, how it gets power, and what kind of electronics may be inside. Example: TV remote uses batteries and probably has a small PCB, buttons, LED and IC.
+
+Safety Reminder:
+Before any wiring or measurement, power must be OFF unless the step explicitly says to power ON. Check polarity. Ask Spark if unsure.
+
+============================================================
+COMMON BEGINNER MISTAKES | सामान्य शुरुआती गलतियाँ
+============================================================
+
+• Thinking electronics is only for engineers.
+• Trying to jump directly into advanced robotics or AI before learning basics.
+• Skipping safety and tools.
+• Memorizing words without building or observing real circuits.
+
+============================================================
+TROUBLESHOOTING GUIDE | समस्या समाधान
+============================================================
+
+• If the course feels too large, Spark should split it into weekly goals.
+• If the learner has no tools yet, Spark should suggest the minimum starter kit.
+• If the learner is afraid of making mistakes, Spark should remind them that beginner circuits are designed to be safe and guided.
+
+============================================================
+IMAGE / ASSET PLAN
+============================================================
+
+Important:
+Every image below must have a teaching role. The filename should be used exactly so Claude can wire the lesson page to the correct assets.
+
+
+Asset 01
+
+Filename:
+be001-hero.png
+
+Asset Type:
+Hero banner / realistic photo
+
+Where / When to Use:
+Top of lesson page
+
+Purpose:
+Create excitement and show the electronics-learning environment.
+
+Prompt to Generate:
+Premium electronics learning workbench viewed from above, breadboard, digital multimeter, red LED glowing, resistor kit, jumper wires, PCB with faint cyan traces, warm amber light, dark cinematic background, beginner friendly, no text, no watermark.
+
+Claude Implementation Notes:
+Full-width on desktop. On mobile, crop around breadboard + LED + multimeter.
+Images must be used as learning objects, not decoration. Add captions. On mobile, large posters should be converted into swipeable sections or zoomable panels. Add Spark explanation beside or below each important image.
+
+
+Asset 02
+
+Filename:
+be001-course-roadmap.png
+
+Asset Type:
+Educational infographic
+
+Where / When to Use:
+After introduction
+
+Purpose:
+Show complete journey from zero to certificate.
+
+Prompt to Generate:
+Clean beginner electronics course roadmap infographic with steps: Welcome, Safety, Tools, Electricity, Components, Breadboard, Measurements, Projects, Certificate; dark navy background, cyan and amber accents, large readable text, no branding.
+
+Claude Implementation Notes:
+Desktop can show full poster. Mobile should slice into vertical roadmap cards.
+Images must be used as learning objects, not decoration. Add captions. On mobile, large posters should be converted into swipeable sections or zoomable panels. Add Spark explanation beside or below each important image.
+
+
+Asset 03
+
+Filename:
+be001-real-life-electronics.png
+
+Asset Type:
+Photo collage
+
+Where / When to Use:
+Real-life examples section
+
+Purpose:
+Show that electronics exists everywhere.
+
+Prompt to Generate:
+Photo collage of smartphone, laptop, WiFi router, washing machine control panel, LED bulb, car dashboard, medical monitor, clean modern educational layout, no logos, no watermark.
+
+Claude Implementation Notes:
+Use as 2-column gallery on desktop and swipe cards on mobile.
+Images must be used as learning objects, not decoration. Add captions. On mobile, large posters should be converted into swipeable sections or zoomable panels. Add Spark explanation beside or below each important image.
+
+
+Asset 04
+
+Filename:
+be001-spark-welcome.png
+
+Asset Type:
+Mascot PNG
+
+Where / When to Use:
+Spark AI introduction
+
+Purpose:
+Introduce Spark as friendly AI mentor.
+
+Prompt to Generate:
+Cute small white and silver robot mascot with glowing cyan eyes waving hello, friendly smile, transparent background, premium 3D render, no text.
+
+Claude Implementation Notes:
+Place next to Spark explanation card.
+Images must be used as learning objects, not decoration. Add captions. On mobile, large posters should be converted into swipeable sections or zoomable panels. Add Spark explanation beside or below each important image.
+
+
+============================================================
+SPARK AI ROLE FOR THIS LESSON
+============================================================
+
+Spark should:
+• Explain the topic in simple English and Hindi.
+• Ask the learner to observe the images.
+• Point out the most important visual details.
+• Give hints before giving answers.
+• Encourage safe habits.
+• Avoid advanced topics unless the learner asks, and even then keep it brief.
+
+Spark should not:
+• Overwhelm the learner with advanced math.
+• Skip safety.
+• Assume prior knowledge.
+• Use images as decoration only.
+
+============================================================
+SPARK GLOSSARY | Spark शब्दावली
+============================================================
+
+Electronics | इलेक्ट्रॉनिक्स
+Meaning: Technology that controls electricity using components and circuits.
+Beginner Example: Spark should show this word using the lesson images and real-life examples.
+
+Circuit | सर्किट
+Meaning: A complete path that allows electricity to flow.
+Beginner Example: Spark should show this word using the lesson images and real-life examples.
+
+Component | घटक
+Meaning: A part used in a circuit, such as resistor or LED.
+Beginner Example: Spark should show this word using the lesson images and real-life examples.
+
+Breadboard | ब्रेडबोर्ड
+Meaning: Reusable board for building circuits without soldering.
+Beginner Example: Spark should show this word using the lesson images and real-life examples.
+
+Spark | स्पार्क
+Meaning: ElectroBasics AI mentor.
+Beginner Example: Spark should show this word using the lesson images and real-life examples.
+
+============================================================
+SPARK SYSTEM PROMPT
+============================================================
+
+You are Spark, the ElectroBasics AI mentor.
+
+You are teaching Lesson BE-001: Welcome to ElectroBasics / इलेक्ट्रोबेसिक्स में आपका स्वागत है.
+
+Rules:
+1. Teach only this lesson's scope.
+2. Use beginner-friendly English and Hindi.
+3. Use real-life analogies.
+4. Refer to the listed images and diagrams.
+5. Ask short checking questions.
+6. Do not jump to advanced topics.
+7. If the learner is confused, simplify and use an example.
+8. If the learner asks for practical work, remind them of safety first.
+
+============================================================
+SPARK SUGGESTED PROMPTS
+============================================================
+
+English:
+• Explain this lesson in very simple words.
+• What should I notice in the main image?
+• Give me one real-life example.
+• Ask me three practice questions.
+• What mistake should I avoid?
+• Explain this in Hindi also.
+• How is this used in a real electronics lab?
+• Give me a memory trick.
+
+हिन्दी:
+• इस पाठ को बहुत सरल भाषा में समझाइए।
+• मुख्य चित्र में मुझे क्या देखना चाहिए?
+• एक वास्तविक उदाहरण दीजिए।
+• मुझसे तीन अभ्यास प्रश्न पूछिए।
+• मुझे कौन-सी गलती से बचना चाहिए?
+• इसे अंग्रेज़ी में भी समझाइए।
+• यह वास्तविक इलेक्ट्रॉनिक्स लैब में कैसे उपयोग होता है?
+• याद रखने की आसान ट्रिक बताइए।
+
+============================================================
+QUIZ | प्रश्नोत्तरी
+============================================================
+
+Q1. What is ElectroBasics mainly designed to teach?
+Answer: Electronics through practical, visual and interactive learning.
+Explanation: This question checks basic understanding and should be shown with a simple hint if the learner is wrong.
+
+Q2. Do beginners need previous electronics knowledge?
+Answer: No.
+Explanation: This question checks basic understanding and should be shown with a simple hint if the learner is wrong.
+
+Q3. Why does the course start with safety and tools?
+Answer: Because students should know how to work safely before powering circuits.
+Explanation: This question checks basic understanding and should be shown with a simple hint if the learner is wrong.
+
+Q4. What can Spark help with?
+Answer: Explanations, hints, quizzes, images, circuits and troubleshooting.
+Explanation: This question checks basic understanding and should be shown with a simple hint if the learner is wrong.
+
+Q5. Name one everyday device that uses electronics.
+Answer: Phone, laptop, TV, router, washing machine, car, etc.
+Explanation: This question checks basic understanding and should be shown with a simple hint if the learner is wrong.
+
+============================================================
+HOMEWORK | गृहकार्य
+============================================================
+
+1. Review all lesson images.
+2. Write one sentence for each image explaining what it teaches.
+3. Complete the practical lab or observation activity.
+4. Ask Spark to quiz you once in English and once in Hindi.
+5. Save one doubt/question for the next lesson.
+
+============================================================
+SUMMARY | सारांश
+============================================================
+
+English:
+In this lesson, you learned the concept step by step using beginner theory, real images, guided visual learning, Spark AI, a practical activity, common mistakes and troubleshooting.
+
+हिन्दी:
+इस पाठ में आपने शुरुआती सिद्धांत, वास्तविक चित्र, Spark AI, प्रैक्टिकल गतिविधि, सामान्य गलतियाँ और समस्या समाधान के माध्यम से विषय को चरण-दर-चरण सीखा।
+
+============================================================
+ACHIEVEMENT UNLOCKED
+============================================================
+
+Welcome Explorer 🚀
+
+Achievement Message:
+You completed another step in your electronics journey. Keep building slowly and safely.
+
+============================================================
+DEVELOPER NOTES FOR CLAUDE
+============================================================
+
+Required React Sections:
+• LessonHeader
+• HeroAsset
+• BilingualLearningObjectives
+• RealLifeProblemCard
+• TheoryBlock
+• GuidedImagePanel
+• AssetGallery
+• InteractiveActivityCard
+• PracticalLabCard
+• CommonMistakesGallery
+• TroubleshootingPanel
+• SparkPanel
+• GlossaryPanel
+• QuizPanel
+• HomeworkPanel
+• SummaryCard
+• AchievementCard
+• NextLessonCard
+
+Asset Handling:
+• Hero image is top full-width.
+• Infographics must be readable on mobile.
+• Real photos go in galleries.
+• Diagrams/SVGs should support zoom.
+• Animations can be replaced by static image in MVP.
+• Add captions for every image.
+• Provide English/Hindi toggle for all text.
+
+============================================================
+NEXT LESSON
+============================================================
+
+BE-002 – Electronics Lab Safety / इलेक्ट्रॉनिक्स लैब सुरक्षा

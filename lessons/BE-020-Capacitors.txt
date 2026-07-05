@@ -1,0 +1,1184 @@
+# ElectroBasics | Basic Electronics Bootcamp
+# Lesson BE-020 : Capacitors / कैपेसिटर
+
+============================================================
+METADATA
+============================================================
+
+Course: Basic Electronics Bootcamp
+Module: Module 04 – Electronic Components
+Lesson ID: BE-020
+Difficulty: Beginner / शुरुआती
+Estimated Duration: 70 Minutes
+XP Reward: 110 XP
+Achievement Badge: Charge Keeper 🔋
+Language: English + Hindi
+Audience: Absolute beginner students
+
+============================================================
+LESSON PURPOSE
+============================================================
+
+This lesson introduces capacitors as electronic components that store and release electrical energy.
+Beginners will learn what capacitors look like, what they do, where they are used, how polarity matters, and how to handle them safely.
+
+यह पाठ कैपेसिटर को ऐसे इलेक्ट्रॉनिक घटक के रूप में समझाता है जो विद्युत ऊर्जा को थोड़ी देर के लिए संग्रहित और रिलीज़ करता है।
+शुरुआती विद्यार्थी सीखेंगे कि कैपेसिटर दिखता कैसा है, काम क्या करता है, कहाँ उपयोग होता है, polarity क्यों ज़रूरी है और उसे सुरक्षित तरीके से कैसे संभालना है।
+
+============================================================
+LEARNING OBJECTIVES | सीखने के उद्देश्य
+============================================================
+
+English
+• Understand what a capacitor is.
+• Learn that a capacitor stores electrical charge.
+• Recognize common capacitor types.
+• Understand capacitance and its unit Farad.
+• Identify polarized and non-polarized capacitors.
+• Learn basic capacitor markings.
+• Understand common uses: smoothing, filtering, timing, coupling and decoupling.
+• Learn important safety rules, especially for large capacitors.
+
+हिन्दी
+• समझना कि कैपेसिटर क्या है।
+• सीखना कि कैपेसिटर electrical charge store करता है।
+• सामान्य capacitor types पहचानना।
+• capacitance और उसकी unit Farad समझना।
+• polarized और non-polarized capacitors पहचानना।
+• basic capacitor markings समझना।
+• smoothing, filtering, timing, coupling और decoupling जैसे uses समझना।
+• large capacitors के लिए safety rules सीखना।
+
+============================================================
+REAL-LIFE PROBLEM | वास्तविक जीवन की समस्या
+============================================================
+
+English
+Imagine a small electronic device that suddenly turns off for a moment when the power supply shakes or drops slightly.
+A capacitor can help by storing a small amount of energy and releasing it when the circuit needs a quick boost.
+
+Another example:
+A phone charger converts AC power to DC power. The output should be smooth. Capacitors help reduce ripple and make the power more stable.
+
+हिन्दी
+मान लीजिए एक छोटा electronic device power supply में हल्की गिरावट आने पर अचानक बंद हो जाता है।
+कैपेसिटर थोड़ी ऊर्जा store करके जरूरत पड़ने पर circuit को तुरंत energy दे सकता है।
+
+एक और उदाहरण:
+Phone charger AC power को DC power में बदलता है। Output smooth होना चाहिए। Capacitors ripple को कम करके power को stable बनाते हैं।
+
+============================================================
+BEGINNER-FRIENDLY THEORY | शुरुआती सिद्धांत
+============================================================
+
+English
+
+A capacitor is a passive electronic component that stores electrical energy in an electric field.
+
+Simple idea:
+A capacitor is like a tiny rechargeable storage tank for electric charge.
+
+It does not store energy like a big battery for a long time.
+It stores and releases charge quickly.
+
+------------------------------------------------------------
+BASIC STRUCTURE
+------------------------------------------------------------
+
+A capacitor usually has:
+• Two conductive plates
+• An insulating material between them called dielectric
+• Two leads or terminals
+
+When voltage is applied:
+• One plate collects positive charge.
+• The other plate collects negative charge.
+• Energy is stored in the electric field between the plates.
+
+------------------------------------------------------------
+UNIT OF CAPACITANCE
+------------------------------------------------------------
+
+Capacitance is the ability to store charge.
+
+Unit:
+Farad (F)
+
+But 1 Farad is very large for most beginner circuits.
+Common smaller units are:
+
+microfarad = µF
+nanofarad = nF
+picofarad = pF
+
+Common conversion:
+1 µF = 1000 nF
+1 nF = 1000 pF
+1 µF = 1,000,000 pF
+
+Examples:
+100 µF is common in power supply filtering.
+10 µF is common in small circuits.
+100 nF is very common for decoupling near ICs.
+22 pF is common around crystal oscillators.
+
+------------------------------------------------------------
+WHAT DOES A CAPACITOR DO?
+------------------------------------------------------------
+
+A capacitor can:
+• Store charge
+• Smooth power supply voltage
+• Reduce noise
+• Block DC but pass changing signals
+• Create time delays with resistors
+• Help motors start
+• Stabilize circuits
+
+------------------------------------------------------------
+CAPACITOR CHARGE AND DISCHARGE
+------------------------------------------------------------
+
+Charging:
+When connected to a voltage source, the capacitor fills with charge.
+
+Discharging:
+When connected to a load, it releases stored charge.
+
+Water analogy:
+A capacitor is like a small water tank.
+It fills when water pressure is available.
+It can release water briefly when supply drops.
+
+Electronics analogy:
+A capacitor fills with charge when voltage is present.
+It releases charge when the circuit needs it.
+
+------------------------------------------------------------
+POLARIZED VS NON-POLARIZED CAPACITORS
+------------------------------------------------------------
+
+Non-polarized capacitors:
+• Can be connected either way.
+• Examples: ceramic, film capacitors.
+• Usually small values.
+• Often used for noise filtering and signals.
+
+Polarized capacitors:
+• Must be connected in the correct direction.
+• Examples: electrolytic and tantalum capacitors.
+• Have positive and negative terminals.
+• Used for higher capacitance values.
+• Wrong polarity can damage or even burst the capacitor.
+
+Important:
+Electrolytic capacitors usually show a stripe marking the negative side.
+The longer lead may indicate positive on some through-hole capacitors.
+
+------------------------------------------------------------
+VOLTAGE RATING
+------------------------------------------------------------
+
+A capacitor has a voltage rating.
+This is the maximum voltage it can safely handle.
+
+Example:
+A capacitor marked 100µF 25V means:
+• Capacitance = 100 microfarads
+• Maximum safe voltage = 25 volts
+
+Beginner rule:
+Always use a capacitor voltage rating higher than the circuit voltage.
+
+Example:
+For a 5V circuit, a 10V, 16V or 25V capacitor can be safe.
+Do not use a 6.3V capacitor close to its limit unless you understand the design.
+
+------------------------------------------------------------
+COMMON CAPACITOR TYPES
+------------------------------------------------------------
+
+1. Ceramic Capacitor
+Small, non-polarized, cheap, good for noise filtering.
+Common values: 10nF, 100nF.
+
+2. Electrolytic Capacitor
+Polarized, larger capacitance, used in power supply smoothing.
+Common values: 1µF, 10µF, 100µF, 1000µF.
+
+3. Film Capacitor
+Non-polarized, stable, used in signal and timing circuits.
+
+4. Tantalum Capacitor
+Polarized, compact, stable, but sensitive to wrong polarity.
+
+5. Supercapacitor
+Very high capacitance, stores much more energy than normal capacitors.
+
+------------------------------------------------------------
+CAPACITOR SYMBOLS
+------------------------------------------------------------
+
+Non-polarized capacitor symbol:
+Two parallel plates.
+
+Polarized capacitor symbol:
+One straight plate and one curved plate, or plus sign shown near positive terminal.
+
+------------------------------------------------------------
+CAPACITOR MARKINGS
+------------------------------------------------------------
+
+Large electrolytic capacitors often print values directly:
+100µF 25V
+
+Small ceramic capacitors often use codes:
+104 = 100,000 pF = 100nF = 0.1µF
+103 = 10,000 pF = 10nF
+102 = 1,000 pF = 1nF
+221 = 220 pF
+
+Beginner note:
+Capacitor code reading will be practiced lightly here.
+A later measurement lesson will cover testing components more deeply.
+
+हिन्दी
+
+कैपेसिटर एक passive electronic component है जो electric field में electrical energy store करता है।
+
+सरल विचार:
+कैपेसिटर electric charge के लिए एक छोटा rechargeable storage tank जैसा है।
+
+यह battery की तरह लंबे समय तक बड़ी energy store नहीं करता।
+यह charge को जल्दी store और release करता है।
+
+------------------------------------------------------------
+बेसिक संरचना
+------------------------------------------------------------
+
+एक capacitor में सामान्यतः होते हैं:
+• दो conductive plates
+• उनके बीच insulating material, जिसे dielectric कहते हैं
+• दो leads या terminals
+
+जब voltage लगाया जाता है:
+• एक plate positive charge जमा करती है।
+• दूसरी plate negative charge जमा करती है।
+• दोनों plates के बीच electric field में energy store होती है।
+
+------------------------------------------------------------
+CAPACITANCE की UNIT
+------------------------------------------------------------
+
+Capacitance का अर्थ है charge store करने की क्षमता।
+
+Unit:
+Farad (F)
+
+लेकिन 1 Farad बहुत बड़ा होता है।
+Common छोटी units:
+
+microfarad = µF
+nanofarad = nF
+picofarad = pF
+
+Conversion:
+1 µF = 1000 nF
+1 nF = 1000 pF
+1 µF = 1,000,000 pF
+
+------------------------------------------------------------
+कैपेसिटर क्या करता है?
+------------------------------------------------------------
+
+कैपेसिटर:
+• charge store करता है
+• power supply voltage smooth करता है
+• noise कम करता है
+• DC block और changing signal pass कर सकता है
+• resistor के साथ time delay बना सकता है
+• motor start में मदद कर सकता है
+• circuit को stable बनाता है
+
+------------------------------------------------------------
+POLARIZED और NON-POLARIZED
+------------------------------------------------------------
+
+Non-polarized capacitors:
+• किसी भी दिशा में लग सकते हैं।
+• ceramic और film capacitors examples हैं।
+
+Polarized capacitors:
+• सही direction में ही लगने चाहिए।
+• electrolytic और tantalum capacitors examples हैं।
+• इनमें positive और negative terminals होते हैं।
+• गलत polarity से capacitor खराब या burst हो सकता है।
+
+============================================================
+REAL-LIFE EXAMPLES
+============================================================
+
+Example 1:
+Power supply smoothing
+A capacitor stores energy when voltage is high and releases it when voltage dips.
+This reduces ripple.
+
+Example 2:
+Camera flash
+A capacitor charges slowly, then releases energy quickly to create a bright flash.
+
+Example 3:
+Speaker crossover
+Capacitors help separate high-frequency signals.
+
+Example 4:
+Microcontroller stability
+A 100nF capacitor near an IC helps reduce noise and sudden voltage drops.
+
+Example 5:
+Fan or motor starting capacitor
+Some motors use capacitors to help start rotation.
+
+============================================================
+ANALOGY | तुलना
+============================================================
+
+Water Tank Analogy
+
+Voltage = Water pressure
+Current = Water flow
+Capacitor = Small storage tank
+Resistor = Narrow pipe
+
+When pressure is available, the tank fills.
+When pressure drops, the tank releases water briefly.
+
+In electronics:
+When voltage is available, the capacitor charges.
+When voltage drops, the capacitor discharges.
+
+Important:
+This analogy is helpful but not perfect. A capacitor does not store water; it stores electrical energy in an electric field.
+
+============================================================
+STEP-BY-STEP: IDENTIFYING A CAPACITOR
+============================================================
+
+Step 1:
+Look at the shape.
+
+Small disc = often ceramic capacitor.
+Cylindrical can = often electrolytic capacitor.
+Box-shaped = often film capacitor.
+
+Step 2:
+Check if it has polarity.
+
+Electrolytic capacitor:
+• Usually has a stripe marking negative side.
+• Often has longer positive lead.
+
+Ceramic capacitor:
+• Usually no polarity.
+• Can be connected either way.
+
+Step 3:
+Read the value.
+
+Direct marking:
+100µF 25V
+
+Code marking:
+104 = 100nF
+
+Step 4:
+Check voltage rating.
+
+Never use a capacitor below the circuit voltage.
+
+Step 5:
+Place safely in the circuit.
+
+For polarized capacitor:
+Positive to higher voltage side.
+Negative to ground or lower voltage side.
+
+============================================================
+COMMON BEGINNER VALUES
+============================================================
+
+100nF ceramic:
+Used near ICs for decoupling/noise reduction.
+
+10µF electrolytic:
+Used for small power smoothing.
+
+100µF electrolytic:
+Used for power supply filtering.
+
+470µF electrolytic:
+Used for larger smoothing.
+
+22pF ceramic:
+Used with crystal oscillator circuits.
+
+1µF:
+Used in timing, filtering and coupling circuits.
+
+============================================================
+INTERACTIVE ACTIVITY / SIMULATOR
+============================================================
+
+Activity Name:
+Capacitor Charge and Discharge Simulator
+
+User Experience:
+The learner sees a battery, switch, resistor, capacitor and LED/voltage graph.
+
+Controls:
+• Capacitance selector: 1µF, 10µF, 100µF, 470µF
+• Resistance selector: 1kΩ, 10kΩ, 100kΩ
+• Charge button
+• Discharge button
+• Polarity toggle
+• Show graph button
+
+Live Output:
+• Capacitor voltage
+• Charge level animation
+• LED fade effect
+• Time constant explanation
+• Spark warning if polarity is wrong
+
+Beginner Explanation:
+A bigger capacitor takes longer to charge and discharge.
+A bigger resistor also slows charge/discharge.
+
+Important:
+Do not make this too math-heavy yet.
+Mention only simple idea:
+More capacitance = more storage.
+More resistance = slower charge/discharge.
+
+Challenge Mode:
+Spark asks:
+"Make the LED stay glowing longer after battery disconnects."
+
+Expected learner action:
+Choose larger capacitor or larger resistor.
+
+MVP Implementation:
+If full simulator is not ready, show a slider-based mockup with animated fill level and LED brightness.
+
+============================================================
+PRACTICAL LAB | प्रैक्टिकल लैब
+============================================================
+
+Lab Name:
+Observe Capacitor Charging and LED Fade
+
+Required Components:
+• Breadboard
+• LED
+• 330Ω resistor
+• 100µF electrolytic capacitor
+• 5V power source or 3V battery pack
+• Jumper wires
+• Digital multimeter
+
+Safety:
+• Use low voltage only.
+• Check capacitor polarity.
+• Do not use capacitor voltage rating below supply voltage.
+• Do not short large capacitors.
+• Discharge capacitor safely through a resistor.
+
+Circuit Idea:
+Battery + → resistor → LED → ground
+Capacitor connected across power rails:
+Capacitor positive to + rail
+Capacitor negative to ground rail
+
+Steps:
+1. Place the LED and resistor on the breadboard.
+2. Connect power through the resistor to LED.
+3. Confirm LED lights normally.
+4. Turn power OFF.
+5. Add electrolytic capacitor across power rails with correct polarity.
+6. Turn power ON.
+7. Turn power OFF and observe if LED fades briefly.
+8. Try a larger capacitor if available.
+9. Measure capacitor voltage using DMM.
+10. Record observations.
+
+Observation Table:
+
+Capacitor Value | LED Fade Time | Voltage Rating | Polarity Correct? | Notes
+100µF           |               |                |                   |
+470µF           |               |                |                   |
+1000µF          |               |                |                   |
+
+Expected Learning:
+A larger capacitor can keep the LED glowing slightly longer because it stores more charge.
+
+============================================================
+COMMON BEGINNER MISTAKES | सामान्य शुरुआती गलतियाँ
+============================================================
+
+• Reversing electrolytic capacitor polarity.
+• Ignoring voltage rating.
+• Thinking capacitor is the same as a battery.
+• Shorting capacitor leads directly.
+• Using a polarized capacitor in an AC signal path without understanding.
+• Confusing µF, nF and pF.
+• Reading 104 as 104µF instead of 100nF.
+• Measuring capacitance while capacitor is connected in a circuit.
+• Touching charged large capacitors without discharging them.
+• Using a damaged or bulging capacitor.
+
+============================================================
+TROUBLESHOOTING GUIDE | समस्या समाधान
+============================================================
+
+Problem:
+Capacitor gets hot.
+
+Possible Causes:
+• Wrong polarity.
+• Voltage rating too low.
+• Faulty capacitor.
+• Circuit wiring error.
+
+Action:
+Turn power OFF immediately.
+
+Problem:
+LED does not fade.
+
+Possible Causes:
+• Capacitor value too small.
+• Capacitor not connected correctly.
+• LED circuit path is wrong.
+• Capacitor is damaged.
+
+Problem:
+Multimeter reading is unstable.
+
+Possible Causes:
+• Capacitor charging/discharging during measurement.
+• Poor probe contact.
+• Wrong meter mode.
+
+Problem:
+Capacitor value seems different from marking.
+
+Explanation:
+Capacitors often have wider tolerance than resistors.
+Some electrolytic capacitors may vary significantly and still be normal.
+
+Problem:
+Electrolytic capacitor has a bulging top.
+
+Action:
+Do not use it. Replace it.
+
+============================================================
+SAFETY SECTION | सुरक्षा
+============================================================
+
+Capacitors can store charge even after power is removed.
+
+Small capacitors in beginner low-voltage circuits are usually safe, but large capacitors in power supplies can be dangerous.
+
+Important Rules:
+• Always check polarity for electrolytic capacitors.
+• Do not exceed voltage rating.
+• Discharge large capacitors using a resistor.
+• Do not short big capacitors with a screwdriver.
+• Do not touch power supply capacitors unless trained.
+• Replace damaged, leaking or bulging capacitors.
+
+Hindi:
+कैपेसिटर power हटाने के बाद भी charge store रख सकता है।
+छोटे low-voltage beginner circuits सामान्यतः सुरक्षित होते हैं, लेकिन power supplies के बड़े capacitors खतरनाक हो सकते हैं।
+
+============================================================
+IMAGE / ASSET PLAN
+============================================================
+
+Important:
+Every asset below must teach something. The filename should be used exactly so Claude can connect the lesson UI to the correct image.
+
+------------------------------------------------------------
+Asset 01
+------------------------------------------------------------
+
+Filename:
+be020-hero-capacitors.png
+
+Asset Type:
+Hero banner / realistic macro photo
+
+Where / When to Use:
+Top of lesson page.
+
+Purpose:
+Introduce capacitors visually using real components.
+
+Prompt to Generate:
+Premium macro photograph of assorted capacitors including electrolytic, ceramic, film and tantalum capacitors arranged beside a breadboard LED circuit and digital multimeter, dark electronics workbench, cyan PCB glow, warm amber lighting, shallow depth of field, realistic educational style, no text, no watermark.
+
+Claude Implementation Notes:
+Use full-width hero on desktop. On mobile, crop around the clearest capacitor group and LED circuit. Add caption: "Capacitors store and release electrical charge."
+
+------------------------------------------------------------
+Asset 02
+------------------------------------------------------------
+
+Filename:
+be020-types-of-capacitors.png
+
+Asset Type:
+Educational infographic
+
+Where / When to Use:
+Capacitor types section.
+
+Purpose:
+Show physical types and beginner use cases.
+
+Prompt to Generate:
+Clean educational poster titled Types of Capacitors showing ceramic capacitor, electrolytic capacitor, tantalum capacitor, film capacitor, supercapacitor, trimmer capacitor and motor capacitor. Include short beginner descriptions and typical use. White background, dark blue headings, large readable text, no watermark.
+
+Claude Implementation Notes:
+Desktop can show full poster. Mobile should split into cards by capacitor type. Each type card should have Spark explanation.
+
+------------------------------------------------------------
+Asset 03
+------------------------------------------------------------
+
+Filename:
+be020-capacitor-structure.svg
+
+Asset Type:
+SVG diagram
+
+Where / When to Use:
+Basic structure section.
+
+Purpose:
+Explain plates and dielectric.
+
+Prompt to Generate:
+Clean vector SVG diagram of a capacitor showing two metal plates, dielectric material between plates, positive charge on one plate and negative charge on the other, electric field arrows, simple labels, beginner friendly.
+
+Claude Implementation Notes:
+Make labels clickable: Plate, Dielectric, Electric Field, Leads. Use zoomable SVG.
+
+------------------------------------------------------------
+Asset 04
+------------------------------------------------------------
+
+Filename:
+be020-capacitor-water-analogy.png
+
+Asset Type:
+Concept infographic
+
+Where / When to Use:
+Analogy section.
+
+Purpose:
+Help beginners understand charge storage.
+
+Prompt to Generate:
+Educational infographic comparing capacitor to a small water storage tank. Show voltage as pressure, current as flow, capacitor as storage tank, charge and discharge arrows. Clean style, large labels, beginner friendly.
+
+Claude Implementation Notes:
+Use side-by-side with Spark explanation. Add note: "Analogy is helpful but not exact."
+
+------------------------------------------------------------
+Asset 05
+------------------------------------------------------------
+
+Filename:
+be020-polarized-vs-nonpolarized.png
+
+Asset Type:
+Comparison infographic
+
+Where / When to Use:
+Polarity section.
+
+Purpose:
+Teach polarity safety clearly.
+
+Prompt to Generate:
+Beginner infographic comparing polarized capacitor and non-polarized capacitor. Show electrolytic capacitor with negative stripe and plus/minus leads, ceramic capacitor with no polarity, correct and incorrect connection examples with green check and red cross.
+
+Claude Implementation Notes:
+Use as safety-critical card. Add mini quiz: "Which capacitor must be connected the correct way?"
+
+------------------------------------------------------------
+Asset 06
+------------------------------------------------------------
+
+Filename:
+be020-electrolytic-markings.png
+
+Asset Type:
+Annotated real photo
+
+Where / When to Use:
+Markings section.
+
+Purpose:
+Show value, voltage rating and negative stripe.
+
+Prompt to Generate:
+Close-up realistic photo of an electrolytic capacitor labeled 100µF 25V with visible negative stripe and leads. Add clean annotations: capacitance value, voltage rating, negative side, positive lead.
+
+Claude Implementation Notes:
+Use clickable hotspots. On mobile, allow pinch zoom.
+
+------------------------------------------------------------
+Asset 07
+------------------------------------------------------------
+
+Filename:
+be020-ceramic-code-104.png
+
+Asset Type:
+Educational diagram
+
+Where / When to Use:
+Capacitor code section.
+
+Purpose:
+Explain 104 marking as 100nF.
+
+Prompt to Generate:
+Clean beginner infographic explaining ceramic capacitor code 104. Show ceramic capacitor marked 104, then calculation: 10 followed by 4 zeros pF = 100,000 pF = 100nF = 0.1µF. Large readable text.
+
+Claude Implementation Notes:
+Use as a worked example. Do not overcomplicate with many codes.
+
+------------------------------------------------------------
+Asset 08
+------------------------------------------------------------
+
+Filename:
+be020-charge-discharge-animation.json
+
+Asset Type:
+Lottie animation / animation spec
+
+Where / When to Use:
+Charge/discharge explanation and simulator.
+
+Purpose:
+Animate capacitor filling and releasing charge.
+
+Prompt to Generate:
+Lottie animation specification: battery charges a capacitor through a resistor, capacitor fill level increases, voltage graph rises smoothly, then switch changes to discharge through LED, LED glows and fades, graph falls smoothly. Dark ElectroBasics style with cyan and amber accents.
+
+Claude Implementation Notes:
+If Lottie is unavailable, implement with React state and CSS animation showing fill level and LED brightness.
+
+------------------------------------------------------------
+Asset 09
+------------------------------------------------------------
+
+Filename:
+be020-capacitor-simulator-ui.png
+
+Asset Type:
+UI mockup / simulator reference
+
+Where / When to Use:
+Interactive activity section.
+
+Purpose:
+Guide Claude in building capacitor charge/discharge simulator.
+
+Prompt to Generate:
+Dark futuristic ElectroBasics UI mockup for capacitor charge and discharge simulator. Left side shows battery, switch, resistor, capacitor and LED circuit. Right side shows sliders for capacitance and resistance, buttons for charge/discharge, capacitor voltage graph and Spark explanation. Neon cyan and amber accents.
+
+Claude Implementation Notes:
+Use as design reference. Controls should become interactive in React.
+
+------------------------------------------------------------
+Asset 10
+------------------------------------------------------------
+
+Filename:
+be020-led-fade-lab.png
+
+Asset Type:
+Real lab photo
+
+Where / When to Use:
+Practical lab section.
+
+Purpose:
+Show capacitor LED fade experiment.
+
+Prompt to Generate:
+Realistic close-up photo of breadboard circuit with LED, resistor and electrolytic capacitor connected across power rails, digital multimeter nearby, correct capacitor polarity visible, beginner electronics lab style.
+
+Claude Implementation Notes:
+Use in lab steps. Add warning caption about capacitor polarity.
+
+------------------------------------------------------------
+Asset 11
+------------------------------------------------------------
+
+Filename:
+be020-common-mistakes.png
+
+Asset Type:
+Common mistakes infographic
+
+Where / When to Use:
+Common mistakes section.
+
+Purpose:
+Prevent unsafe and confusing capacitor errors.
+
+Prompt to Generate:
+Four-panel beginner electronics infographic showing capacitor mistakes: reversed electrolytic polarity, voltage rating too low, reading 104 incorrectly, shorting charged capacitor leads. Use clear icons, red X marks, simple labels, dark blue header, white background.
+
+Claude Implementation Notes:
+Use as "Spot the Mistake" activity. Each panel opens Spark explanation.
+
+------------------------------------------------------------
+Asset 12
+------------------------------------------------------------
+
+Filename:
+be020-spark-capacitor.png
+
+Asset Type:
+Spark mascot
+
+Where / When to Use:
+Spark AI help card and achievement section.
+
+Purpose:
+Make the lesson friendly and guided.
+
+Prompt to Generate:
+Cute white and silver robot mascot named Spark holding a small electrolytic capacitor and a ceramic capacitor, cyan glowing eyes, friendly expression, transparent background, premium 3D render, no text.
+
+Claude Implementation Notes:
+Use beside Spark panel and achievement card.
+
+============================================================
+SPARK AI ROLE FOR THIS LESSON
+============================================================
+
+Spark should:
+• Explain capacitor as charge storage.
+• Use water tank analogy carefully.
+• Point out polarity and voltage rating warnings.
+• Help learners identify capacitor types from images.
+• Explain µF, nF and pF slowly.
+• Avoid advanced capacitor equations unless learner asks.
+• Remind that electrolytic capacitors must be connected correctly.
+• Encourage multimeter verification if the learner has a capacitance function.
+
+Spark should not:
+• Treat capacitors exactly like batteries.
+• Encourage working on mains power supplies.
+• Tell beginners to discharge large capacitors by shorting them.
+• Go deep into reactance, impedance or AC theory yet.
+
+============================================================
+SPARK GLOSSARY | Spark शब्दावली
+============================================================
+
+Capacitor | कैपेसिटर
+Meaning:
+A component that stores and releases electrical charge.
+Beginner Example:
+A capacitor can help smooth power or make an LED fade slowly.
+
+Capacitance | कैपेसिटेंस
+Meaning:
+Ability of a capacitor to store charge.
+Beginner Example:
+A 100µF capacitor stores more charge than a 1µF capacitor.
+
+Farad | फैरड
+Meaning:
+Unit of capacitance.
+Beginner Example:
+Most beginner capacitors use µF, nF or pF.
+
+Microfarad | माइक्रोफैरड
+Meaning:
+One-millionth of a Farad.
+Beginner Example:
+100µF is common in power circuits.
+
+Nanofarad | नैनोफैरड
+Meaning:
+One-billionth of a Farad.
+Beginner Example:
+100nF is common near ICs.
+
+Picofarad | पिकोफैरड
+Meaning:
+One-trillionth of a Farad.
+Beginner Example:
+22pF is common in crystal oscillator circuits.
+
+Dielectric | डायलेक्ट्रिक
+Meaning:
+Insulating material between capacitor plates.
+Beginner Example:
+Different dielectrics create different capacitor types.
+
+Polarized Capacitor | ध्रुवीय कैपेसिटर
+Meaning:
+Capacitor that must be connected in correct direction.
+Beginner Example:
+Electrolytic capacitor is polarized.
+
+Voltage Rating | वोल्टेज रेटिंग
+Meaning:
+Maximum voltage a capacitor can safely handle.
+Beginner Example:
+Use 25V capacitor in a 5V circuit safely, but never use a 3V capacitor in a 5V circuit.
+
+Ripple | रिपल
+Meaning:
+Small unwanted variation in DC voltage.
+Beginner Example:
+Capacitors reduce ripple in power supplies.
+
+Decoupling | डिकपलिंग
+Meaning:
+Using capacitor near IC to reduce noise and stabilize power.
+Beginner Example:
+A 100nF capacitor near a microcontroller helps stable operation.
+
+============================================================
+SPARK SYSTEM PROMPT
+============================================================
+
+You are Spark, the ElectroBasics AI mentor.
+
+You are teaching Lesson BE-020: Capacitors / कैपेसिटर.
+
+Rules:
+1. Teach only beginner capacitor basics.
+2. Use simple English and Hindi.
+3. Explain capacitor as temporary charge storage.
+4. Use real images to identify capacitor types.
+5. Emphasize polarity and voltage rating safety.
+6. Do not teach advanced AC reactance in detail.
+7. Do not encourage mains power supply repair.
+8. If learner asks about a capacitor marking, decode it step by step.
+9. If learner asks about a capacitor photo, identify likely type and mention uncertainty if markings are unclear.
+10. Encourage safe discharge through a resistor for larger capacitors.
+
+============================================================
+SPARK SUGGESTED PROMPTS
+============================================================
+
+English:
+• What does a capacitor do in simple words?
+• Is a capacitor the same as a battery?
+• How do I identify capacitor polarity?
+• What does 100µF 25V mean?
+• What does 104 mean on a ceramic capacitor?
+• Why is there a capacitor near an IC?
+• Explain capacitor charging and discharging.
+• Which capacitor should I use for an LED fade circuit?
+
+हिन्दी:
+• कैपेसिटर सरल भाषा में क्या करता है?
+• क्या कैपेसिटर battery जैसा है?
+• capacitor की polarity कैसे पहचानें?
+• 100µF 25V का मतलब क्या है?
+• ceramic capacitor पर 104 का मतलब क्या है?
+• IC के पास capacitor क्यों लगाया जाता है?
+• capacitor charging और discharging समझाइए।
+• LED fade circuit के लिए कौन सा capacitor लगाएँ?
+
+============================================================
+QUIZ | प्रश्नोत्तरी
+============================================================
+
+Q1. What does a capacitor store?
+Answer:
+Electrical charge / electrical energy.
+
+Q2. What is the unit of capacitance?
+Answer:
+Farad.
+
+Q3. Is an electrolytic capacitor usually polarized?
+Answer:
+Yes.
+
+Q4. What does 100µF 25V mean?
+Answer:
+Capacitance is 100 microfarads and maximum voltage rating is 25 volts.
+
+Q5. Can a ceramic capacitor usually be connected either way?
+Answer:
+Yes, most ceramic capacitors are non-polarized.
+
+Q6. What does a capacitor do in a power supply?
+Answer:
+It helps smooth voltage and reduce ripple.
+
+Q7. What should you check before connecting an electrolytic capacitor?
+Answer:
+Polarity and voltage rating.
+
+Q8. What does 104 on a ceramic capacitor mean?
+Answer:
+100,000 pF = 100nF = 0.1µF.
+
+Q9. Should large capacitors be shorted directly with a screwdriver?
+Answer:
+No.
+
+Q10. What happens when a capacitor discharges through an LED?
+Answer:
+The LED may glow briefly and fade.
+
+============================================================
+IMAGE-BASED QUIZ IDEAS
+============================================================
+
+Quiz Image 1:
+Show ceramic, electrolytic and film capacitors.
+Ask:
+"Which one is polarized?"
+
+Quiz Image 2:
+Show an electrolytic capacitor with stripe.
+Ask:
+"Which side is negative?"
+
+Quiz Image 3:
+Show 100µF 25V marking.
+Ask:
+"What is capacitance and voltage rating?"
+
+Quiz Image 4:
+Show ceramic capacitor marked 104.
+Ask:
+"What value is this?"
+
+Quiz Image 5:
+Show correct and wrong polarity circuits.
+Ask:
+"Which connection is safe?"
+
+============================================================
+HOMEWORK | गृहकार्य
+============================================================
+
+1. Find three different capacitors.
+2. Identify their type: ceramic, electrolytic, film or other.
+3. Write their markings.
+4. Find capacitance value.
+5. Find voltage rating if printed.
+6. Identify whether each capacitor is polarized.
+7. Ask Spark to check your answers.
+
+Hindi Homework:
+1. तीन अलग-अलग capacitors खोजिए।
+2. उनका type पहचानिए: ceramic, electrolytic, film या अन्य।
+3. उनकी markings लिखिए।
+4. capacitance value निकालिए।
+5. voltage rating यदि लिखी हो तो नोट करें।
+6. कौन सा capacitor polarized है पहचानिए।
+7. Spark से अपने उत्तर जाँचिए।
+
+============================================================
+SUMMARY | सारांश
+============================================================
+
+English:
+In this lesson, you learned that capacitors store and release electrical charge. You learned common capacitor types, capacitance units, polarity, voltage rating, markings, charge/discharge behavior, safety rules and a simple LED fade lab.
+
+हिन्दी:
+इस पाठ में आपने सीखा कि capacitor electrical charge store और release करता है। आपने capacitor types, capacitance units, polarity, voltage rating, markings, charge/discharge behavior, safety rules और LED fade lab सीखा।
+
+============================================================
+ACHIEVEMENT UNLOCKED
+============================================================
+
+🔋 Charge Keeper
+
+Achievement Message:
+You now understand how capacitors store energy and support electronic circuits.
+
+हिन्दी:
+अब आप समझते हैं कि capacitors energy कैसे store करते हैं और circuits की मदद कैसे करते हैं।
+
+============================================================
+DEVELOPER NOTES FOR CLAUDE
+============================================================
+
+Required React Sections:
+• LessonHeader
+• HeroAsset
+• BilingualLearningObjectives
+• RealLifeProblemCard
+• TheoryBlock
+• CapacitorTypesGallery
+• CapacitorStructureDiagram
+• PolaritySafetyCard
+• MarkingsDecoder
+• ChargeDischargeSimulator
+• PracticalLabCard
+• CommonMistakesGallery
+• TroubleshootingPanel
+• SparkPanel
+• GlossaryPanel
+• QuizPanel
+• ImageQuizPanel
+• HomeworkPanel
+• SummaryCard
+• AchievementCard
+• NextLessonCard
+
+Simulator Requirements:
+• Capacitance selector.
+• Resistance selector.
+• Charge button.
+• Discharge button.
+• Capacitor voltage graph.
+• LED brightness/fade animation.
+• Polarity warning mode.
+• Spark explanation output.
+
+Mobile Notes:
+• Use accordion sections.
+• Capacitor type poster should be split into individual cards.
+• Charge/discharge simulator must fit one screen width.
+• Use large tap targets.
+• Add zoom for capacitor markings.
+• Safety warning must be visible before lab.
+
+Data Structure Suggestion:
+capacitorTypes = [
+  { name: "Ceramic", polarized: false, typicalUse: "Noise filtering, decoupling", commonValues: "10nF, 100nF" },
+  { name: "Electrolytic", polarized: true, typicalUse: "Power smoothing", commonValues: "10µF, 100µF, 1000µF" },
+  { name: "Film", polarized: false, typicalUse: "Signals, timing", commonValues: "1nF to 1µF" },
+  { name: "Tantalum", polarized: true, typicalUse: "Compact filtering", commonValues: "1µF to 100µF" },
+  { name: "Supercapacitor", polarized: true, typicalUse: "Energy backup", commonValues: "0.1F and higher" }
+]
+
+============================================================
+NEXT LESSON
+============================================================
+
+BE-021 – Diodes / डायोड

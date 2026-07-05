@@ -1,0 +1,1276 @@
+# ElectroBasics — Module 01 Full Source File for Claude
+# MOBILE VERSION
+# Module 01 → Lesson BE-001 → Start Section / Watch Section Flow
+
+============================================================
+FILE PURPOSE
+============================================================
+
+This is the complete mobile source instruction file for Module 01.
+
+It tells Claude how to build the full mobile experience from:
+
+All Modules Overview
+↓
+User taps Module 01
+↓
+Module 01 Mobile Detail Page
+↓
+User taps Start Module / Start Lesson
+↓
+BE-001 Mobile Lesson Page
+↓
+User taps Start Section / Watch Section
+↓
+Full-screen Section Player opens
+↓
+User completes sections
+↓
+BE-001 completed
+↓
+BE-002 unlocked
+
+This file includes:
+
+- Mobile design
+- Mobile layout
+- Module 01 data
+- Mobile button logic
+- BE-001 mobile lesson page design
+- BE-001 mobile section player design
+- Section unlock logic
+- Completion logic
+- Spark AI behavior
+- Image prompts
+- Asset filenames
+- Claude implementation notes
+
+Important:
+Do not include any Upgrade, Pro, Premium, Subscription, Pricing, or Paywall button anywhere.
+
+============================================================
+GLOBAL MOBILE DESIGN STYLE
+============================================================
+
+Use the same ElectroBasics dark futuristic app design.
+
+Visual style:
+- Dark navy / black background
+- Cyan, blue, yellow and purple neon accents
+- Glassmorphism cards
+- Rounded corners
+- Thin glowing borders
+- Compact stacked layout
+- Bottom navigation
+- Large tap targets
+- Readable Hindi text
+- Beginner-friendly guided flow
+
+Avoid:
+- Desktop sidebars squeezed into mobile
+- Tiny text
+- Large unreadable posters
+- Upgrade / Pro / Premium buttons
+- Too many details in one card
+- Tiny buttons
+- Hidden locked reasons
+
+Color rules:
+- Background: #050A12
+- Main card background: rgba(8, 18, 32, 0.86)
+- Cyan accent: #00E5FF
+- Blue active: #1677FF
+- Yellow XP/reward: #FFC928
+- Green difficulty: #36D66B
+- Purple category: #A855F7
+- Orange warning: #FF9F1C
+- Text primary: #F8FAFC
+- Text secondary: #AAB4C0
+
+Accessibility:
+- Minimum tap target: 44px height
+- High text contrast
+- Hindi text readable
+- Locked buttons explain why locked
+- Progress shown with text, not only bar
+- Image thumbnails have alt text
+- Do not rely on color only for status
+
+============================================================
+MOBILE ROUTE MAP
+============================================================
+
+Use these routes:
+
+/modules
+/modules/module-01
+/learn/BE-001
+/learn/BE-001/section/section-01
+/learn/BE-001/section/section-02
+/learn/BE-001/section/section-03
+/learn/BE-001/section/section-04
+/learn/BE-001/section/section-05
+/learn/BE-001/section/section-06
+/learn/BE-001/section/section-07
+/learn/BE-001/section/section-08
+/learn/BE-001/section/section-09
+/learn/BE-001/section/section-10
+/learn/BE-001/section/section-11
+/learn/BE-001/section/section-12
+/learn/BE-002
+/modules/module-02
+
+============================================================
+MOBILE PAGE 1 — ALL MODULES ENTRY POINT
+============================================================
+
+The All Modules mobile screen shows 8 module cards.
+
+Module 01 card should show:
+
+Module 01
+Welcome & Electronics Lab
+स्वागत है और इलेक्ट्रॉनिक्स लैब
+
+Stats:
+4 Lessons
+165 XP
+130 min
+Very Easy
+Orientation
+
+Button / tap action:
+Open Module 01 detail page.
+
+Route:
+/modules/module-01
+
+Module 01 card image:
+
+Filename:
+module01-card-thumbnail-mobile.png
+
+Prompt:
+Vertical mobile-friendly thumbnail of beginner electronics lab desk with breadboard, digital multimeter, jumper wires, safety glasses, small component organizer, dark futuristic app style, cyan glow, warm desk lighting, no text, no watermark.
+
+============================================================
+MOBILE PAGE 2 — MODULE 01 DETAIL PAGE
+============================================================
+
+Route:
+/modules/module-01
+
+This screen opens when learner taps Module 01.
+
+------------------------------------------------------------
+MOBILE SCREEN STRUCTURE
+------------------------------------------------------------
+
+Use stacked vertical screen:
+
+1. Mobile Top Bar
+2. Module Hero Card
+3. Quick Stats Row
+4. Progress Card
+5. Spark Says Card
+6. What You’ll Learn Accordion
+7. Module Overview Card
+8. Lessons in This Module List
+9. Unlock Next Module Banner
+10. Reward Card
+11. Bottom Navigation
+
+------------------------------------------------------------
+MOBILE TOP BAR
+------------------------------------------------------------
+
+Content:
+- Back arrow
+- Center title: Module 01
+- Notification icon
+- Profile avatar
+
+Back action:
+Navigate to /modules
+
+Do not show full desktop search bar.
+Search can be optional icon only.
+
+------------------------------------------------------------
+MODULE HERO CARD
+------------------------------------------------------------
+
+Content:
+
+Module number:
+01
+
+Module title:
+Welcome & Electronics Lab
+
+Hindi title:
+स्वागत है और इलेक्ट्रॉनिक्स लैब
+
+Badges:
+- 4 Lessons
+- Very Easy
+- Orientation
+
+Estimated time:
+130 min
+
+Description:
+Start your journey with safety, workspace setup, and understanding electronics basics before building real circuits.
+
+Primary button:
+Start Module
+
+Secondary action:
+Continue Module
+
+Hero image:
+module01-mobile-hero.png
+
+Prompt:
+Vertical mobile-friendly realistic electronics beginner lab image, clean desk with breadboard, digital multimeter, jumper wires, safety glasses, small tools, warm desk lamp, cyan PCB glow, dark futuristic learning app style, no text, no watermark, portrait composition.
+
+Claude notes:
+Use dark gradient overlay.
+Do not put small text over busy image area.
+Keep title readable.
+Crop around breadboard and multimeter.
+
+------------------------------------------------------------
+QUICK STATS ROW
+------------------------------------------------------------
+
+Place under hero card.
+
+Three compact stat cards:
+
+1.
+Icon: Book
+Value: 4
+Label: Lessons
+
+2.
+Icon: Star
+Value: 165
+Label: XP
+
+3.
+Icon: Clock
+Value: 130m
+Label: Time
+
+Optional fourth if space:
+Difficulty: Very Easy
+
+If screen is narrow:
+Use 2x2 grid.
+
+------------------------------------------------------------
+PROGRESS CARD
+------------------------------------------------------------
+
+Title:
+Module Progress
+
+Progress:
+0%
+
+Text:
+0 / 4 Lessons Completed
+
+XP:
+0 / 165 XP
+
+Visual:
+Horizontal progress bar recommended.
+
+Click behavior:
+Open Module Progress bottom sheet.
+
+Bottom sheet content:
+Module 01 Progress
+0 / 4 Lessons Completed
+0 / 165 XP
+BE-001 Available
+BE-002 Locked
+BE-003 Locked
+BE-004 Locked
+
+------------------------------------------------------------
+SPARK SAYS CARD
+------------------------------------------------------------
+
+Title:
+Spark Says
+
+Message:
+Safety first, always! A good start makes you a great electronics engineer.
+
+Image:
+spark-module01-guide.png
+
+Prompt:
+Cute white and silver robot mascot named Spark, cyan glowing eyes, friendly smile, small antenna, standing and pointing toward a safety checklist, transparent background, premium 3D render, no text.
+
+Click behavior:
+Open Spark panel / bottom sheet.
+
+Pre-filled prompt:
+Explain Module 01 and tell me how to start safely.
+
+------------------------------------------------------------
+WHAT YOU'LL LEARN ACCORDION
+------------------------------------------------------------
+
+Title:
+What You’ll Learn
+
+Default:
+Expanded on first visit.
+
+Items:
+- Electronics lab safety rules
+- Essential tools and their uses
+- Workspace setup and organization
+- ESD and safe component handling
+
+Icons:
+- Shield
+- Wrench
+- Workbench
+- Lightning
+
+------------------------------------------------------------
+MODULE OVERVIEW CARD
+------------------------------------------------------------
+
+Title:
+Module Overview
+
+Text:
+This module introduces you to the world of electronics. You will learn about safety, tools, workspace setup and how to handle electronic components safely.
+
+Image:
+module01-workspace-overview.png
+
+Prompt:
+Clean beginner electronics workspace on a dark desk, breadboard, basic hand tools, digital multimeter, neatly arranged jumper wires, small labeled component boxes, notebook, good lighting, no clutter, realistic photo, no text, no watermark.
+
+Claude notes:
+Use small rounded thumbnail.
+Keep card compact.
+
+------------------------------------------------------------
+LESSONS IN THIS MODULE
+------------------------------------------------------------
+
+Create vertical lesson card list.
+
+Header:
+Lessons in This Module
+
+Each lesson card shows:
+- Lesson number
+- Lesson ID
+- English title
+- Hindi title
+- Duration
+- XP
+- Difficulty
+- Badge
+- Status
+- Button
+- Lock reason if locked
+- Thumbnail
+
+Card style:
+- Dark glass card
+- Neon accent according to icon
+- Rounded corners
+- Large touch target
+- Lock state visible but readable
+
+------------------------------------------------------------
+MOBILE LESSON CARD 01
+------------------------------------------------------------
+
+Lesson Number: 01
+Lesson ID: BE-001
+English Title: Welcome to ElectroBasics
+Hindi Title: इलेक्ट्रोबेसिक्स में आपका स्वागत है
+Duration: 25 min
+XP: 30 XP
+Difficulty: Very Easy
+Badge: Welcome Explorer 🚀
+Status: Available
+Button: Start Lesson
+Icon: Rocket / welcome icon
+
+Thumbnail:
+be001-lesson-thumbnail.png
+
+Prompt:
+Small realistic thumbnail of a beginner electronics desk with breadboard, LED, resistor, notebook and digital multimeter, dark premium style, cyan glow, warm desk light, no text, no watermark.
+
+Click behavior:
+Open /learn/BE-001
+
+------------------------------------------------------------
+MOBILE LESSON CARD 02
+------------------------------------------------------------
+
+Lesson Number: 02
+Lesson ID: BE-002
+English Title: Electronics Lab Safety
+Hindi Title: इलेक्ट्रॉनिक्स लैब सुरक्षा
+Duration: 35 min
+XP: 40 XP
+Difficulty: Very Easy
+Badge: Safety First 🛡️
+Status: Locked until BE-001 complete
+Button: Locked
+Secondary text: Complete BE-001 first
+Icon: Shield
+
+Thumbnail:
+be002-lesson-thumbnail.png
+
+Prompt:
+Realistic electronics safety thumbnail with safety glasses, clean workbench, breadboard, multimeter, insulated tools, warning triangle icon style lighting, dark futuristic lab background, no text, no watermark.
+
+Click behavior:
+Do not open.
+Show toast:
+Complete BE-001 first to unlock this lesson.
+
+------------------------------------------------------------
+MOBILE LESSON CARD 03
+------------------------------------------------------------
+
+Lesson Number: 03
+Lesson ID: BE-003
+English Title: Workspace & Essential Tools
+Hindi Title: कार्यस्थान और आवश्यक उपकरण
+Duration: 35 min
+XP: 45 XP
+Difficulty: Very Easy
+Badge: Lab Ready 🧰
+Status: Locked until BE-002 complete
+Button: Locked
+Secondary text: Complete BE-002 first
+Icon: Toolbox / workbench
+
+Thumbnail:
+be003-lesson-thumbnail.png
+
+Prompt:
+Realistic close-up thumbnail of essential beginner electronics tools: digital multimeter, wire cutter, tweezers, screwdriver, jumper wires, breadboard and component box neatly arranged on dark desk, cyan accent glow, warm lighting, no text, no watermark.
+
+Click behavior:
+Show toast:
+Complete BE-002 first to unlock this lesson.
+
+------------------------------------------------------------
+MOBILE LESSON CARD 04
+------------------------------------------------------------
+
+Lesson Number: 04
+Lesson ID: BE-004
+English Title: ESD & Safe Handling
+Hindi Title: ESD और सुरक्षित हैंडलिंग
+Duration: 35 min
+XP: 50 XP
+Difficulty: Very Easy
+Badge: ESD Guardian ⚡
+Status: Locked until BE-003 complete
+Button: Locked
+Secondary text: Complete BE-003 first
+Icon: Purple lightning / ESD
+
+Thumbnail:
+be004-lesson-thumbnail.png
+
+Prompt:
+Realistic close-up thumbnail of a hand wearing blue ESD wrist strap handling a small PCB by the edges on an ESD mat, anti-static bag nearby, dark electronics lab lighting, cyan glow, no text, no watermark.
+
+Click behavior:
+Show toast:
+Complete BE-003 first to unlock this lesson.
+
+------------------------------------------------------------
+UNLOCK NEXT MODULE BANNER
+------------------------------------------------------------
+
+Text:
+Complete all lessons in this module to unlock Module 02: Electronics Tools
+
+Icon:
+Lock icon + yellow star
+
+Style:
+Dark amber card with thin yellow border.
+
+Click behavior if incomplete:
+Toast:
+Complete all 4 lessons in Module 01 to unlock Module 02.
+
+If complete:
+Navigate to /modules/module-02
+
+------------------------------------------------------------
+REWARD CARD
+------------------------------------------------------------
+
+Title:
+Reward for Completion
+
+Reward:
+Lab Beginner Badge
++200 XP
+
+Image:
+module01-lab-beginner-badge.png
+
+Prompt:
+Premium 3D badge icon for beginner electronics lab achievement, shield shape with small workbench and tools symbol, purple and cyan neon glow, dark transparent background, no text, no watermark.
+
+Click behavior:
+Open Reward bottom sheet.
+
+Bottom sheet:
+Complete all 4 lessons to earn:
+Lab Beginner Badge
++200 XP
+
+Requirements:
+Complete BE-001
+Complete BE-002
+Complete BE-003
+Complete BE-004
+
+------------------------------------------------------------
+BOTTOM NAVIGATION
+------------------------------------------------------------
+
+Bottom navigation items:
+- Home
+- Learn
+- Explore
+- Achievements
+- Profile
+
+Active:
+Learn or All Modules depending app structure.
+
+Style:
+Dark glass nav bar.
+Cyan/yellow active icon.
+Fixed bottom.
+
+============================================================
+MOBILE MODULE BUTTON LOGIC
+============================================================
+
+Start Module:
+Initial action:
+Open BE-001 lesson page.
+Route:
+/learn/BE-001
+
+Continue Module:
+If no progress:
+Open BE-001.
+
+If BE-001 completed:
+Open BE-002.
+
+If BE-001 and BE-002 completed:
+Open BE-003.
+
+If BE-001, BE-002 and BE-003 completed:
+Open BE-004.
+
+If all completed:
+Open module review.
+
+Start Lesson on BE-001:
+Open:
+/learn/BE-001
+
+Locked BE-002:
+Toast:
+Complete BE-001 first to unlock this lesson.
+
+Locked BE-003:
+Toast:
+Complete BE-002 first to unlock this lesson.
+
+Locked BE-004:
+Toast:
+Complete BE-003 first to unlock this lesson.
+
+Spark card:
+Open Spark panel with:
+Explain Module 01 and tell me how to start safely.
+
+Progress card:
+Open progress bottom sheet.
+
+Reward card:
+Open reward bottom sheet.
+
+Unlock banner:
+If incomplete:
+Toast:
+Complete all 4 lessons in Module 01 to unlock Module 02.
+If complete:
+Navigate to /modules/module-02
+
+============================================================
+MOBILE PAGE 3 — BE-001 LESSON PAGE
+============================================================
+
+Route:
+/learn/BE-001
+
+This page opens after:
+- Start Module
+- Start Lesson on BE-001
+- Continue Module if BE-001 is next
+
+------------------------------------------------------------
+MOBILE LESSON PAGE STRUCTURE
+------------------------------------------------------------
+
+Use:
+
+1. Mobile Top Bar
+2. Lesson Header Card
+3. Current Section Hero Card
+4. Lesson Progress Card
+5. Section Cards Grid/List
+6. Spark Quick Help Card
+7. Bottom Sticky Controls
+8. Bottom Navigation optional
+
+------------------------------------------------------------
+MOBILE TOP BAR
+------------------------------------------------------------
+
+Content:
+- Back arrow
+- BE-001
+- Search icon optional
+- Notification icon
+- Avatar
+
+Back action:
+Return to /modules/module-01
+
+------------------------------------------------------------
+MOBILE LESSON HEADER CARD
+------------------------------------------------------------
+
+Content:
+BE-001
+Welcome to ElectroBasics
+इलेक्ट्रोबेसिक्स में आपका स्वागत है
+
+Chips:
+25 min
+30 XP
+Very Easy
+Welcome Explorer 🚀
+
+Progress:
+0 / 12 Sections
+0%
+
+Use compact horizontal progress bar.
+
+------------------------------------------------------------
+MOBILE CURRENT SECTION HERO
+------------------------------------------------------------
+
+Image:
+be001-lesson-mobile-hero.png
+
+Prompt:
+Vertical mobile-friendly realistic electronics learning desk with breadboard, glowing red LED, digital multimeter, notebook, jumper wires, small components, warm desk lamp, dark futuristic app background, cyan glow, no text, no watermark, portrait composition.
+
+Overlay:
+Section 1 of 12
+Lesson Purpose
+
+Text:
+Understand why this lesson matters.
+
+Button:
+Start Section
+
+Click behavior:
+Open /learn/BE-001/section/section-01
+
+------------------------------------------------------------
+MOBILE SECTION LIST / GRID
+------------------------------------------------------------
+
+Recommended:
+2-column compact grid for 12 sections.
+
+Each section card:
+- Icon
+- Short title
+- Status
+- Lock/check/current indicator
+
+Short labels:
+1. Purpose
+2. Objectives
+3. Problem
+4. Theory
+5. Visuals
+6. Activity
+7. Lab
+8. Mistakes
+9. Fixes
+10. Glossary
+11. Quiz
+12. Complete
+
+Initial:
+section-01 = current
+section-02 to section-12 = locked
+
+Tap current:
+Open full-screen Section Player.
+
+Tap locked:
+Toast:
+Complete the previous section first.
+
+Tap completed:
+Open section in review mode.
+
+------------------------------------------------------------
+MOBILE SPARK QUICK HELP CARD
+------------------------------------------------------------
+
+Title:
+Need help?
+
+Text:
+Ask Spark to explain this lesson in simple words.
+
+Button:
+Ask Spark
+
+Prompt:
+Explain BE-001 in simple words.
+
+------------------------------------------------------------
+MOBILE BOTTOM STICKY CONTROLS
+------------------------------------------------------------
+
+Initial buttons:
+- Ask Spark
+- Start Section
+
+After section opened:
+Inside section player, show:
+- Ask Spark
+- Mark Complete
+- Next Section
+
+Avoid too many buttons at once.
+
+============================================================
+MOBILE SECTION PLAYER / WATCH SECTION
+============================================================
+
+Mobile opens a full-screen Section Player page, not a small modal.
+
+Route example:
+/learn/BE-001/section/section-01
+
+------------------------------------------------------------
+MOBILE SECTION PLAYER STRUCTURE
+------------------------------------------------------------
+
+1. Top Bar
+2. Progress Bar
+3. Section Visual
+4. Section Text
+5. Key Points
+6. Spark Says
+7. Mini Check
+8. Sticky Bottom Actions
+
+------------------------------------------------------------
+MOBILE SECTION TOP BAR
+------------------------------------------------------------
+
+Content:
+- Back arrow
+- Section 1 / 12
+- Close X or menu
+
+Below:
+Small lesson title:
+BE-001 Welcome to ElectroBasics
+
+Back behavior:
+Return to BE-001 lesson page.
+
+------------------------------------------------------------
+MOBILE SECTION PROGRESS BAR
+------------------------------------------------------------
+
+Show:
+Section 1 of 12
+8%
+
+Use thin cyan progress bar.
+
+------------------------------------------------------------
+MOBILE SECTION VISUAL
+------------------------------------------------------------
+
+Use mobile image if available:
+be001-section01-purpose-mobile.png
+
+Prompt:
+Vertical mobile illustration of beginner electronics learning path, small desk with breadboard, glowing LED, multimeter, notebook, Spark robot guide, floating roadmap steps, dark ElectroBasics style, cyan and amber accents, no text, no watermark, portrait composition.
+
+If mobile image not available:
+Use desktop section image cropped with object-position center.
+
+Caption:
+ElectroBasics guides you step by step.
+
+------------------------------------------------------------
+MOBILE SECTION TEXT
+------------------------------------------------------------
+
+Title:
+Lesson Purpose
+
+Subtitle:
+Why this lesson matters
+
+Language toggle:
+English | हिन्दी
+
+Default:
+Show English first.
+Hindi available under toggle or below English.
+
+English:
+This lesson helps you understand what ElectroBasics is and how your electronics learning journey will work. You will see how lessons, images, labs, quizzes and Spark AI work together to help you learn step by step.
+
+Hindi:
+यह पाठ आपको समझाता है कि ElectroBasics क्या है और आपकी electronics learning journey कैसे चलेगी। आप देखेंगे कि lessons, images, labs, quizzes और Spark AI मिलकर आपको step-by-step कैसे सिखाते हैं।
+
+Key points:
+- No previous experience needed.
+- Learn step by step.
+- Images and labs make concepts clear.
+- Spark helps when you are stuck.
+- Safety comes first.
+
+------------------------------------------------------------
+MOBILE SPARK SAYS CARD
+------------------------------------------------------------
+
+Message:
+Before building circuits, understand the learning path. I will guide you step by step.
+
+Image:
+spark-lesson-guide.png
+
+Button:
+Ask Spark
+
+Prompt:
+Explain Section 1: Lesson Purpose in simple words.
+
+------------------------------------------------------------
+MOBILE MINI CHECK
+------------------------------------------------------------
+
+Question:
+Do you need previous electronics experience to start?
+
+Options:
+A. Yes
+B. No
+
+Correct answer:
+B. No
+
+After correct:
+Show:
+Great! This course starts from zero.
+
+After wrong:
+Show:
+No problem. ElectroBasics is made for complete beginners.
+
+------------------------------------------------------------
+MOBILE STICKY BOTTOM ACTIONS
+------------------------------------------------------------
+
+Before complete:
+Buttons:
+- Ask Spark
+- Mark Complete
+
+After mark complete:
+Button:
+Next Section
+
+Mark Complete action:
+Complete current section.
+Unlock next section.
+Show toast:
+Section completed! Learning Objectives unlocked.
+
+Next Section action:
+Open next section route.
+
+============================================================
+BE-001 SECTION CONTENT — MOBILE USE SAME DATA
+============================================================
+
+Use same 12 section content as desktop.
+
+For mobile, render:
+
+- Section title
+- One section image
+- English/Hindi toggle
+- Key points as simple bullet cards
+- Spark says card
+- Mini check
+- Sticky bottom buttons
+
+Use these section titles and images:
+
+1. Lesson Purpose
+Image:
+be001-section01-purpose-mobile.png
+
+Prompt:
+Vertical mobile illustration of beginner electronics learning path, small desk with breadboard, glowing LED, multimeter, notebook, Spark robot guide, floating roadmap steps, dark ElectroBasics style, cyan and amber accents, no text, no watermark, portrait composition.
+
+2. Learning Objectives
+Image:
+be001-section02-objectives.png
+
+Prompt:
+Clean futuristic learning objectives card for beginner electronics course, icons for electronics, safety, tools, circuits, Spark AI mentor, dark navy background with cyan and yellow accents, no text, no watermark.
+
+3. Real-Life Problem
+Image:
+be001-section03-real-life-problem.png
+
+Prompt:
+Beginner student looking at electronic devices on desk, phone, router, LED bulb, remote, laptop, wondering how electronics works, Spark robot guide nearby, dark futuristic educational style, no text, no watermark.
+
+4. Beginner Theory
+Image:
+be001-section04-theory.png
+
+Prompt:
+Educational electronics concept image showing input processing output flow, simple circuit, resistor, LED, battery, PCB, phone and laptop icons, dark ElectroBasics style, no text, no watermark.
+
+5. Guided Visual Learning
+Image:
+be001-section05-guided-visuals.png
+
+Prompt:
+Infographic-style image showing four learning visual types: real component photo, circuit diagram, interactive simulation, practical lab photo, dark futuristic ElectroBasics theme, no text, no watermark.
+
+6. Interactive Activity
+Image:
+be001-section06-activity.png
+
+Prompt:
+Dark futuristic UI mockup of ElectroBasics course roadmap explorer with clickable module cards from safety to tools to electricity to components to projects, Spark robot guide, cyan and yellow accents, no text, no watermark.
+
+7. Practical Lab
+Image:
+be001-section07-practical-lab.png
+
+Prompt:
+Realistic photo of household electronic devices arranged on a desk: TV remote, phone charger, LED bulb, router, small speaker, notebook for observations, dark educational workspace, no text, no watermark.
+
+8. Common Mistakes
+Image:
+be001-section08-mistakes.png
+
+Prompt:
+Four-panel beginner mistakes infographic: skipping safety, buying too many tools, memorizing without building, jumping to advanced projects, dark ElectroBasics style with red warning accents, no text, no watermark.
+
+9. Troubleshooting
+Image:
+be001-section09-troubleshooting.png
+
+Prompt:
+Beginner electronics troubleshooting scene, learner checking simple breadboard circuit with multimeter, Spark robot giving guidance, checklist icons, dark lab style, no text, no watermark.
+
+10. Spark Glossary
+Image:
+be001-section10-glossary.png
+
+Prompt:
+Glossary learning card illustration with electronics words represented by icons for circuit, component, breadboard and Spark AI, dark futuristic style, no readable text, no watermark.
+
+11. Quiz
+Image:
+be001-section11-quiz.png
+
+Prompt:
+Dark futuristic quiz UI for beginner electronics lesson, multiple choice cards, progress dots, Spark robot encouragement, cyan and yellow accents, no readable text, no watermark.
+
+12. Homework & Complete Lesson
+Image:
+be001-section12-complete.png
+
+Prompt:
+Achievement style image showing beginner electronics learner completing first lesson, glowing badge, Spark robot celebrating, breadboard and LED on desk, dark ElectroBasics style, cyan and yellow glow, no text, no watermark.
+
+============================================================
+SECTION STATUS LOGIC
+============================================================
+
+Initial:
+section-01 = current
+section-02 to section-12 = locked
+
+After section-01 complete:
+section-01 = completed
+section-02 = current
+section-03 to section-12 = locked
+
+Repeat until section-12.
+
+After section-12 complete:
+BE-001 = completed
+Award 30 XP
+Unlock BE-002
+Module 01 progress = 1 / 4
+Show mobile completion screen or modal.
+
+============================================================
+MOBILE LESSON COMPLETION SCREEN / MODAL
+============================================================
+
+Show after Section 12 completion.
+
+Title:
+🎉 Lesson Complete!
+
+Text:
+BE-001 Welcome to ElectroBasics completed.
+
+Rewards:
++30 XP
+Badge Progress:
+Welcome Explorer 🚀
+
+Next unlocked:
+BE-002 Electronics Lab Safety
+
+Buttons:
+Continue to BE-002
+Back to Module
+Review Lesson
+
+Button behavior:
+Continue to BE-002:
+Navigate to /learn/BE-002
+
+Back to Module:
+Navigate to /modules/module-01
+
+Review Lesson:
+Navigate to /learn/BE-001
+
+============================================================
+MOBILE DATA OBJECT
+============================================================
+
+Use this data as source of truth.
+
+const module01Mobile = {
+  id: "module-01",
+  number: "01",
+  title: "Welcome & Electronics Lab",
+  hindiTitle: "स्वागत है और इलेक्ट्रॉनिक्स लैब",
+  category: "Orientation",
+  difficulty: "Very Easy",
+  lessonCount: 4,
+  totalXP: 165,
+  rewardXP: 200,
+  estimatedMinutes: 130,
+  status: "available",
+  progress: {
+    completedLessons: 0,
+    totalLessons: 4,
+    percent: 0,
+    xpEarned: 0
+  },
+  description:
+    "Start your journey with safety, workspace setup, and understanding electronics basics before building real circuits.",
+  heroImage: "module01-mobile-hero.png",
+  workspaceImage: "module01-workspace-overview.png",
+  sparkImage: "spark-module01-guide.png",
+  rewardBadgeImage: "module01-lab-beginner-badge.png",
+  lessons: [
+    {
+      order: 1,
+      id: "BE-001",
+      title: "Welcome to ElectroBasics",
+      hindiTitle: "इलेक्ट्रोबेसिक्स में आपका स्वागत है",
+      durationMinutes: 25,
+      xp: 30,
+      difficulty: "Very Easy",
+      badge: "Welcome Explorer 🚀",
+      thumbnail: "be001-lesson-thumbnail.png",
+      status: "available",
+      button: "Start Lesson"
+    },
+    {
+      order: 2,
+      id: "BE-002",
+      title: "Electronics Lab Safety",
+      hindiTitle: "इलेक्ट्रॉनिक्स लैब सुरक्षा",
+      durationMinutes: 35,
+      xp: 40,
+      difficulty: "Very Easy",
+      badge: "Safety First 🛡️",
+      thumbnail: "be002-lesson-thumbnail.png",
+      status: "locked",
+      unlockRequirement: "Complete BE-001",
+      button: "Locked"
+    },
+    {
+      order: 3,
+      id: "BE-003",
+      title: "Workspace & Essential Tools",
+      hindiTitle: "कार्यस्थान और आवश्यक उपकरण",
+      durationMinutes: 35,
+      xp: 45,
+      difficulty: "Very Easy",
+      badge: "Lab Ready 🧰",
+      thumbnail: "be003-lesson-thumbnail.png",
+      status: "locked",
+      unlockRequirement: "Complete BE-002",
+      button: "Locked"
+    },
+    {
+      order: 4,
+      id: "BE-004",
+      title: "ESD & Safe Handling",
+      hindiTitle: "ESD और सुरक्षित हैंडलिंग",
+      durationMinutes: 35,
+      xp: 50,
+      difficulty: "Very Easy",
+      badge: "ESD Guardian ⚡",
+      thumbnail: "be004-lesson-thumbnail.png",
+      status: "locked",
+      unlockRequirement: "Complete BE-003",
+      button: "Locked"
+    }
+  ]
+};
+
+const lessonBE001Mobile = {
+  id: "BE-001",
+  moduleId: "module-01",
+  title: "Welcome to ElectroBasics",
+  hindiTitle: "इलेक्ट्रोबेसिक्स में आपका स्वागत है",
+  durationMinutes: 25,
+  xp: 30,
+  difficulty: "Very Easy",
+  badge: "Welcome Explorer 🚀",
+  heroImage: "be001-lesson-mobile-hero.png",
+  progress: {
+    completedSections: 0,
+    totalSections: 12,
+    percent: 0
+  },
+  sectionOrder: [
+    "section-01",
+    "section-02",
+    "section-03",
+    "section-04",
+    "section-05",
+    "section-06",
+    "section-07",
+    "section-08",
+    "section-09",
+    "section-10",
+    "section-11",
+    "section-12"
+  ]
+};
+
+============================================================
+IMAGE ASSET SUMMARY
+============================================================
+
+Module mobile images:
+- module01-card-thumbnail-mobile.png
+- module01-mobile-hero.png
+- module01-workspace-overview.png
+- spark-module01-guide.png
+- module01-lab-beginner-badge.png
+
+Lesson thumbnails:
+- be001-lesson-thumbnail.png
+- be002-lesson-thumbnail.png
+- be003-lesson-thumbnail.png
+- be004-lesson-thumbnail.png
+
+BE-001 mobile lesson images:
+- be001-lesson-mobile-hero.png
+- spark-lesson-guide.png
+- be001-section01-purpose-mobile.png
+- be001-section02-objectives.png
+- be001-section03-real-life-problem.png
+- be001-section04-theory.png
+- be001-section05-guided-visuals.png
+- be001-section06-activity.png
+- be001-section07-practical-lab.png
+- be001-section08-mistakes.png
+- be001-section09-troubleshooting.png
+- be001-section10-glossary.png
+- be001-section11-quiz.png
+- be001-section12-complete.png
+
+============================================================
+FINAL REQUIREMENT
+============================================================
+
+The mobile experience must clearly answer:
+
+- What module am I in?
+- What lesson can I start?
+- What is locked and why?
+- What is my progress?
+- What section am I learning?
+- How do I ask Spark?
+- How do I complete the section?
+- How do I unlock the next section?
+- How do I complete BE-001?
+- How does BE-002 unlock?
+
+The mobile learner should never feel lost.
+
+No Upgrade / Pro / Premium button anywhere.

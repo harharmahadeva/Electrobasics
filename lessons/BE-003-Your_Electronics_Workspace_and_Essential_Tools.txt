@@ -1,0 +1,224 @@
+ElectroBasics | Basic Electronics Bootcamp
+
+Lesson BE-003 : Your Electronics Workspace & Essential Tools / आपका इलेक्ट्रॉनिक्स कार्यक्षेत्र और आवश्यक उपकरण
+
+Metadata
+
+Course: Basic Electronics Bootcamp Module: 01 - Welcome & Electronics
+Lab Lesson ID: BE-003 Difficulty: Beginner | शुरुआती Duration: 25 Minutes
+XP: 30 Badge: Lab Ready
+
+Learning Objectives | सीखने के उद्देश्य
+
+English - Understand what an electronics workspace looks like. -
+Identify the basic tools used in electronics. - Learn why each tool is
+important. - Prepare a safe and organized workbench.
+
+हिन्दी - इलेक्ट्रॉनिक्स कार्यक्षेत्र को समझना। - आवश्यक उपकरणों की पहचान करना। -
+प्रत्येक उपकरण का उपयोग समझना। - सुरक्षित और व्यवस्थित कार्यक्षेत्र तैयार करना।
+
+Introduction | परिचय
+
+English
+
+Before building your first circuit, you need a proper workspace.
+Professional engineers first organize their tools, check their equipment
+and prepare a clean workbench. A good workspace improves safety, reduces
+mistakes and makes learning enjoyable.
+
+You do not need an expensive laboratory. A clean table, good lighting
+and a few basic tools are enough to begin your electronics journey.
+
+हिन्दी
+
+पहला सर्किट बनाने से पहले एक अच्छा कार्यक्षेत्र तैयार करना आवश्यक है। हर इलेक्ट्रॉनिक्स
+इंजीनियर पहले अपने उपकरण व्यवस्थित करता है और फिर सर्किट बनाता है। साफ और
+व्यवस्थित कार्यक्षेत्र सुरक्षा बढ़ाता है, गलतियाँ कम करता है और सीखना आसान बनाता है।
+
+महंगी लैब की आवश्यकता नहीं है। एक साफ मेज़, अच्छी रोशनी और कुछ आवश्यक उपकरण ही
+शुरुआत के लिए पर्याप्त हैं।
+
+Essential Tools | आवश्यक उपकरण
+
+-   Breadboard / ब्रेडबोर्ड
+-   Jumper Wires / जम्पर वायर
+-   Digital Multimeter / डिजिटल मल्टीमीटर
+-   Wire Cutter / वायर कटर
+-   Long Nose Plier / नोज़ प्लायर
+-   Tweezers / चिमटी
+-   Precision Screwdriver Set / स्क्रूड्राइवर सेट
+-   Component Storage Box / पार्ट्स ऑर्गेनाइज़र
+
+Good Workspace Checklist | अच्छे कार्यक्षेत्र की जाँच
+
+✓ Good lighting / अच्छी रोशनी
+
+✓ Clean table / साफ मेज़
+
+✓ Comfortable chair / आरामदायक कुर्सी
+
+✓ Organized tools / व्यवस्थित उपकरण
+
+✓ Food and drinks away / खाने-पीने की चीज़ें दूर
+
+✓ Enough ventilation / पर्याप्त हवा
+
+Common Mistakes | सामान्य गलतियाँ
+
+-   Mixing resistors together.
+-   Leaving batteries connected.
+-   Keeping drinks near circuits.
+-   Working in poor lighting.
+-   Losing jumper wires.
+
+Interesting Fact | रोचक तथ्य
+
+NASA engineers spend significant time organizing their workstations
+before assembling electronics because organization reduces mistakes and
+improves reliability.
+
+नासा के इंजीनियर इलेक्ट्रॉनिक सिस्टम जोड़ने से पहले अपना कार्यक्षेत्र व्यवस्थित करते हैं
+क्योंकि इससे गलतियाँ कम होती हैं।
+
+  ----------------
+  ASSET MANIFEST
+  ----------------
+
+Hero Filename: be003-hero.webp
+
+Used: Lesson Banner
+
+Prompt: Premium electronics workbench viewed from above with white
+breadboard, digital multimeter, precision screwdriver set, tweezers,
+jumper wires, resistor organizer, transparent component storage boxes,
+cyan PCB glow, warm amber accent lighting, realistic macro photography,
+cinematic studio lighting, landscape orientation, no text, no watermark.
+
+Image 1 Filename: electronics-workbench-top.webp
+
+Used: Introduction
+
+Prompt: Top-down macro photograph of a clean electronics workbench with
+breadboard, multimeter, jumper wires, resistors and tweezers neatly
+arranged on a dark surface, realistic product photography.
+
+Image 2 Filename: digital-multimeter-closeup.webp
+
+Used: Tool Section
+
+Prompt: Macro photograph of a professional digital multimeter with
+probes beside it on a dark background, realistic studio lighting, ultra
+detailed.
+
+Image 3 Filename: breadboard-tools.webp
+
+Used: Breadboard Section
+
+Prompt: White breadboard surrounded by jumper wires, resistor kit, LED
+assortment and small electronics tools on a premium dark workbench,
+realistic photography.
+
+Image 4 Filename: component-organizer.webp
+
+Used: Storage Section
+
+Prompt: Transparent organizer box filled with neatly sorted resistors,
+capacitors, LEDs and switches, macro product photography, dark premium
+background.
+
+Spark Mascot Filename: spark-lab-ready.webp
+
+Prompt: Cute white and silver robot with glowing cyan eyes pointing to
+an organized electronics workbench, transparent background, premium 3D
+render.
+
+SVG Filename: workspace-layout.svg
+
+Description: Top view educational layout showing proper placement of
+tools on an electronics workbench.
+
+Animation Filename: workspace-setup.json
+
+Description: Simple animation showing tools automatically arranging
+themselves neatly.
+
+Spark Glossary | शब्दावली
+
+Workspace | कार्यक्षेत्र Area where electronics projects are built. जहाँ
+इलेक्ट्रॉनिक्स प्रोजेक्ट बनाए जाते हैं।
+
+Breadboard | ब्रेडबोर्ड Reusable board for building circuits. बिना सोल्डरिंग
+सर्किट बनाने का बोर्ड।
+
+Multimeter | मल्टीमीटर Tool used to measure electrical values. विद्युत मान
+मापने का उपकरण।
+
+Organizer | ऑर्गेनाइज़र Storage box for electronic components. घटकों को रखने
+का डिब्बा।
+
+Spark System Prompt
+
+Teach only Lesson BE-003. Use simple English and Hindi. Focus on
+workspace organization and basic tools. Do not explain electricity or
+electronic theory yet.
+
+Spark Suggested Prompts
+
+English - What tools should I buy first? - Can I learn on a small
+desk? - Why is organization important? - What is a breadboard?
+
+हिन्दी - शुरुआत में कौन-कौन से उपकरण खरीदूँ? - क्या मैं छोटे टेबल पर सीख सकता हूँ? -
+सामान व्यवस्थित रखना क्यों ज़रूरी है? - ब्रेडबोर्ड क्या है?
+
+Quiz | प्रश्नोत्तरी
+
+1.  Which tool measures voltage? / वोल्टेज कौन मापता है? Answer: Digital
+    Multimeter.
+
+2.  Should tools be organized? / क्या उपकरण व्यवस्थित रखने चाहिए? Answer:
+    Yes.
+
+3.  Is good lighting important? / क्या अच्छी रोशनी ज़रूरी है? Answer: Yes.
+
+4.  Where should drinks be kept? / पेय पदार्थ कहाँ रखें? Answer: Away from
+    the workspace.
+
+5.  Which tool is used to build circuits? / सर्किट बनाने का मुख्य उपकरण?
+    Answer: Breadboard.
+
+Practical | अभ्यास
+
+Arrange your workspace, take a photograph and ask Spark: “Is my
+electronics workspace ready?”
+
+अपना कार्यक्षेत्र व्यवस्थित करें, फोटो लें और Spark से पूछें: “क्या मेरा कार्यक्षेत्र तैयार
+है?”
+
+Homework | गृहकार्य
+
+Create a checklist of the tools you own and the tools you still need.
+
+अपने पास उपलब्ध और आवश्यक उपकरणों की सूची बनाइए।
+
+Summary | सारांश
+
+Today you learned how to prepare an electronics workspace and identified
+the essential tools required to begin practical electronics.
+
+आज आपने इलेक्ट्रॉनिक्स कार्यक्षेत्र तैयार करना और आवश्यक उपकरणों की पहचान करना सीखा।
+
+Achievement
+
+Lab Ready 🧰
+
+Developer Notes
+
+Components: LessonHeader ToolGallery AssetGallery SparkPanel QuizPanel
+SummaryCard
+
+Assets: Images: 5 SVG: 1 Animation: 1
+
+Next Lesson
+
+BE-004 - Electrostatic Discharge (ESD) & Safe Handling of Electronic
+Components

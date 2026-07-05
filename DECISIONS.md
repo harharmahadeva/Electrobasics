@@ -47,6 +47,20 @@ Student progress synchronization.
 
 ---
 
+## 2026-07-02
+
+### Decision
+
+Use a dedicated Supabase project for ElectroBasics, separate from the user's other apps.
+
+Reason
+
+User management should live outside the app's own frontend code and be centrally administered through the Supabase dashboard, not hand-rolled with a custom Node.js/MongoDB auth layer.
+
+Scoped to ElectroBasics only — not a shared identity provider across the user's other PWAs (Speako, Slimbo, Work Ready).
+
+---
+
 ### Decision
 
 Support English and Hindi.
@@ -104,3 +118,15 @@ Maintain a changelog for every meaningful modification.
 Reason
 
 Provides complete project history and easier maintenance.
+
+---
+
+## 2026-07-03
+
+### Decision
+
+Establish "Sandy" (User ID `sandy`, password `800390`) as the canonical default test user for local development, stubbed in `src/services/authService.js`.
+
+Reason
+
+The app currently runs locally with stubbed auth, but will move to GitHub → Vercel with centralized Supabase authentication, where every login is verified against a real account. Having one fixed, documented test identity now (rather than "any input succeeds") gives a consistent account to test against and a clear seed user to recreate once Supabase auth is wired in.

@@ -1,0 +1,1199 @@
+# ElectroBasics | Basic Electronics Bootcamp
+# Lesson BE-021 : Diodes / डायोड
+
+============================================================
+METADATA
+============================================================
+
+Course: Basic Electronics Bootcamp
+Module: Module 04 – Electronic Components
+Lesson ID: BE-021
+Difficulty: Beginner / शुरुआती
+Estimated Duration: 70 Minutes
+XP Reward: 115 XP
+Achievement Badge: One-Way Current Guardian ➡️
+Language: English + Hindi
+Audience: Absolute beginner students
+
+============================================================
+LESSON PURPOSE
+============================================================
+
+This lesson introduces diodes as electronic components that allow current to flow mainly in one direction.
+Beginners will learn what a diode looks like, why polarity matters, how to identify anode and cathode, and where diodes are used in real circuits.
+
+यह पाठ डायोड को ऐसे electronic component के रूप में समझाता है जो current को मुख्य रूप से केवल एक दिशा में बहने देता है।
+शुरुआती विद्यार्थी सीखेंगे कि diode कैसा दिखता है, polarity क्यों ज़रूरी है, anode और cathode कैसे पहचानते हैं, और real circuits में diode कहाँ उपयोग होता है।
+
+============================================================
+LEARNING OBJECTIVES | सीखने के उद्देश्य
+============================================================
+
+English
+• Understand what a diode is.
+• Learn the idea of one-way current flow.
+• Identify anode and cathode.
+• Understand forward bias and reverse bias.
+• Recognize common diode types.
+• Learn diode schematic symbols.
+• Use a digital multimeter diode-test mode.
+• Understand basic diode applications: protection, rectification, signal steering and flyback protection.
+• Avoid common polarity mistakes.
+
+हिन्दी
+• समझना कि diode क्या है।
+• one-way current flow का विचार सीखना।
+• anode और cathode पहचानना।
+• forward bias और reverse bias समझना।
+• common diode types पहचानना।
+• diode schematic symbols सीखना।
+• digital multimeter diode-test mode का उपयोग समझना।
+• protection, rectification, signal steering और flyback protection जैसे basic uses समझना।
+• polarity mistakes से बचना।
+
+============================================================
+REAL-LIFE PROBLEM | वास्तविक जीवन की समस्या
+============================================================
+
+English
+Imagine you connect a battery to a circuit in the wrong direction.
+Some components may be damaged because current flows the wrong way.
+
+A diode can protect a circuit by allowing current in the correct direction and blocking current in the wrong direction.
+
+Another example:
+A phone charger receives AC from the wall but outputs DC for the phone.
+Diodes are used in rectifier circuits to help convert AC into DC.
+
+हिन्दी
+मान लीजिए आपने battery को circuit में उलटी दिशा में जोड़ दिया।
+कुछ components खराब हो सकते हैं क्योंकि current गलत दिशा में बह सकता है।
+
+Diode circuit को protect कर सकता है क्योंकि यह सही दिशा में current को allow करता है और गलत दिशा में current को block करता है।
+
+एक और उदाहरण:
+Phone charger wall से AC लेता है लेकिन phone को DC देता है।
+Diodes rectifier circuits में AC को DC में बदलने में मदद करते हैं।
+
+============================================================
+BEGINNER-FRIENDLY THEORY | शुरुआती सिद्धांत
+============================================================
+
+English
+
+A diode is a two-terminal electronic component.
+It has two sides:
+
+• Anode
+• Cathode
+
+A diode allows current to flow easily from anode to cathode when it is forward biased.
+It blocks current when reverse biased.
+
+Simple idea:
+A diode is like a one-way valve for electric current.
+
+------------------------------------------------------------
+DIODE TERMINALS
+------------------------------------------------------------
+
+Anode:
+The positive side for normal forward current.
+
+Cathode:
+The negative side for normal forward current.
+On many real diodes, the cathode side is marked with a stripe or band.
+
+Current direction in basic diagrams:
+Conventional current flows from anode to cathode when diode is forward biased.
+
+------------------------------------------------------------
+FORWARD BIAS
+------------------------------------------------------------
+
+Forward bias means the diode is connected in the direction that allows current.
+
+Condition:
+Anode is connected to higher voltage.
+Cathode is connected to lower voltage.
+
+In this condition, the diode conducts current.
+
+A silicon diode usually needs about 0.6V to 0.7V forward voltage before it conducts strongly.
+
+Example:
+If the multimeter diode test shows 0.62V, the diode is likely working in forward direction.
+
+------------------------------------------------------------
+REVERSE BIAS
+------------------------------------------------------------
+
+Reverse bias means the diode is connected in the direction that blocks current.
+
+Condition:
+Cathode is connected to higher voltage.
+Anode is connected to lower voltage.
+
+In normal beginner circuits, very little current flows in reverse bias.
+
+If reverse voltage becomes too high, a normal diode can break down and become damaged.
+
+------------------------------------------------------------
+DIODE SYMBOL
+------------------------------------------------------------
+
+The diode symbol looks like an arrow/triangle pointing toward a line.
+
+Anode side → Cathode line
+
+The vertical line in the symbol represents the cathode.
+This matches the stripe on many real diodes.
+
+Beginner memory:
+Line on symbol = cathode.
+Stripe on real diode = cathode.
+
+------------------------------------------------------------
+FORWARD VOLTAGE DROP
+------------------------------------------------------------
+
+A diode is not a perfect wire.
+When current flows through it, it drops some voltage.
+
+Typical approximate values:
+• Silicon diode: about 0.6V to 0.7V
+• Schottky diode: about 0.2V to 0.4V
+• LED: depends on color, often about 1.8V to 3.3V
+
+Beginner note:
+LEDs are also diodes, but they emit light. LEDs have their own lesson next.
+
+------------------------------------------------------------
+COMMON DIODE TYPES
+------------------------------------------------------------
+
+1. Rectifier Diode
+Used to convert AC to DC and handle power current.
+Example: 1N4007.
+
+2. Signal Diode
+Used in small signal circuits.
+Example: 1N4148.
+
+3. Schottky Diode
+Fast diode with lower voltage drop.
+Used in power and switching circuits.
+
+4. Zener Diode
+Designed to work in reverse breakdown at a specific voltage.
+Used for voltage reference and protection.
+
+5. LED
+Light Emitting Diode.
+Emits light when forward biased.
+
+6. Photodiode
+Responds to light.
+Used in sensors and optical communication.
+
+7. TVS Diode
+Used for surge and ESD protection.
+
+This beginner lesson focuses mainly on ordinary diodes, rectifier diodes and signal diodes.
+LEDs and Zener diodes will be explored separately in later lessons.
+
+------------------------------------------------------------
+WHY DIODES ARE USEFUL
+------------------------------------------------------------
+
+Diodes are used for:
+
+• Reverse polarity protection
+• AC to DC rectification
+• Flyback protection across relays and motors
+• Signal steering
+• Voltage clamping
+• Power OR-ing
+• Surge protection
+• Light emission in LEDs
+
+------------------------------------------------------------
+DIODE TEST WITH MULTIMETER
+------------------------------------------------------------
+
+Most digital multimeters have diode test mode.
+
+To test a normal silicon diode:
+
+Forward direction:
+Red probe to anode.
+Black probe to cathode.
+Meter may show around 0.6V to 0.7V.
+
+Reverse direction:
+Red probe to cathode.
+Black probe to anode.
+Meter should show OL or no conduction.
+
+If both directions show 0V or very low reading:
+Diode may be shorted.
+
+If both directions show OL:
+Diode may be open or not connected properly.
+
+हिन्दी
+
+Diode एक दो-terminal electronic component है।
+इसके दो side होते हैं:
+
+• Anode
+• Cathode
+
+Forward bias में diode current को anode से cathode की तरफ आसानी से flow करने देता है।
+Reverse bias में diode current को block करता है।
+
+सरल विचार:
+Diode electric current के लिए one-way valve जैसा है।
+
+------------------------------------------------------------
+DIODE TERMINALS
+------------------------------------------------------------
+
+Anode:
+Normal forward current के लिए positive side.
+
+Cathode:
+Normal forward current के लिए negative side.
+कई real diodes में cathode side पर stripe/band होता है।
+
+Basic diagrams में conventional current forward bias में anode से cathode की ओर बहता है।
+
+------------------------------------------------------------
+FORWARD BIAS
+------------------------------------------------------------
+
+Forward bias का मतलब diode सही दिशा में connected है और current को allow करता है।
+
+Condition:
+Anode higher voltage से जुड़ा हो।
+Cathode lower voltage से जुड़ा हो।
+
+Silicon diode सामान्यतः लगभग 0.6V से 0.7V forward voltage पर conduct करता है।
+
+------------------------------------------------------------
+REVERSE BIAS
+------------------------------------------------------------
+
+Reverse bias का मतलब diode उलटी दिशा में connected है और current को block करता है।
+
+Condition:
+Cathode higher voltage से जुड़ा हो।
+Anode lower voltage से जुड़ा हो।
+
+Beginner circuits में reverse direction में बहुत कम current flow होता है।
+
+------------------------------------------------------------
+DIODE SYMBOL
+------------------------------------------------------------
+
+Diode symbol में line वाला side cathode होता है।
+Real diode पर stripe वाला side भी cathode होता है।
+
+Memory:
+Symbol की line = cathode
+Real diode की stripe = cathode
+
+============================================================
+REAL-LIFE EXAMPLES
+============================================================
+
+Example 1:
+Reverse polarity protection
+A diode can prevent current from flowing if battery is connected backwards.
+
+Example 2:
+Phone charger
+Diodes help convert AC into DC in rectifier circuits.
+
+Example 3:
+Relay protection
+A diode across a relay coil protects transistor from voltage spike when relay turns off.
+
+Example 4:
+Solar panel blocking diode
+A diode can prevent battery from discharging backward into solar panel at night.
+
+Example 5:
+Logic signal steering
+Diodes can guide signals in certain digital/logic circuits.
+
+============================================================
+ANALOGY | तुलना
+============================================================
+
+Water Valve Analogy
+
+Water pipe = wire
+Water flow = electric current
+One-way valve = diode
+
+A one-way valve allows water to flow in one direction.
+If water tries to flow backward, the valve blocks it.
+
+In electronics:
+A diode allows current mainly in one direction.
+It blocks current in the opposite direction.
+
+Important:
+This analogy helps beginners understand direction, but a diode also has voltage drop and electrical limits.
+
+============================================================
+STEP-BY-STEP: IDENTIFYING A DIODE
+============================================================
+
+Step 1:
+Look at the body shape.
+
+Small glass body:
+Often signal diode such as 1N4148.
+
+Black cylindrical body with stripe:
+Often rectifier diode such as 1N4007.
+
+Small black SMD package:
+Could be many diode types.
+
+Step 2:
+Find the stripe.
+
+The stripe usually marks the cathode.
+
+Step 3:
+Compare with symbol.
+
+Cathode stripe on real diode matches the line in the schematic symbol.
+
+Step 4:
+Read the part number if printed.
+
+Examples:
+1N4007 = rectifier diode
+1N4148 = signal diode
+SS14 = Schottky diode
+
+Step 5:
+Verify with multimeter diode test mode.
+
+============================================================
+FORWARD VS REVERSE BIAS TABLE
+============================================================
+
+Forward Bias:
+Anode higher, cathode lower.
+Diode conducts.
+Meter shows forward voltage.
+Used when we want current to pass.
+
+Reverse Bias:
+Cathode higher, anode lower.
+Diode blocks.
+Meter shows OL.
+Used when we want current blocked or protected.
+
+============================================================
+COMMON BEGINNER DIODE PARTS
+============================================================
+
+1N4007:
+Common rectifier diode.
+Used in power and protection circuits.
+Handles higher reverse voltage than many small signal diodes.
+
+1N4148:
+Small signal diode.
+Used for switching and signal circuits.
+Fast and common in beginner kits.
+
+1N5819:
+Schottky diode.
+Lower forward voltage.
+Useful in low-voltage circuits.
+
+Zener Diode:
+Used in reverse direction at a rated voltage.
+Beginners should not treat it like a normal diode without understanding.
+
+LED:
+A diode that emits light.
+Needs current-limiting resistor.
+Covered in next lesson.
+
+============================================================
+INTERACTIVE ACTIVITY / SIMULATOR
+============================================================
+
+Activity Name:
+One-Way Diode Current Simulator
+
+User Experience:
+The learner sees a battery, resistor, diode and LED/load.
+The learner can flip the diode direction and observe whether current flows.
+
+Controls:
+• Flip diode direction
+• Battery voltage selector: 3V, 5V, 9V
+• Diode type selector: Silicon, Schottky, LED
+• Show current arrows
+• Show voltage drop
+• Multimeter diode test mode
+
+Live Output:
+• Current flowing / blocked
+• Forward voltage drop
+• LED/load ON or OFF
+• Spark explanation
+• Warning if diode polarity is wrong
+
+Example:
+Diode forward:
+Current flows. Load turns ON.
+
+Diode reversed:
+Current blocked. Load stays OFF.
+
+Challenge Mode:
+Spark asks:
+"Protect the circuit from reverse battery connection."
+Learner places diode in correct orientation.
+
+MVP Implementation:
+If full simulator is not ready, create two cards:
+• Forward bias card
+• Reverse bias card
+Then add a flip animation later.
+
+============================================================
+PRACTICAL LAB | प्रैक्टिकल लैब
+============================================================
+
+Lab Name:
+Test a Diode with a Digital Multimeter
+
+Required Components:
+• 1N4007 diode or similar rectifier diode
+• 1N4148 diode if available
+• Digital multimeter with diode test mode
+• Breadboard
+• LED and resistor optional
+• Notebook
+
+Safety:
+• Use low-voltage components only.
+• Do not test diodes inside powered circuits.
+• Power OFF before measuring components.
+• Do not use mains power.
+
+Part A: Identify Diode Direction
+
+Steps:
+1. Pick a diode.
+2. Find the stripe on one side.
+3. Mark that side as cathode.
+4. The other side is anode.
+5. Compare with the diode symbol.
+
+Part B: Multimeter Diode Test
+
+Steps:
+1. Set multimeter to diode test mode.
+2. Connect red probe to anode.
+3. Connect black probe to cathode.
+4. Record the reading.
+5. Reverse probes.
+6. Record the reading again.
+
+Expected Result:
+Forward direction:
+About 0.6V to 0.7V for silicon diode.
+
+Reverse direction:
+OL or no reading.
+
+Observation Table:
+
+Diode Part | Stripe Side Identified? | Forward Reading | Reverse Reading | Result
+1N4007     |                         |                 |                |
+1N4148     |                         |                 |                |
+Schottky   |                         |                 |                |
+
+Part C: Simple Direction Test with LED
+
+Circuit:
+Battery + → resistor → diode → LED → battery -
+
+Try diode in one direction.
+Then flip it.
+Observe when LED lights.
+
+Important:
+Always include a resistor with LED.
+
+============================================================
+COMMON BEGINNER MISTAKES | सामान्य शुरुआती गलतियाँ
+============================================================
+
+• Thinking diode works both ways like a resistor.
+• Ignoring the stripe on the diode body.
+• Confusing anode and cathode.
+• Forgetting that diode has voltage drop.
+• Testing a diode while the circuit is powered.
+• Using diode test mode but touching probes incorrectly.
+• Assuming every black cylindrical part is the same diode.
+• Using a small signal diode where a power diode is needed.
+• Connecting LED without a resistor.
+• Thinking OL always means broken diode; in reverse direction OL can be normal.
+
+============================================================
+TROUBLESHOOTING GUIDE | समस्या समाधान
+============================================================
+
+Problem:
+Diode test shows OL in both directions.
+
+Possible Causes:
+• Diode is open/faulty.
+• Probe contact is poor.
+• Wrong meter mode.
+• Diode leads are dirty/oxidized.
+
+Problem:
+Diode test shows 0V or very low reading both directions.
+
+Possible Cause:
+• Diode may be shorted.
+
+Problem:
+Circuit does not work with diode.
+
+Check:
+• Is diode direction correct?
+• Is the cathode stripe on the correct side?
+• Is the voltage high enough to overcome diode drop?
+• Is there a resistor where needed?
+• Are wires in correct breadboard rows?
+
+Problem:
+LED does not light after adding diode.
+
+Possible Causes:
+• Diode reversed.
+• LED reversed.
+• Resistor too high.
+• Battery voltage too low.
+• Breadboard wiring wrong.
+
+Problem:
+Diode gets hot.
+
+Possible Causes:
+• Too much current.
+• Wrong diode rating.
+• Short circuit.
+• Incorrect wiring.
+
+Action:
+Turn power OFF immediately and inspect.
+
+============================================================
+SAFETY SECTION | सुरक्षा
+============================================================
+
+Diodes are usually safe in low-voltage beginner circuits, but unsafe wiring can still cause heat or damage.
+
+Important Rules:
+• Use current-limiting resistor with LEDs.
+• Do not connect diode directly across a battery without understanding the circuit.
+• Check current rating of the diode.
+• Do not test components in powered circuits.
+• Do not work on mains-powered chargers or power supplies as a beginner.
+• If a diode gets hot, power off.
+
+Hindi:
+Low-voltage circuits में diode सामान्यतः सुरक्षित होता है, लेकिन गलत wiring heat और damage कर सकती है।
+LED के साथ हमेशा resistor लगाएँ।
+Powered circuit में diode test न करें।
+Mains power supply पर beginner level पर काम न करें।
+
+============================================================
+IMAGE / ASSET PLAN
+============================================================
+
+Important:
+Every asset below must teach something. The filename should be used exactly so Claude can connect the lesson UI to the correct image.
+
+------------------------------------------------------------
+Asset 01
+------------------------------------------------------------
+
+Filename:
+be021-hero-diodes.png
+
+Asset Type:
+Hero banner / realistic macro photo
+
+Where / When to Use:
+Top of lesson page.
+
+Purpose:
+Introduce real diodes visually.
+
+Prompt to Generate:
+Premium macro photograph of assorted diodes including black rectifier diodes, small glass signal diodes, Schottky diodes and LEDs arranged beside a breadboard circuit and digital multimeter in diode test mode, dark electronics workbench, cyan PCB glow, warm amber lighting, realistic educational style, no text, no watermark.
+
+Claude Implementation Notes:
+Use full-width hero on desktop. On mobile, crop around the clearest diode stripe and multimeter probes. Add caption: "A diode allows current mainly in one direction."
+
+------------------------------------------------------------
+Asset 02
+------------------------------------------------------------
+
+Filename:
+be021-diode-symbol-and-real-part.png
+
+Asset Type:
+Educational infographic
+
+Where / When to Use:
+Diode terminals and symbol section.
+
+Purpose:
+Connect real diode stripe with schematic symbol cathode line.
+
+Prompt to Generate:
+Clean beginner infographic showing real diode with stripe labeled cathode and schematic diode symbol with line labeled cathode. Show anode and cathode clearly with arrows. White background, dark blue headings, large readable labels.
+
+Claude Implementation Notes:
+Make anode/cathode labels clickable. Spark explains line = cathode, stripe = cathode.
+
+------------------------------------------------------------
+Asset 03
+------------------------------------------------------------
+
+Filename:
+be021-forward-reverse-bias.png
+
+Asset Type:
+Concept infographic
+
+Where / When to Use:
+Forward and reverse bias section.
+
+Purpose:
+Explain current allowed vs blocked.
+
+Prompt to Generate:
+Side-by-side educational diagram: left shows forward-biased diode connected to battery with current arrows and LED/load ON; right shows reverse-biased diode blocking current with LED/load OFF. Use green check for forward, red cross for reverse. Beginner friendly.
+
+Claude Implementation Notes:
+Use as central concept card. Add toggle animation if possible.
+
+------------------------------------------------------------
+Asset 04
+------------------------------------------------------------
+
+Filename:
+be021-one-way-valve-analogy.png
+
+Asset Type:
+Analogy infographic
+
+Where / When to Use:
+Analogy section.
+
+Purpose:
+Help beginners understand diode as one-way valve.
+
+Prompt to Generate:
+Educational infographic comparing diode to a one-way water valve. Show water flowing in allowed direction and blocked in reverse direction. Map water flow to electric current and valve to diode. Clean large labels.
+
+Claude Implementation Notes:
+Add note that analogy is not perfect because diodes also have voltage drop.
+
+------------------------------------------------------------
+Asset 05
+------------------------------------------------------------
+
+Filename:
+be021-common-diode-types.png
+
+Asset Type:
+Educational poster / component gallery
+
+Where / When to Use:
+Common diode types section.
+
+Purpose:
+Show different physical diode types.
+
+Prompt to Generate:
+Clean educational poster showing common diode types: rectifier diode 1N4007, signal diode 1N4148, Schottky diode, Zener diode, LED, photodiode, TVS diode. Include short beginner use for each. White background, dark blue headings, large readable text.
+
+Claude Implementation Notes:
+Desktop full poster. Mobile split into cards. Do not overload with advanced details.
+
+------------------------------------------------------------
+Asset 06
+------------------------------------------------------------
+
+Filename:
+be021-multimeter-diode-test.png
+
+Asset Type:
+Real lab photo
+
+Where / When to Use:
+Practical diode test section.
+
+Purpose:
+Show correct multimeter diode test.
+
+Prompt to Generate:
+Realistic close-up photo of a digital multimeter set to diode test mode measuring a black rectifier diode. Red probe touches anode, black probe touches cathode stripe side, display shows approximately 0.65V, clean electronics workbench, beginner-friendly composition.
+
+Claude Implementation Notes:
+Use in lab steps. Add caption: "Forward direction shows voltage drop."
+
+------------------------------------------------------------
+Asset 07
+------------------------------------------------------------
+
+Filename:
+be021-reverse-diode-test.png
+
+Asset Type:
+Real lab photo / comparison
+
+Where / When to Use:
+Practical diode test section after forward test.
+
+Purpose:
+Show reverse direction result.
+
+Prompt to Generate:
+Realistic close-up photo of digital multimeter in diode test mode measuring the same diode with probes reversed, display shows OL, clear view of diode stripe, clean electronics workbench, educational style.
+
+Claude Implementation Notes:
+Place beside Asset 06 as forward vs reverse comparison.
+
+------------------------------------------------------------
+Asset 08
+------------------------------------------------------------
+
+Filename:
+be021-rectifier-simple-diagram.svg
+
+Asset Type:
+SVG circuit diagram
+
+Where / When to Use:
+Rectification introduction.
+
+Purpose:
+Introduce AC-to-DC role of diode without heavy math.
+
+Prompt to Generate:
+Clean SVG diagram of a simple half-wave rectifier: AC input, diode, load resistor, output waveform showing only positive half cycles. Large beginner labels, minimal clutter.
+
+Claude Implementation Notes:
+Use as optional section. Keep explanation basic; full rectifier lesson may come later.
+
+------------------------------------------------------------
+Asset 09
+------------------------------------------------------------
+
+Filename:
+be021-flyback-diode-protection.png
+
+Asset Type:
+Concept circuit infographic
+
+Where / When to Use:
+Applications section.
+
+Purpose:
+Show diode protecting transistor from relay coil spike.
+
+Prompt to Generate:
+Beginner-friendly circuit infographic showing relay coil with flyback diode connected across it, transistor switch below, battery supply, arrows showing voltage spike being safely routed through diode when relay turns off. Clean labels, no advanced math.
+
+Claude Implementation Notes:
+Mark as "preview application." Avoid deep transistor theory.
+
+------------------------------------------------------------
+Asset 10
+------------------------------------------------------------
+
+Filename:
+be021-diode-simulator-ui.png
+
+Asset Type:
+UI mockup / simulator reference
+
+Where / When to Use:
+Interactive simulator section.
+
+Purpose:
+Guide Claude in building one-way diode simulator.
+
+Prompt to Generate:
+Dark futuristic ElectroBasics UI mockup for a diode one-way current simulator. Center shows battery, resistor, diode and LED/load circuit. Controls include flip diode, battery voltage, diode type and show current arrows. Right panel shows current flowing or blocked, forward voltage drop and Spark explanation. Neon cyan and amber accents.
+
+Claude Implementation Notes:
+Use as design reference. Flip diode should be interactive in React.
+
+------------------------------------------------------------
+Asset 11
+------------------------------------------------------------
+
+Filename:
+be021-common-mistakes.png
+
+Asset Type:
+Common mistakes infographic
+
+Where / When to Use:
+Common mistakes section.
+
+Purpose:
+Prevent beginner diode errors.
+
+Prompt to Generate:
+Four-panel beginner electronics infographic showing diode mistakes: ignoring cathode stripe, reversing diode, testing diode in powered circuit, connecting LED without resistor. Use clear icons, red X marks, simple labels, dark blue header, white background.
+
+Claude Implementation Notes:
+Use as "Spot the Mistake" exercise. Each panel opens Spark explanation.
+
+------------------------------------------------------------
+Asset 12
+------------------------------------------------------------
+
+Filename:
+be021-spark-diode.png
+
+Asset Type:
+Spark mascot
+
+Where / When to Use:
+Spark AI help card and achievement section.
+
+Purpose:
+Make diode learning friendly.
+
+Prompt to Generate:
+Cute white and silver robot mascot named Spark holding a diode with a visible cathode stripe and pointing to a one-way arrow, cyan glowing eyes, friendly expression, transparent background, premium 3D render, no text.
+
+Claude Implementation Notes:
+Use beside Spark panel and achievement card.
+
+============================================================
+SPARK AI ROLE FOR THIS LESSON
+============================================================
+
+Spark should:
+• Explain diode as one-way current valve.
+• Point to cathode stripe in images.
+• Help learners identify anode and cathode.
+• Explain forward bias and reverse bias slowly.
+• Use multimeter readings to diagnose diode condition.
+• Remind learners that LED is also a diode but needs a resistor.
+• Avoid advanced semiconductor physics unless asked.
+
+Spark should not:
+• Teach PN junction physics deeply.
+• Encourage testing mains circuits.
+• Skip current-limiting resistor warnings.
+• Confuse Zener diode behavior with ordinary diode behavior.
+• Jump into bridge rectifiers in full detail.
+
+============================================================
+SPARK GLOSSARY | Spark शब्दावली
+============================================================
+
+Diode | डायोड
+Meaning:
+A component that allows current mainly in one direction.
+Beginner Example:
+It is like a one-way valve for current.
+
+Anode | एनोड
+Meaning:
+The side where conventional current enters a forward-biased diode.
+Beginner Example:
+Red probe goes to anode during forward diode test.
+
+Cathode | कैथोड
+Meaning:
+The side where conventional current leaves a forward-biased diode.
+Beginner Example:
+Stripe on a diode usually marks cathode.
+
+Forward Bias | फॉरवर्ड बायस
+Meaning:
+Diode connected in direction that allows current.
+Beginner Example:
+Anode higher than cathode.
+
+Reverse Bias | रिवर्स बायस
+Meaning:
+Diode connected in direction that blocks current.
+Beginner Example:
+Cathode higher than anode.
+
+Forward Voltage Drop | फॉरवर्ड वोल्टेज ड्रॉप
+Meaning:
+Voltage across diode when it conducts.
+Beginner Example:
+Silicon diode may show about 0.6V to 0.7V.
+
+Rectifier | रेक्टिफायर
+Meaning:
+Circuit that converts AC to DC.
+Beginner Example:
+Phone chargers use rectification.
+
+Schottky Diode | शॉट्की डायोड
+Meaning:
+Diode with lower forward voltage drop.
+Beginner Example:
+Useful in low-voltage power circuits.
+
+Zener Diode | ज़ेनर डायोड
+Meaning:
+Special diode designed to work in reverse breakdown at a set voltage.
+Beginner Example:
+Used for voltage reference and protection.
+
+Flyback Diode | फ्लाईबैक डायोड
+Meaning:
+Protection diode used across coils.
+Beginner Example:
+Protects transistor when relay turns off.
+
+============================================================
+SPARK SYSTEM PROMPT
+============================================================
+
+You are Spark, the ElectroBasics AI mentor.
+
+You are teaching Lesson BE-021: Diodes / डायोड.
+
+Rules:
+1. Teach diode basics for beginners.
+2. Explain one-way current flow clearly.
+3. Always identify anode and cathode.
+4. Use the cathode stripe and schematic line connection.
+5. Explain forward bias and reverse bias with simple diagrams.
+6. Explain multimeter diode test readings.
+7. Do not teach deep semiconductor physics.
+8. Do not encourage mains power experiments.
+9. Mention LEDs are diodes but will be taught in the next lesson.
+10. Use English and Hindi depending on learner preference.
+
+============================================================
+SPARK SUGGESTED PROMPTS
+============================================================
+
+English:
+• What does a diode do in simple words?
+• How do I identify the cathode side?
+• What is forward bias?
+• What is reverse bias?
+• Why does my multimeter show 0.65V?
+• Why does my multimeter show OL?
+• Is an LED also a diode?
+• Where are diodes used in real circuits?
+
+हिन्दी:
+• diode सरल भाषा में क्या करता है?
+• cathode side कैसे पहचानें?
+• forward bias क्या है?
+• reverse bias क्या है?
+• मेरा multimeter 0.65V क्यों दिखा रहा है?
+• मेरा multimeter OL क्यों दिखा रहा है?
+• क्या LED भी diode है?
+• real circuits में diode कहाँ उपयोग होता है?
+
+============================================================
+QUIZ | प्रश्नोत्तरी
+============================================================
+
+Q1. A diode mainly allows current in how many directions?
+Answer:
+One direction.
+
+Q2. What are the two terminals of a diode?
+Answer:
+Anode and cathode.
+
+Q3. What usually marks the cathode side on a real diode?
+Answer:
+A stripe or band.
+
+Q4. In forward bias, does a diode conduct?
+Answer:
+Yes.
+
+Q5. In reverse bias, does a normal diode block current?
+Answer:
+Yes, in normal conditions.
+
+Q6. What is the typical forward voltage of a silicon diode?
+Answer:
+About 0.6V to 0.7V.
+
+Q7. What does OL usually mean during reverse diode test?
+Answer:
+No conduction / open reading, which is normal in reverse direction.
+
+Q8. Is LED a type of diode?
+Answer:
+Yes.
+
+Q9. Should a diode be tested inside a powered circuit?
+Answer:
+No.
+
+Q10. What diode is commonly used as a rectifier diode?
+Answer:
+1N4007 or similar.
+
+============================================================
+IMAGE-BASED QUIZ IDEAS
+============================================================
+
+Quiz Image 1:
+Show real diode with stripe.
+Ask:
+"Which side is cathode?"
+
+Quiz Image 2:
+Show forward and reverse bias circuits.
+Ask:
+"Which circuit allows current?"
+
+Quiz Image 3:
+Show multimeter reading 0.65V.
+Ask:
+"Is this forward or reverse diode test?"
+
+Quiz Image 4:
+Show multimeter reading OL with reversed probes.
+Ask:
+"Is this normal for reverse direction?"
+
+Quiz Image 5:
+Show diode symbol.
+Ask:
+"Which side is cathode?"
+
+============================================================
+HOMEWORK | गृहकार्य
+============================================================
+
+1. Find two diodes from your kit.
+2. Identify the cathode stripe.
+3. Draw the diode symbol and mark anode/cathode.
+4. Test each diode using multimeter diode mode.
+5. Record forward reading and reverse reading.
+6. Ask Spark to check whether the readings look normal.
+
+Hindi Homework:
+1. अपने kit से दो diodes खोजिए।
+2. cathode stripe पहचानिए।
+3. diode symbol बनाइए और anode/cathode mark कीजिए।
+4. multimeter diode mode से test कीजिए।
+5. forward और reverse readings लिखिए।
+6. Spark से पूछिए कि readings normal हैं या नहीं।
+
+============================================================
+SUMMARY | सारांश
+============================================================
+
+English:
+In this lesson, you learned that a diode allows current mainly in one direction. You learned anode, cathode, stripe marking, schematic symbol, forward bias, reverse bias, forward voltage drop, diode testing and basic diode applications.
+
+हिन्दी:
+इस पाठ में आपने सीखा कि diode current को मुख्य रूप से एक दिशा में बहने देता है। आपने anode, cathode, stripe marking, schematic symbol, forward bias, reverse bias, forward voltage drop, diode testing और basic uses सीखे।
+
+============================================================
+ACHIEVEMENT UNLOCKED
+============================================================
+
+➡️ One-Way Current Guardian
+
+Achievement Message:
+You can now identify diode direction and understand how it protects and controls current flow.
+
+हिन्दी:
+अब आप diode direction पहचान सकते हैं और समझ सकते हैं कि यह current flow को कैसे control और protect करता है।
+
+============================================================
+DEVELOPER NOTES FOR CLAUDE
+============================================================
+
+Required React Sections:
+• LessonHeader
+• HeroAsset
+• BilingualLearningObjectives
+• RealLifeProblemCard
+• TheoryBlock
+• DiodeSymbolDiagram
+• ForwardReverseBiasToggle
+• OneWayValveAnalogy
+• DiodeTypesGallery
+• MultimeterDiodeTestGuide
+• DiodeCurrentSimulator
+• PracticalLabCard
+• CommonMistakesGallery
+• TroubleshootingPanel
+• SparkPanel
+• GlossaryPanel
+• QuizPanel
+• ImageQuizPanel
+• HomeworkPanel
+• SummaryCard
+• AchievementCard
+• NextLessonCard
+
+Simulator Requirements:
+• Flip diode direction.
+• Battery voltage selector.
+• Diode type selector.
+• Current arrow animation.
+• Forward voltage display.
+• Load ON/OFF state.
+• Spark explanation output.
+
+Mobile Notes:
+• Use accordion sections.
+• Diode type poster should split into cards.
+• Forward/reverse bias should be a toggle card.
+• Use large tap targets for simulator buttons.
+• Multimeter photos should support zoom.
+• Safety warning must appear before practical lab.
+
+Data Structure Suggestion:
+diodeTypes = [
+  { name: "Rectifier Diode", example: "1N4007", use: "AC to DC and power circuits", beginner: true },
+  { name: "Signal Diode", example: "1N4148", use: "Small signal switching", beginner: true },
+  { name: "Schottky Diode", example: "1N5819", use: "Low voltage drop", beginner: true },
+  { name: "Zener Diode", example: "5.1V Zener", use: "Voltage reference/protection", beginner: false },
+  { name: "LED", example: "Red LED", use: "Light output", beginner: true },
+  { name: "Photodiode", example: "IR photodiode", use: "Light sensing", beginner: false }
+]
+
+============================================================
+NEXT LESSON
+============================================================
+
+BE-022 – LEDs / एलईडी

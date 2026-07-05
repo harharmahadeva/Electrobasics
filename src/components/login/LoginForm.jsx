@@ -1,43 +1,66 @@
-import DisclaimerCard from "./DisclaimerCard";
+import "./LoginForm.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { User, Lock, Eye, EyeOff } from "lucide-react";
+import useLogin from "../../hooks/useLogin";
 
 export default function LoginForm() {
-  return (
-    <form className="login-card">
-      <h2>Welcome Back!</h2>
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { loading, error, signIn } = useLogin();
 
-      <div className="form-title">
-        <span></span>
-        <p>Student Login</p>
-        <span></span>
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const user = await signIn(userId, password);
+    if (user) navigate("/dashboard");
+  }
+
+  return (
+    <form className="login-card" onSubmit={handleSubmit}>
+      <h1>{t("welcome")} 👋</h1>
+      <p className="login-sub">{t("loginSub")}</p>
+
+      <label className="field-label">{t("userId")}</label>
+      <div className="field-row">
+        <User size={16} />
+        <input
+          type="text"
+          placeholder="Enter your User ID"
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
+          required
+        />
       </div>
 
-      <label className="input-row">
-        <span>👤</span>
-        <input type="text" maxLength="5" placeholder="5 Digit Student Code" />
-      </label>
+      <label className="field-label">{t("password")}</label>
+      <div className="field-row">
+        <Lock size={16} />
+        <input
+          type={showPassword ? "text" : "password"}
+          placeholder="••••••••"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button
+          type="button"
+          className="eye-btn"
+          onClick={() => setShowPassword((v) => !v)}
+        >
+          {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+        </button>
+      </div>
 
-      <label className="input-row">
-        <span>🔒</span>
-        <input type="password" placeholder="Password" />
-        <button type="button" className="icon-btn">👁</button>
-      </label>
+      {error && <p className="login-error">{error}</p>}
 
-      <label className="remember-row">
-        <input type="checkbox" />
-        <span>Remember me</span>
-      </label>
-
-      <button type="button" className="primary-btn">
-        Start Learning
+      <button type="submit" className="signin-btn" disabled={loading}>
+        {loading ? "..." : t("signIn")}
       </button>
-
-      <button type="button" className="secondary-btn">
-        Continue Previous Lesson
-      </button>
-
-      <div className="separator"></div>
-
-      <DisclaimerCard />
     </form>
   );
 }

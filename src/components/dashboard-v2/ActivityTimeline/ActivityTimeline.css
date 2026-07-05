@@ -1,0 +1,98 @@
+.activity-timeline {
+  min-width: 240px;
+  background: linear-gradient(180deg, var(--eb-surface-card-from), var(--eb-surface-card-to));
+  border: 1px solid var(--eb-border-subtle);
+  border-radius: var(--eb-radius-card);
+  padding: var(--eb-pad-card);
+}
+
+.at-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--eb-cyan);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  margin-bottom: 18px;
+}
+
+.at-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.at-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--eb-border-subtle);
+}
+
+.at-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.at-item:first-child {
+  padding-top: 0;
+}
+
+.at-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.at-icon--check {
+  background: rgba(74, 222, 128, 0.14);
+  color: var(--eb-green);
+}
+.at-icon--quiz {
+  background: rgba(34, 211, 238, 0.14);
+  color: var(--eb-cyan);
+}
+.at-icon--play {
+  background: rgba(245, 166, 35, 0.14);
+  color: var(--eb-amber);
+}
+
+.at-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.at-text strong {
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.at-text small {
+  display: block;
+  color: var(--eb-text-secondary);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.at-time {
+  color: var(--eb-text-muted-2);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.at-view-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 18px;
+  color: var(--eb-cyan);
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+}

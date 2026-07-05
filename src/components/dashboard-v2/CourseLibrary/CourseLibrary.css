@@ -1,0 +1,123 @@
+.course-library {
+  grid-column: span 2;
+  min-width: 260px;
+  background: linear-gradient(180deg, var(--eb-surface-card-from), var(--eb-surface-card-to));
+  border: 1px solid var(--eb-border-subtle);
+  border-radius: var(--eb-radius-card);
+  padding: var(--eb-pad-card);
+}
+
+.crl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.crl-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--eb-amber);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+}
+
+.crl-header a {
+  color: var(--eb-cyan);
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.crl-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 420px) {
+  .crl-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.crl-card {
+  cursor: pointer;
+}
+
+.crl-thumb {
+  height: 96px;
+  border-radius: 13px;
+  border: 1px solid var(--eb-border-subtle);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 11px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.accent-amber .crl-thumb {
+  background-image:
+    url("../../../assets/images/courses/basic-electronics.png"),
+    linear-gradient(135deg, #3a2a10, #1a1206);
+}
+.accent-green .crl-thumb {
+  background-image:
+    url("../../../assets/images/courses/analog-electronics.png"),
+    linear-gradient(135deg, #0f2a1c, #08160f);
+}
+.accent-cyan .crl-thumb {
+  background-image:
+    url("../../../assets/images/courses/digital-electronics.png"),
+    linear-gradient(135deg, #0d2630, #081319);
+}
+.accent-purple .crl-thumb {
+  background-image:
+    url("../../../assets/images/courses/sensors-actuators.png"),
+    linear-gradient(135deg, #241a34, #120d1c);
+}
+
+.crl-card h4 {
+  font-family: var(--eb-font-display);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.crl-card small {
+  display: block;
+  color: var(--eb-text-secondary);
+  font-size: 12px;
+  margin: 4px 0 8px;
+}
+
+.crl-progress {
+  height: 5px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.crl-progress div {
+  height: 100%;
+  border-radius: 20px;
+}
+
+.accent-amber .crl-progress div {
+  background: var(--eb-amber);
+}
+.accent-green .crl-progress div {
+  background: var(--eb-green);
+}
+.accent-cyan .crl-progress div {
+  background: var(--eb-cyan);
+}
+.accent-purple .crl-progress div {
+  background: var(--eb-purple);
+}
+
+@media (max-width: 700px) {
+  .course-library {
+    grid-column: span 1;
+  }
+}

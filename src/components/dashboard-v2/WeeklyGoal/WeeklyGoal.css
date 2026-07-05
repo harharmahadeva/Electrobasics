@@ -1,0 +1,81 @@
+.weekly-goal {
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(24, 20, 34, 0.9), rgba(13, 11, 20, 0.9));
+  border: 1px solid rgba(150, 120, 240, 0.2);
+  border-radius: var(--eb-radius-card);
+  padding: var(--eb-pad-card);
+}
+
+.wg-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #c4b5fd;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  margin-bottom: 16px;
+}
+
+.wg-ring-wrap {
+  display: grid;
+  place-items: center;
+  margin: 6px 0 14px;
+}
+
+.wg-ring {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 40px rgba(150, 120, 240, 0.2);
+}
+
+.wg-ring-inner {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: #120e1c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.wg-ring-inner strong {
+  font-family: var(--eb-font-display);
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.wg-ring-inner strong span {
+  font-size: 16px;
+  color: var(--eb-text-secondary);
+}
+
+.wg-ring-inner small {
+  font-size: 12px;
+  color: var(--eb-text-secondary);
+}
+
+.weekly-goal p {
+  text-align: center;
+  color: #b7a8e8;
+  font-size: 13px;
+  margin: 0 0 16px;
+}
+
+.weekly-goal button {
+  cursor: pointer;
+  border: 1px solid rgba(150, 120, 240, 0.35);
+  background: rgba(150, 120, 240, 0.12);
+  color: #d3c6f7;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+}

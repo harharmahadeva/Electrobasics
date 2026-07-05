@@ -1,0 +1,185 @@
+ElectroBasics | Basic Electronics Bootcamp
+
+Lesson BE-004 : Electrostatic Discharge (ESD) & Safe Handling of Electronic Components / इलेक्ट्रोस्टैटिक डिस्चार्ज (ESD) और इलेक्ट्रॉनिक घटकों की सुरक्षित हैंडलिंग
+
+Metadata
+
+Course: Basic Electronics Bootcamp Module: 01 - Welcome & Electronics
+Lab Lesson ID: BE-004 Difficulty: Beginner | शुरुआती Duration: 25 Minutes
+XP: 35 Badge: ESD Guardian
+
+Learning Objectives | सीखने के उद्देश्य
+
+English - Understand what ESD is. - Learn why static electricity damages
+components. - Handle electronic parts safely. - Identify ESD protection
+equipment.
+
+हिन्दी - ESD क्या है समझना। - स्थिर विद्युत से होने वाले नुकसान को समझना। -
+इलेक्ट्रॉनिक घटकों को सुरक्षित तरीके से पकड़ना। - ESD सुरक्षा उपकरणों की पहचान करना।
+
+Introduction | परिचय
+
+English
+
+Have you ever received a tiny electric shock after touching a metal
+door? That tiny spark is called static electricity. Humans usually
+cannot feel small static charges, but sensitive electronic components
+can be permanently damaged by them.
+
+Even though you may not see the damage immediately, an integrated
+circuit (IC), microcontroller or sensor may stop working or fail later.
+
+Professional electronics labs always follow ESD protection procedures.
+
+हिन्दी
+
+क्या आपने कभी धातु के दरवाज़े को छूते समय हल्का झटका महसूस किया है? इसे स्थिर विद्युत
+(Static Electricity) कहते हैं। यह मनुष्य के लिए अक्सर हानिकारक नहीं होती, लेकिन
+इलेक्ट्रॉनिक IC, सेंसर और माइक्रोकंट्रोलर जैसे घटकों को नुकसान पहुँचा सकती है।
+
+इसी कारण हर प्रोफेशनल इलेक्ट्रॉनिक्स लैब में ESD सुरक्षा का पालन किया जाता है।
+
+What Causes ESD? | ESD कैसे बनता है?
+
+English - Walking on carpet. - Removing plastic packaging. - Dry
+weather. - Synthetic clothing.
+
+हिन्दी - कालीन पर चलना। - प्लास्टिक पैक खोलना। - शुष्क मौसम। - सिंथेटिक कपड़े।
+
+How to Prevent ESD | ESD से कैसे बचें?
+
+✓ Wear an anti-static wrist strap. ✓ Use an anti-static mat. ✓ Hold PCBs
+by their edges. ✓ Avoid touching IC pins. ✓ Store components in
+anti-static bags.
+
+✓ एंटी-स्टैटिक रिस्ट स्ट्रैप पहनें। ✓ एंटी-स्टैटिक मैट का उपयोग करें। ✓ PCB को किनारों से
+पकड़ें। ✓ IC के पिन न छुएँ। ✓ एंटी-स्टैटिक बैग में रखें।
+
+Interesting Fact | रोचक तथ्य
+
+A static discharge of only a few dozen volts can damage some modern
+integrated circuits, while the human body often cannot feel a discharge
+until it reaches much higher voltages.
+
+मनुष्य को अक्सर झटका महसूस नहीं होता, लेकिन आधुनिक IC बहुत कम स्थिर विद्युत से भी
+खराब हो सकते हैं।
+
+  ----------------
+  ASSET MANIFEST
+  ----------------
+
+Hero Filename: be004-hero.webp
+
+Prompt: Macro photograph of an engineer wearing an anti-static wrist
+strap while holding a green PCB by its edges on an ESD mat, premium
+electronics workstation, cyan and amber lighting, realistic photography,
+landscape, no text.
+
+Image 1 Filename: esd-wrist-strap.webp
+
+Prompt: Macro product photograph of a blue anti-static wrist strap
+connected to an ESD mat, dark background, studio lighting.
+
+Image 2 Filename: ic-safe-handling.webp
+
+Prompt: Close-up macro photograph of hands holding a black integrated
+circuit only by its edges, realistic electronics lab, shallow depth of
+field.
+
+Image 3 Filename: anti-static-bag.webp
+
+Prompt: Transparent anti-static bag containing integrated circuits on a
+dark electronics workbench, premium product photography.
+
+Image 4 Filename: esd-mat.webp
+
+Prompt: Professional anti-static work mat with PCB, ICs and electronics
+tools arranged neatly, realistic photography.
+
+Spark Mascot Filename: spark-esd.webp
+
+Prompt: Cute white and silver robot wearing an anti-static wrist strap
+while safely holding a PCB, transparent background, premium 3D render.
+
+SVG Filename: esd-safe-handling.svg
+
+Description: Correct and incorrect ways to hold an IC and PCB.
+
+Animation Filename: static-discharge.json
+
+Description: Simple animation showing static charge moving safely to
+ground through a wrist strap.
+
+Spark Glossary | शब्दावली
+
+Static Electricity | स्थिर विद्युत Electric charge that builds on surfaces.
+सतह पर जमा होने वाला विद्युत आवेश।
+
+ESD Electrostatic Discharge. इलेक्ट्रोस्टैटिक डिस्चार्ज।
+
+Anti-static Wrist Strap | एंटी-स्टैटिक रिस्ट स्ट्रैप Safety strap that removes
+static charge. स्थिर विद्युत हटाने वाला सुरक्षा पट्टा।
+
+Integrated Circuit (IC) | एकीकृत परिपथ Electronic chip containing many
+tiny components. अनेक सूक्ष्म घटकों वाला इलेक्ट्रॉनिक चिप।
+
+Spark System Prompt
+
+Teach only BE-004. Focus on ESD safety and proper component handling.
+Avoid detailed semiconductor theory.
+
+Spark Suggested Prompts
+
+English - What is ESD? - Why do ICs fail? - How do I use a wrist
+strap? - Do beginners need an ESD mat?
+
+हिन्दी - ESD क्या है? - IC क्यों खराब हो जाती है? - रिस्ट स्ट्रैप कैसे पहनें? - क्या
+शुरुआती लोगों को ESD मैट चाहिए?
+
+Quiz
+
+1.  What does ESD stand for? / ESD का पूरा नाम? Answer: Electrostatic
+    Discharge.
+
+2.  Should you touch IC pins directly? / क्या IC के पिन छूने चाहिए? Answer:
+    No.
+
+3.  Best way to hold a PCB? / PCB कैसे पकड़ें? Answer: By its edges.
+
+4.  Which item removes static charge? / स्थिर विद्युत हटाने वाला उपकरण?
+    Answer: Anti-static wrist strap.
+
+5.  Where should ICs be stored? / IC कहाँ रखें? Answer: Anti-static bag.
+
+Practical | अभ्यास
+
+Practice holding a PCB by its edges. Identify whether your available
+components are stored safely.
+
+Homework | गृहकार्य
+
+Search your home or local electronics shop for an anti-static wrist
+strap and anti-static bag. Ask Spark when each should be used.
+
+Summary | सारांश
+
+Today you learned what ESD is, why it damages electronics, and how to
+safely handle sensitive components.
+
+आज आपने ESD, उससे होने वाले नुकसान और इलेक्ट्रॉनिक घटकों को सुरक्षित तरीके से संभालना
+सीखा।
+
+Achievement
+
+ESD Guardian ⚡
+
+Developer Notes
+
+Components: LessonHeader ImageGallery SparkPanel GlossaryPanel QuizPanel
+SummaryCard
+
+Assets: Images: 6 SVG: 1 Animation: 1
+
+Next Lesson
+
+BE-005 – Batteries & Power Sources / बैटरियाँ और पावर स्रोत

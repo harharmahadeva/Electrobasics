@@ -1,0 +1,1599 @@
+# ElectroBasics — Claude Instruction File
+# Lesson Page + Section Player / Watch Section
+# Desktop + Mobile Design
+# Example Lesson: BE-001 Welcome to ElectroBasics
+
+============================================================
+PURPOSE
+============================================================
+
+Build the complete lesson experience for ElectroBasics.
+
+This instruction covers:
+
+1. Lesson Page Design
+   - What the learner sees after clicking Start Lesson from Module 01.
+   - Desktop design.
+   - Mobile design.
+
+2. Section Cards Design
+   - The 12 lesson sections.
+   - Locked / current / completed states.
+
+3. Watch Section / Start Section Experience
+   - What happens when the learner clicks "Watch Section" or "Start Section".
+   - Desktop section player design.
+   - Mobile section player design.
+   - How to place lesson text, images, Spark, quiz and interactions inside the player.
+
+4. Image / asset prompts
+   - Real picture prompts.
+   - Infographic prompts.
+   - UI prompts.
+   - Spark mascot prompts.
+
+Important naming decision:
+Use button label "Start Section" instead of "Watch Section" where possible.
+Reason:
+Not every section is a video. Some sections are text, interactive activity, lab, quiz or checklist.
+If the UI already says "Watch Section", the behavior should still work the same.
+
+============================================================
+GLOBAL DESIGN STYLE
+============================================================
+
+Use the same ElectroBasics dark futuristic dashboard design.
+
+Visual style:
+- Dark navy / black background
+- Cyan, blue, yellow and purple neon accents
+- Glassmorphism cards
+- Thin glowing borders
+- Rounded corners
+- Premium electronics-lab feeling
+- Subtle circuit-board background pattern
+- Smooth hover states
+- Large readable text
+- Hindi text must be readable
+- Beginner-friendly layout
+
+Avoid:
+- White page background
+- Upgrade / Pro / Premium / Subscription / Pricing buttons
+- Crowded text
+- Tiny Hindi text
+- Too many animations at once
+- Random decorative images with no learning purpose
+
+Color rules:
+- Background: #050A12 or similar
+- Main card background: rgba(8, 18, 32, 0.82)
+- Cyan accent: #00E5FF
+- Blue active: #1677FF
+- Yellow XP/reward: #FFC928
+- Green difficulty: #36D66B
+- Purple category/badge: #A855F7
+- Orange warning: #FF9F1C
+- Text primary: #F8FAFC
+- Text secondary: #AAB4C0
+
+============================================================
+ROUTES
+============================================================
+
+Use these routes:
+
+/modules
+/modules/module-01
+/learn/BE-001
+/learn/BE-001/section/section-01
+/learn/BE-001/section/section-02
+/learn/BE-001/section/section-03
+/learn/BE-001/section/section-04
+/learn/BE-001/section/section-05
+/learn/BE-001/section/section-06
+/learn/BE-001/section/section-07
+/learn/BE-001/section/section-08
+/learn/BE-001/section/section-09
+/learn/BE-001/section/section-10
+/learn/BE-001/section/section-11
+/learn/BE-001/section/section-12
+
+Desktop:
+Section can open in a large modal overlay OR replace the center content area.
+Recommended:
+Use a focused modal overlay first for MVP.
+
+Mobile:
+Section should open as a full-screen section player page, not a small modal.
+
+============================================================
+LESSON PAGE — DESKTOP DESIGN
+============================================================
+
+This is the page after clicking:
+
+Start Module
+or
+Start Lesson on BE-001
+
+Route:
+/learn/BE-001
+
+------------------------------------------------------------
+DESKTOP STRUCTURE
+------------------------------------------------------------
+
+Use:
+
+1. Top Navigation Bar
+2. Left Lesson Sidebar
+3. Main Lesson Content Area
+4. Right Spark / Progress Sidebar
+5. Bottom Lesson Controls
+
+------------------------------------------------------------
+TOP NAVIGATION BAR
+------------------------------------------------------------
+
+Content:
+
+Left:
+- ElectroBasics logo
+- Tagline optional: Learn • Build • Innovate
+
+Center:
+- Search bar
+- Placeholder: "Search lessons, topics, tools..."
+- Keyboard hint: ⌘ K
+
+Right:
+- Day streak: 12
+- Total XP: 450
+- Notification bell with badge: 3
+- User profile:
+  - Avatar
+  - Name: Sandeep
+  - Level 3
+
+Do not include Upgrade/Pro button.
+
+------------------------------------------------------------
+LEFT LESSON SIDEBAR
+------------------------------------------------------------
+
+Width:
+260px to 300px
+
+Top:
+← Back to Module
+
+Module summary:
+Module 01
+Welcome & Electronics Lab
+4 Lessons
+
+Lessons in this module:
+- BE-001 Welcome to ElectroBasics
+  Status: current / active
+- BE-002 Electronics Lab Safety
+  Status: locked
+- BE-003 Workspace & Tools
+  Status: locked
+- BE-004 ESD & Safe Handling
+  Status: locked
+
+Lesson list style:
+- Active lesson uses blue/cyan glow.
+- Locked lessons are dimmed but readable.
+- Lock icon on locked lessons.
+- Completed lessons later show green check.
+
+Bottom:
+Spark help card:
+Need Help?
+Ask Spark AI anytime!
+Use small Spark robot image.
+
+Bottom navigation/action:
+Previous button:
+Back to Module or previous lesson.
+
+------------------------------------------------------------
+MAIN LESSON HEADER
+------------------------------------------------------------
+
+Top of main content area:
+
+Lesson ID chip:
+BE-001
+
+Title:
+Welcome to ElectroBasics
+
+Hindi title:
+इलेक्ट्रोबेसिक्स में आपका स्वागत है
+
+Metadata chips:
+- 25 min
+- 30 XP
+- Very Easy
+- Welcome Explorer 🚀
+
+Progress block:
+Lesson Progress
+1 / 12 Sections
+8%
+
+Use:
+- Horizontal progress bar
+- Percent text
+- Section count
+
+------------------------------------------------------------
+MAIN HERO / CURRENT SECTION PREVIEW
+------------------------------------------------------------
+
+Large hero visual card.
+
+Background image:
+be001-lesson-hero.png
+
+Overlay content:
+Section 1 of 12
+Lesson Purpose
+
+Text:
+Let's understand why this lesson is important and what you will achieve in this lesson.
+
+Primary button:
+Start Section
+or if keeping previous label:
+Watch Section
+
+Secondary navigation:
+- Small previous arrow
+- Small next arrow
+
+Hero image prompt:
+
+Filename:
+be001-lesson-hero.png
+
+Type:
+Realistic lesson hero photo
+
+Where to use:
+Main lesson page hero / current section preview.
+
+Purpose:
+Create visual atmosphere for BE-001 and show beginner electronics learning setup.
+
+Prompt:
+Premium realistic electronics beginner learning desk with breadboard, glowing red LED, resistors, digital multimeter, notebook with simple circuit sketch, jumper wires, small component boxes, warm desk lamp, dark futuristic ElectroBasics lab background, cyan PCB glow, cinematic lighting, no text, no watermark, wide landscape composition.
+
+Claude notes:
+Use this as main lesson image.
+Apply dark gradient overlay on left so Section 1 text is readable.
+Keep the subject visible on desktop and mobile.
+
+------------------------------------------------------------
+SECTION GRID / SECTION CARDS
+------------------------------------------------------------
+
+Below hero, show the 12 section cards.
+
+Grid:
+Desktop: 6 cards per row or responsive 4–6 depending width.
+Each card:
+- Icon
+- Section title
+- Status
+- Lock icon if locked
+- Small subtitle/status text
+
+Initial states:
+Section 1: Current
+Section 2-12: Locked
+
+After a section is completed:
+Completed card gets green check.
+Next section unlocks and becomes Current.
+
+The 12 sections:
+
+1. Lesson Purpose
+2. Learning Objectives
+3. Real-Life Problem
+4. Beginner Theory
+5. Guided Visual Learning
+6. Interactive Activity
+7. Practical Lab
+8. Common Mistakes
+9. Troubleshooting
+10. Spark Glossary
+11. Quiz
+12. Homework & Complete Lesson
+
+Card icons:
+1. Target / compass
+2. Book
+3. Lightbulb
+4. Microchip
+5. Image / picture
+6. Hand pointer / interactive
+7. Flask / lab
+8. Warning triangle
+9. Wrench
+10. Dictionary / book
+11. Question mark
+12. Clipboard checklist
+
+Card button behavior:
+- Current section: Start Section
+- Completed section: Review
+- Locked section: Disabled + lock
+- Locked card click: show toast "Complete the previous section first."
+
+------------------------------------------------------------
+BOTTOM LESSON CONTROLS
+------------------------------------------------------------
+
+Place below section grid.
+
+Buttons:
+- Previous
+- Ask Spark
+- Mark Section Complete
+- Next
+
+Initial:
+Previous disabled or returns to Module 01.
+Ask Spark always available.
+Mark Section Complete completes current section if user has opened/read it.
+Next locked until section is completed.
+
+Recommended:
+Mark Section Complete should be visible inside Section Player too.
+On main lesson page, it can complete only after section has been opened at least once.
+
+------------------------------------------------------------
+RIGHT SIDEBAR — DESKTOP
+------------------------------------------------------------
+
+Width:
+300px to 340px
+
+Cards:
+
+1. Spark AI Card
+Title:
+Spark AI
+
+Message:
+Hi Sandeep! I'm Spark. Need help with this lesson?
+
+Input:
+Ask Spark anything...
+
+Send icon.
+
+Image:
+spark-lesson-guide.png
+
+Prompt:
+Cute white and silver robot mascot named Spark, cyan glowing eyes, friendly smile, small antenna, sitting beside a tiny breadboard and LED, transparent background, premium 3D render, no text.
+
+2. Lesson Checklist Card
+Title:
+Lesson Checklist
+
+Items:
+- Lesson Purpose
+- Learning Objectives
+- Real-Life Problem
+- Theory
+- Activity
+- Lab
+- Quiz
+- Homework
+
+Use circles:
+- current = cyan ring
+- completed = green check
+- locked / incomplete = grey circle
+
+3. XP Reward Card
+Title:
+XP Reward
+
+Text:
+Complete this lesson to earn
+
+Value:
+30 XP
+
+4. Next Lesson Preview Card
+Title:
+Next Lesson Preview
+
+BE-002
+Electronics Lab Safety
+
+Text:
+Unlocks after completing this lesson.
+
+Status:
+Locked
+
+============================================================
+LESSON PAGE — MOBILE DESIGN
+============================================================
+
+Route:
+/learn/BE-001
+
+Mobile should not use desktop sidebars.
+
+------------------------------------------------------------
+MOBILE STRUCTURE
+------------------------------------------------------------
+
+1. Mobile Top Bar
+2. Lesson Header Card
+3. Current Section Hero Card
+4. Lesson Progress Card
+5. Section Cards List / Grid
+6. Spark Quick Help Card
+7. Bottom Sticky Controls
+8. Bottom Navigation optional
+
+------------------------------------------------------------
+MOBILE TOP BAR
+------------------------------------------------------------
+
+Content:
+- Back arrow
+- BE-001
+- Search icon optional
+- Notification icon
+- Avatar
+
+Back action:
+Return to Module 01 page.
+
+------------------------------------------------------------
+MOBILE LESSON HEADER CARD
+------------------------------------------------------------
+
+Content:
+BE-001
+Welcome to ElectroBasics
+इलेक्ट्रोबेसिक्स में आपका स्वागत है
+
+Chips:
+25 min
+30 XP
+Very Easy
+Welcome Explorer 🚀
+
+Progress:
+1 / 12 Sections
+8%
+
+Use compact horizontal progress bar.
+
+------------------------------------------------------------
+MOBILE CURRENT SECTION HERO
+------------------------------------------------------------
+
+Use image:
+be001-lesson-mobile-hero.png
+
+Image prompt:
+
+Filename:
+be001-lesson-mobile-hero.png
+
+Type:
+Mobile hero photo
+
+Where to use:
+Current section hero card on mobile lesson page.
+
+Purpose:
+Mobile-friendly lesson visual.
+
+Prompt:
+Vertical mobile-friendly realistic electronics learning desk with breadboard, glowing red LED, digital multimeter, notebook, jumper wires, small components, warm desk lamp, dark futuristic app background, cyan glow, no text, no watermark, portrait composition.
+
+Overlay:
+Section 1 of 12
+Lesson Purpose
+
+Text:
+Understand why this lesson matters.
+
+Button:
+Start Section
+
+------------------------------------------------------------
+MOBILE SECTION LIST
+------------------------------------------------------------
+
+Use 12 cards in vertical list OR 2-column compact grid.
+
+Recommended:
+2-column grid for section cards after header.
+
+Each section card:
+- Icon
+- Short title
+- Status
+- Lock/check/current indicator
+
+Mobile section card text should be short:
+1. Purpose
+2. Objectives
+3. Problem
+4. Theory
+5. Visuals
+6. Activity
+7. Lab
+8. Mistakes
+9. Fixes
+10. Glossary
+11. Quiz
+12. Complete
+
+Tap current card:
+Open full-screen Section Player.
+
+Tap locked card:
+Toast:
+Complete the previous section first.
+
+------------------------------------------------------------
+MOBILE BOTTOM STICKY CONTROLS
+------------------------------------------------------------
+
+Use fixed bottom action bar above bottom nav.
+
+Buttons:
+- Ask Spark
+- Start Section
+
+After section opened:
+- Mark Complete
+- Next
+
+Avoid too many buttons at once.
+
+============================================================
+WATCH SECTION / START SECTION BEHAVIOR
+============================================================
+
+When user clicks Start Section / Watch Section:
+
+User clicks Start Section
+↓
+Open Section Player
+↓
+Load current section content
+↓
+Show image/visual + English/Hindi text + key points
+↓
+Spark explains the section
+↓
+User can Ask Spark
+↓
+User clicks Mark Section Complete
+↓
+Current section becomes completed
+↓
+Next section unlocks
+↓
+Progress updates
+↓
+User can open Next Section
+
+============================================================
+SECTION PLAYER — DESKTOP DESIGN
+============================================================
+
+Recommended:
+Large focused modal overlay.
+
+Overlay size:
+- Width: 80% to 90% of viewport
+- Max width: 1280px
+- Height: 85% to 90%
+- Dark glass background
+- Cyan border
+- Backdrop blur
+
+------------------------------------------------------------
+SECTION PLAYER DESKTOP LAYOUT
+------------------------------------------------------------
+
+Top bar:
+- BE-001
+- Section 1 of 12
+- Lesson Purpose
+- Close button X
+
+Main area:
+Two-column layout.
+
+Left column:
+- Section visual image or animation
+- Visual caption
+- Optional hotspots
+
+Right column:
+- Section title
+- English explanation
+- Hindi explanation
+- Key points
+- Spark mini explanation
+- Mini check question
+
+Bottom actions:
+- Ask Spark
+- Mark Section Complete
+- Next Section
+
+Optional:
+Progress stepper across top:
+1 2 3 4 5 6 7 8 9 10 11 12
+
+------------------------------------------------------------
+SECTION PLAYER DESKTOP — SECTION 1 CONTENT
+------------------------------------------------------------
+
+Section:
+section-01
+
+Title:
+Lesson Purpose
+
+Subtitle:
+Why this lesson matters
+
+Image:
+be001-section01-purpose.png
+
+Image prompt:
+Beginner electronics learning path illustration, student desk with breadboard, LED, multimeter, notebook, course roadmap cards floating above the desk, Spark robot guide pointing to first step, dark futuristic ElectroBasics style, cyan and amber accents, no text, no watermark.
+
+English text:
+This lesson helps you understand what ElectroBasics is and how your electronics learning journey will work. You will see how lessons, images, labs, quizzes and Spark AI work together to help you learn step by step.
+
+Hindi text:
+यह पाठ आपको समझाता है कि ElectroBasics क्या है और आपकी electronics learning journey कैसे चलेगी। आप देखेंगे कि lessons, images, labs, quizzes और Spark AI मिलकर आपको step-by-step कैसे सिखाते हैं।
+
+Key points:
+- You do not need previous electronics experience.
+- You will learn step by step.
+- You will use images, simulations and practical activities.
+- Spark AI will help whenever you get stuck.
+- Safety and good habits come first.
+
+Spark says:
+Before building circuits, you need to understand the learning path. This section shows how the course will guide you from beginner to confident builder.
+
+Mini check:
+Question:
+Do you need previous electronics experience to start?
+
+Options:
+A. Yes
+B. No
+
+Correct:
+B. No
+
+Feedback:
+Correct! ElectroBasics starts from absolute beginner level.
+
+------------------------------------------------------------
+SECTION PLAYER DESKTOP BUTTONS
+------------------------------------------------------------
+
+Close:
+Close overlay and return to lesson page.
+Do not mark section complete.
+
+Ask Spark:
+Open Spark side panel with prompt:
+"Explain Section 1: Lesson Purpose in simple words."
+
+Mark Section Complete:
+Set section-01 status = completed.
+Update lesson progress:
+1 / 12 sections completed
+8%
+Unlock section-02.
+Change section-01 card to Completed.
+Change section-02 card to Current.
+
+Next Section:
+If section-01 completed:
+Open section-02.
+If not completed:
+Show toast:
+Mark this section complete before moving to the next section.
+
+============================================================
+SECTION PLAYER — MOBILE DESIGN
+============================================================
+
+Mobile should open a full-screen section player page, not a small modal.
+
+Route:
+/learn/BE-001/section/section-01
+
+------------------------------------------------------------
+MOBILE SECTION PLAYER STRUCTURE
+------------------------------------------------------------
+
+1. Top Bar
+2. Progress Bar
+3. Section Visual
+4. Section Text
+5. Key Points
+6. Spark Says
+7. Mini Check
+8. Sticky Bottom Actions
+
+------------------------------------------------------------
+MOBILE TOP BAR
+------------------------------------------------------------
+
+Content:
+- Back arrow
+- Section 1 / 12
+- Close X or menu
+
+Below:
+Lesson title small:
+BE-001 Welcome to ElectroBasics
+
+------------------------------------------------------------
+MOBILE PROGRESS BAR
+------------------------------------------------------------
+
+Show:
+Section 1 of 12
+8%
+
+Use thin cyan progress bar.
+
+------------------------------------------------------------
+MOBILE SECTION VISUAL
+------------------------------------------------------------
+
+Use image:
+be001-section01-purpose-mobile.png
+
+Prompt:
+Vertical mobile illustration of beginner electronics learning path, small desk with breadboard, glowing LED, multimeter, notebook, Spark robot guide, floating roadmap steps, dark ElectroBasics style, cyan and amber accents, no text, no watermark, portrait composition.
+
+Use:
+Full-width rounded image card.
+Add caption:
+"ElectroBasics guides you step by step."
+
+------------------------------------------------------------
+MOBILE SECTION TEXT
+------------------------------------------------------------
+
+Title:
+Lesson Purpose
+
+Subtitle:
+Why this lesson matters
+
+Language toggle:
+English | हिन्दी
+
+Default:
+Show English first.
+Hindi available under toggle or below English.
+
+English:
+This lesson helps you understand what ElectroBasics is and how your electronics learning journey will work. You will see how lessons, images, labs, quizzes and Spark AI work together to help you learn step by step.
+
+Hindi:
+यह पाठ आपको समझाता है कि ElectroBasics क्या है और आपकी electronics learning journey कैसे चलेगी। आप देखेंगे कि lessons, images, labs, quizzes और Spark AI मिलकर आपको step-by-step कैसे सिखाते हैं।
+
+Key points:
+- No previous experience needed.
+- Learn step by step.
+- Images and labs make concepts clear.
+- Spark helps when you are stuck.
+- Safety comes first.
+
+------------------------------------------------------------
+MOBILE SPARK SAYS CARD
+------------------------------------------------------------
+
+Message:
+Before building circuits, understand the learning path. I will guide you step by step.
+
+Image:
+spark-lesson-guide.png
+
+Button:
+Ask Spark
+
+Prompt:
+"Explain Section 1: Lesson Purpose in simple words."
+
+------------------------------------------------------------
+MOBILE MINI CHECK
+------------------------------------------------------------
+
+Question:
+Do you need previous electronics experience to start?
+
+Options:
+A. Yes
+B. No
+
+Correct answer:
+B. No
+
+After correct:
+Show:
+Great! This course starts from zero.
+
+After wrong:
+Show:
+No problem. ElectroBasics is made for complete beginners.
+
+------------------------------------------------------------
+MOBILE STICKY BOTTOM ACTIONS
+------------------------------------------------------------
+
+Before mini check complete:
+Buttons:
+Ask Spark
+Mark Complete
+
+After mark complete:
+Buttons:
+Next Section
+
+Mark Complete action:
+Complete section-01.
+Unlock section-02.
+Return to lesson page or open next section depending user choice.
+
+Recommended completion toast:
+Section completed! Learning Objectives unlocked.
+
+============================================================
+HOW TO PUT TEXT CONTENT INSIDE WATCH SECTION
+============================================================
+
+Use each section as a structured content object.
+
+Each section must include:
+- id
+- order
+- title
+- shortTitle
+- status
+- icon
+- heroImage
+- caption
+- englishText
+- hindiText
+- keyPoints
+- sparkExplanation
+- miniCheck
+- actions
+
+Do not hard-code all text into JSX.
+Use a data object and render the same SectionPlayer component for each section.
+
+============================================================
+BE-001 SECTION CONTENT DATA
+============================================================
+
+Use the following section data for BE-001.
+
+------------------------------------------------------------
+SECTION 01
+------------------------------------------------------------
+
+id:
+section-01
+
+title:
+Lesson Purpose
+
+shortTitle:
+Purpose
+
+icon:
+target
+
+heroImage:
+be001-section01-purpose.png
+
+mobileHeroImage:
+be001-section01-purpose-mobile.png
+
+caption:
+ElectroBasics guides you step by step from beginner to confident builder.
+
+englishText:
+This lesson helps you understand what ElectroBasics is and how your electronics learning journey will work. You will see how lessons, images, labs, quizzes and Spark AI work together to help you learn step by step.
+
+hindiText:
+यह पाठ आपको समझाता है कि ElectroBasics क्या है और आपकी electronics learning journey कैसे चलेगी। आप देखेंगे कि lessons, images, labs, quizzes और Spark AI मिलकर आपको step-by-step कैसे सिखाते हैं।
+
+keyPoints:
+- You do not need previous electronics experience.
+- You will learn step by step.
+- You will use images, simulations and practical activities.
+- Spark AI will help whenever you get stuck.
+- Safety and good habits come first.
+
+sparkExplanation:
+Before building circuits, you need to understand the learning path. This section shows how the course will guide you from beginner to confident builder.
+
+miniCheck:
+Question:
+Do you need previous electronics experience to start?
+Options:
+A. Yes
+B. No
+Correct:
+B. No
+
+------------------------------------------------------------
+SECTION 02
+------------------------------------------------------------
+
+id:
+section-02
+
+title:
+Learning Objectives
+
+shortTitle:
+Objectives
+
+icon:
+book
+
+heroImage:
+be001-section02-objectives.png
+
+Image prompt:
+Clean futuristic learning objectives card for beginner electronics course, icons for electronics, safety, tools, circuits, Spark AI mentor, dark navy background with cyan and yellow accents, no text, no watermark.
+
+englishText:
+By the end of this lesson, you will understand what ElectroBasics is, how the bootcamp is structured, how Spark AI helps you, and how images, labs, quizzes and projects work together.
+
+hindiText:
+इस पाठ के अंत तक आप समझेंगे कि ElectroBasics क्या है, bootcamp कैसे structured है, Spark AI कैसे मदद करता है, और images, labs, quizzes तथा projects साथ में कैसे काम करते हैं।
+
+keyPoints:
+- Understand the ElectroBasics learning system.
+- Know how the bootcamp is organized.
+- Learn how Spark AI supports you.
+- Understand why visuals and labs are important.
+- Get ready for the next safety lesson.
+
+sparkExplanation:
+These objectives tell you what you should be able to understand after this lesson.
+
+miniCheck:
+Question:
+Which tool helps you when you get stuck?
+Options:
+A. Spark AI
+B. Random guessing
+Correct:
+A. Spark AI
+
+------------------------------------------------------------
+SECTION 03
+------------------------------------------------------------
+
+id:
+section-03
+
+title:
+Real-Life Problem
+
+shortTitle:
+Problem
+
+icon:
+lightbulb
+
+heroImage:
+be001-section03-real-life-problem.png
+
+Image prompt:
+Beginner student looking at electronic devices on desk, phone, router, LED bulb, remote, laptop, wondering how electronics works, Spark robot guide nearby, dark futuristic educational style, no text, no watermark.
+
+englishText:
+A complete beginner wants to learn electronics but does not know where to start, what tools are needed, what is safe, or how circuits are built. This lesson removes that confusion and gives you a clear path.
+
+hindiText:
+एक बिल्कुल शुरुआती विद्यार्थी electronics सीखना चाहता है, लेकिन उसे नहीं पता कि शुरुआत कहाँ से करे, कौन से tools चाहिए, क्या safe है, और circuits कैसे बनते हैं। यह पाठ confusion दूर करके clear path देता है।
+
+keyPoints:
+- Beginners often feel confused at first.
+- A clear learning path removes fear.
+- Tools and safety come before building.
+- Small steps make electronics easier.
+
+sparkExplanation:
+You are not expected to know everything. ElectroBasics gives you a path so you always know what to do next.
+
+miniCheck:
+Question:
+What should beginners learn before building circuits?
+Options:
+A. Safety and tools
+B. High voltage repair
+Correct:
+A. Safety and tools
+
+------------------------------------------------------------
+SECTION 04
+------------------------------------------------------------
+
+id:
+section-04
+
+title:
+Beginner Theory
+
+shortTitle:
+Theory
+
+icon:
+microchip
+
+heroImage:
+be001-section04-theory.png
+
+Image prompt:
+Educational electronics concept image showing input processing output flow, simple circuit, resistor, LED, battery, PCB, phone and laptop icons, dark ElectroBasics style, no text, no watermark.
+
+englishText:
+Electronics is the practice of controlling electricity using components such as resistors, LEDs, capacitors, sensors, ICs and microcontrollers. Electronics is used in phones, laptops, routers, cars, medical devices, robots and satellites.
+
+hindiText:
+Electronics वह practice है जिसमें resistors, LEDs, capacitors, sensors, ICs और microcontrollers जैसे components की मदद से electricity को control किया जाता है। Electronics phones, laptops, routers, cars, medical devices, robots और satellites में उपयोग होता है।
+
+keyPoints:
+- Electronics controls electricity.
+- Components are building blocks.
+- Circuits connect components.
+- Almost every modern device uses electronics.
+
+sparkExplanation:
+Think of electronics as giving instructions to electricity so it can do useful work.
+
+miniCheck:
+Question:
+Which of these is an electronic component?
+Options:
+A. Resistor
+B. Wooden spoon
+Correct:
+A. Resistor
+
+------------------------------------------------------------
+SECTION 05
+------------------------------------------------------------
+
+id:
+section-05
+
+title:
+Guided Visual Learning
+
+shortTitle:
+Visuals
+
+icon:
+image
+
+heroImage:
+be001-section05-guided-visuals.png
+
+Image prompt:
+Infographic-style image showing four learning visual types: real component photo, circuit diagram, interactive simulation, practical lab photo, dark futuristic ElectroBasics theme, no text, no watermark.
+
+englishText:
+ElectroBasics uses visuals to make learning easier. Real photos show how parts look. Diagrams show how circuits connect. Animations show movement and changes. Simulators let you experiment safely.
+
+hindiText:
+ElectroBasics learning आसान बनाने के लिए visuals का उपयोग करता है। Real photos parts दिखाते हैं। Diagrams circuits के connections दिखाते हैं। Animations movement और changes दिखाते हैं। Simulators safe experiment करने देते हैं।
+
+keyPoints:
+- Photos show real components.
+- Diagrams explain connections.
+- Animations show invisible processes.
+- Simulators help you test safely.
+
+sparkExplanation:
+When a concept feels confusing, look at the image first. Visuals make abstract ideas easier.
+
+miniCheck:
+Question:
+Why do we use real photos?
+Options:
+A. To recognize real components
+B. Only for decoration
+Correct:
+A. To recognize real components
+
+------------------------------------------------------------
+SECTION 06
+------------------------------------------------------------
+
+id:
+section-06
+
+title:
+Interactive Activity
+
+shortTitle:
+Activity
+
+icon:
+hand-pointer
+
+heroImage:
+be001-section06-activity.png
+
+Image prompt:
+Dark futuristic UI mockup of ElectroBasics course roadmap explorer with clickable module cards from safety to tools to electricity to components to projects, Spark robot guide, cyan and yellow accents, no text, no watermark.
+
+englishText:
+In the first activity, you explore the course roadmap. Tap each module to see what you will learn and why the modules are arranged in this order.
+
+hindiText:
+पहली activity में आप course roadmap explore करेंगे। हर module पर tap करके देखें कि आप क्या सीखेंगे और modules इस order में क्यों रखे गए हैं।
+
+keyPoints:
+- Follow the course in order.
+- Each module prepares you for the next.
+- Do not skip safety.
+- Projects come after basics.
+
+sparkExplanation:
+The roadmap is like a map for your electronics journey. Follow it step by step.
+
+miniCheck:
+Question:
+Should you skip directly to projects?
+Options:
+A. Yes
+B. No
+Correct:
+B. No
+
+------------------------------------------------------------
+SECTION 07
+------------------------------------------------------------
+
+id:
+section-07
+
+title:
+Practical Lab
+
+shortTitle:
+Lab
+
+icon:
+flask
+
+heroImage:
+be001-section07-practical-lab.png
+
+Image prompt:
+Realistic photo of household electronic devices arranged on a desk: TV remote, phone charger, LED bulb, router, small speaker, notebook for observations, dark educational workspace, no text, no watermark.
+
+englishText:
+Find five electronic devices at home. For each device, write what it does, how it gets power, and what kind of electronics may be inside.
+
+hindiText:
+घर में पाँच electronic devices खोजिए। हर device के लिए लिखिए कि वह क्या करता है, उसे power कैसे मिलती है, और उसके अंदर किस तरह की electronics हो सकती है।
+
+keyPoints:
+- Observe real devices.
+- Identify how they get power.
+- Guess what components may be inside.
+- Do not open dangerous devices.
+
+sparkExplanation:
+This lab helps you notice that electronics is already around you everywhere.
+
+miniCheck:
+Question:
+Should you open a mains-powered charger as a beginner?
+Options:
+A. Yes
+B. No
+Correct:
+B. No
+
+------------------------------------------------------------
+SECTION 08
+------------------------------------------------------------
+
+id:
+section-08
+
+title:
+Common Mistakes
+
+shortTitle:
+Mistakes
+
+icon:
+warning
+
+heroImage:
+be001-section08-mistakes.png
+
+Image prompt:
+Four-panel beginner mistakes infographic: skipping safety, buying too many tools, memorizing without building, jumping to advanced projects, dark ElectroBasics style with red warning accents, no text, no watermark.
+
+englishText:
+Beginners sometimes try to memorize everything, skip safety, buy too many tools, or jump directly to advanced projects. These mistakes make learning harder.
+
+hindiText:
+Beginners कभी-कभी सब कुछ memorize करने की कोशिश करते हैं, safety skip करते हैं, बहुत सारे tools खरीद लेते हैं, या direct advanced projects पर चले जाते हैं। इससे learning कठिन हो जाती है।
+
+keyPoints:
+- Do not skip safety.
+- Do not rush.
+- Build small circuits first.
+- Learn by doing, not only memorizing.
+
+sparkExplanation:
+Mistakes are normal, but good learning habits help you avoid frustration.
+
+miniCheck:
+Question:
+What is better for beginners?
+Options:
+A. Small steps
+B. Jumping to advanced projects
+Correct:
+A. Small steps
+
+------------------------------------------------------------
+SECTION 09
+------------------------------------------------------------
+
+id:
+section-09
+
+title:
+Troubleshooting
+
+shortTitle:
+Fixes
+
+icon:
+wrench
+
+heroImage:
+be001-section09-troubleshooting.png
+
+Image prompt:
+Beginner electronics troubleshooting scene, learner checking simple breadboard circuit with multimeter, Spark robot giving guidance, checklist icons, dark lab style, no text, no watermark.
+
+englishText:
+If you feel stuck, slow down and check one thing at a time. Ask Spark, review the image, check the instructions, and compare your circuit with the diagram.
+
+hindiText:
+अगर आप stuck महसूस करें, तो धीरे-धीरे एक-एक चीज़ check करें। Spark से पूछें, image देखें, instructions पढ़ें, और अपने circuit की diagram से तुलना करें।
+
+keyPoints:
+- Check one thing at a time.
+- Use images and diagrams.
+- Ask Spark for hints.
+- Do not guess randomly.
+
+sparkExplanation:
+Troubleshooting is not failure. It is a normal part of electronics learning.
+
+miniCheck:
+Question:
+When stuck, what should you do?
+Options:
+A. Guess randomly
+B. Check step by step
+Correct:
+B. Check step by step
+
+------------------------------------------------------------
+SECTION 10
+------------------------------------------------------------
+
+id:
+section-10
+
+title:
+Spark Glossary
+
+shortTitle:
+Glossary
+
+icon:
+book-open
+
+heroImage:
+be001-section10-glossary.png
+
+Image prompt:
+Glossary learning card illustration with electronics words: circuit, component, breadboard, Spark AI represented by icons not text, dark futuristic style, no readable text, no watermark.
+
+englishText:
+A glossary helps you understand important words. In this lesson, key words include electronics, circuit, component, breadboard and Spark.
+
+hindiText:
+Glossary important words समझने में मदद करती है। इस lesson में key words हैं electronics, circuit, component, breadboard और Spark।
+
+Glossary entries:
+Electronics | इलेक्ट्रॉनिक्स
+Technology that controls electricity using components and circuits.
+
+Circuit | सर्किट
+A complete path that allows electricity to flow.
+
+Component | घटक
+A part used in a circuit, such as resistor or LED.
+
+Breadboard | ब्रेडबोर्ड
+Reusable board for building circuits without soldering.
+
+Spark | स्पार्क
+ElectroBasics AI mentor.
+
+keyPoints:
+- Learn words slowly.
+- Use examples.
+- Ask Spark to explain any word.
+
+sparkExplanation:
+Whenever you see a new word, ask me. I can explain it with examples.
+
+miniCheck:
+Question:
+What is a breadboard used for?
+Options:
+A. Building circuits without soldering
+B. Cooking food
+Correct:
+A. Building circuits without soldering
+
+------------------------------------------------------------
+SECTION 11
+------------------------------------------------------------
+
+id:
+section-11
+
+title:
+Quiz
+
+shortTitle:
+Quiz
+
+icon:
+question
+
+heroImage:
+be001-section11-quiz.png
+
+Image prompt:
+Dark futuristic quiz UI for beginner electronics lesson, multiple choice cards, progress dots, Spark robot encouragement, cyan and yellow accents, no readable text, no watermark.
+
+englishText:
+Now check your understanding with a short quiz. The goal is not to scare you. The goal is to help you remember the important ideas.
+
+hindiText:
+अब एक छोटा quiz देकर अपनी understanding check करें। इसका goal डराना नहीं है। इसका goal important ideas याद रखने में मदद करना है।
+
+Quiz questions:
+1. What is ElectroBasics mainly designed to teach?
+Answer: Electronics through practical, visual and interactive learning.
+
+2. Do beginners need previous electronics knowledge?
+Answer: No.
+
+3. Why does the course start with safety and tools?
+Answer: Because students should know how to work safely before powering circuits.
+
+4. What can Spark help with?
+Answer: Explanations, hints, quizzes, images, circuits and troubleshooting.
+
+5. Name one everyday device that uses electronics.
+Answer: Phone, laptop, TV, router, washing machine, car, etc.
+
+keyPoints:
+- Quiz checks understanding.
+- Wrong answers should show hints.
+- User can retry.
+
+sparkExplanation:
+A quiz is practice. If you get something wrong, I will help you understand it.
+
+miniCheck:
+No extra mini check required because this section is the quiz.
+
+------------------------------------------------------------
+SECTION 12
+------------------------------------------------------------
+
+id:
+section-12
+
+title:
+Homework & Complete Lesson
+
+shortTitle:
+Complete
+
+icon:
+clipboard-check
+
+heroImage:
+be001-section12-complete.png
+
+Image prompt:
+Achievement style image showing beginner electronics learner completing first lesson, glowing badge, Spark robot celebrating, breadboard and LED on desk, dark ElectroBasics style, cyan and yellow glow, no text, no watermark.
+
+englishText:
+Review the lesson images. For each image, write one sentence explaining what it teaches. Then complete the practical observation activity and ask Spark to review your understanding.
+
+hindiText:
+Lesson images को review करें। हर image के लिए एक sentence लिखिए कि वह क्या सिखाती है। फिर practical observation activity पूरी करें और Spark से अपनी understanding review करवाएँ।
+
+Homework:
+1. Review all lesson images.
+2. Write one sentence for each image.
+3. Find five electronic devices at home.
+4. Write how each one gets power.
+5. Ask Spark to quiz you once.
+
+Complete lesson action:
+When the learner completes this section, mark BE-001 as completed, award 30 XP, unlock BE-002, update Module 01 progress to 1/4.
+
+sparkExplanation:
+Great work. Completing this lesson unlocks the next safety lesson.
+
+miniCheck:
+Question:
+What lesson unlocks next?
+Options:
+A. BE-002 Electronics Lab Safety
+B. BE-010 Basic Hand Tools
+Correct:
+A. BE-002 Electronics Lab Safety
+
+============================================================
+SECTION STATUS LOGIC
+============================================================
+
+Initial state:
+section-01 = current
+section-02 to section-12 = locked
+
+After section-01 complete:
+section-01 = completed
+section-02 = current
+section-03 to section-12 = locked
+
+Repeat until section-12.
+
+After section-12 complete:
+BE-001 = completed
+Award 30 XP
+Unlock BE-002
+Module 01 progress = 1 / 4
+Show completion modal.
+
+============================================================
+LESSON COMPLETION MODAL
+============================================================
+
+Show after Section 12 completion.
+
+Title:
+🎉 Lesson Complete!
+
+Text:
+BE-001 Welcome to ElectroBasics completed.
+
+Rewards:
++30 XP
+Badge Progress:
+Welcome Explorer 🚀
+
+Next unlocked:
+BE-002 Electronics Lab Safety
+
+Buttons:
+Continue to BE-002
+Back to Module
+Review Lesson
+
+============================================================
+IMAGE ASSET SUMMARY
+============================================================
+
+Required lesson page images:
+
+1. be001-lesson-hero.png
+Desktop lesson hero photo.
+
+2. be001-lesson-mobile-hero.png
+Mobile lesson hero photo.
+
+3. spark-lesson-guide.png
+Spark AI lesson assistant image.
+
+4. be001-section01-purpose.png
+Section 1 desktop visual.
+
+5. be001-section01-purpose-mobile.png
+Section 1 mobile visual.
+
+6. be001-section02-objectives.png
+
+7. be001-section03-real-life-problem.png
+
+8. be001-section04-theory.png
+
+9. be001-section05-guided-visuals.png
+
+10. be001-section06-activity.png
+
+11. be001-section07-practical-lab.png
+
+12. be001-section08-mistakes.png
+
+13. be001-section09-troubleshooting.png
+
+14. be001-section10-glossary.png
+
+15. be001-section11-quiz.png
+
+16. be001-section12-complete.png
+
+============================================================
+FINAL REQUIREMENT
+============================================================
+
+The lesson experience must clearly answer:
+
+- What lesson am I in?
+- What section am I currently learning?
+- What is locked?
+- Why is it locked?
+- What should I do next?
+- How do I ask Spark?
+- How do I complete the section?
+- How do I unlock the next lesson?
+
+The user should never feel lost.
+
+The design must feel premium, visual, guided and beginner-friendly.

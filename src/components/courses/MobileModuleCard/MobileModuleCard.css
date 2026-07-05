@@ -1,0 +1,95 @@
+.mob-module-card {
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--eb-surface-card-from), var(--eb-surface-card-to));
+  border: 1px solid var(--eb-border-subtle);
+  border-radius: var(--eb-radius-card);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mob-module-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mob-module-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-family: var(--eb-font-mono);
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.mob-module-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.mob-module-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.mob-module-title h3 {
+  font-family: var(--eb-font-display);
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.mob-module-title small {
+  display: block;
+  color: var(--eb-text-secondary);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.mob-module-chevron {
+  color: var(--eb-text-muted);
+  flex-shrink: 0;
+}
+
+.mob-module-bottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mob-module-category {
+  color: var(--eb-text-secondary);
+  font-size: 12px;
+  margin-left: auto;
+}
+
+.accent-blue .mob-module-number { background: rgba(59, 130, 246, 0.18); color: #60a5fa; }
+.accent-green .mob-module-number { background: rgba(74, 222, 128, 0.18); color: var(--eb-green); }
+.accent-purple .mob-module-number { background: rgba(167, 139, 250, 0.18); color: var(--eb-purple); }
+.accent-amber .mob-module-number { background: rgba(245, 166, 35, 0.18); color: var(--eb-amber); }
+.accent-teal .mob-module-number { background: rgba(34, 211, 238, 0.18); color: var(--eb-cyan); }
+.accent-pink .mob-module-number { background: rgba(236, 72, 153, 0.18); color: #f472b6; }
+
+.accent-blue .mob-module-icon { background: rgba(59, 130, 246, 0.12); color: #60a5fa; }
+.accent-green .mob-module-icon { background: rgba(74, 222, 128, 0.12); color: var(--eb-green); }
+.accent-purple .mob-module-icon { background: rgba(167, 139, 250, 0.12); color: var(--eb-purple); }
+.accent-amber .mob-module-icon { background: rgba(245, 166, 35, 0.12); color: var(--eb-amber); }
+.accent-teal .mob-module-icon { background: rgba(34, 211, 238, 0.12); color: var(--eb-cyan); }
+.accent-pink .mob-module-icon { background: rgba(236, 72, 153, 0.12); color: #f472b6; }
+
+.mob-module-card.accent-blue { border-color: rgba(59, 130, 246, 0.25); }
+.mob-module-card.accent-green { border-color: rgba(74, 222, 128, 0.25); }
+.mob-module-card.accent-purple { border-color: rgba(167, 139, 250, 0.25); }
+.mob-module-card.accent-amber { border-color: rgba(245, 166, 35, 0.25); }
+.mob-module-card.accent-teal { border-color: rgba(34, 211, 238, 0.25); }
+.mob-module-card.accent-pink { border-color: rgba(236, 72, 153, 0.25); }
