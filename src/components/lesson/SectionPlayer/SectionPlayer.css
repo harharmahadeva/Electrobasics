@@ -698,7 +698,7 @@
   .sp {
     width: 100%;
     max-width: 100%;
-    padding-bottom: 0;
+    padding-bottom: calc(116px + env(safe-area-inset-bottom, 0));
     height: auto;
     min-height: 0;
     overflow-x: hidden;
@@ -708,7 +708,7 @@
     width: 100%;
     max-width: 100%;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 10px;
     overflow: visible;
   }
 
@@ -716,11 +716,11 @@
     width: 100%;
     max-width: 100%;
     gap: 5px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     overflow-x: auto;
     overflow-y: hidden;
     flex-wrap: nowrap;
-    padding-bottom: 4px;
+    padding-bottom: 3px;
     overscroll-behavior-x: contain;
   }
 
@@ -741,7 +741,7 @@
     width: 100%;
     max-width: 100%;
     max-height: none;
-    border-radius: 14px;
+    border-radius: 12px;
   }
 
   .sp-content-col {
@@ -749,12 +749,23 @@
     max-width: 100%;
     overflow: visible;
     padding-right: 0;
-    gap: 12px;
+    gap: 10px;
   }
 
   .sp-card-grid,
   .sp-flow-grid {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .sp-language-block {
+    gap: 6px;
+  }
+
+  .sp-language-block h4,
+  .sp-block h4 {
+    margin-bottom: 6px;
+    font-size: 11px;
   }
 
   .sp-language-block p,
@@ -762,7 +773,7 @@
   .sp-hindi,
   .sp-hindi-block {
     font-size: 13px;
-    line-height: 1.55;
+    line-height: 1.48;
   }
 
   .sp-info-card,
@@ -771,30 +782,55 @@
   .sp-achievement-card {
     width: 100%;
     max-width: 100%;
-    padding: 11px;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .sp-info-card p,
+  .sp-achievement-card p,
+  .sp-minicheck > p {
+    font-size: 12px;
+    line-height: 1.42;
+  }
+
+  .sp-keypoints,
+  .sp-homework {
+    gap: 5px;
+    font-size: 12px;
+    line-height: 1.42;
+  }
+
+  .sp-check-list li {
+    padding: 7px 9px;
   }
 
   .sp-actions {
-    position: static;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 5;
-    margin: 14px 0 0;
-    padding: 12px 0 0;
+    gap: 8px;
+    margin: 0;
+    padding: 8px 14px calc(8px + env(safe-area-inset-bottom, 0));
     border-top: 1px solid rgba(0, 229, 255, 0.18);
-    background: transparent;
-    backdrop-filter: none;
+    background: rgba(6, 10, 18, 0.96);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 -16px 30px rgba(0, 0, 0, 0.32);
+    box-sizing: border-box;
   }
 
   .sp-actions-row {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
+    gap: 8px;
   }
 
   .sp-actions-row-top,
   .sp-actions-row-bottom {
-    gap: 10px;
+    gap: 8px;
   }
 
   .sp-secondary-btn,
@@ -804,12 +840,18 @@
     width: 100%;
     max-width: 100%;
     justify-content: center;
-    min-height: 44px;
-    padding: 10px 12px;
+    min-height: 42px;
+    padding: 9px 10px;
+    font-size: 12px;
+    white-space: nowrap;
   }
 
   .sp-row-spacer {
     display: none;
+  }
+
+  .sp-row-spacer + .sp-next-btn {
+    grid-column: 1 / -1;
   }
 
   .sp-image-modal-frame,
@@ -822,8 +864,6 @@
   }
 
   .sp-image-open {
-    right: 8px;
-    bottom: 8px;
-    padding: 7px 9px;
+    display: none;
   }
 }

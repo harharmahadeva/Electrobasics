@@ -6,11 +6,9 @@ import {
   ChevronLeft,
   ChevronRight,
   MessageCircle,
-  Sparkles,
   ZoomIn,
 } from "lucide-react";
 import Modal from "../../shared/Modal/Modal";
-import SparkWidget from "../../spark/SparkWidget";
 
 const LABELS = {
   content: { en: "Lesson Text", hi: "पाठ सामग्री" },
@@ -303,31 +301,6 @@ export default function SectionPlayer({
               <strong>{pickLang(section.achievement.title)}</strong>
               <p>{pickLang(section.achievement.message)}</p>
             </div>
-          )}
-
-          {section.sparkSays && (
-            <SparkWidget
-              context={{
-                source: "section",
-                moduleId: "module-01",
-                lessonId: "BE-001",
-                sectionId: section.id,
-                sectionTitle: section.title,
-                textSummary: section.paragraphs,
-                imageCaption: section.caption,
-              }}
-              onOpen={() =>
-                onAskSpark?.({
-                  source: "section",
-                  moduleId: "module-01",
-                  lessonId: "BE-001",
-                  sectionId: section.id,
-                  sectionTitle: section.title,
-                  textSummary: section.paragraphs,
-                  imageCaption: section.caption,
-                })
-              }
-            />
           )}
 
           {section.miniCheck && (
