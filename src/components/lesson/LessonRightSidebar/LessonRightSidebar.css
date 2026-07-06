@@ -171,10 +171,55 @@
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
+    max-width: 100%;
   }
   .lrs-card {
     flex: 1;
     min-width: 260px;
+  }
+}
+
+@media (max-width: 700px) {
+  .lrs {
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+  }
+
+  .lrs-card {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .lrs-title {
+    margin-bottom: 10px;
+  }
+
+  .lrs-spark-row {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .lrs-spark-avatar {
+    width: 42px;
+    height: 42px;
+  }
+
+  .lrs-spark-input {
+    padding: 9px 10px;
+  }
+
+  .lrs-spark-input span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .lrs-xp-value {
+    font-size: 22px;
   }
 }
 

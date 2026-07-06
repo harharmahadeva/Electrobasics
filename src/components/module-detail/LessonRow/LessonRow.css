@@ -171,9 +171,51 @@
 
 @media (max-width: 900px) {
   .lesson-row {
+    width: 100%;
+    max-width: 100%;
     flex-wrap: wrap;
+    gap: 10px;
+    padding: 11px;
+    border-radius: 14px;
   }
+
+  .lr-number {
+    width: 28px;
+    height: 28px;
+  }
+
+  .lr-thumb {
+    width: 42px;
+    height: 42px;
+  }
+
+  .lr-info {
+    flex: 1 1 calc(100% - 92px);
+    max-width: none;
+  }
+
+  .lr-meta {
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
   .lr-badge {
+    order: 4;
+    width: 100%;
+    min-width: 0;
     text-align: left;
+  }
+
+  .lr-action {
+    order: 5;
+    width: 100%;
+  }
+
+  .lr-start-btn,
+  .lr-locked-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

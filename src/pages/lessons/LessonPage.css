@@ -249,22 +249,124 @@
 }
 
 @media (max-width: 700px) {
+  .lesson-page {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .lp-body {
+    width: 100%;
+    max-width: 100vw;
+    display: block;
+    padding: 12px 12px 92px;
+    overflow-x: hidden;
+  }
+
+  .lp-main {
+    width: 100%;
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .lp-header {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .lp-header-top {
+    align-items: flex-start;
+  }
+
+  .lp-header-top h1 {
+    font-size: clamp(18px, 5.8vw, 22px);
+    line-height: 1.2;
+  }
+
+  .lp-progress-labels {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .lp-hero {
+    min-height: 250px;
+    border-radius: 18px;
+  }
+
+  .lp-hero-overlay {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .lp-start-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .lp-section-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
   .lp-body {
     padding-bottom: 90px;
   }
 
+  .lp-player-page {
+    height: auto;
+    max-height: none;
+    min-height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+  }
+
+  .lp-player-shell {
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    max-height: none;
+    min-height: 100svh;
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    padding: 12px;
+    overflow: visible;
+  }
+
   .lp-player-topbar {
     grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
   }
 
   .lp-player-topbar > div {
     grid-column: 1 / -1;
     grid-row: 2;
     text-align: left;
+  }
+
+  .lp-player-topbar button {
+    min-width: 0;
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  .lp-completion-rewards {
+    flex-direction: column;
+  }
+
+  .lp-completion-actions {
+    flex-direction: column;
+  }
+
+  .lp-primary-action,
+  .lp-secondary-action {
+    width: 100%;
+    justify-content: center;
   }
 }
 

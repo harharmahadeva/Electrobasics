@@ -3,6 +3,9 @@
 ## 2026-07-06
 
 ### Fixed
+- Rebuilt the mobile responsive layouts for login, dashboard, all modules, Module 01, BE-001 lesson, and SectionPlayer against the approved design references.
+- Added viewport containment for mobile cards, headers, profile/signout menus, Spark bottom sheets, modal sheets, lesson controls, and bottom navigation to prevent page-level horizontal scrolling.
+- Tightened mobile lesson and module layouts so cards, images, Start Lesson controls, section navigation, and PNG-backed BE-001 visuals fit within narrow phone widths.
 - Corrected the mobile login screen to use a single-column vertical layout with centered hero content, feature cards, language toggle, and login card.
 - Prevented horizontal overflow on mobile login at narrow widths and kept the card fully visible within a 100% / 420px max-width layout.
 - Fixed login-facing Hindi text and the language toggle Hindi label.

@@ -72,3 +72,32 @@
   background: rgba(255, 255, 255, 0.05);
   color: var(--md-text-secondary);
 }
+
+@media (max-width: 700px) {
+  .section-card {
+    min-width: 0;
+    padding: 11px 8px;
+    border-radius: 12px;
+    gap: 7px;
+  }
+
+  .sc-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .section-card strong {
+    max-width: 100%;
+    font-size: 11px;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .sc-status-chip {
+    max-width: 100%;
+    font-size: 9px;
+    padding: 2px 7px;
+    white-space: nowrap;
+  }
+}

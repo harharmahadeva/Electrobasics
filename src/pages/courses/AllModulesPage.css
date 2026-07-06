@@ -255,20 +255,74 @@
 }
 
 @media (max-width: 700px) {
+  .all-modules {
+    width: 100%;
+    max-width: 100vw;
+    padding: 12px 12px 88px;
+    gap: 10px;
+    overflow-x: hidden;
+  }
+
+  .am-mobile-title {
+    font-size: clamp(20px, 7vw, 28px);
+    line-height: 1.1;
+  }
+
+  .am-mobile-stats {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .am-mobile-stats .am-stat {
+    min-width: 0;
+    padding: 9px 8px;
+    border-radius: 13px;
+  }
+
+  .am-mobile-stats .am-stat strong,
+  .am-mobile-stats .am-stat span {
+    white-space: normal;
+  }
+
   .am-grid {
     grid-template-columns: 1fr;
   }
+
   .am-guide-list {
     grid-template-columns: 1fr;
   }
+
   .am-overview-card {
     flex-direction: column;
     align-items: flex-start;
   }
 
+  .am-learning-path-card,
+  .am-category-guide,
+  .am-tip-bar,
+  .am-mobile-list {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .am-category-guide {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .am-guide-header {
+    gap: 10px;
+  }
+
+  .am-guide-list {
+    gap: 12px;
+  }
+
   .am-tip-bar {
     flex-direction: column;
     align-items: flex-start;
+    padding: 14px;
+    border-radius: 16px;
   }
 
   .am-tip-bar button {

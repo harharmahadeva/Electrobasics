@@ -133,3 +133,38 @@
 .mob-module-card.accent-amber { border-color: rgba(245, 166, 35, 0.25); }
 .mob-module-card.accent-teal { border-color: rgba(34, 211, 238, 0.25); }
 .mob-module-card.accent-pink { border-color: rgba(236, 72, 153, 0.25); }
+
+@media (max-width: 700px) {
+  .mob-module-card {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+    padding: 13px;
+    gap: 9px;
+    overflow: hidden;
+  }
+
+  .mob-module-top {
+    gap: 9px;
+    min-width: 0;
+  }
+
+  .mob-module-title h3 {
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .mob-module-title small {
+    font-size: 11px;
+  }
+
+  .mob-module-bottom {
+    gap: 7px;
+  }
+
+  .mob-module-category {
+    width: 100%;
+    margin-left: 0;
+    overflow-wrap: anywhere;
+  }
+}

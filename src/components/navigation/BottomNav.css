@@ -3,16 +3,20 @@
   bottom: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  max-width: 100vw;
   z-index: 30;
   display: flex;
   background: rgba(10, 13, 20, 0.96);
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--eb-border-subtle);
   padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+  overflow: hidden;
 }
 
 .bottom-nav a {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +25,13 @@
   font-size: 11px;
   text-decoration: none;
   color: #7c8aa3;
+}
+
+.bottom-nav a span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .bottom-nav a.active {

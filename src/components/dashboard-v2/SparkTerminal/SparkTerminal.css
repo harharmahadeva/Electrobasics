@@ -87,3 +87,45 @@
   border-radius: 20px;
   padding: 7px 14px;
 }
+
+@media (max-width: 700px) {
+  .spark-terminal {
+    border-radius: 18px;
+    padding: 14px;
+  }
+
+  .st-label {
+    margin-bottom: 10px;
+  }
+
+  .st-chat {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .st-bubble {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .st-avatar {
+    width: 58px;
+    height: 58px;
+  }
+
+  .st-input {
+    margin-bottom: 10px;
+  }
+
+  .st-prompts {
+    gap: 7px;
+  }
+
+  .st-prompts span {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 6px 9px;
+    text-align: center;
+    font-size: 11px;
+  }
+}
