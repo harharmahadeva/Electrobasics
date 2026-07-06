@@ -24,9 +24,7 @@ export default function LoginForm() {
     <form className="login-card" onSubmit={handleSubmit}>
       <div className="login-card-header">
         <div>
-          <h1>
-            {t("welcome")} <span aria-hidden="true">👋</span>
-          </h1>
+          <h1>{t("welcome")}</h1>
           <p className="login-sub">{t("loginSub")}</p>
         </div>
       </div>

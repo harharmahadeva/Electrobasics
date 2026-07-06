@@ -11,7 +11,7 @@ export default function LanguageToggle({ size = "md", full = false }) {
         EN{full ? "\u00A0\u00A0English" : ""}
       </button>
       <button className={lang === "hi" ? "active" : ""} onClick={() => i18n.changeLanguage("hi")}>
-        HI{full ? "\u00A0\u00A0à¤¹à¤¿à¤‚à¤¦à¥€" : ""}
+        HI{full ? "\u00A0\u00A0हिन्दी" : ""}
       </button>
     </div>
   );

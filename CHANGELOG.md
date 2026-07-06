@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-07-06
+
+### Fixed
+- Corrected the mobile login screen to use a single-column vertical layout with centered hero content, feature cards, language toggle, and login card.
+- Prevented horizontal overflow on mobile login at narrow widths and kept the card fully visible within a 100% / 420px max-width layout.
+- Fixed login-facing Hindi text and the language toggle Hindi label.
+
 ## 2026-07-02
 
 ### Added
