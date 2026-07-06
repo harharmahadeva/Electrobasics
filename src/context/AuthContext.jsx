@@ -1,14 +1,22 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { login as loginService } from "../services/authService";
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { isKnownUser, login as loginService } from "../services/authService";
 
 const AUTH_KEY = "eb-auth-session";
+const SESSION_VERSION = 1;
 const AuthContext = createContext(null);
 
 function loadSession() {
   try {
     const raw = localStorage.getItem(AUTH_KEY);
-    return raw ? JSON.parse(raw) : null;
+    const session = raw ? JSON.parse(raw) : null;
+    if (!session || session.version !== SESSION_VERSION || !isKnownUser(session)) {
+      localStorage.removeItem(AUTH_KEY);
+      return null;
+    }
+    return session;
   } catch {
+    localStorage.removeItem(AUTH_KEY);
     return null;
   }
 }
@@ -22,19 +30,15 @@ function saveSession(session) {
 }
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    setUser(loadSession());
-    setReady(true);
-  }, []);
+  const [user, setUser] = useState(() => loadSession());
+  const [ready] = useState(true);
 
   const signIn = useCallback(async (userId, password) => {
     const result = await loginService(userId, password);
     if (!result.success) return result;
 
     const session = {
+      version: SESSION_VERSION,
       id: result.user.id,
       name: result.user.name,
       userId: result.user.userId,

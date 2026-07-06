@@ -1,18 +1,23 @@
 const DEMO_USER = {
+  id: "demo-sandy",
   userId: "sandy",
-  password: "800390"
+  password: "800390",
+  name: "Sandy"
 };
 
 export async function login(userId, password) {
   await new Promise(resolve => setTimeout(resolve, 400));
 
-  if (userId === DEMO_USER.userId && password === DEMO_USER.password) {
+  const normalizedUserId = String(userId || "").trim().toLowerCase();
+  const normalizedPassword = String(password || "").trim();
+
+  if (normalizedUserId === DEMO_USER.userId && normalizedPassword === DEMO_USER.password) {
     return {
       success: true,
       user: {
-        id: 1,
-        name: "Sandy",
-        userId
+        id: DEMO_USER.id,
+        name: DEMO_USER.name,
+        userId: DEMO_USER.userId
       }
     };
   }
@@ -21,4 +26,8 @@ export async function login(userId, password) {
     success: false,
     message: "Invalid User ID or password."
   };
+}
+
+export function isKnownUser(session) {
+  return session?.id === DEMO_USER.id && session?.userId === DEMO_USER.userId;
 }
