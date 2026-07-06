@@ -2,7 +2,10 @@
 
 .module01-page {
   min-height: 100vh;
-  background: var(--md-bg);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(0, 229, 255, 0.08), transparent 24%),
+    radial-gradient(circle at 88% 18%, rgba(168, 85, 247, 0.08), transparent 26%),
+    var(--md-bg);
   color: var(--md-text-primary);
   font-family: var(--eb-font-body, sans-serif);
 }
@@ -13,7 +16,7 @@
   gap: 16px;
   max-width: 1760px;
   margin: 0 auto;
-  padding: 10px clamp(16px, 2vw, 24px) 14px;
+  padding: 10px clamp(16px, 2vw, 24px) 14px 24px;
 }
 
 .m01-main {
@@ -21,7 +24,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .m01-back {
@@ -41,22 +44,26 @@
   position: relative;
   overflow: hidden;
   display: flex;
-  background: var(--md-card-bg);
-  border: 1px solid var(--md-border);
-  border-radius: 20px;
-  min-height: 185px;
+  gap: 0;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0, 229, 255, 0.14), transparent 26%),
+    linear-gradient(135deg, rgba(8, 17, 30, 0.96), rgba(5, 10, 16, 0.94));
+  border: 1px solid rgba(0, 229, 255, 0.16);
+  border-radius: 28px;
+  min-height: 220px;
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.3);
 }
 
 .m01-hero-left {
-  flex: 0 1 auto;
-  max-width: 560px;
+  flex: 0 1 58%;
+  max-width: 620px;
   min-width: 0;
-  padding: 18px 22px;
+  padding: 24px 24px 22px;
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 12px;
 }
 
 .m01-hero-top {
@@ -90,7 +97,7 @@
 }
 
 .m01-hero-top h1 {
-  font-size: 24px;
+  font-size: clamp(26px, 2.2vw, 34px);
   font-weight: 800;
   margin: 0;
 }
@@ -139,6 +146,7 @@
   display: flex;
   gap: 12px;
   margin-top: auto;
+  flex-wrap: wrap;
 }
 
 .m01-primary-btn {
@@ -148,11 +156,12 @@
   cursor: pointer;
   border: none;
   padding: 13px 22px;
-  border-radius: 12px;
+  border-radius: 14px;
   font-weight: 700;
   font-size: 14px;
   color: #fff;
   background: linear-gradient(145deg, var(--md-blue), #0e5fd1);
+  box-shadow: 0 10px 24px rgba(22, 119, 255, 0.2);
 }
 
 .m01-secondary-btn {
@@ -161,7 +170,7 @@
   gap: 10px;
   cursor: pointer;
   padding: 10px 18px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid var(--md-border);
   background: rgba(255, 255, 255, 0.03);
   color: var(--md-text-primary);
@@ -178,8 +187,20 @@
 
 .m01-hero-image {
   flex: 1;
-  min-width: 260px;
-  background: url("../../assets/images/modules/module-01/module01-electronics-lab-hero.png") center/cover no-repeat;
+  min-width: 320px;
+  background:
+    linear-gradient(90deg, rgba(5, 10, 16, 0.05), rgba(5, 10, 16, 0.38)),
+    url("../../assets/images/modules/module-01/module01-electronics-lab-hero.png") center/cover no-repeat;
+  position: relative;
+}
+
+.m01-hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 34%),
+    radial-gradient(circle at 78% 18%, rgba(0, 229, 255, 0.12), transparent 28%);
 }
 
 .m01-info-row {
@@ -189,10 +210,11 @@
 }
 
 .m01-info-card {
-  background: var(--md-card-bg);
+  background: linear-gradient(180deg, rgba(8, 18, 32, 0.9), rgba(6, 10, 16, 0.88));
   border: 1px solid var(--md-border);
-  border-radius: 16px;
-  padding: 11px 16px;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
 }
 
 .m01-overview-card {
@@ -259,10 +281,11 @@
 }
 
 .m01-lessons-card {
-  background: var(--md-card-bg);
+  background: linear-gradient(180deg, rgba(8, 18, 32, 0.92), rgba(6, 10, 16, 0.9));
   border: 1px solid var(--md-border);
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 16px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
 }
 
 .m01-lessons-card h2 {
@@ -284,16 +307,42 @@
   justify-content: center;
   gap: 10px;
   padding: 12px;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 159, 28, 0.3);
   background: rgba(255, 159, 28, 0.05);
   color: var(--md-text-secondary);
   font-size: 13px;
   text-align: center;
+  cursor: pointer;
 }
 
 .m01-unlock-banner strong {
   color: var(--md-yellow);
+}
+
+.m01-modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--md-text-secondary);
+}
+
+.m01-modal-list p {
+  margin: 0;
+}
+
+.m01-modal-list strong {
+  color: var(--md-text-primary);
+}
+
+.m01-modal-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--md-border);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 @media (max-width: 1200px) {
@@ -309,6 +358,7 @@
   .m01-hero-image {
     width: 100%;
     height: 160px;
+    min-width: 0;
   }
   .m01-info-row {
     grid-template-columns: 1fr;

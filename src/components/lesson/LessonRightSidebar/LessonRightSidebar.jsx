@@ -1,39 +1,74 @@
 import "./LessonRightSidebar.css";
-import { Bot, Star, Lock, CheckCircle2 } from "lucide-react";
+import { Star, Lock, CheckCircle2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import SparkWidget from "../../spark/SparkWidget";
 
-export default function LessonRightSidebar({ lesson, checklist, completedCount }) {
+const LABELS = {
+  sparkAi: { en: "SPARK AI", hi: "स्पार्क AI" },
+  sparkMsg: { en: "Hi Sandeep! I'm Spark. Need help with this lesson?", hi: "नमस्ते Sandeep! मैं स्पार्क हूँ। इस पाठ में मदद चाहिए?" },
+  askSpark: { en: "Ask Spark anything...", hi: "स्पार्क से कुछ भी पूछें..." },
+  checklist: { en: "LESSON CHECKLIST", hi: "पाठ चेकलिस्ट" },
+  xpReward: { en: "XP REWARD", hi: "XP इनाम" },
+  earn: { en: "Complete this lesson to earn", hi: "यह पाठ पूरा करके पाएँ" },
+  nextPreview: { en: "NEXT LESSON PREVIEW", hi: "अगले पाठ की झलक" },
+  unlocks: { en: "Unlocks after completing this lesson.", hi: "यह पाठ पूरा करने के बाद अनलॉक होगा।" },
+  locked: { en: "Locked", hi: "लॉक" },
+};
+
+function isLangObject(value) {
+  return value && typeof value === "object" && !Array.isArray(value) && ("en" in value || "hi" in value);
+}
+
+export default function LessonRightSidebar({ lesson, checklist, completedCount, onAskSpark }) {
+  const { i18n } = useTranslation();
+  const isHindi = i18n.language?.startsWith("hi");
+  const pickLang = (value, fallback = "") => {
+    if (isLangObject(value)) return isHindi ? value.hi || value.en || fallback : value.en || value.hi || fallback;
+    return value || fallback;
+  };
+  const label = (key) => pickLang(LABELS[key], key);
+
   return (
     <aside className="lrs">
       <div className="lrs-card">
-        <div className="lrs-title lrs-title-cyan">
-          <Bot size={16} /> SPARK AI
-        </div>
-        <div className="lrs-spark-row">
-          <p className="lrs-spark-msg">Hi Sandeep! I&apos;m Spark. Need help with this lesson?</p>
-          <div className="lrs-spark-avatar" />
-        </div>
-        <div className="lrs-spark-input">
-          <span>Ask Spark anything...</span>
-          <button aria-label="Send">
-            <Bot size={14} />
-          </button>
-        </div>
+        <SparkWidget
+          context={{
+            source: "lesson",
+            moduleId: "module-01",
+            lessonId: lesson.id,
+            lessonTitle: lesson.title,
+            sectionTitle: lesson.title,
+            textSummary: lesson.overview || lesson.description || "",
+            imageCaption: lesson.sparkMessage || lesson.description || "",
+          }}
+          onOpen={() =>
+            onAskSpark?.({
+              source: "lesson",
+              moduleId: "module-01",
+              lessonId: lesson.id,
+              lessonTitle: lesson.title,
+              sectionTitle: lesson.title,
+              textSummary: lesson.overview || lesson.description || "",
+              imageCaption: lesson.sparkMessage || lesson.description || "",
+            })
+          }
+        />
       </div>
 
       <div className="lrs-card">
-        <div className="lrs-title">LESSON CHECKLIST</div>
+        <div className="lrs-title">{label("checklist")}</div>
         <div className="lrs-checklist">
           {checklist.map((item, i) => {
             const done = i < completedCount;
             const current = i === completedCount;
             return (
-              <div key={item} className="lrs-check-item">
+              <div key={pickLang(item)} className="lrs-check-item">
                 {done ? (
                   <CheckCircle2 size={16} className="lrs-check-done" />
                 ) : (
                   <span className={`lrs-check-circle ${current ? "is-current" : ""}`} />
                 )}
-                <span className={done || current ? "" : "lrs-check-locked"}>{item}</span>
+                <span className={done || current ? "" : "lrs-check-locked"}>{pickLang(item)}</span>
               </div>
             );
           })}
@@ -42,20 +77,20 @@ export default function LessonRightSidebar({ lesson, checklist, completedCount }
 
       <div className="lrs-card">
         <div className="lrs-title lrs-title-yellow">
-          <Star size={16} /> XP REWARD
+          <Star size={16} /> {label("xpReward")}
         </div>
-        <p className="lrs-xp-text">Complete this lesson to earn</p>
+        <p className="lrs-xp-text">{label("earn")}</p>
         <strong className="lrs-xp-value">{lesson.xp} XP</strong>
       </div>
 
       <div className="lrs-card">
-        <div className="lrs-title">NEXT LESSON PREVIEW</div>
+        <div className="lrs-title">{label("nextPreview")}</div>
         <div className="lrs-next-lesson">
           <span className="lrs-next-id">{lesson.nextLesson.id}</span>
-          <strong>{lesson.nextLesson.title}</strong>
-          <p>Unlocks after completing this lesson.</p>
+          <strong>{pickLang(lesson.nextLesson.title)}</strong>
+          <p>{label("unlocks")}</p>
           <span className="lrs-next-status">
-            <Lock size={12} /> Locked
+            <Lock size={12} /> {label("locked")}
           </span>
         </div>
       </div>

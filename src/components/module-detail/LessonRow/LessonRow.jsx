@@ -6,7 +6,10 @@ export default function LessonRow({ lesson, onStart }) {
   const complete = lesson.status === "complete";
 
   return (
-    <div className={`lesson-row ${locked ? "is-locked" : ""} ${complete ? "is-complete" : ""}`}>
+    <div
+      className={`lesson-row ${locked ? "is-locked" : ""} ${complete ? "is-complete" : ""}`}
+      onClick={locked ? onStart : undefined}
+    >
       <span className="lr-number">
         {complete ? <CheckCircle2 size={16} /> : String(lesson.order).padStart(2, "0")}
       </span>

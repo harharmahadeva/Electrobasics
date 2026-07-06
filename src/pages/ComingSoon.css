@@ -27,3 +27,14 @@
   font-size: 14px;
   margin: 0;
 }
+
+.placeholder-link {
+  display: inline-flex;
+  margin-top: 16px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--eb-color-blue-500, #1677ff);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}

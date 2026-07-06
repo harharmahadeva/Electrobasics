@@ -1,14 +1,15 @@
 import "./RightWidgets.css";
 import { Sparkles, BookOpen, Star, Clock, Gauge, LayoutGrid, Gift } from "lucide-react";
+import SparkWidget from "../../spark/SparkWidget";
 
-export default function RightWidgets({ module }) {
+export default function RightWidgets({ module, onProgress, onSpark, onReward }) {
   const { progress } = module;
   const circumference = 2 * Math.PI * 46;
   const offset = circumference - (progress.percent / 100) * circumference;
 
   return (
     <aside className="right-widgets">
-      <div className="rw-card">
+      <button className="rw-card rw-clickable" onClick={onProgress}>
         <div className="rw-title rw-title-cyan">
           <Gauge size={16} /> MODULE PROGRESS
         </div>
@@ -42,16 +43,22 @@ export default function RightWidgets({ module }) {
             <span>Total in Module</span>
           </div>
         </div>
-      </div>
+      </button>
 
-      <div className="rw-card">
-        <div className="rw-title rw-title-yellow">
-          <Sparkles size={16} /> SPARK SAYS
-        </div>
-        <div className="rw-spark-row">
-          <p className="rw-spark-msg">{module.sparkMessage}</p>
-          <div className="rw-spark-avatar" />
-        </div>
+      <div className="rw-spark-shell">
+        <SparkWidget
+          context={{
+            source: "module",
+            moduleId: module.id,
+            moduleTitle: module.title,
+            lessonId: "BE-001",
+            lessonTitle: "Welcome to ElectroBasics",
+            sectionTitle: "Spark says",
+            textSummary: module.sparkMessage,
+            imageCaption: module.description,
+          }}
+          onOpen={onSpark}
+        />
       </div>
 
       <div className="rw-card">
@@ -80,7 +87,7 @@ export default function RightWidgets({ module }) {
         </div>
       </div>
 
-      <div className="rw-card rw-reward">
+      <button className="rw-card rw-reward rw-clickable" onClick={onReward}>
         <div className="rw-title rw-title-orange">
           <Gift size={16} /> REWARD FOR COMPLETION
         </div>
@@ -91,7 +98,7 @@ export default function RightWidgets({ module }) {
             <span>+{module.rewardXP} XP</span>
           </div>
         </div>
-      </div>
+      </button>
     </aside>
   );
 }

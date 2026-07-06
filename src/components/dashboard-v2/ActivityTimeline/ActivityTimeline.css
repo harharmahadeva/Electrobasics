@@ -1,9 +1,12 @@
 .activity-timeline {
   min-width: 240px;
-  background: linear-gradient(180deg, var(--eb-surface-card-from), var(--eb-surface-card-to));
-  border: 1px solid var(--eb-border-subtle);
-  border-radius: var(--eb-radius-card);
-  padding: var(--eb-pad-card);
+  background:
+    radial-gradient(circle at 0 0, rgba(0, 229, 255, 0.12), transparent 26%),
+    linear-gradient(180deg, rgba(9, 17, 28, 0.96), rgba(7, 11, 18, 0.92));
+  border: 1px solid rgba(0, 229, 255, 0.16);
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.22);
 }
 
 .at-label {
@@ -14,7 +17,7 @@
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.6px;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 .at-list {
@@ -26,7 +29,7 @@
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  padding: 11px 0;
+  padding: 8px 0;
   border-bottom: 1px solid var(--eb-border-subtle);
 }
 
@@ -40,8 +43,8 @@
 }
 
 .at-icon {
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   border-radius: 9px;
   display: grid;
   place-items: center;
@@ -69,14 +72,14 @@
 .at-text strong {
   display: block;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .at-text small {
   display: block;
   color: var(--eb-text-secondary);
-  font-size: 12px;
-  margin-top: 2px;
+  font-size: 11px;
+  margin-top: 1px;
 }
 
 .at-time {
@@ -90,7 +93,7 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  margin-top: 18px;
+  margin-top: 10px;
   color: var(--eb-cyan);
   font-size: 13px;
   text-decoration: none;

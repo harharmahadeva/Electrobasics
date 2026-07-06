@@ -1,6 +1,96 @@
 import "./SectionPlayer.css";
-import { useState } from "react";
-import { MessageCircle, CheckCircle2, ChevronRight, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import {
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  MessageCircle,
+  Sparkles,
+  ZoomIn,
+} from "lucide-react";
+import Modal from "../../shared/Modal/Modal";
+import SparkWidget from "../../spark/SparkWidget";
+
+const LABELS = {
+  content: { en: "Lesson Text", hi: "पाठ सामग्री" },
+  learningObjectives: { en: "Learning Objectives", hi: "सीखने के उद्देश्य" },
+  teachingAssets: { en: "Teaching Assets", hi: "शिक्षण सामग्री" },
+  realLifeExamples: { en: "Real-Life Examples", hi: "वास्तविक जीवन के उदाहरण" },
+  keyPoints: { en: "Key Points", hi: "मुख्य बिंदु" },
+  visualFlow: { en: "Guided Visual Flow", hi: "निर्देशित दृश्य प्रवाह" },
+  roadmap: { en: "Roadmap Explorer", hi: "रोडमैप खोज" },
+  labSteps: { en: "Practical Lab Steps", hi: "प्रायोगिक लैब चरण" },
+  safety: { en: "Safety Reminder", hi: "सुरक्षा याद रखें" },
+  mistakes: { en: "Common Mistakes", hi: "सामान्य गलतियाँ" },
+  troubleshooting: { en: "Problem-Solution Guide", hi: "समस्या-समाधान मार्गदर्शिका" },
+  glossary: { en: "Glossary", hi: "शब्दावली" },
+  sparkPrompts: { en: "Spark Suggested Prompts", hi: "स्पार्क के सुझाए प्रश्न" },
+  quiz: { en: "Quiz", hi: "प्रश्नोत्तरी" },
+  homework: { en: "Homework", hi: "गृहकार्य" },
+  sparkSays: { en: "Spark Says", hi: "स्पार्क कहता है" },
+  miniCheck: { en: "Mini Check", hi: "छोटी जाँच" },
+  askSpark: { en: "Ask Spark", hi: "स्पार्क से पूछें" },
+  complete: { en: "Mark Section Complete", hi: "खंड पूरा करें" },
+  completeDone: { en: "Completed", hi: "पूरा हुआ" },
+  previousSection: { en: "Previous Section", hi: "पिछला खंड" },
+  reviewPrevious: { en: "Review Previous", hi: "पिछला दोहराएँ" },
+  review: { en: "Review", hi: "दोहराएँ" },
+  continueSection: { en: "Continue Section", hi: "खंड जारी रखें" },
+  startSection: { en: "Start Section", hi: "खंड शुरू करें" },
+  next: { en: "Next Section", hi: "अगला खंड" },
+  assetPending: { en: "Asset pending", hi: "संसाधन प्रतीक्षारत" },
+  openImage: { en: "Open image", hi: "चित्र खोलें" },
+  close: { en: "Close", hi: "बंद करें" },
+  wrong: { en: "Not quite. Check the correct answer above.", hi: "पूरी तरह सही नहीं। ऊपर सही उत्तर देखें।" },
+};
+
+function isLangObject(value) {
+  return value && typeof value === "object" && !Array.isArray(value) && ("en" in value || "hi" in value);
+}
+
+function resolveImageUrl(value) {
+  if (!value) return "";
+  if (value.startsWith("/")) return value;
+  return `/assets/lessons/be001/${value}`;
+}
+
+function AssetCard({ asset, onOpen, label, pickLang }) {
+  const [failed, setFailed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const imageSrc = resolveImageUrl(asset.filename);
+
+  return (
+    <button type="button" className="sp-asset-card" onClick={onOpen}>
+      <div className={`sp-asset-thumb ${failed ? "is-placeholder" : ""}`}>
+        {!failed ? (
+          <>
+            <img
+              src={imageSrc}
+              alt={pickLang(asset.title, asset.filename)}
+              className={loaded ? "is-loaded" : "is-loading"}
+              onLoad={() => setLoaded(true)}
+              onError={() => setFailed(true)}
+            />
+            {loaded && <span className="sp-asset-thumb-open">{label("openImage")}</span>}
+          </>
+        ) : (
+          <div className="sp-asset-placeholder sp-asset-placeholder--thumb">
+            <span className="sp-asset-status">{label("assetPending")}</span>
+            <strong>{asset.filename}</strong>
+            <p>{pickLang(asset.purpose)}</p>
+          </div>
+        )}
+      </div>
+
+      <div className="sp-asset-meta">
+        <strong>{pickLang(asset.title)}</strong>
+        <p>{pickLang(asset.purpose)}</p>
+        <small>{asset.filename}</small>
+      </div>
+    </button>
+  );
+}
 
 export default function SectionPlayer({
   section,
@@ -8,9 +98,71 @@ export default function SectionPlayer({
   isComplete,
   onMarkComplete,
   onNext,
+  onPrevious,
+  previousComplete = false,
   onAskSpark,
 }) {
+  const { i18n } = useTranslation();
   const [selected, setSelected] = useState(null);
+  const [quizSelections, setQuizSelections] = useState({});
+  const [imageFailed, setImageFailed] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const [assetModal, setAssetModal] = useState(null);
+  const isHindi = i18n.language?.startsWith("hi");
+
+  function pickLang(value, fallback = "") {
+    if (isLangObject(value)) return isHindi ? value.hi || value.en || fallback : value.en || value.hi || fallback;
+    if (typeof value === "string") return value;
+    if (Array.isArray(value)) return value;
+    return value || fallback;
+  }
+
+  function label(key) {
+    return pickLang(LABELS[key], key);
+  }
+
+  function languageArray(value) {
+    const picked = pickLang(value, []);
+    return Array.isArray(picked) ? picked : picked ? [picked] : [];
+  }
+
+  function keyFor(value, index) {
+    const picked = pickLang(value, "");
+    if (typeof picked === "string") return picked;
+    return String(index);
+  }
+
+  function CardGrid({ title, items, renderItem, className = "" }) {
+    if (!items?.length) return null;
+    return (
+      <div className="sp-block">
+        <h4>{title}</h4>
+        <div className={`sp-card-grid ${className}`}>
+          {items.map((item, index) => (
+            <div className="sp-info-card" key={item.filename || keyFor(item.title || item.problem || item.mistake || item, index)}>
+              {renderItem(item, index)}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  const paragraphs = languageArray(section.paragraphs || {
+    en: section.englishParagraphs || (section.english ? [section.english] : []),
+    hi: section.hindiParagraphs || (section.hindi ? [section.hindi] : []),
+  });
+  const imageSrc = resolveImageUrl(section.image);
+  const imageFit = section.imageFit || "cover";
+  const isContain = imageFit === "contain";
+
+  useEffect(() => {
+    setImageFailed(false);
+    setImageLoaded(false);
+    setShowImageModal(false);
+    setAssetModal(null);
+  }, [section.image]);
 
   return (
     <div className="sp">
@@ -18,9 +170,7 @@ export default function SectionPlayer({
         {Array.from({ length: total }, (_, i) => i + 1).map((n) => (
           <span
             key={n}
-            className={
-              n === section.order ? "sp-step is-current" : n < section.order ? "sp-step is-done" : "sp-step"
-            }
+            className={n === section.order ? "sp-step is-current" : n < section.order ? "sp-step is-done" : "sp-step"}
           >
             {n}
           </span>
@@ -29,103 +179,279 @@ export default function SectionPlayer({
 
       <div className="sp-columns">
         <div className="sp-visual-col">
-          <div className={`sp-visual thumb-${section.id}`} />
-          {section.caption && <p className="sp-caption">{section.caption}</p>}
+          <div className={`sp-visual is-${imageFit} ${imageFailed ? "is-placeholder" : ""}`}>
+            {!imageFailed && imageSrc && (
+              <>
+                <img
+                  src={imageSrc}
+                  alt={pickLang(section.caption, pickLang(section.title))}
+                  className={imageLoaded ? "is-loaded" : "is-loading"}
+                  onLoad={() => setImageLoaded(true)}
+                  onError={() => setImageFailed(true)}
+                />
+                {imageLoaded && (
+                  <button className="sp-image-open" onClick={() => setShowImageModal(true)}>
+                    <ZoomIn size={14} /> {label("openImage")}
+                  </button>
+                )}
+              </>
+            )}
+            {imageFailed && (
+              <div className="sp-asset-placeholder">
+                <span className="sp-asset-status">{label("assetPending")}</span>
+                <strong>{section.image}</strong>
+                <p>{pickLang(section.caption)}</p>
+              </div>
+            )}
+          </div>
+          {section.caption && <p className="sp-caption">{pickLang(section.caption)}</p>}
         </div>
 
         <div className="sp-content-col">
-          <p className="sp-english">{section.english}</p>
-          <p className="sp-hindi">{section.hindi}</p>
+          {!!paragraphs.length && (
+            <div className={`sp-language-block ${isHindi ? "sp-hindi-block" : ""}`}>
+              <h4>{label("content")}</h4>
+              {paragraphs.map((item) => <p key={item}>{item}</p>)}
+            </div>
+          )}
 
-          {section.keyPoints && (
+          <CardGrid
+            title={label("learningObjectives")}
+            items={section.objectives}
+            className="sp-objectives"
+            renderItem={(objective, index) => (
+              <>
+                <strong>{index + 1}. {pickLang(objective.title)}</strong>
+                <p>{pickLang(objective.body)}</p>
+              </>
+            )}
+          />
+
+          <CardGrid
+            title={label("teachingAssets")}
+            items={section.assetCards}
+            renderItem={(asset) => (
+              <AssetCard
+                asset={asset}
+                onOpen={() =>
+                  setAssetModal({
+                    src: resolveImageUrl(asset.filename),
+                    title: pickLang(asset.title, asset.filename),
+                    caption: pickLang(asset.purpose),
+                  })
+                }
+                label={label}
+                pickLang={pickLang}
+              />
+            )}
+          />
+
+          <CardGrid
+            title={label("realLifeExamples")}
+            items={languageArray(section.exampleCards)}
+            renderItem={(example) => <p>{example}</p>}
+          />
+
+          {!!languageArray(section.keyPoints).length && (
             <div className="sp-block">
-              <h4>Key Points</h4>
+              <h4>{label("keyPoints")}</h4>
               <ul className="sp-keypoints">
-                {section.keyPoints.map((p) => (
-                  <li key={p}>{p}</li>
-                ))}
+                {languageArray(section.keyPoints).map((point) => <li key={point}>{point}</li>)}
               </ul>
             </div>
           )}
 
-          {section.glossary && (
+          {!!languageArray(section.visualFlow).length && (
             <div className="sp-block">
-              <h4>Glossary</h4>
-              <div className="sp-glossary">
-                {section.glossary.map((g) => (
-                  <div className="sp-glossary-item" key={g.term}>
-                    <strong>
-                      {g.term} <span>| {g.hindi}</span>
-                    </strong>
-                    <p>{g.definition}</p>
+              <h4>{label("visualFlow")}</h4>
+              <div className="sp-flow-grid">
+                {languageArray(section.visualFlow).map((item, index) => (
+                  <div className="sp-flow-step" key={item}>
+                    <span>{index + 1}</span>
+                    <strong>{item}</strong>
                   </div>
                 ))}
               </div>
             </div>
           )}
 
-          {section.quizQA && (
-            <div className="sp-block">
-              <h4>Quiz Review</h4>
-              <div className="sp-quiz-qa">
-                {section.quizQA.map((qa, i) => (
-                  <div className="sp-qa-item" key={qa.question}>
-                    <strong>
-                      {i + 1}. {qa.question}
-                    </strong>
-                    <p>{qa.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          <CardGrid
+            title={label("roadmap")}
+            items={section.roadmapCards}
+            className="sp-roadmap"
+            renderItem={(card, index) => (
+              <>
+                <strong>{index + 1}. {pickLang(card.title)}</strong>
+                <p>{pickLang(card.reason)}</p>
+              </>
+            )}
+          />
 
-          {section.homework && (
+          {!!languageArray(section.labSteps).length && (
             <div className="sp-block">
-              <h4>Homework</h4>
-              <ol className="sp-homework">
-                {section.homework.map((h) => (
-                  <li key={h}>{h}</li>
-                ))}
+              <h4>{label("labSteps")}</h4>
+              <ol className="sp-check-list">
+                {languageArray(section.labSteps).map((step) => <li key={step}>{step}</li>)}
               </ol>
             </div>
           )}
 
-          {section.sparkSays && (
-            <div className="sp-spark-card">
-              <Sparkles size={16} />
-              <p>{section.sparkSays}</p>
+          {!!languageArray(section.safetyChecklist).length && (
+            <div className="sp-block">
+              <h4>{label("safety")}</h4>
+              <ul className="sp-keypoints sp-safety-list">
+                {languageArray(section.safetyChecklist).map((step) => <li key={step}>{step}</li>)}
+              </ul>
             </div>
+          )}
+
+          <CardGrid
+            title={label("mistakes")}
+            items={section.mistakes}
+            renderItem={(item) => (
+              <>
+                <strong>{pickLang(item.mistake)}</strong>
+                <p>{pickLang(item.fix)}</p>
+              </>
+            )}
+          />
+
+          <CardGrid
+            title={label("troubleshooting")}
+            items={section.troubleshooting}
+            renderItem={(item) => (
+              <>
+                <strong>{pickLang(item.problem)}</strong>
+                <p>{pickLang(item.solution)}</p>
+              </>
+            )}
+          />
+
+          {section.glossary && (
+            <div className="sp-block">
+              <h4>{label("glossary")}</h4>
+              <div className="sp-glossary">
+                {section.glossary.map((item) => (
+                  <div className="sp-glossary-item" key={pickLang(item.term)}>
+                    <strong>{pickLang(item.term)}</strong>
+                    <p>{pickLang(item.definition)}</p>
+                    {item.example && <small>{pickLang(item.example)}</small>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <CardGrid
+            title={label("sparkPrompts")}
+            items={languageArray(section.sparkPrompts)}
+            renderItem={(prompt) => <p>{prompt}</p>}
+          />
+
+          {section.quizQuestions && (
+            <div className="sp-block">
+              <h4>{label("quiz")}</h4>
+              <div className="sp-full-quiz">
+                {section.quizQuestions.map((question, qIndex) => {
+                  const chosen = quizSelections[qIndex];
+                  const options = languageArray(question.options);
+                  return (
+                    <div className="sp-quiz-card" key={pickLang(question.question)}>
+                      <strong>{qIndex + 1}. {pickLang(question.question)}</strong>
+                      <div className="sp-mc-options">
+                        {options.map((option, optionIndex) => (
+                          <button
+                            key={option}
+                            className={
+                              chosen === undefined
+                                ? "sp-mc-option"
+                                : optionIndex === question.correctIndex
+                                ? "sp-mc-option is-correct"
+                                : optionIndex === chosen
+                                ? "sp-mc-option is-wrong"
+                                : "sp-mc-option"
+                            }
+                            onClick={() => setQuizSelections((prev) => ({ ...prev, [qIndex]: optionIndex }))}
+                          >
+                            {String.fromCharCode(65 + optionIndex)}. {option}
+                          </button>
+                        ))}
+                      </div>
+                      {chosen !== undefined && <p className="sp-mc-feedback">{pickLang(question.feedback)}</p>}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {!!languageArray(section.homework).length && (
+            <div className="sp-block">
+              <h4>{label("homework")}</h4>
+              <ol className="sp-homework sp-check-list">
+                {languageArray(section.homework).map((item) => <li key={item}>{item}</li>)}
+              </ol>
+            </div>
+          )}
+
+          {section.achievement && (
+            <div className="sp-achievement-card">
+              <strong>{pickLang(section.achievement.title)}</strong>
+              <p>{pickLang(section.achievement.message)}</p>
+            </div>
+          )}
+
+          {section.sparkSays && (
+            <SparkWidget
+              context={{
+                source: "section",
+                moduleId: "module-01",
+                lessonId: "BE-001",
+                sectionId: section.id,
+                sectionTitle: section.title,
+                textSummary: section.paragraphs,
+                imageCaption: section.caption,
+              }}
+              onOpen={() =>
+                onAskSpark?.({
+                  source: "section",
+                  moduleId: "module-01",
+                  lessonId: "BE-001",
+                  sectionId: section.id,
+                  sectionTitle: section.title,
+                  textSummary: section.paragraphs,
+                  imageCaption: section.caption,
+                })
+              }
+            />
           )}
 
           {section.miniCheck && (
             <div className="sp-minicheck">
-              <h4>Mini Check</h4>
-              <p>{section.miniCheck.question}</p>
+              <h4>{label("miniCheck")}</h4>
+              <p>{pickLang(section.miniCheck.question)}</p>
               <div className="sp-mc-options">
-                {section.miniCheck.options.map((opt, i) => (
+                {languageArray(section.miniCheck.options).map((option, index) => (
                   <button
-                    key={opt}
+                    key={option}
                     className={
                       selected === null
                         ? "sp-mc-option"
-                        : i === section.miniCheck.correctIndex
+                        : index === section.miniCheck.correctIndex
                         ? "sp-mc-option is-correct"
-                        : i === selected
+                        : index === selected
                         ? "sp-mc-option is-wrong"
                         : "sp-mc-option"
                     }
-                    onClick={() => setSelected(i)}
+                    onClick={() => setSelected(index)}
                   >
-                    {String.fromCharCode(65 + i)}. {opt}
+                    {String.fromCharCode(65 + index)}. {option}
                   </button>
                 ))}
               </div>
               {selected !== null && (
                 <p className="sp-mc-feedback">
-                  {selected === section.miniCheck.correctIndex
-                    ? section.miniCheck.feedback
-                    : "Not quite — check the correct answer above."}
+                  {selected === section.miniCheck.correctIndex ? pickLang(section.miniCheck.feedback) : label("wrong")}
                 </p>
               )}
             </div>
@@ -134,23 +460,115 @@ export default function SectionPlayer({
       </div>
 
       <div className="sp-actions">
-        <button className="sp-ask-spark" onClick={onAskSpark}>
-          <MessageCircle size={16} /> Ask Spark
-        </button>
-
-        <div className="sp-actions-right">
-          <button
-            className={isComplete ? "sp-complete-btn is-done" : "sp-complete-btn"}
-            onClick={onMarkComplete}
-          >
-            <CheckCircle2 size={16} /> {isComplete ? "Section Complete" : "Mark Section Complete"}
-          </button>
+        <div className="sp-actions-row sp-actions-row-top">
+          {onPrevious ? (
+            <button className="sp-secondary-btn" onClick={onPrevious}>
+              <ChevronLeft size={16} /> {previousComplete ? label("reviewPrevious") : label("previousSection")}
+            </button>
+          ) : (
+            <div className="sp-row-spacer" />
+          )}
 
           <button className="sp-next-btn" onClick={onNext}>
-            Next Section <ChevronRight size={16} />
+            {label("next")} <ChevronRight size={16} />
+          </button>
+        </div>
+
+        <div className="sp-actions-row sp-actions-row-bottom">
+          <button
+            className="sp-ask-spark"
+            onClick={() =>
+              onAskSpark?.({
+                source: "section",
+                moduleId: "module-01",
+                lessonId: "BE-001",
+                sectionId: section.id,
+                sectionTitle: section.title,
+                textSummary: section.paragraphs,
+                imageCaption: section.caption,
+              })
+            }
+          >
+            <MessageCircle size={16} /> {label("askSpark")}
+          </button>
+
+          <button className={isComplete ? "sp-complete-btn is-done" : "sp-complete-btn"} onClick={onMarkComplete}>
+            <CheckCircle2 size={16} /> {isComplete ? label("completeDone") : label("complete")}
           </button>
         </div>
       </div>
+
+      <Modal
+        open={showImageModal && !imageFailed}
+        onClose={() => setShowImageModal(false)}
+        title={pickLang(section.caption, pickLang(section.title))}
+        closeLabel={label("close")}
+      >
+        <div className="sp-image-modal">
+          <div className={`sp-image-modal-frame is-${imageFit}`}>
+            <img
+              className={`sp-image-modal-img is-${imageFit}`}
+              src={imageSrc}
+              alt={pickLang(section.caption, pickLang(section.title))}
+            />
+          </div>
+          {section.caption && <p className="sp-image-modal-caption">{pickLang(section.caption)}</p>}
+          <div className="sp-image-modal-actions">
+            <button
+              type="button"
+              className="sp-image-modal-ask"
+              onClick={() =>
+                onAskSpark?.({
+                  source: "image",
+                  moduleId: "module-01",
+                  lessonId: "BE-001",
+                  sectionId: section.id,
+                  sectionTitle: section.title,
+                  textSummary: section.paragraphs,
+                  imageCaption: section.caption,
+                })
+              }
+            >
+              <MessageCircle size={16} /> {label("askSpark")}
+            </button>
+          </div>
+        </div>
+      </Modal>
+
+      <Modal
+        open={Boolean(assetModal)}
+        onClose={() => setAssetModal(null)}
+        title={assetModal?.title || label("openImage")}
+        closeLabel={label("close")}
+      >
+        {assetModal && (
+          <div className="sp-image-modal">
+            <div className="sp-image-modal-frame is-contain">
+              <img className="sp-image-modal-img is-contain" src={assetModal.src} alt={assetModal.title} />
+            </div>
+            <p className="sp-image-modal-caption">{assetModal.caption}</p>
+            <div className="sp-image-modal-actions">
+              <button
+                type="button"
+                className="sp-image-modal-ask"
+                onClick={() =>
+                  onAskSpark?.({
+                    source: "image",
+                    moduleId: "module-01",
+                    lessonId: "BE-001",
+                    sectionId: section.id,
+                    sectionTitle: section.title,
+                    textSummary: section.paragraphs,
+                    imageCaption: assetModal.caption,
+                  })
+                }
+              >
+                <MessageCircle size={16} /> {label("askSpark")}
+              </button>
+            </div>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 }

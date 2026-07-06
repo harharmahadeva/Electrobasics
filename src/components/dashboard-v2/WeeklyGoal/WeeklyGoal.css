@@ -2,10 +2,13 @@
   min-width: 240px;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(180deg, rgba(24, 20, 34, 0.9), rgba(13, 11, 20, 0.9));
-  border: 1px solid rgba(150, 120, 240, 0.2);
-  border-radius: var(--eb-radius-card);
-  padding: var(--eb-pad-card);
+  background:
+    radial-gradient(circle at 20% 0, rgba(168, 85, 247, 0.18), transparent 26%),
+    linear-gradient(180deg, rgba(17, 12, 28, 0.96), rgba(9, 8, 14, 0.94));
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.22);
 }
 
 .wg-label {
@@ -16,18 +19,18 @@
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.6px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .wg-ring-wrap {
   display: grid;
   place-items: center;
-  margin: 6px 0 14px;
+  margin: 2px 0 10px;
 }
 
 .wg-ring {
-  width: 132px;
-  height: 132px;
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -35,8 +38,8 @@
 }
 
 .wg-ring-inner {
-  width: 104px;
-  height: 104px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
   background: #120e1c;
   display: flex;
@@ -49,11 +52,11 @@
 .wg-ring-inner strong {
   font-family: var(--eb-font-display);
   font-weight: 700;
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .wg-ring-inner strong span {
-  font-size: 16px;
+  font-size: 12px;
   color: var(--eb-text-secondary);
 }
 
@@ -65,8 +68,8 @@
 .weekly-goal p {
   text-align: center;
   color: #b7a8e8;
-  font-size: 13px;
-  margin: 0 0 16px;
+  font-size: 12px;
+  margin: 0 0 10px;
 }
 
 .weekly-goal button {
@@ -74,8 +77,8 @@
   border: 1px solid rgba(150, 120, 240, 0.35);
   background: rgba(150, 120, 240, 0.12);
   color: #d3c6f7;
-  padding: 12px;
+  padding: 10px;
   border-radius: 12px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
 }

@@ -12,6 +12,7 @@
 
 .lesson-row.is-locked {
   opacity: 0.75;
+  cursor: pointer;
 }
 
 .lesson-row.is-complete {
@@ -47,7 +48,7 @@
   background-color: rgba(255, 255, 255, 0.04);
 }
 
-.thumb-BE-001 { background-image: url("../../../assets/images/modules/module-01/be001-lesson-thumbnail.png"); }
+.thumb-BE-001 { background-image: url("/assets/lessons/be001/be001-section01-purpose.png"); }
 .thumb-BE-002 { background-image: url("../../../assets/images/modules/module-01/be002-lesson-thumbnail.png"); }
 .thumb-BE-003 { background-image: url("../../../assets/images/modules/module-01/be003-lesson-thumbnail.png"); }
 .thumb-BE-004 { background-image: url("../../../assets/images/modules/module-01/be004-lesson-thumbnail.png"); }

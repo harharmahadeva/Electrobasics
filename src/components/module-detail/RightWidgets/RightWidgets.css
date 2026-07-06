@@ -13,6 +13,25 @@
   border: 1px solid var(--md-border);
   border-radius: 16px;
   padding: 18px;
+  color: inherit;
+  text-align: left;
+}
+
+.rw-clickable {
+  cursor: pointer;
+  font: inherit;
+}
+
+.rw-clickable:hover {
+  border-color: rgba(0, 229, 255, 0.36);
+}
+
+.rw-spark-shell {
+  border-radius: 28px;
+}
+
+.rw-spark-shell .spark-widget {
+  width: 100%;
 }
 
 .rw-title {
@@ -95,29 +114,6 @@
   font-size: 11px;
   color: var(--md-text-secondary);
   margin-top: 2px;
-}
-
-.rw-spark-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.rw-spark-msg {
-  flex: 1;
-  margin: 0;
-  font-size: 13px;
-  color: var(--md-text-secondary);
-  line-height: 1.5;
-}
-
-.rw-spark-avatar {
-  width: 56px;
-  height: 56px;
-  flex-shrink: 0;
-  background:
-    url("../../../assets/images/modules/module-01/spark-module01-guide.png") center/contain no-repeat,
-    radial-gradient(circle, rgba(0, 229, 255, 0.3), transparent 70%);
 }
 
 .rw-summary-list {

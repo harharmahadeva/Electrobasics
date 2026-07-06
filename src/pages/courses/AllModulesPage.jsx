@@ -19,11 +19,19 @@ import ModuleCard from "../../components/courses/ModuleCard/ModuleCard";
 import MobileModuleCard from "../../components/courses/MobileModuleCard/MobileModuleCard";
 import { MODULES, TOTAL_LESSONS, TOTAL_MODULES, CATEGORY_GUIDE } from "../../data/modules";
 import { usePageHeader } from "../../context/PageHeaderContext";
+import { useProgress } from "../../context/ProgressContext";
 
 const GUIDE_ICONS = { Zap, Wrench, Cpu, Share2, GraduationCap };
 
 export default function AllModulesPage() {
   const navigate = useNavigate();
+  const { isLessonComplete } = useProgress();
+  const module01Complete = ["BE-001", "BE-002", "BE-003", "BE-004"].every((id) => isLessonComplete(id));
+  const modulesWithStatus = MODULES.map((module) => ({
+    ...module,
+    status: module.n === "01" ? "available" : module.n === "02" && module01Complete ? "available" : "locked",
+    lockReason: module.n === "02" ? "Complete Module 01 to unlock." : "Complete previous modules to unlock.",
+  }));
 
   usePageHeader(
     "ALL MODULES OVERVIEW",
@@ -101,7 +109,7 @@ export default function AllModulesPage() {
         </div>
       </div>
 
-      <button className="am-learning-path-card eb-mob" onClick={() => navigate("/lesson")}>
+      <button className="am-learning-path-card eb-mob" onClick={() => navigate("/modules/module-01")}>
         <Star size={20} />
         <div>
           <strong>Learning Path</strong>
@@ -111,13 +119,13 @@ export default function AllModulesPage() {
       </button>
 
       <div className="am-grid eb-desk">
-        {MODULES.map((m) => (
-          <ModuleCard key={m.n} module={m} onClick={() => navigate(`/modules/module-${m.n}`)} />
+        {modulesWithStatus.map((m) => (
+          <ModuleCard key={m.n} module={m} onClick={() => navigate(m.route)} />
         ))}
       </div>
 
       <div className="am-mobile-list eb-mob">
-        {MODULES.map((m) => (
+        {modulesWithStatus.map((m) => (
           <MobileModuleCard key={m.n} module={m} />
         ))}
       </div>
@@ -153,7 +161,7 @@ export default function AllModulesPage() {
           <strong>LEARNING PATH TIP:</strong> Follow the modules in order from 01 to {String(TOTAL_MODULES).padStart(2, "0")} for the
           best learning experience. Each module builds on the previous one!
         </p>
-        <button onClick={() => navigate("/lesson")}>
+        <button onClick={() => navigate("/modules/module-01")}>
           Start Learning Now <ArrowRight size={16} />
         </button>
       </div>

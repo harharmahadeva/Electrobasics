@@ -1,16 +1,19 @@
 .achievements {
   min-width: 240px;
-  background: linear-gradient(180deg, var(--eb-surface-card-from), var(--eb-surface-card-to));
-  border: 1px solid var(--eb-border-subtle);
-  border-radius: var(--eb-radius-card);
-  padding: var(--eb-pad-card);
+  background:
+    radial-gradient(circle at 100% 0, rgba(245, 166, 35, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(12, 16, 26, 0.96), rgba(7, 10, 16, 0.94));
+  border: 1px solid rgba(245, 166, 35, 0.18);
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.22);
 }
 
 .ach-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 .ach-label {
@@ -39,7 +42,7 @@
   display: flex;
   gap: 13px;
   align-items: center;
-  padding: 11px 0;
+  padding: 8px 0;
   border-bottom: 1px solid var(--eb-border-subtle);
 }
 
@@ -53,8 +56,8 @@
 }
 
 .ach-icon {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   border-radius: 12px;
   display: grid;
   place-items: center;
@@ -62,6 +65,7 @@
   background: rgba(245, 166, 35, 0.12);
   border: 1px solid rgba(245, 166, 35, 0.3);
   color: var(--eb-amber);
+  box-shadow: 0 0 18px rgba(245, 166, 35, 0.08);
 }
 
 .ach-item:nth-child(3) .ach-icon {
@@ -74,12 +78,12 @@
   display: block;
   font-family: var(--eb-font-display);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .ach-item small {
   display: block;
   color: var(--eb-text-secondary);
-  font-size: 12px;
-  margin-top: 2px;
+  font-size: 11px;
+  margin-top: 1px;
 }

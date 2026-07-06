@@ -21,7 +21,7 @@ export default function ModuleTopBar() {
         <div className="mtb-search">
           <Search size={16} />
           <span>Search lessons, topics, tools...</span>
-          <kbd>⌘K</kbd>
+          <kbd>Ctrl K</kbd>
         </div>
 
         <div className="mtb-right">

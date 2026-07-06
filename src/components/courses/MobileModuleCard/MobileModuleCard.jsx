@@ -12,6 +12,10 @@ import {
   Atom,
   AudioWaveform,
   ChevronRight,
+  Clock,
+  Star,
+  Lock,
+  CheckCircle2,
 } from "lucide-react";
 
 const ICONS = {
@@ -33,11 +37,13 @@ export default function MobileModuleCard({ module }) {
   const navigate = useNavigate();
   const Icon = ICONS[module.icon];
   const difficultyColor = DIFFICULTY_COLORS[module.difficultyLevel];
+  const locked = module.status === "locked";
+  const lessonCount = module.lessonCount || module.lessons;
 
   return (
     <div
-      className={`mob-module-card accent-${module.accent}`}
-      onClick={() => navigate(`/modules/module-${module.n}`)}
+      className={`mob-module-card accent-${module.accent} ${locked ? "is-locked" : "is-available"}`}
+      onClick={() => navigate(module.route || `/modules/module-${module.n}`)}
     >
       <div className="mob-module-top">
         <span className="mob-module-number">{module.n}</span>
@@ -46,15 +52,21 @@ export default function MobileModuleCard({ module }) {
         </div>
         <div className="mob-module-title">
           <h3>{module.title}</h3>
-          <small>{module.lessons} Lessons</small>
+          <small>{lessonCount} Lessons</small>
         </div>
         <ChevronRight size={18} className="mob-module-chevron" />
       </div>
 
       <div className="mob-module-bottom">
+        <span className={`mob-module-status module-status-${module.status}`}>
+          {locked ? <Lock size={12} /> : <CheckCircle2 size={12} />}
+          {locked ? "Locked" : "Available"}
+        </span>
         <span className={`module-difficulty-pill difficulty-${difficultyColor}`}>
           {module.difficulty}
         </span>
+        <span className="mob-module-stat"><Star size={12} /> {module.totalXP} XP</span>
+        <span className="mob-module-stat"><Clock size={12} /> {module.estimatedMinutes} min</span>
         <div className="module-difficulty-dots">
           {[1, 2, 3, 4].map((i) => (
             <span
@@ -65,6 +77,7 @@ export default function MobileModuleCard({ module }) {
         </div>
         <span className="mob-module-category">Category: {module.category}</span>
       </div>
+      {locked && module.lockReason && <p className="mob-module-lock-reason">{module.lockReason}</p>}
     </div>
   );
 }

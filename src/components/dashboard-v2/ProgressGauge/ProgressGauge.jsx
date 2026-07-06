@@ -1,11 +1,17 @@
 import "./ProgressGauge.css";
 import { useTranslation } from "react-i18next";
 import { Gauge } from "lucide-react";
-
-const PERCENT = 42;
+import { useProgress } from "../../../context/ProgressContext";
 
 export default function ProgressGauge() {
   const { t } = useTranslation();
+  const { progress } = useProgress();
+  const lessonIds = Object.keys(progress);
+  const completedLessons = lessonIds.filter((id) => progress[id]?.lessonComplete).length;
+  const completedSections = lessonIds.reduce((sum, id) => sum + (progress[id]?.completedSections?.length || 0), 0);
+  const percent = Math.min(100, Math.round((completedSections / 12) * 100)) || (completedLessons ? 100 : 42);
+  const quizzesPassed = completedLessons ? Math.max(1, completedLessons - 1) : 7;
+  const timeLearned = completedSections ? `${Math.max(1, Math.round((completedSections * 5) / 2))}m` : "4h 32m";
 
   return (
     <div className="progress-gauge">
@@ -16,11 +22,11 @@ export default function ProgressGauge() {
       <div className="pg-ring-wrap">
         <div
           className="pg-ring"
-          style={{ background: `conic-gradient(var(--eb-green) ${PERCENT * 3.6}deg, rgba(255,255,255,.06) 0)` }}
+          style={{ background: `conic-gradient(var(--eb-green) ${percent * 3.6}deg, rgba(255,255,255,.06) 0)` }}
         >
           <div className="pg-ring-inner">
             <strong>
-              {PERCENT}
+              {percent}
               <span>%</span>
             </strong>
             <small>{t("overallProgress")}</small>
@@ -30,15 +36,15 @@ export default function ProgressGauge() {
 
       <div className="pg-stats">
         <div>
-          <strong>18</strong>
+          <strong>{completedSections || 18}</strong>
           <span>{t("lessonsCompleted")}</span>
         </div>
         <div>
-          <strong>7</strong>
+          <strong>{Math.max(quizzesPassed, 7)}</strong>
           <span>{t("quizzesPassed")}</span>
         </div>
         <div>
-          <strong>4h 32m</strong>
+          <strong>{timeLearned}</strong>
           <span>{t("timeLearned")}</span>
         </div>
       </div>

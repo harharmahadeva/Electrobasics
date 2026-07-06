@@ -7,17 +7,11 @@ export default function LanguageToggle({ size = "md", full = false }) {
 
   return (
     <div className={`lang-toggle lang-toggle--${size}`}>
-      <button
-        className={lang === "en" ? "active" : ""}
-        onClick={() => i18n.changeLanguage("en")}
-      >
-        EN{full ? "  English" : ""}
+      <button className={lang === "en" ? "active" : ""} onClick={() => i18n.changeLanguage("en")}>
+        EN{full ? "\u00A0\u00A0English" : ""}
       </button>
-      <button
-        className={lang === "hi" ? "active" : ""}
-        onClick={() => i18n.changeLanguage("hi")}
-      >
-        HI{full ? "  हिंदी" : ""}
+      <button className={lang === "hi" ? "active" : ""} onClick={() => i18n.changeLanguage("hi")}>
+        HI{full ? "\u00A0\u00A0à¤¹à¤¿à¤‚à¤¦à¥€" : ""}
       </button>
     </div>
   );

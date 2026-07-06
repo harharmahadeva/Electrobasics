@@ -1,5 +1,6 @@
 import "./ModuleSidebar.css";
 import { useNavigate } from "react-router-dom";
+import SparkWidget from "../../spark/SparkWidget";
 import {
   Home,
   LayoutGrid,
@@ -26,7 +27,7 @@ const ITEMS = [
   { label: "Settings", icon: Settings, to: "/dashboard" },
 ];
 
-export default function ModuleSidebar({ active = "All Modules" }) {
+export default function ModuleSidebar({ active = "All Modules", onHelp }) {
   const navigate = useNavigate();
 
   return (
@@ -44,13 +45,19 @@ export default function ModuleSidebar({ active = "All Modules" }) {
         ))}
       </nav>
 
-      <div className="ms-help-card">
-        <div className="ms-help-avatar" />
-        <div>
-          <strong>Need Help?</strong>
-          <span>Ask Spark AI anytime!</span>
-        </div>
-      </div>
+      <SparkWidget
+        context={{
+          source: "module",
+          moduleId: "module-01",
+          moduleTitle: "Welcome & Electronics Lab",
+          lessonId: "BE-001",
+          lessonTitle: "Welcome to ElectroBasics",
+          sectionTitle: "Need help",
+          textSummary: "Ask Spark for help with the module, tools, safety, or next steps.",
+          imageCaption: "Module sidebar help",
+        }}
+        onOpen={onHelp}
+      />
     </aside>
   );
 }

@@ -1,8 +1,11 @@
 .progress-gauge {
-  background: linear-gradient(180deg, rgba(11, 26, 19, 0.92), rgba(9, 16, 13, 0.92));
+  background:
+    radial-gradient(circle at 50% 0, rgba(74, 222, 128, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(8, 17, 13, 0.96), rgba(6, 11, 9, 0.94));
   border: 1px solid rgba(74, 222, 128, 0.22);
-  border-radius: var(--eb-radius-card);
-  padding: var(--eb-pad-card);
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
 }
 
 .pg-label {
@@ -13,18 +16,18 @@
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.6px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .pg-ring-wrap {
   display: grid;
   place-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .pg-ring {
-  width: 140px;
-  height: 140px;
+  width: 112px;
+  height: 112px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -32,8 +35,8 @@
 }
 
 .pg-ring-inner {
-  width: 108px;
-  height: 108px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
   background: #0a130f;
   display: flex;
@@ -46,11 +49,11 @@
 .pg-ring-inner strong {
   font-family: var(--eb-font-display);
   font-weight: 700;
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .pg-ring-inner strong span {
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .pg-ring-inner small {
@@ -61,21 +64,21 @@
 .pg-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 8px;
 }
 
 .pg-stats div {
   text-align: center;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(120, 150, 200, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(120, 150, 200, 0.12);
   border-radius: 12px;
-  padding: 12px 6px;
+  padding: 9px 6px;
 }
 
 .pg-stats strong {
   font-family: var(--eb-font-display);
   font-weight: 700;
-  font-size: 19px;
+  font-size: 16px;
   display: block;
 }
 
