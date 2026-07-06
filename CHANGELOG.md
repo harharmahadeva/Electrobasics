@@ -4,6 +4,7 @@
 
 ### Fixed
 - Simplified the BE-001 mobile SectionPlayer with safe-area top padding, a single main image card, hidden mobile image overlay, no inline Spark console, and fixed bottom controls.
+- Fixed desktop SectionPlayer spacing so long section content scrolls internally, Mini Check stays visible, and bottom controls remain usable.
 - Reworked the lesson Spark widget into a compact black scanner console that fits its sidebar/card parent and opens as a mobile bottom sheet.
 - Removed XP Reward and Next Lesson Preview from the lesson right sidebar, leaving only Spark AI Console and the Lesson Checklist.
 - Cleaned BE-001 section rendering so each section uses its single main public image without duplicate visual cards, raw prompts, filenames, or asset metadata.

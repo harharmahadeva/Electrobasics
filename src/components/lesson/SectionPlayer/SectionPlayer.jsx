@@ -111,7 +111,6 @@ export default function SectionPlayer({
   });
   const imageSrc = resolveImageUrl(section.image);
   const imageFit = section.imageFit || "cover";
-  const isContain = imageFit === "contain";
 
   useEffect(() => {
     setImageFailed(false);
