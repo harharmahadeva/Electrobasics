@@ -15,12 +15,6 @@
   padding: 18px;
 }
 
-.lrs-card .spark-widget {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
 .lrs-title {
   display: flex;
   align-items: center;

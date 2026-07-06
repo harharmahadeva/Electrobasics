@@ -9,6 +9,7 @@ import {
   ZoomIn,
 } from "lucide-react";
 import Modal from "../../shared/Modal/Modal";
+import SparkDoubtBubble from "../../spark/SparkDoubtBubble";
 
 const LABELS = {
   content: { en: "Lesson Text", hi: "पाठ सामग्री" },
@@ -373,6 +374,29 @@ export default function SectionPlayer({
           </button>
         </div>
       </div>
+
+      <SparkDoubtBubble
+        context={{
+          source: "section",
+          moduleId: "module-01",
+          lessonId: "BE-001",
+          sectionId: section.id,
+          sectionTitle: section.title,
+          textSummary: section.paragraphs,
+          imageCaption: section.caption,
+        }}
+        onOpen={() =>
+          onAskSpark?.({
+            source: "section",
+            moduleId: "module-01",
+            lessonId: "BE-001",
+            sectionId: section.id,
+            sectionTitle: section.title,
+            textSummary: section.paragraphs,
+            imageCaption: section.caption,
+          })
+        }
+      />
 
       <Modal
         open={showImageModal && !imageFailed}

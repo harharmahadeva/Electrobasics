@@ -26,8 +26,8 @@
 }
 
 .spark-panel {
-  width: min(410px, calc(100vw - 24px));
-  max-width: 410px;
+  width: min(420px, calc(100vw - 24px));
+  max-width: 420px;
   height: auto;
   max-height: 64vh;
   min-height: 0;
@@ -541,21 +541,19 @@
 @media (max-width: 700px) {
   .spark-panel-backdrop {
     align-items: flex-end;
-    justify-content: stretch;
-    padding: 0;
+    justify-content: center;
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0));
   }
 
   .spark-panel {
-    width: 100%;
-    max-width: 100%;
+    width: calc(100% - 32px);
+    max-width: 420px;
     min-height: 0;
-    max-height: 78vh;
+    max-height: 70dvh;
     overflow-y: auto;
     overflow-x: hidden;
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid rgba(255, 77, 109, 0.24);
-    border-radius: 24px 24px 0 0;
+    border: 1px solid rgba(255, 77, 109, 0.24);
+    border-radius: 24px;
     box-shadow: 0 -18px 54px rgba(0, 0, 0, 0.45);
   }
 

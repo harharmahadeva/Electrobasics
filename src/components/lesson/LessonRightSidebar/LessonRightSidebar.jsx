@@ -1,7 +1,7 @@
 import "./LessonRightSidebar.css";
 import { CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import SparkWidget from "../../spark/SparkWidget";
+import SparkDoubtBubble from "../../spark/SparkDoubtBubble";
 
 const LABELS = {
   sparkAi: { en: "SPARK AI", hi: "स्पार्क AI" },
@@ -26,7 +26,8 @@ export default function LessonRightSidebar({ lesson, checklist, completedCount, 
   return (
     <aside className="lrs">
       <div className="lrs-card">
-        <SparkWidget
+        <SparkDoubtBubble
+          mode="inline"
           context={{
             source: "lesson",
             moduleId: "module-01",
