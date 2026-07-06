@@ -68,7 +68,7 @@ function AssetCard({ asset, onOpen, label, pickLang }) {
             <img
               src={imageSrc}
               alt={pickLang(asset.title, asset.filename)}
-              className={loaded ? "is-loaded" : "is-loading"}
+              className={`${loaded ? "is-loaded" : "is-loading"} is-cover`}
               onLoad={() => setLoaded(true)}
               onError={() => setFailed(true)}
             />
@@ -178,7 +178,7 @@ export default function SectionPlayer({
                 <img
                   src={imageSrc}
                   alt={pickLang(section.caption, pickLang(section.title))}
-                  className={imageLoaded ? "is-loaded" : "is-loading"}
+                  className={`${imageLoaded ? "is-loaded" : "is-loading"} is-${imageFit}`}
                   onLoad={() => setImageLoaded(true)}
                   onError={() => setImageFailed(true)}
                 />
@@ -196,7 +196,6 @@ export default function SectionPlayer({
               </div>
             )}
           </div>
-          {section.caption && <p className="sp-caption">{pickLang(section.caption)}</p>}
         </div>
 
         <div className="sp-content-col">
@@ -504,7 +503,6 @@ export default function SectionPlayer({
               alt={pickLang(section.caption, pickLang(section.title))}
             />
           </div>
-          {section.caption && <p className="sp-image-modal-caption">{pickLang(section.caption)}</p>}
           <div className="sp-image-modal-actions">
             <button
               type="button"
@@ -538,7 +536,6 @@ export default function SectionPlayer({
             <div className="sp-image-modal-frame is-contain">
               <img className="sp-image-modal-img is-contain" src={assetModal.src} alt={assetModal.title} />
             </div>
-            <p className="sp-image-modal-caption">{assetModal.caption}</p>
             <div className="sp-image-modal-actions">
               <button
                 type="button"

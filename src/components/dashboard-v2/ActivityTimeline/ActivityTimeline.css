@@ -99,3 +99,38 @@
   text-decoration: none;
   font-weight: 500;
 }
+
+@media (max-width: 700px) {
+  .activity-timeline {
+    min-width: 0;
+    border-radius: 18px;
+    padding: 10px;
+  }
+
+  .at-label {
+    gap: 6px;
+    font-size: 11px;
+    margin-bottom: 7px;
+  }
+
+  .at-item {
+    gap: 9px;
+    padding: 6px 0;
+  }
+
+  .at-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+  }
+
+  .at-text strong,
+  .at-view-all {
+    font-size: 11px;
+  }
+
+  .at-text small,
+  .at-time {
+    font-size: 10px;
+  }
+}

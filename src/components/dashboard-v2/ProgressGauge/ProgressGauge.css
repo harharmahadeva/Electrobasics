@@ -88,3 +88,52 @@
   margin-top: 2px;
   display: block;
 }
+
+@media (max-width: 700px) {
+  .progress-gauge {
+    border-radius: 18px;
+    padding: 10px;
+  }
+
+  .pg-label {
+    gap: 6px;
+    font-size: 11px;
+    margin-bottom: 7px;
+  }
+
+  .pg-ring-wrap {
+    margin-bottom: 8px;
+  }
+
+  .pg-ring {
+    width: 86px;
+    height: 86px;
+  }
+
+  .pg-ring-inner {
+    width: 64px;
+    height: 64px;
+  }
+
+  .pg-ring-inner strong {
+    font-size: 19px;
+  }
+
+  .pg-ring-inner small,
+  .pg-stats span {
+    font-size: 10px;
+  }
+
+  .pg-stats {
+    gap: 6px;
+  }
+
+  .pg-stats div {
+    padding: 7px 4px;
+    border-radius: 10px;
+  }
+
+  .pg-stats strong {
+    font-size: 14px;
+  }
+}

@@ -31,3 +31,27 @@
   font-size: 12px;
   margin-top: 3px;
 }
+
+@media (max-width: 700px) {
+  .streak-card {
+    min-height: 82px;
+    gap: 10px;
+    justify-content: flex-start;
+    border-radius: 18px;
+    padding: 10px 12px;
+  }
+
+  .streak-icon svg,
+  .streak-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .streak-value {
+    font-size: 17px;
+  }
+
+  .streak-label {
+    font-size: 11px;
+  }
+}

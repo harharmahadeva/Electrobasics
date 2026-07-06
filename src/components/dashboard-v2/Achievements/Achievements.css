@@ -87,3 +87,39 @@
   font-size: 11px;
   margin-top: 1px;
 }
+
+@media (max-width: 700px) {
+  .achievements {
+    min-width: 0;
+    border-radius: 18px;
+    padding: 10px;
+  }
+
+  .ach-header {
+    margin-bottom: 7px;
+  }
+
+  .ach-label,
+  .ach-header a {
+    font-size: 11px;
+  }
+
+  .ach-item {
+    gap: 10px;
+    padding: 6px 0;
+  }
+
+  .ach-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
+  }
+
+  .ach-item strong {
+    font-size: 12px;
+  }
+
+  .ach-item small {
+    font-size: 10px;
+  }
+}

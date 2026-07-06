@@ -56,3 +56,27 @@
   color: #9aa6bc;
   margin-top: 4px;
 }
+
+@media (max-width: 700px) {
+  .level-card {
+    min-height: 82px;
+    gap: 10px;
+    border-radius: 18px;
+    padding: 10px 12px;
+  }
+
+  .level-icon svg,
+  .level-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .level-title {
+    font-size: 13px;
+  }
+
+  .level-sub,
+  .level-xp {
+    font-size: 10px;
+  }
+}

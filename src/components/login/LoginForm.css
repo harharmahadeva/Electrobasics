@@ -166,10 +166,12 @@
   .login-card {
     width: calc(100% - 32px);
     max-width: 420px;
-    margin: 0 auto;
+    margin-inline: auto;
     border-radius: 22px;
     padding: 18px 18px 16px;
     transform: none;
+    left: auto;
+    right: auto;
     box-shadow:
       0 22px 70px rgba(0, 0, 0, 0.62),
       0 0 0 1px rgba(0, 229, 255, 0.08),

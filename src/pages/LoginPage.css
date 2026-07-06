@@ -279,7 +279,7 @@
 
   .login-screen {
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     min-height: 100dvh;
     height: 100dvh;
     overflow-x: hidden;
@@ -304,8 +304,8 @@
   }
 
   .login-layout {
-    width: calc(100% - 32px);
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
     min-height: 100dvh;
     display: grid;
     grid-template-rows: auto auto auto;
@@ -323,6 +323,7 @@
     min-width: 0;
     min-height: 0;
     margin: 0 auto;
+    margin-inline: auto;
     padding: 0;
     transform: none;
     left: auto;

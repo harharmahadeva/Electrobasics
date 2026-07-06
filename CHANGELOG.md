@@ -3,6 +3,9 @@
 ## 2026-07-06
 
 ### Fixed
+- Tightened iPhone-width mobile layouts for login, dashboard, BE-001 lesson, and SectionPlayer at 393px/390px/430px viewports.
+- Reduced dashboard mobile card padding, heights, gaps, and typography while keeping header, Continue Learning, and profile/signout menu inside the viewport.
+- Removed visible lesson image metadata/caption text under lesson visuals and restored explicit image object-fit classes so existing public PNGs render instead of blank placeholders.
 - Fixed mobile login overflow and height by switching to a compact single-column `100dvh` layout with the disclaimer and copyright inside the login card.
 - Fixed BE-001 lesson mobile clipping by clamping lesson/player wrappers and SectionPlayer cards to the viewport with 16px mobile padding.
 - Removed raw BE-001 image filenames from lesson image cards and missing-image fallbacks so successful image loads show only the visual.

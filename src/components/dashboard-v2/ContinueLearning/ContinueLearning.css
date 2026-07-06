@@ -237,9 +237,11 @@
 @media (max-width: 700px) {
   .continue-learning {
     width: 100%;
+    max-width: 100%;
     border-radius: 18px;
-    padding: 12px;
-    gap: 10px;
+    padding: 10px;
+    gap: 8px;
+    box-sizing: border-box;
   }
 
   .cl-head {
@@ -247,40 +249,59 @@
     grid-template-areas:
       "label ring"
       "info ring";
-    gap: 6px 10px;
+    gap: 4px 8px;
+  }
+
+  .cl-label {
+    gap: 6px;
+    font-size: 11px;
   }
 
   .cl-info h3 {
-    font-size: 16px;
-    margin: 3px 0;
+    font-size: 14px;
+    margin: 2px 0;
+  }
+
+  .cl-info small {
+    font-size: 10px;
   }
 
   .cl-ring {
-    width: 66px;
-    height: 66px;
+    width: 56px;
+    height: 56px;
   }
 
   .cl-ring-inner {
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .cl-ring-inner strong {
+    font-size: 15px;
+  }
+
+  .cl-ring-inner small {
+    font-size: 8px;
   }
 
   .cl-preview {
-    aspect-ratio: 16 / 9;
-    height: auto;
+    aspect-ratio: auto;
+    height: 118px;
     min-height: 0;
   }
 
   .cl-actions {
     flex-direction: column;
     align-items: stretch;
-    gap: 8px;
+    gap: 7px;
   }
 
   .cl-primary,
   .cl-secondary {
     width: 100%;
     min-width: 0;
-    height: 44px;
+    height: 38px;
+    border-radius: 12px;
+    font-size: 13px;
   }
 }

@@ -263,6 +263,7 @@
     max-width: 100%;
     display: block;
     padding: 12px 16px 92px;
+    box-sizing: border-box;
     overflow-x: hidden;
   }
 
@@ -340,6 +341,7 @@
     border-left: none;
     border-right: none;
     padding: 16px;
+    box-sizing: border-box;
     overflow: visible;
   }
 
@@ -360,8 +362,15 @@
 
   .lp-player-topbar button {
     min-width: 0;
-    padding: 9px 10px;
+    max-width: 100%;
+    padding: 8px 9px;
     font-size: 12px;
+  }
+
+  .lp-player-topbar button:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .lp-completion-rewards {

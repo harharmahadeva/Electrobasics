@@ -82,3 +82,50 @@
   font-weight: 600;
   font-size: 13px;
 }
+
+@media (max-width: 700px) {
+  .weekly-goal {
+    min-width: 0;
+    border-radius: 18px;
+    padding: 10px;
+  }
+
+  .wg-label {
+    gap: 6px;
+    font-size: 11px;
+    margin-bottom: 7px;
+  }
+
+  .wg-ring-wrap {
+    margin: 0 0 7px;
+  }
+
+  .wg-ring {
+    width: 82px;
+    height: 82px;
+  }
+
+  .wg-ring-inner {
+    width: 62px;
+    height: 62px;
+  }
+
+  .wg-ring-inner strong {
+    font-size: 18px;
+  }
+
+  .wg-ring-inner small,
+  .weekly-goal p {
+    font-size: 10px;
+  }
+
+  .weekly-goal p {
+    margin-bottom: 7px;
+  }
+
+  .weekly-goal button {
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+}
