@@ -15,17 +15,13 @@ import SparkWidget from "../../spark/SparkWidget";
 const LABELS = {
   content: { en: "Lesson Text", hi: "पाठ सामग्री" },
   learningObjectives: { en: "Learning Objectives", hi: "सीखने के उद्देश्य" },
-  teachingAssets: { en: "Teaching Assets", hi: "शिक्षण सामग्री" },
   realLifeExamples: { en: "Real-Life Examples", hi: "वास्तविक जीवन के उदाहरण" },
   keyPoints: { en: "Key Points", hi: "मुख्य बिंदु" },
-  visualFlow: { en: "Guided Visual Flow", hi: "निर्देशित दृश्य प्रवाह" },
-  roadmap: { en: "Roadmap Explorer", hi: "रोडमैप खोज" },
   labSteps: { en: "Practical Lab Steps", hi: "प्रायोगिक लैब चरण" },
   safety: { en: "Safety Reminder", hi: "सुरक्षा याद रखें" },
   mistakes: { en: "Common Mistakes", hi: "सामान्य गलतियाँ" },
   troubleshooting: { en: "Problem-Solution Guide", hi: "समस्या-समाधान मार्गदर्शिका" },
   glossary: { en: "Glossary", hi: "शब्दावली" },
-  sparkPrompts: { en: "Spark Suggested Prompts", hi: "स्पार्क के सुझाए प्रश्न" },
   quiz: { en: "Quiz", hi: "प्रश्नोत्तरी" },
   homework: { en: "Homework", hi: "गृहकार्य" },
   sparkSays: { en: "Spark Says", hi: "स्पार्क कहता है" },
@@ -55,36 +51,6 @@ function resolveImageUrl(value) {
   return `/assets/lessons/be001/${value}`;
 }
 
-function AssetCard({ asset, onOpen, label, pickLang }) {
-  const [failed, setFailed] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-  const imageSrc = resolveImageUrl(asset.filename);
-
-  return (
-    <button type="button" className="sp-asset-card" onClick={onOpen}>
-      <div className={`sp-asset-thumb ${failed ? "is-placeholder" : ""}`}>
-        {!failed ? (
-          <>
-            <img
-              src={imageSrc}
-              alt={pickLang(asset.title, asset.filename)}
-              className={`${loaded ? "is-loaded" : "is-loading"} is-cover`}
-              onLoad={() => setLoaded(true)}
-              onError={() => setFailed(true)}
-            />
-            {loaded && <span className="sp-asset-thumb-open">{label("openImage")}</span>}
-          </>
-        ) : (
-          <div className="sp-asset-placeholder sp-asset-placeholder--thumb">
-            <span className="sp-asset-status">{label("assetPending")}</span>
-            <p>{pickLang(asset.purpose)}</p>
-          </div>
-        )}
-      </div>
-    </button>
-  );
-}
-
 export default function SectionPlayer({
   section,
   total,
@@ -101,7 +67,6 @@ export default function SectionPlayer({
   const [imageFailed, setImageFailed] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
-  const [assetModal, setAssetModal] = useState(null);
   const isHindi = i18n.language?.startsWith("hi");
 
   function pickLang(value, fallback = "") {
@@ -133,7 +98,7 @@ export default function SectionPlayer({
         <h4>{title}</h4>
         <div className={`sp-card-grid ${className}`}>
           {items.map((item, index) => (
-            <div className="sp-info-card" key={item.filename || keyFor(item.title || item.problem || item.mistake || item, index)}>
+            <div className="sp-info-card" key={keyFor(item.title || item.problem || item.mistake || item, index)}>
               {renderItem(item, index)}
             </div>
           ))}
@@ -154,7 +119,6 @@ export default function SectionPlayer({
     setImageFailed(false);
     setImageLoaded(false);
     setShowImageModal(false);
-    setAssetModal(null);
   }, [section.image]);
 
   return (
@@ -219,25 +183,6 @@ export default function SectionPlayer({
           />
 
           <CardGrid
-            title={label("teachingAssets")}
-            items={section.assetCards}
-            renderItem={(asset) => (
-              <AssetCard
-                asset={asset}
-                onOpen={() =>
-                  setAssetModal({
-                    src: resolveImageUrl(asset.filename),
-                    title: pickLang(asset.title, asset.filename),
-                    caption: pickLang(asset.purpose),
-                  })
-                }
-                label={label}
-                pickLang={pickLang}
-              />
-            )}
-          />
-
-          <CardGrid
             title={label("realLifeExamples")}
             items={languageArray(section.exampleCards)}
             renderItem={(example) => <p>{example}</p>}
@@ -251,32 +196,6 @@ export default function SectionPlayer({
               </ul>
             </div>
           )}
-
-          {!!languageArray(section.visualFlow).length && (
-            <div className="sp-block">
-              <h4>{label("visualFlow")}</h4>
-              <div className="sp-flow-grid">
-                {languageArray(section.visualFlow).map((item, index) => (
-                  <div className="sp-flow-step" key={item}>
-                    <span>{index + 1}</span>
-                    <strong>{item}</strong>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <CardGrid
-            title={label("roadmap")}
-            items={section.roadmapCards}
-            className="sp-roadmap"
-            renderItem={(card, index) => (
-              <>
-                <strong>{index + 1}. {pickLang(card.title)}</strong>
-                <p>{pickLang(card.reason)}</p>
-              </>
-            )}
-          />
 
           {!!languageArray(section.labSteps).length && (
             <div className="sp-block">
@@ -332,12 +251,6 @@ export default function SectionPlayer({
               </div>
             </div>
           )}
-
-          <CardGrid
-            title={label("sparkPrompts")}
-            items={languageArray(section.sparkPrompts)}
-            renderItem={(prompt) => <p>{prompt}</p>}
-          />
 
           {section.quizQuestions && (
             <div className="sp-block">
@@ -525,39 +438,6 @@ export default function SectionPlayer({
         </div>
       </Modal>
 
-      <Modal
-        open={Boolean(assetModal)}
-        onClose={() => setAssetModal(null)}
-        title={assetModal?.title || label("openImage")}
-        closeLabel={label("close")}
-      >
-        {assetModal && (
-          <div className="sp-image-modal">
-            <div className="sp-image-modal-frame is-contain">
-              <img className="sp-image-modal-img is-contain" src={assetModal.src} alt={assetModal.title} />
-            </div>
-            <div className="sp-image-modal-actions">
-              <button
-                type="button"
-                className="sp-image-modal-ask"
-                onClick={() =>
-                  onAskSpark?.({
-                    source: "image",
-                    moduleId: "module-01",
-                    lessonId: "BE-001",
-                    sectionId: section.id,
-                    sectionTitle: section.title,
-                    textSummary: section.paragraphs,
-                    imageCaption: assetModal.caption,
-                  })
-                }
-              >
-                <MessageCircle size={16} /> {label("askSpark")}
-              </button>
-            </div>
-          </div>
-        )}
-      </Modal>
     </div>
   );
 }

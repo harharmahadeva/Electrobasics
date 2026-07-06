@@ -17,6 +17,8 @@
 
 .lrs-card .spark-widget {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .lrs-title {
@@ -122,50 +124,6 @@
   color: var(--md-text-secondary);
 }
 
-.lrs-xp-text {
-  margin: 0 0 4px;
-  font-size: 13px;
-  color: var(--md-text-secondary);
-}
-
-.lrs-xp-value {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--md-yellow);
-}
-
-.lrs-next-lesson {
-  opacity: 0.7;
-}
-
-.lrs-next-id {
-  font-family: var(--eb-font-mono, monospace);
-  font-size: 11px;
-  color: var(--md-text-secondary);
-}
-
-.lrs-next-lesson strong {
-  display: block;
-  margin-top: 2px;
-  font-size: 14px;
-  color: var(--md-text-primary);
-}
-
-.lrs-next-lesson p {
-  margin: 6px 0 10px;
-  font-size: 12px;
-  color: var(--md-text-secondary);
-}
-
-.lrs-next-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--md-text-secondary);
-}
-
 @media (max-width: 1200px) {
   .lrs {
     width: 100%;
@@ -175,7 +133,7 @@
   }
   .lrs-card {
     flex: 1;
-    min-width: 260px;
+    min-width: min(260px, 100%);
   }
 }
 
@@ -218,9 +176,6 @@
     white-space: nowrap;
   }
 
-  .lrs-xp-value {
-    font-size: 22px;
-  }
 }
 
 @media (min-width: 1201px) {

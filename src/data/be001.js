@@ -39,21 +39,6 @@ export const SECTIONS = [
         "Safety और अच्छी habits सबसे पहले आती हैं।",
       ]
     ),
-    assetCards: [
-      {
-        filename: "be001-hero.png",
-        title: t("Hero workbench image", "Hero workbench image"),
-        purpose: t(
-          "Create excitement and show the electronics-learning environment.",
-          "उत्साह बनाना और electronics-learning environment दिखाना।"
-        ),
-      },
-      {
-        filename: "be001-spark-welcome.png",
-        title: t("Spark welcome mascot", "Spark welcome mascot"),
-        purpose: t("Introduce Spark as a friendly AI mentor.", "Spark को friendly AI mentor के रूप में introduce करना।"),
-      },
-    ],
     sparkSays: t(
       "Before building circuits, understand the learning path. I will help you move from complete beginner to confident builder one small step at a time.",
       "Circuits बनाने से पहले learning path समझिए। मैं आपको complete beginner से confident builder तक छोटे-छोटे steps में guide करूँगा।"
@@ -213,37 +198,12 @@ export const SECTIONS = [
     caption: t("Visual assets should teach, not decorate.", "Visual assets सिखाने के लिए हैं, decoration के लिए नहीं।"),
     paragraphs: t(
       [
-        "ElectroBasics uses visuals to make learning easier. Real photos show how parts look. Diagrams show how circuits connect. Infographics show the complete journey. Simulators let you experiment safely.",
-        "Every image in this lesson has a teaching role. On mobile, large infographics should be sliced into readable cards or shown with zoom support.",
+        "ElectroBasics uses visuals to make learning easier. Real photos show how parts look, diagrams show how circuits connect, and simple activities let you experiment safely.",
       ],
       [
-        "ElectroBasics learning आसान बनाने के लिए visuals का उपयोग करता है। Real photos parts दिखाते हैं। Diagrams circuits के connections दिखाते हैं। Infographics पूरी journey दिखाते हैं। Simulators safe experiment करने देते हैं।",
-        "इस lesson की हर image का teaching role है। Mobile पर large infographics को readable cards में slice करना चाहिए या zoom support देना चाहिए।",
+        "ElectroBasics learning आसान बनाने के लिए visuals का उपयोग करता है। Real photos parts दिखाते हैं, diagrams circuits के connections दिखाते हैं और simple activities safe experiment करने देते हैं।",
       ]
     ),
-    visualFlow: t(
-      ["Hero image", "Real-life problem", "Learning objectives", "Main infographic or annotated image", "Spark guided explanation", "Real photo gallery", "Interactive activity or simulator", "Practical lab", "Common mistakes", "Troubleshooting", "Quiz", "Homework", "Summary", "Achievement"],
-      ["Hero image", "Real-life problem", "Learning objectives", "Main infographic या annotated image", "Spark guided explanation", "Real photo gallery", "Interactive activity या simulator", "Practical lab", "Common mistakes", "Troubleshooting", "Quiz", "Homework", "Summary", "Achievement"]
-    ),
-    assetCards: [
-      {
-        filename: "be001-section05-guided-visuals.png",
-        title: t("Course roadmap infographic", "Course roadmap infographic"),
-        purpose: t("Show the complete journey from zero to certificate.", "Zero से certificate तक complete journey दिखाना।"),
-      },
-      {
-        filename: "be001-section03-real-life-problem.png",
-        title: t("Real-life electronics collage", "Real-life electronics collage"),
-        purpose: t("Show that electronics exists everywhere.", "दिखाना कि electronics हर जगह मौजूद है।"),
-      },
-    ],
-    sparkSays: t("When a concept feels confusing, look at the image first. Visuals make abstract ideas easier.", "Concept confusing लगे तो पहले image देखें। Visuals abstract ideas को आसान बनाते हैं।"),
-    miniCheck: {
-      question: t("Why do we use real photos?", "हम real photos क्यों use करते हैं?"),
-      options: t(["To recognize real components", "Only for decoration"], ["Real components पहचानने के लिए", "सिर्फ decoration के लिए"]),
-      correctIndex: 0,
-      feedback: t("Correct! Real photos help you recognize actual parts.", "सही! Real photos actual parts पहचानने में मदद करते हैं।"),
-    },
   },
   {
     id: "section-06",
@@ -266,16 +226,6 @@ export const SECTIONS = [
         "MVP के लिए यह static interactive-looking card हो सकता है। बाद में यह real simulator बन सकता है।",
       ]
     ),
-    roadmapCards: [
-      { title: t("Safety", "Safety"), reason: t("Learn safe habits before powering circuits.", "Circuits को power देने से पहले safe habits सीखें।") },
-      { title: t("Tools", "Tools"), reason: t("Know the basic tools before using them.", "Use करने से पहले basic tools जानें।") },
-      { title: t("Electricity", "Electricity"), reason: t("Understand voltage, current and resistance.", "Voltage, current और resistance समझें।") },
-      { title: t("Components", "Components"), reason: t("Recognize parts such as LEDs and resistors.", "LEDs और resistors जैसे parts पहचानें।") },
-      { title: t("Breadboard", "Breadboard"), reason: t("Build circuits without soldering.", "बिना soldering circuits बनाएँ।") },
-      { title: t("Measurements", "Measurements"), reason: t("Test circuits with a multimeter.", "Multimeter से circuits test करें।") },
-      { title: t("Projects", "Projects"), reason: t("Apply the basics by building.", "Build करके basics apply करें।") },
-      { title: t("Certificate", "Certificate"), reason: t("Show progress after guided practice.", "Guided practice के बाद progress दिखाएँ।") },
-    ],
     keyPoints: t(["Follow the course in order.", "Each module prepares you for the next.", "Do not skip safety.", "Projects come after basics."], ["Course को order में follow करें।", "हर module next के लिए prepare करता है।", "Safety skip न करें।", "Projects basics के बाद आते हैं।"]),
     sparkSays: t("The roadmap is like a map for your electronics journey. Follow it step by step.", "Roadmap आपकी electronics journey का map है। इसे step by step follow करें।"),
     miniCheck: {
@@ -379,10 +329,6 @@ export const SECTIONS = [
       { term: t("Breadboard", "ब्रेडबोर्ड"), definition: t("Reusable board for building circuits without soldering.", "बिना soldering circuits बनाने के लिए reusable board।"), example: t("Beginners use a breadboard to test circuits safely before soldering.", "Beginners soldering से पहले circuits safely test करने के लिए breadboard use करते हैं।") },
       { term: t("Spark", "स्पार्क"), definition: t("ElectroBasics AI mentor.", "ElectroBasics AI mentor।"), example: t("Ask Spark for hints, quizzes, image explanations and troubleshooting help.", "Hints, quizzes, image explanations और troubleshooting help के लिए Spark से पूछें।") },
     ],
-    sparkPrompts: t(
-      ["Explain this lesson in very simple words.", "What should I notice in the main image?", "Give me one real-life example.", "Ask me three practice questions.", "What mistake should I avoid?"],
-      ["इस पाठ को बहुत सरल भाषा में समझाइए।", "मुख्य चित्र में मुझे क्या देखना चाहिए?", "एक real-life example दीजिए।", "मुझसे तीन practice questions पूछिए।", "मुझे कौन सी गलती avoid करनी चाहिए?"]
-    ),
     sparkSays: t("Whenever you see a new word, ask me. I can explain it with examples.", "जब भी नया word दिखे, मुझसे पूछें। मैं examples से समझा सकता हूँ।"),
     miniCheck: {
       question: t("What is a breadboard used for?", "Breadboard किसके लिए use होता है?"),

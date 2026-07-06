@@ -1,5 +1,5 @@
 import "./LessonRightSidebar.css";
-import { Star, Lock, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import SparkWidget from "../../spark/SparkWidget";
 
@@ -8,11 +8,6 @@ const LABELS = {
   sparkMsg: { en: "Hi Sandeep! I'm Spark. Need help with this lesson?", hi: "नमस्ते Sandeep! मैं स्पार्क हूँ। इस पाठ में मदद चाहिए?" },
   askSpark: { en: "Ask Spark anything...", hi: "स्पार्क से कुछ भी पूछें..." },
   checklist: { en: "LESSON CHECKLIST", hi: "पाठ चेकलिस्ट" },
-  xpReward: { en: "XP REWARD", hi: "XP इनाम" },
-  earn: { en: "Complete this lesson to earn", hi: "यह पाठ पूरा करके पाएँ" },
-  nextPreview: { en: "NEXT LESSON PREVIEW", hi: "अगले पाठ की झलक" },
-  unlocks: { en: "Unlocks after completing this lesson.", hi: "यह पाठ पूरा करने के बाद अनलॉक होगा।" },
-  locked: { en: "Locked", hi: "लॉक" },
 };
 
 function isLangObject(value) {
@@ -72,26 +67,6 @@ export default function LessonRightSidebar({ lesson, checklist, completedCount, 
               </div>
             );
           })}
-        </div>
-      </div>
-
-      <div className="lrs-card">
-        <div className="lrs-title lrs-title-yellow">
-          <Star size={16} /> {label("xpReward")}
-        </div>
-        <p className="lrs-xp-text">{label("earn")}</p>
-        <strong className="lrs-xp-value">{lesson.xp} XP</strong>
-      </div>
-
-      <div className="lrs-card">
-        <div className="lrs-title">{label("nextPreview")}</div>
-        <div className="lrs-next-lesson">
-          <span className="lrs-next-id">{lesson.nextLesson.id}</span>
-          <strong>{pickLang(lesson.nextLesson.title)}</strong>
-          <p>{label("unlocks")}</p>
-          <span className="lrs-next-status">
-            <Lock size={12} /> {label("locked")}
-          </span>
         </div>
       </div>
     </aside>

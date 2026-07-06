@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-07-07
+
+### Fixed
+- Reworked the lesson Spark widget into a compact black scanner console that fits its sidebar/card parent and opens as a mobile bottom sheet.
+- Removed XP Reward and Next Lesson Preview from the lesson right sidebar, leaving only Spark AI Console and the Lesson Checklist.
+- Cleaned BE-001 section rendering so each section uses its single main public image without duplicate visual cards, raw prompts, filenames, or asset metadata.
+- Simplified BE-001 Section 05 to the guided-visuals image plus a short beginner-friendly explanation.
+- Verified 393px mobile routes for dashboard, modules, Module 01, BE-001, and all 12 BE-001 sections with no page-level horizontal overflow.
+
 ## 2026-07-06
 
 ### Fixed

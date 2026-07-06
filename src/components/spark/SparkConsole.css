@@ -19,9 +19,10 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   color: #f8fafc;
   pointer-events: auto;
+  box-sizing: border-box;
 }
 
 .spark-panel {
@@ -42,24 +43,25 @@
 
 .spark-widget {
   width: 100%;
+  max-width: 100%;
   border: 1px solid rgba(34, 211, 238, 0.14);
-  border-radius: 22px;
-  padding: 14px;
+  border-radius: 16px;
+  padding: 12px;
   text-align: left;
   cursor: pointer;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.03),
     0 16px 30px rgba(0, 0, 0, 0.24);
-  min-height: 220px;
-  max-height: 230px;
+  min-height: 0;
+  max-height: none;
   background:
     linear-gradient(180deg, rgba(6, 10, 16, 0.96), rgba(4, 7, 12, 0.98));
 }
 
 .spark-widget.is-compact {
-  padding: 14px;
-  min-height: 220px;
-  max-height: 230px;
+  padding: 12px;
+  min-height: 148px;
+  max-height: 168px;
 }
 
 .spark-panel::before,
@@ -144,13 +146,13 @@
 }
 
 @keyframes spark-scan {
-  0%, 100% { left: 0; transform: translateX(0); }
-  50% { left: 66%; transform: translateX(0); }
+  0%, 100% { left: 0; }
+  50% { left: 66%; }
 }
 
 @keyframes spark-sweep {
-  from { transform: translateX(-120%); }
-  to { transform: translateX(120%); }
+  from { left: -120%; }
+  to { left: 120%; }
 }
 
 .spark-header,
@@ -163,7 +165,7 @@
 
 .spark-header {
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
 }
 
 .spark-title {
@@ -198,7 +200,8 @@
 }
 
 .spark-widget h2 {
-  font-size: 15px;
+  font-size: 13px;
+  line-height: 1.15;
 }
 
 .spark-title p,
@@ -242,12 +245,12 @@
 }
 
 .spark-widget .spark-status {
-  padding: 4px 8px;
-  font-size: 10px;
+  padding: 3px 7px;
+  font-size: 9px;
 }
 
 .spark-widget-line {
-  margin: -4px 0 0;
+  margin: 0;
   color: #96a3b3;
   font-size: 11px;
   line-height: 1.35;
@@ -321,15 +324,15 @@
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0;
 }
 
 .spark-widget-input {
   display: flex;
   align-items: center;
-  gap: 10px;
-  border-radius: 14px;
-  padding: 10px 12px 10px 14px;
+  gap: 8px;
+  border-radius: 12px;
+  padding: 7px 8px 7px 10px;
   background: rgba(3, 7, 12, 0.88);
   border: 1px solid rgba(34, 211, 238, 0.12);
 }
@@ -351,9 +354,9 @@
 }
 
 .spark-widget-input button {
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
   display: grid;
   place-items: center;
   color: #04141a;
@@ -544,7 +547,7 @@
 
   .spark-panel {
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     min-height: 0;
     max-height: 78vh;
     overflow-y: auto;
@@ -559,8 +562,8 @@
   .spark-widget {
     width: 100%;
     max-width: 100%;
-    min-height: 220px;
-    max-height: 230px;
+    min-height: 148px;
+    max-height: 168px;
     overflow: hidden;
     border-left: none;
     border-radius: 22px;

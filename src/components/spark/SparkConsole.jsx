@@ -119,20 +119,19 @@ export default function SparkConsole({
     const widgetLine = isHindi ? "इस पाठ के बारे में Spark से पूछें।" : "Ask Spark about this lesson.";
     return (
       <>
-        <div className="spark-scanner" aria-hidden="true">
-          <span />
-        </div>
-
         <div className="spark-header">
           <div className="spark-title">
             <div>
               <h2>{label("title")}</h2>
-              <p>{label("subtitle")}</p>
             </div>
           </div>
           <span className="spark-status">
             <Zap size={13} /> {label("ready")}
           </span>
+        </div>
+
+        <div className="spark-scanner" aria-hidden="true">
+          <span />
         </div>
 
         <p className="spark-widget-line">{widgetLine}</p>
@@ -148,9 +147,6 @@ export default function SparkConsole({
               <MessageCircle size={15} />
             </button>
           </div>
-          <button type="button" className="spark-widget-cta" onClick={() => onOpen?.()}>
-            <MessageCircle size={15} /> {isHindi ? "पूछें" : "Ask Spark"}
-          </button>
         </div>
       </>
     );
