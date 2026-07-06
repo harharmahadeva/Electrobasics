@@ -18,7 +18,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 14px clamp(16px, 3vw, 34px);
+  min-height: 72px;
+  padding: 10px clamp(16px, 3vw, 34px);
 }
 
 .eb-header-inner {
@@ -27,7 +28,8 @@
   display: flex;
   align-items: center;
   gap: 18px;
-  padding: 16px clamp(16px, 3vw, 34px);
+  min-height: 72px;
+  padding: 10px clamp(16px, 3vw, 34px);
 }
 
 .eb-logo {
@@ -65,6 +67,7 @@
   width: 34px;
   height: 34px;
   border-radius: 10px;
+  font-size: 12px;
 }
 
 .eb-search {
@@ -157,6 +160,10 @@
   align-items: center;
   gap: 9px;
   cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  text-align: left;
 }
 
 .avatar {
@@ -193,6 +200,49 @@
   font-size: 11px;
   color: var(--eb-amber);
   line-height: 1.25;
+}
+
+.profile-menu-wrap {
+  position: relative;
+}
+
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 180px;
+  border-radius: 16px;
+  border: 1px solid rgba(120, 150, 200, 0.16);
+  background: rgba(8, 12, 19, 0.96);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
+  padding: 8px;
+  z-index: 30;
+  backdrop-filter: blur(16px);
+}
+
+.profile-menu button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--eb-text-primary);
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.profile-menu button:hover,
+.profile-menu button:focus-visible {
+  background: rgba(0, 229, 255, 0.1);
+  color: var(--eb-cyan);
+}
+
+.profile-menu-wrap--mobile .profile-menu {
+  right: 0;
+  left: auto;
+  min-width: 150px;
 }
 
 @media (max-width: 880px) {

@@ -15,6 +15,10 @@
   padding: 18px;
 }
 
+.lrs-card .spark-widget {
+  width: 100%;
+}
+
 .lrs-title {
   display: flex;
   align-items: center;
@@ -49,7 +53,7 @@
   height: 48px;
   flex-shrink: 0;
   background:
-    url("../../../assets/images/modules/module-01/spark-lesson-guide.png") center/contain no-repeat,
+    url("/assets/lessons/be001/be001-spark-welcome.png") center/contain no-repeat,
     radial-gradient(circle, rgba(0, 229, 255, 0.3), transparent 70%);
 }
 
@@ -171,5 +175,21 @@
   .lrs-card {
     flex: 1;
     min-width: 260px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .lrs {
+    position: sticky;
+    top: 88px;
+    max-height: calc(100vh - 108px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    align-self: flex-start;
+    padding-right: 2px;
+  }
+
+  .lrs-card {
+    flex-shrink: 0;
   }
 }

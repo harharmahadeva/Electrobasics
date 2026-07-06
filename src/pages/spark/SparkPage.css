@@ -1,0 +1,5 @@
+.spark-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px clamp(16px, 3vw, 34px) 96px;
+}

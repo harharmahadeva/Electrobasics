@@ -1,15 +1,45 @@
 import "./Header.css";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Search, Bell, Sun, Zap } from "lucide-react";
 import LanguageToggle from "../../language/LanguageToggle";
 import { usePageHeaderValue } from "../../../context/PageHeaderContext";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function Header() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
   const pageHeader = usePageHeaderValue();
   const header = pageHeader?.header;
+  const menuRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    function onClickOutside(event) {
+      if (!menuRef.current) return;
+      if (menuRef.current.contains(event.target)) return;
+      setMenuOpen(false);
+    }
+
+    function onEscape(event) {
+      if (event.key === "Escape") setMenuOpen(false);
+    }
+
+    document.addEventListener("mousedown", onClickOutside);
+    document.addEventListener("keydown", onEscape);
+    return () => {
+      document.removeEventListener("mousedown", onClickOutside);
+      document.removeEventListener("keydown", onEscape);
+    };
+  }, []);
+
+  function handleSignOut() {
+    signOut();
+    setMenuOpen(false);
+    navigate("/login", { replace: true });
+  }
 
   return (
     <>
@@ -31,7 +61,6 @@ export default function Header() {
             <div className="eb-search">
               <Search size={16} />
               <span className="eb-search-placeholder">{t("search")}</span>
-              <kbd>⌘K</kbd>
             </div>
           )}
 
@@ -47,12 +76,23 @@ export default function Header() {
               <Sun size={18} />
             </button>
 
-            <div className="profile" onClick={() => navigate("/")}>
-              <div className="avatar">SN</div>
-              <div>
-                <strong>Sandeep</strong>
-                <small>{t("level")}</small>
-              </div>
+            <div className="profile-menu-wrap" ref={menuRef}>
+              <button className="profile" onClick={() => setMenuOpen((prev) => !prev)} type="button">
+                <div className="avatar">SN</div>
+                <div>
+                  <strong>{user?.name || "Sandeep"}</strong>
+                  <small>{t("level")}</small>
+                </div>
+              </button>
+
+              {menuOpen && (
+                <div className="profile-menu">
+                  <button type="button" onClick={() => { setMenuOpen(false); navigate("/dashboard"); }}>
+                    {t("dashboard", "Dashboard")}
+                  </button>
+                  <button type="button" onClick={handleSignOut}>{t("signOut", "Sign Out")}</button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -74,8 +114,18 @@ export default function Header() {
             <span className="eb-badge">3</span>
           </button>
 
-          <div className="avatar avatar--sm" onClick={() => navigate("/")}>
-            SN
+          <div className="profile-menu-wrap profile-menu-wrap--mobile" ref={menuRef}>
+            <button className="avatar avatar--sm" onClick={() => setMenuOpen((prev) => !prev)} type="button">
+              SN
+            </button>
+            {menuOpen && (
+              <div className="profile-menu profile-menu--mobile">
+                <button type="button" onClick={() => { setMenuOpen(false); navigate("/dashboard"); }}>
+                  {t("dashboard", "Dashboard")}
+                </button>
+                <button type="button" onClick={handleSignOut}>{t("signOut", "Sign Out")}</button>
+              </div>
+            )}
           </div>
         </div>
       </header>

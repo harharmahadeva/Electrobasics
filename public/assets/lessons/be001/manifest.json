@@ -1,0 +1,20 @@
+{
+  "lessonId": "BE-001",
+  "basePath": "/assets/lessons/be001/",
+  "requiredImages": [
+    "be001-hero.png",
+    "be001-spark-welcome.png",
+    "be001-section01-purpose.png",
+    "be001-section02-objectives.png",
+    "be001-section03-real-life-problem.png",
+    "be001-section04-theory.png",
+    "be001-section05-guided-visuals.png",
+    "be001-section06-activity.png",
+    "be001-section07-practical-lab.png",
+    "be001-section08-mistakes.png",
+    "be001-section09-troubleshooting.png",
+    "be001-section10-glossary.png",
+    "be001-section11-quiz.png",
+    "be001-section12-complete.png"
+  ]
+}

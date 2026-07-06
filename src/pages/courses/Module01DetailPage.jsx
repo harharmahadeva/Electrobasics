@@ -1,12 +1,16 @@
 import "./Module01DetailPage.css";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Play, RotateCw, Wrench, Shield, LayoutGrid, Zap, Info, Lock, Star, Clock } from "lucide-react";
+import { useState } from "react";
 import ModuleTopBar from "../../components/module-detail/ModuleTopBar/ModuleTopBar";
 import ModuleSidebar from "../../components/module-detail/ModuleSidebar/ModuleSidebar";
 import RightWidgets from "../../components/module-detail/RightWidgets/RightWidgets";
 import LessonRow from "../../components/module-detail/LessonRow/LessonRow";
+import Modal from "../../components/shared/Modal/Modal";
+import BottomNav from "../../components/navigation/BottomNav";
 import { useProgress } from "../../context/ProgressContext";
 import { useToast } from "../../context/ToastContext";
+import { useSpark } from "../../context/SparkContext";
 import { module01 } from "../../data/module01";
 
 const LEARN_ICONS = { Shield, Wrench, LayoutGrid, Zap };
@@ -15,6 +19,8 @@ export default function Module01DetailPage() {
   const navigate = useNavigate();
   const showToast = useToast();
   const { isLessonComplete, getLessonXpEarned } = useProgress();
+  const [activeModal, setActiveModal] = useState(null);
+  const { openSpark } = useSpark();
   const m = module01;
 
   const lessonsWithStatus = m.lessons.map((lesson, i) => {
@@ -34,13 +40,48 @@ export default function Module01DetailPage() {
   const hasProgress = completedLessons > 0;
   const allComplete = completedLessons === m.lessonCount;
   const primaryLabel = allComplete ? "Review Module" : hasProgress ? "Continue Module" : "Start Module";
+  const nextIncompleteLesson = lessonsWithStatus.find((lesson) => !lesson.complete);
+
+  function routeForLesson(lesson) {
+    return lesson.id === "BE-001" ? "/learn/BE-001" : `/learn/${lesson.id}`;
+  }
+
+  function handleStartModule() {
+    if (allComplete) {
+      navigate("/modules/module-01/review");
+      return;
+    }
+    navigate(routeForLesson(nextIncompleteLesson || lessonsWithStatus[0]));
+  }
 
   function handleStartLesson(lesson) {
-    if (lesson.id === "BE-001") {
-      navigate("/learn/BE-001");
-    } else {
-      showToast(`${lesson.id} content is coming soon!`, "info");
+    if (lesson.status === "locked") {
+      showToast(`${lesson.unlockRequirement} first to unlock this lesson.`);
+      return;
     }
+    navigate(routeForLesson(lesson));
+  }
+
+  function handleUnlockBanner() {
+    if (!allComplete) {
+      showToast("Complete all 4 lessons in Module 01 to unlock Module 02.");
+      return;
+    }
+    navigate("/modules/module-02");
+  }
+
+  function launchSpark(source = "module", extra = {}) {
+    openSpark({
+      source,
+      moduleId: m.id,
+      moduleTitle: m.title,
+      lessonId: "BE-001",
+      lessonTitle: "Welcome to ElectroBasics",
+      sectionTitle: m.title,
+      textSummary: m.overview,
+      imageCaption: source === "image" ? m.description : m.sparkMessage,
+      ...extra,
+    });
   }
 
   return (
@@ -48,7 +89,7 @@ export default function Module01DetailPage() {
       <ModuleTopBar />
 
       <div className="m01-body">
-        <ModuleSidebar active="All Modules" />
+        <ModuleSidebar active="All Modules" onHelp={() => launchSpark("module")} />
 
         <main className="m01-main">
           <button className="m01-back" onClick={() => navigate("/modules")}>
@@ -80,10 +121,10 @@ export default function Module01DetailPage() {
               <p className="m01-description">{m.description}</p>
 
               <div className="m01-actions">
-                <button className="m01-primary-btn" onClick={() => navigate("/learn/BE-001")}>
+                <button className="m01-primary-btn" onClick={handleStartModule}>
                   <Play size={16} fill="currentColor" /> {primaryLabel}
                 </button>
-                <button className="m01-secondary-btn" onClick={() => navigate("/learn/BE-001")}>
+                <button className="m01-secondary-btn" onClick={handleStartModule}>
                   <RotateCw size={15} />
                   <span>
                     Continue Module
@@ -138,14 +179,47 @@ export default function Module01DetailPage() {
             </div>
           </div>
 
-          <div className="m01-unlock-banner">
+          <button className="m01-unlock-banner" onClick={handleUnlockBanner}>
             <Lock size={16} />
             Complete all lessons in this module to unlock <strong>{m.nextModule}</strong>
-          </div>
+          </button>
         </main>
 
-        <RightWidgets module={moduleWithProgress} />
+        <RightWidgets
+          module={moduleWithProgress}
+          onProgress={() => setActiveModal("progress")}
+          onSpark={() => launchSpark("module")}
+          onReward={() => setActiveModal("reward")}
+        />
       </div>
+
+      <Modal open={activeModal === "progress"} onClose={() => setActiveModal(null)} title="Module 01 Progress">
+        <div className="m01-modal-list">
+          <p>Completed: {completedLessons} / {m.lessonCount} Lessons</p>
+          <p>XP: {xpEarned} / {m.totalXP} XP</p>
+          {lessonsWithStatus.map((lesson) => (
+            <div key={lesson.id}>
+              <strong>{lesson.id}</strong>
+              <span>{lesson.complete ? "Completed" : lesson.status === "available" ? "Available" : "Locked"}</span>
+            </div>
+          ))}
+        </div>
+      </Modal>
+
+      <Modal open={activeModal === "reward"} onClose={() => setActiveModal(null)} title="Reward for Completion">
+        <div className="m01-modal-list">
+          <p>Complete all 4 lessons to earn:</p>
+          <p><strong>Lab Beginner Badge</strong></p>
+          <p><strong>+{m.rewardXP} XP</strong></p>
+          {m.lessons.map((lesson) => (
+            <div key={lesson.id}>
+              <strong>{lesson.id}</strong>
+              <span>{isLessonComplete(lesson.id) ? "Complete" : "Required"}</span>
+            </div>
+          ))}
+        </div>
+      </Modal>
+      <BottomNav />
     </div>
   );
 }

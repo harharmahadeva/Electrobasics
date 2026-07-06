@@ -26,6 +26,10 @@
   animation: ebModalIn 0.18s ease-out;
 }
 
+.eb-modal-card.eb-modal-card--idle {
+  max-width: 520px;
+}
+
 .eb-modal-header {
   display: flex;
   align-items: center;
@@ -61,4 +65,24 @@
 
 .eb-modal-body {
   padding: 22px;
+}
+
+@media (max-width: 700px) {
+  .eb-modal-backdrop {
+    align-items: end;
+    place-items: end stretch;
+    padding: 0;
+  }
+
+  .eb-modal-card {
+    max-height: 88vh;
+    border-radius: 22px 22px 0 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .eb-modal-body {
+    padding: 18px 16px calc(18px + env(safe-area-inset-bottom));
+  }
 }
