@@ -22,7 +22,7 @@ const LABELS = {
   ready: { en: "Scanner Online", hi: "स्कैनर ऑनलाइन" },
   imageCaption: { en: "Image caption", hi: "चित्र कैप्शन" },
   summary: { en: "Section summary", hi: "खंड सारांश" },
-  askPlaceholder: { en: "Ask Spark anything about this screen...", hi: "इस स्क्रीन के बारे में Spark से पूछें..." },
+  askPlaceholder: { en: "Ask your doubt", hi: "अपनी शंका पूछें" },
   cannedTitle: { en: "Spark response", hi: "Spark उत्तर" },
   close: { en: "Close", hi: "बंद करें" },
   send: { en: "Send", hi: "भेजें" },

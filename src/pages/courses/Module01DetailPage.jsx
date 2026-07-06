@@ -12,6 +12,7 @@ import { useProgress } from "../../context/ProgressContext";
 import { useToast } from "../../context/ToastContext";
 import { useSpark } from "../../context/SparkContext";
 import { module01 } from "../../data/module01";
+import { SPARK_KNOWLEDGE, mergeKnowledgeBuckets } from "../../data/sparkKnowledge";
 
 const LEARN_ICONS = { Shield, Wrench, LayoutGrid, Zap };
 
@@ -71,6 +72,7 @@ export default function Module01DetailPage() {
   }
 
   function launchSpark(source = "module", extra = {}) {
+    const knowledge = mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001);
     openSpark({
       source,
       moduleId: m.id,
@@ -80,6 +82,7 @@ export default function Module01DetailPage() {
       sectionTitle: m.title,
       textSummary: m.overview,
       imageCaption: source === "image" ? m.description : m.sparkMessage,
+      knowledge,
       ...extra,
     });
   }

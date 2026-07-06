@@ -3,6 +3,8 @@
 ## 2026-07-07
 
 ### Fixed
+- Removed the top header search bar and kept the desktop/mobile header compact with logo, language toggle, notifications, and profile actions only.
+- Seeded Spark with repo-backed BE-001 and Module 01 knowledge so the floating doubt bubble answers from the lesson/module source already in the repo.
 - Added a floating Spark doubt bubble for lesson and section pages, replacing the embedded lesson console with a compact launcher and popup.
 - Simplified the BE-001 mobile SectionPlayer with safe-area top padding, a single main image card, hidden mobile image overlay, no inline Spark console, and fixed bottom controls.
 - Fixed desktop SectionPlayer spacing so long section content scrolls internally, Mini Check stays visible, and bottom controls remain usable.

@@ -70,24 +70,8 @@
   font-size: 12px;
 }
 
-.eb-search {
+.eb-header-spacer {
   flex: 1;
-  max-width: 520px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(14, 19, 29, 0.85);
-  border: 1px solid var(--eb-border-subtle);
-  border-radius: 12px;
-  padding: 11px 15px;
-  color: var(--eb-text-muted-2);
-}
-
-.eb-search-placeholder {
-  flex: 1;
-  font-size: 14px;
-  color: var(--eb-text-muted);
 }
 
 .eb-page-title {
@@ -115,15 +99,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.eb-search kbd {
-  font-family: var(--eb-font-mono);
-  font-size: 12px;
-  color: var(--eb-text-muted-2);
-  border: 1px solid rgba(120, 150, 200, 0.18);
-  border-radius: 6px;
-  padding: 2px 7px;
 }
 
 .eb-right {

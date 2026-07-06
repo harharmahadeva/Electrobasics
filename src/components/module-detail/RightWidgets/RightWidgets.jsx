@@ -1,6 +1,7 @@
 import "./RightWidgets.css";
 import { Sparkles, BookOpen, Star, Clock, Gauge, LayoutGrid, Gift } from "lucide-react";
 import SparkWidget from "../../spark/SparkWidget";
+import { SPARK_KNOWLEDGE, mergeKnowledgeBuckets } from "../../../data/sparkKnowledge";
 
 export default function RightWidgets({ module, onProgress, onSpark, onReward }) {
   const { progress } = module;
@@ -56,6 +57,7 @@ export default function RightWidgets({ module, onProgress, onSpark, onReward }) 
             sectionTitle: "Spark says",
             textSummary: module.sparkMessage,
             imageCaption: module.description,
+            knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
           }}
           onOpen={onSpark}
         />

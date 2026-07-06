@@ -15,6 +15,7 @@ import { useProgress } from "../../context/ProgressContext";
 import { useSpark } from "../../context/SparkContext";
 import { module01 } from "../../data/module01";
 import { be001, LESSON_CHECKLIST, SECTIONS } from "../../data/be001";
+import { SPARK_KNOWLEDGE, mergeKnowledgeBuckets } from "../../data/sparkKnowledge";
 
 const LABELS = {
   backToBe001: { en: "Back to BE-001", hi: "BE-001 पर वापस" },
@@ -152,6 +153,12 @@ export default function LessonPage() {
   }
 
   function launchSpark(source = "lesson", section = activeSection, extra = {}) {
+    const sectionKnowledge = section?.id ? SPARK_KNOWLEDGE.sections[section.id] : null;
+    const knowledge = mergeKnowledgeBuckets(
+      SPARK_KNOWLEDGE.module01,
+      SPARK_KNOWLEDGE.be001,
+      sectionKnowledge
+    );
     openSpark({
       source,
       moduleId: module01.id,
@@ -162,6 +169,7 @@ export default function LessonPage() {
       sectionTitle: section?.title || be001.title,
       textSummary: section?.paragraphs || label("intro"),
       imageCaption: section?.caption,
+      knowledge,
       ...extra,
     });
   }

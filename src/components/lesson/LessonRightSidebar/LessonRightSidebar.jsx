@@ -2,6 +2,7 @@ import "./LessonRightSidebar.css";
 import { CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import SparkDoubtBubble from "../../spark/SparkDoubtBubble";
+import { SPARK_KNOWLEDGE, mergeKnowledgeBuckets } from "../../../data/sparkKnowledge";
 
 const LABELS = {
   sparkAi: { en: "SPARK AI", hi: "स्पार्क AI" },
@@ -36,6 +37,7 @@ export default function LessonRightSidebar({ lesson, checklist, completedCount, 
             sectionTitle: lesson.title,
             textSummary: lesson.overview || lesson.description || "",
             imageCaption: lesson.sparkMessage || lesson.description || "",
+            knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
           }}
           onOpen={() =>
             onAskSpark?.({
@@ -46,6 +48,7 @@ export default function LessonRightSidebar({ lesson, checklist, completedCount, 
               sectionTitle: lesson.title,
               textSummary: lesson.overview || lesson.description || "",
               imageCaption: lesson.sparkMessage || lesson.description || "",
+              knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
             })
           }
         />

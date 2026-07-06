@@ -2,7 +2,7 @@ import "./Header.css";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Search, Bell, Sun, Zap } from "lucide-react";
+import { Bell, Sun, Zap } from "lucide-react";
 import LanguageToggle from "../../language/LanguageToggle";
 import { usePageHeaderValue } from "../../../context/PageHeaderContext";
 import { useAuth } from "../../../context/AuthContext";
@@ -58,10 +58,7 @@ export default function Header() {
               {header.subtitle && <p>{header.subtitle}</p>}
             </div>
           ) : (
-            <div className="eb-search">
-              <Search size={16} />
-              <span className="eb-search-placeholder">{t("search")}</span>
-            </div>
+            <div className="eb-header-spacer" aria-hidden="true" />
           )}
 
           <LanguageToggle size="md" />

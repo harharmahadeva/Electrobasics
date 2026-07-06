@@ -1,6 +1,7 @@
 import "./ModuleSidebar.css";
 import { useNavigate } from "react-router-dom";
 import SparkWidget from "../../spark/SparkWidget";
+import { SPARK_KNOWLEDGE, mergeKnowledgeBuckets } from "../../../data/sparkKnowledge";
 import {
   Home,
   LayoutGrid,
@@ -55,6 +56,7 @@ export default function ModuleSidebar({ active = "All Modules", onHelp }) {
           sectionTitle: "Need help",
           textSummary: "Ask Spark for help with the module, tools, safety, or next steps.",
           imageCaption: "Module sidebar help",
+          knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
         }}
         onOpen={onHelp}
       />

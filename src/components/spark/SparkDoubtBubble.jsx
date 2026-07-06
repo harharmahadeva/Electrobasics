@@ -25,8 +25,8 @@ export default function SparkDoubtBubble({ context = {}, onOpen, className = "",
   const isHindi = i18n.language?.startsWith("hi");
 
   const handleOpen = onOpen || (() => spark.openSpark(context));
-  const mainLabel = title ? pickLabel(title, isHindi) : pickLabel(LABELS.ask, isHindi);
-  const subLabel = subtitle ? pickLabel(subtitle, isHindi) : pickLabel(LABELS.clear, isHindi);
+  const mainLabel = title ? pickLabel(title, isHindi) : pickLabel(LABELS.clear, isHindi);
+  const subLabel = subtitle ? pickLabel(subtitle, isHindi) : pickLabel(LABELS.ask, isHindi);
 
   return (
     <button
