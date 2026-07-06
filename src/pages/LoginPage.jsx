@@ -63,7 +63,6 @@ export default function LoginPage() {
           <LoginForm />
         </div>
       </div>
-      <div className="login-footer">© 2026 OranjeRaksha. All rights reserved.</div>
     </div>
   );
 }

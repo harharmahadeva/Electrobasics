@@ -63,6 +63,7 @@ export default function LoginForm() {
         </button>
 
         <DisclaimerNote />
+        <p className="login-card-copyright">&copy; 2026 OranjeRaksha. All rights reserved.</p>
       </div>
     </form>
   );

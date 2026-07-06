@@ -2,6 +2,9 @@
 
 .lesson-page {
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background: var(--md-bg);
   color: var(--md-text-primary);
   font-family: var(--eb-font-body, sans-serif);
@@ -251,15 +254,15 @@
 @media (max-width: 700px) {
   .lesson-page {
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     overflow-x: hidden;
   }
 
   .lp-body {
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     display: block;
-    padding: 12px 12px 92px;
+    padding: 12px 16px 92px;
     overflow-x: hidden;
   }
 
@@ -270,6 +273,8 @@
   }
 
   .lp-header {
+    width: 100%;
+    max-width: 100%;
     padding: 14px;
     border-radius: 16px;
   }
@@ -289,6 +294,8 @@
   }
 
   .lp-hero {
+    width: 100%;
+    max-width: 100%;
     min-height: 250px;
     border-radius: 18px;
   }
@@ -324,7 +331,7 @@
 
   .lp-player-shell {
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     height: auto;
     max-height: none;
     min-height: 100svh;
@@ -332,11 +339,13 @@
     border-radius: 0;
     border-left: none;
     border-right: none;
-    padding: 12px;
+    padding: 16px;
     overflow: visible;
   }
 
   .lp-player-topbar {
+    width: 100%;
+    max-width: 100%;
     grid-template-columns: 1fr auto;
     gap: 10px;
     padding-bottom: 12px;

@@ -3,6 +3,10 @@
 ## 2026-07-06
 
 ### Fixed
+- Fixed mobile login overflow and height by switching to a compact single-column `100dvh` layout with the disclaimer and copyright inside the login card.
+- Fixed BE-001 lesson mobile clipping by clamping lesson/player wrappers and SectionPlayer cards to the viewport with 16px mobile padding.
+- Removed raw BE-001 image filenames from lesson image cards and missing-image fallbacks so successful image loads show only the visual.
+- Kept the mobile profile/signout menu inside the viewport with a fixed right offset and `calc(100vw - 24px)` width cap.
 - Rebuilt the mobile responsive layouts for login, dashboard, all modules, Module 01, BE-001 lesson, and SectionPlayer against the approved design references.
 - Added viewport containment for mobile cards, headers, profile/signout menus, Spark bottom sheets, modal sheets, lesson controls, and bottom navigation to prevent page-level horizontal scrolling.
 - Tightened mobile lesson and module layouts so cards, images, Start Lesson controls, section navigation, and PNG-backed BE-001 visuals fit within narrow phone widths.

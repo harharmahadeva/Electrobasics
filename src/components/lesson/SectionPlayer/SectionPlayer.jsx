@@ -77,16 +77,9 @@ function AssetCard({ asset, onOpen, label, pickLang }) {
         ) : (
           <div className="sp-asset-placeholder sp-asset-placeholder--thumb">
             <span className="sp-asset-status">{label("assetPending")}</span>
-            <strong>{asset.filename}</strong>
             <p>{pickLang(asset.purpose)}</p>
           </div>
         )}
-      </div>
-
-      <div className="sp-asset-meta">
-        <strong>{pickLang(asset.title)}</strong>
-        <p>{pickLang(asset.purpose)}</p>
-        <small>{asset.filename}</small>
       </div>
     </button>
   );
@@ -199,7 +192,6 @@ export default function SectionPlayer({
             {imageFailed && (
               <div className="sp-asset-placeholder">
                 <span className="sp-asset-status">{label("assetPending")}</span>
-                <strong>{section.image}</strong>
                 <p>{pickLang(section.caption)}</p>
               </div>
             )}
