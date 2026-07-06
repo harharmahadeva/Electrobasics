@@ -257,26 +257,49 @@
 @media (max-width: 700px) {
   .all-modules {
     width: 100%;
-    max-width: 100vw;
-    padding: 12px 12px 88px;
+    max-width: 100%;
+    padding: 10px 14px 82px;
     gap: 10px;
     overflow-x: hidden;
+    box-sizing: border-box;
   }
 
   .am-mobile-title {
-    font-size: clamp(20px, 7vw, 28px);
+    font-size: 22px;
     line-height: 1.1;
   }
 
   .am-mobile-stats {
     width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
 
   .am-mobile-stats .am-stat {
     min-width: 0;
-    padding: 9px 8px;
-    border-radius: 13px;
+    max-width: 100%;
+    padding: 8px;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+
+  .am-mobile-stats .am-stat:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .am-mobile-stats .am-stat svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .am-mobile-stats .am-stat strong {
+    font-size: 13px;
+  }
+
+  .am-mobile-stats .am-stat span {
+    font-size: 10px;
   }
 
   .am-mobile-stats .am-stat strong,
@@ -303,6 +326,16 @@
   .am-mobile-list {
     width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .am-mobile-list {
+    gap: 9px;
+  }
+
+  .am-learning-path-card {
+    padding: 10px 12px;
+    border-radius: 13px;
   }
 
   .am-category-guide {
@@ -328,5 +361,7 @@
   .am-tip-bar button {
     width: 100%;
     justify-content: center;
+    min-width: 0;
+    padding: 10px 12px;
   }
 }

@@ -50,6 +50,10 @@ export default function App() {
               path="/modules/module-01"
               element={<ProtectedRoute><Module01DetailPage /></ProtectedRoute>}
             />
+            <Route
+              path="/courses/module-01"
+              element={<ProtectedRoute><Module01DetailPage /></ProtectedRoute>}
+            />
             <Route path="/learn/BE-001" element={<ProtectedRoute><LessonPage /></ProtectedRoute>} />
             <Route
               path="/learn/BE-001/section/:sectionId"
@@ -71,6 +75,7 @@ export default function App() {
             <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
               <Route path="/dashboard" element={<DashboardV2 />} />
               <Route path="/modules" element={<AllModulesPage />} />
+              <Route path="/courses" element={<AllModulesPage />} />
               <Route path="/modules/:moduleId" element={<ModuleDetailPage />} />
               <Route path="/lesson" element={<ComingSoon title="Lesson View" />} />
               <Route path="/quiz" element={<ComingSoon title="Quiz" />} />

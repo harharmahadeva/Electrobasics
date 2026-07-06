@@ -3,6 +3,7 @@
 ## 2026-07-06
 
 ### Fixed
+- Removed remaining 393px mobile overflow sources by constraining dashboard hero decoration, notification badges, Courses route aliases, All Modules cards, and Module 01 lesson cards to viewport-safe widths.
 - Tightened iPhone-width mobile layouts for login, dashboard, BE-001 lesson, and SectionPlayer at 393px/390px/430px viewports.
 - Reduced dashboard mobile card padding, heights, gaps, and typography while keeping header, Continue Learning, and profile/signout menu inside the viewport.
 - Removed visible lesson image metadata/caption text under lesson visuals and restored explicit image object-fit classes so existing public PNGs render instead of blank placeholders.

@@ -11,7 +11,7 @@ export default function Hero() {
         <Zap size={30} fill="currentColor" />
       </div>
 
-      <div>
+      <div className="hero-copy">
         <h1>{t("greeting")}</h1>
         <p>{t("greetingSub")}</p>
       </div>

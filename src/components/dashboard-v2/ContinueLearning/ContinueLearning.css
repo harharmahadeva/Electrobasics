@@ -242,6 +242,7 @@
     padding: 10px;
     gap: 8px;
     box-sizing: border-box;
+    max-height: 300px;
   }
 
   .cl-head {
@@ -286,7 +287,7 @@
 
   .cl-preview {
     aspect-ratio: auto;
-    height: 118px;
+    height: 110px;
     min-height: 0;
   }
 
@@ -303,5 +304,9 @@
     height: 38px;
     border-radius: 12px;
     font-size: 13px;
+  }
+
+  .cl-secondary {
+    display: none;
   }
 }

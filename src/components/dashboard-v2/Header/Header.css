@@ -145,8 +145,8 @@
 
 .eb-badge {
   position: absolute;
-  top: -6px;
-  right: -7px;
+  top: -4px;
+  right: -4px;
   background: var(--eb-danger);
   color: #fff;
   font-size: 10px;
@@ -289,6 +289,19 @@
   .eb-header-mobile .eb-right {
     gap: 6px;
     flex-shrink: 0;
+  }
+
+  .eb-header-mobile .eb-icon-btn--sm {
+    width: 30px;
+    height: 30px;
+    overflow: visible;
+  }
+
+  .eb-header-mobile .eb-icon-btn--sm .eb-badge {
+    top: 0;
+    right: 0;
+    padding: 0 4px;
+    font-size: 9px;
   }
 
   .eb-header-mobile .lang-toggle {

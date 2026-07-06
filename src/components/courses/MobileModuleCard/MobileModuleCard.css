@@ -138,10 +138,11 @@
   .mob-module-card {
     width: 100%;
     max-width: 100%;
-    border-radius: 16px;
-    padding: 13px;
-    gap: 9px;
+    border-radius: 14px;
+    padding: 10px;
+    gap: 8px;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .mob-module-top {
@@ -150,12 +151,32 @@
   }
 
   .mob-module-title h3 {
-    font-size: 15px;
+    font-size: 13px;
     line-height: 1.25;
   }
 
   .mob-module-title small {
+    font-size: 10px;
+  }
+
+  .mob-module-number {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
     font-size: 11px;
+  }
+
+  .mob-module-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mob-module-status,
+  .mob-module-stat {
+    max-width: 100%;
+    padding: 3px 7px;
+    font-size: 10px;
+    white-space: normal;
   }
 
   .mob-module-bottom {

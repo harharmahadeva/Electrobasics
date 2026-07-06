@@ -174,24 +174,38 @@
     width: 100%;
     max-width: 100%;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 11px;
-    border-radius: 14px;
+    gap: 8px;
+    padding: 9px;
+    border-radius: 12px;
+    box-sizing: border-box;
   }
 
   .lr-number {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
   }
 
   .lr-thumb {
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
   }
 
   .lr-info {
-    flex: 1 1 calc(100% - 92px);
+    flex: 1 1 calc(100% - 76px);
     max-width: none;
+  }
+
+  .lr-info strong {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .lr-hindi,
+  .lr-meta-item,
+  .lr-difficulty,
+  .lr-badge span {
+    font-size: 10px;
   }
 
   .lr-meta {
@@ -217,5 +231,8 @@
   .lr-locked-btn {
     width: 100%;
     justify-content: center;
+    min-width: 0;
+    padding: 9px 10px;
+    font-size: 12px;
   }
 }
