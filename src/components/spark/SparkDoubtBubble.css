@@ -12,7 +12,7 @@
   color: #f8fafc;
   box-shadow:
     0 16px 40px rgba(0, 0, 0, 0.34),
-    0 0 22px rgba(0, 229, 255, 0.1),
+    0 0 24px rgba(0, 229, 255, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
   cursor: pointer;
   overflow: hidden;
@@ -32,13 +32,17 @@
   position: fixed;
   z-index: 70;
   min-width: 0;
-  max-width: min(260px, calc(100vw - 24px));
+  max-width: min(270px, calc(100vw - 24px));
   min-height: 56px;
-  padding: 10px 12px;
+  padding: 10px 13px;
   border-radius: 999px;
   backdrop-filter: blur(18px);
   right: 32px;
   bottom: 32px;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(0, 229, 255, 0.12), transparent 28%),
+    radial-gradient(circle at 92% 8%, rgba(255, 255, 255, 0.08), transparent 18%),
+    linear-gradient(180deg, rgba(8, 12, 18, 0.99), rgba(2, 5, 10, 0.99));
   transition:
     box-shadow 160ms ease,
     transform 160ms ease;
@@ -51,7 +55,7 @@
 .spark-doubt-bubble.is-floating:hover {
   box-shadow:
     0 18px 44px rgba(0, 0, 0, 0.38),
-    0 0 24px rgba(0, 229, 255, 0.14),
+    0 0 30px rgba(0, 229, 255, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
@@ -140,7 +144,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 1px;
-  padding-top: 14px;
+  padding-top: 13px;
   text-align: left;
 }
 

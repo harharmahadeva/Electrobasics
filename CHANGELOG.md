@@ -3,6 +3,8 @@
 ## 2026-07-07
 
 ### Fixed
+- Refined the Spark popup into a compact black-glass AI console with a thinner scanner strip, cleaner response layout, and softer cyan/amber controls.
+- Restyled the collapsed Spark launcher to read like a premium floating orb/pill instead of a rectangular badge.
 - Made the Spark launcher draggable on desktop, docked it above lesson controls on SectionPlayer, and kept the mobile launcher centered above the safe area.
 - Simplified the BE-001 SectionPlayer footer to a single continuation action with a compact Previous button and removed the old split complete/next admin feel.
 - Cleaned the Module 01 top bar so it matches the shared header pattern with only logo, language toggle, notifications, and profile actions.

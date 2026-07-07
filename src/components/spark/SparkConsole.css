@@ -6,8 +6,9 @@
   justify-content: center;
   align-items: center;
   padding: 16px;
-  background: rgba(1, 4, 8, 0.36);
-  backdrop-filter: blur(10px);
+  background: rgba(1, 4, 8, 0.52);
+  backdrop-filter: blur(16px);
+  animation: spark-backdrop-in 160ms ease-out;
 }
 
 .spark-panel,
@@ -23,38 +24,44 @@
 }
 
 .spark-panel {
-  width: min(430px, calc(100vw - 32px));
-  max-width: 430px;
+  width: min(420px, calc(100vw - 32px));
+  max-width: 420px;
   height: auto;
   max-height: min(70dvh, calc(100dvh - 32px));
   min-height: 0;
-  border: 1px solid rgba(0, 229, 255, 0.14);
+  border: 1px solid rgba(0, 229, 255, 0.18);
   box-shadow:
-    0 28px 80px rgba(0, 0, 0, 0.6),
-    0 0 28px rgba(0, 229, 255, 0.06);
-  padding: 12px;
-  border-radius: 26px;
-  background: linear-gradient(180deg, rgba(10, 13, 19, 0.98), rgba(4, 7, 11, 0.99));
-  backdrop-filter: blur(22px);
+    0 32px 96px rgba(0, 0, 0, 0.66),
+    0 0 34px rgba(0, 229, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 10px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(0, 229, 255, 0.08), transparent 34%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.06), transparent 24%),
+    linear-gradient(180deg, rgba(8, 12, 18, 0.99), rgba(3, 6, 10, 0.995));
+  backdrop-filter: blur(24px);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+  animation: spark-panel-in 180ms ease-out;
 }
 
 .spark-widget {
   width: 100%;
   max-width: 100%;
-  border: 1px solid rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.14);
   border-radius: 18px;
   padding: 12px;
   text-align: left;
   cursor: pointer;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.03),
-    0 16px 30px rgba(0, 0, 0, 0.24);
+    0 16px 34px rgba(0, 0, 0, 0.28);
   min-height: 0;
   max-height: none;
   background:
+    radial-gradient(circle at 20% 12%, rgba(0, 229, 255, 0.08), transparent 26%),
     linear-gradient(180deg, rgba(10, 13, 20, 0.96), rgba(4, 7, 12, 0.98));
 }
 
@@ -71,10 +78,10 @@
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(rgba(34, 211, 238, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 211, 238, 0.02) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.78), transparent);
+    linear-gradient(rgba(34, 211, 238, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.016) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent);
 }
 
 .spark-panel > *,
@@ -99,28 +106,30 @@
 
 .spark-scanner {
   position: relative;
-  height: 20px;
+  height: 16px;
   overflow: hidden;
   border-radius: 999px;
-  background: rgba(6, 10, 14, 0.98);
-  border: 1px solid rgba(0, 229, 255, 0.14);
+  background:
+    linear-gradient(180deg, rgba(3, 6, 10, 0.98), rgba(5, 8, 12, 0.98));
+  border: 1px solid rgba(0, 229, 255, 0.16);
   box-shadow:
     inset 0 0 10px rgba(0, 229, 255, 0.08),
-    0 0 20px rgba(0, 229, 255, 0.06);
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 0 20px rgba(0, 229, 255, 0.05);
 }
 
 .spark-scanner span {
   position: absolute;
   top: 2px;
   left: 0;
-  width: 34%;
+  width: 28%;
   height: calc(100% - 4px);
   border-radius: inherit;
   background:
-    linear-gradient(90deg, transparent 0%, rgba(255, 91, 91, 0.12) 18%, rgba(255, 91, 91, 0.94) 50%, rgba(255, 91, 91, 0.12) 82%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, rgba(255, 118, 118, 0.08) 16%, rgba(255, 86, 86, 0.96) 50%, rgba(255, 118, 118, 0.08) 84%, transparent 100%);
   box-shadow:
-    0 0 14px rgba(255, 91, 91, 0.48),
-    0 0 36px rgba(255, 91, 91, 0.16);
+    0 0 10px rgba(255, 91, 91, 0.45),
+    0 0 26px rgba(255, 91, 91, 0.18);
   animation: spark-scan 4.4s ease-in-out infinite;
 }
 
@@ -135,12 +144,12 @@
 .spark-scanner span::before {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
   animation: spark-sweep 1.6s linear infinite;
-  opacity: 0.55;
+  opacity: 0.4;
 }
 
 .spark-scanner span::after {
   filter: blur(10px);
-  background: rgba(255, 91, 91, 0.22);
+  background: rgba(255, 91, 91, 0.18);
   transform: scaleY(0.55);
   top: 3px;
 }
@@ -165,16 +174,16 @@
 
 .spark-header {
   justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
 }
 
 .spark-title {
-  gap: 12px;
+  gap: 10px;
 }
 
 .spark-dot {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 16px;
   display: grid;
   place-items: center;
@@ -183,7 +192,9 @@
     radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.16), transparent 20%),
     linear-gradient(145deg, rgba(0, 229, 255, 0.12), rgba(10, 16, 24, 0.96));
   border: 1px solid rgba(0, 229, 255, 0.22);
-  box-shadow: 0 0 18px rgba(0, 229, 255, 0.08);
+  box-shadow:
+    0 0 18px rgba(0, 229, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .spark-panel h2,
@@ -195,7 +206,7 @@
 
 .spark-panel h2,
 .spark-widget h2 {
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 800;
 }
 
@@ -209,8 +220,8 @@
 .spark-response p,
 .spark-console-copy p {
   color: #aab4c0;
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .spark-widget .spark-title p {
@@ -223,9 +234,9 @@
   display: grid;
   place-items: center;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
   color: #cbd5e1;
 }
 
@@ -236,10 +247,10 @@
   margin-left: auto;
   border: 1px solid rgba(0, 229, 255, 0.16);
   border-radius: 999px;
-  padding: 6px 10px;
+  padding: 5px 9px;
   color: #b7f5ff;
   background: rgba(0, 229, 255, 0.05);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
   white-space: nowrap;
 }
@@ -260,24 +271,31 @@
   flex: 1;
   min-width: 0;
   border-radius: 16px;
-  padding: 12px 14px;
-  background: rgba(3, 7, 12, 0.92);
+  padding: 10px 12px;
+  background:
+    radial-gradient(circle at top left, rgba(0, 229, 255, 0.06), transparent 28%),
+    rgba(3, 7, 12, 0.88);
   border: 1px solid rgba(0, 229, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 0 rgba(0, 229, 255, 0.04);
 }
 
 .spark-bubble strong {
   display: block;
   margin-bottom: 6px;
   color: #8feeff;
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .spark-bubble--lead {
   padding: 10px 12px;
-  border-color: rgba(255, 255, 255, 0.08);
-  background: rgba(3, 7, 12, 0.92);
+  border-color: rgba(0, 229, 255, 0.1);
+  background:
+    radial-gradient(circle at top left, rgba(0, 229, 255, 0.05), transparent 28%),
+    rgba(3, 7, 12, 0.9);
 }
 
 .spark-context-accordion {
@@ -292,7 +310,7 @@
   gap: 8px;
   cursor: pointer;
   align-self: flex-start;
-  padding: 7px 10px;
+  padding: 7px 11px;
   border-radius: 999px;
   border: 1px solid rgba(0, 229, 255, 0.12);
   background: rgba(0, 229, 255, 0.04);
@@ -315,7 +333,7 @@
 }
 
 .spark-context.is-open {
-  max-height: 220px;
+  max-height: 180px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -331,9 +349,10 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  border-radius: 12px;
-  padding: 7px 8px 7px 10px;
-  background: rgba(3, 7, 12, 0.88);
+  border-radius: 14px;
+  padding: 8px 8px 8px 10px;
+  background:
+    linear-gradient(180deg, rgba(3, 7, 12, 0.95), rgba(3, 7, 12, 0.84));
   border: 1px solid rgba(34, 211, 238, 0.12);
 }
 
@@ -383,20 +402,24 @@
 .spark-response {
   border: 1px solid rgba(34, 211, 238, 0.14);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.035);
-  padding: 14px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 0 rgba(0, 229, 255, 0.03);
 }
 
 .spark-response {
   border-color: rgba(0, 229, 255, 0.16);
-  background: rgba(0, 229, 255, 0.04);
+  background:
+    radial-gradient(circle at top left, rgba(0, 229, 255, 0.05), transparent 30%),
+    rgba(0, 229, 255, 0.035);
 }
 
 .spark-section-title {
   gap: 8px;
   color: #8feeff;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -412,10 +435,10 @@
 .spark-context-grid span {
   min-width: 0;
   border-radius: 10px;
-  padding: 8px 10px;
+  padding: 7px 9px;
   background: rgba(34, 211, 238, 0.05);
   color: #d7eef4;
-  font-size: 12px;
+  font-size: 11px;
   overflow-wrap: anywhere;
 }
 
@@ -423,6 +446,7 @@
   color: #f8fafc !important;
   font-weight: 700;
   margin-bottom: 8px !important;
+  line-height: 1.45;
 }
 
 .spark-image-caption {
@@ -436,17 +460,18 @@
   gap: 10px;
   flex: 1;
   min-height: 0;
-  max-height: 28vh;
+  max-height: 24vh;
   overflow-y: auto;
   padding-right: 4px;
+  scrollbar-width: thin;
 }
 
 .spark-message {
   max-width: 88%;
   border-radius: 16px;
-  padding: 12px 14px;
-  font-size: 13px;
-  line-height: 1.55;
+  padding: 11px 13px;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .spark-message--spark {
@@ -465,14 +490,25 @@
 
 .spark-input {
   margin-top: auto;
-  gap: 10px;
-  border: 1px solid rgba(0, 229, 255, 0.12);
-  border-radius: 14px;
-  padding: 6px 6px 6px 14px;
-  background: rgba(3, 7, 12, 0.9);
-  box-shadow: 0 0 24px rgba(0, 229, 255, 0.04);
+  gap: 8px;
+  border: 1px solid rgba(0, 229, 255, 0.14);
+  border-radius: 16px;
+  padding: 7px 7px 7px 12px;
+  background:
+    linear-gradient(180deg, rgba(3, 7, 12, 0.96), rgba(2, 5, 10, 0.96));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 0 24px rgba(0, 229, 255, 0.04);
   display: flex;
   align-items: center;
+}
+
+.spark-input:focus-within {
+  border-color: rgba(0, 229, 255, 0.24);
+  box-shadow:
+    0 0 0 1px rgba(0, 229, 255, 0.08),
+    0 0 28px rgba(0, 229, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .spark-input textarea {
@@ -482,12 +518,12 @@
   outline: none;
   background: transparent;
   color: #f8fafc;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.4;
   resize: none;
   padding: 0;
   font-family: inherit;
-  min-height: 38px;
+  min-height: 34px;
 }
 
 .spark-input textarea::placeholder {
@@ -495,21 +531,24 @@
 }
 
 .spark-input button {
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border: none;
   border-radius: 11px;
   display: grid;
   place-items: center;
   cursor: pointer;
   color: #04141a;
-  background: linear-gradient(145deg, #8feeff, #00d9ff);
+  background: linear-gradient(145deg, #b7f8ff, #42e8ff);
+  box-shadow:
+    0 0 0 1px rgba(0, 229, 255, 0.16),
+    0 0 18px rgba(0, 229, 255, 0.16);
 }
 
 .spark-prompts {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
 }
 
 .spark-prompts button {
@@ -518,8 +557,8 @@
   background: rgba(0, 229, 255, 0.06);
   color: #dffbff;
   border-radius: 999px;
-  padding: 8px 12px;
-  font-size: 12px;
+  padding: 7px 10px;
+  font-size: 11px;
   font-weight: 700;
 }
 
@@ -535,7 +574,7 @@
 }
 
 .spark-panel-page .spark-message-list {
-  max-height: 220px;
+  max-height: 200px;
 }
 
 @media (max-width: 700px) {
@@ -547,14 +586,16 @@
 
   .spark-panel {
     width: calc(100% - 32px);
-    max-width: 430px;
+    max-width: 420px;
     min-height: 0;
     max-height: 70dvh;
     overflow-y: auto;
     overflow-x: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    box-shadow: 0 -18px 54px rgba(0, 0, 0, 0.48);
+    border: 1px solid rgba(0, 229, 255, 0.16);
+    border-radius: 22px;
+    box-shadow:
+      0 -18px 54px rgba(0, 0, 0, 0.5),
+      0 0 24px rgba(0, 229, 255, 0.06);
   }
 
   .spark-widget {
@@ -577,7 +618,7 @@
   }
 
   .spark-scanner--header {
-    margin-top: -2px;
+    margin-top: -1px;
   }
 
   .spark-panel-page {
@@ -607,5 +648,21 @@
   .spark-prompts--preview span {
     max-width: 100%;
     white-space: normal;
+  }
+}
+
+@keyframes spark-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spark-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
