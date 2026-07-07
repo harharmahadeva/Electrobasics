@@ -30,7 +30,8 @@ const LABELS = {
   sparkSays: { en: "Spark Says", hi: "स्पार्क कहता है" },
   miniCheck: { en: "Mini Check", hi: "छोटी जाँच" },
   askSpark: { en: "Ask Spark", hi: "स्पार्क से पूछें" },
-  complete: { en: "Mark Section Complete", hi: "खंड पूरा करें" },
+  complete: { en: "Complete Section", hi: "खंड पूरा करें" },
+  completeLesson: { en: "Complete Lesson", hi: "पाठ पूरा करें" },
   completeDone: { en: "Completed", hi: "पूरा हुआ" },
   listenTeacher: { en: "Listen to Spark Teacher", hi: "Spark Teacher सुनें" },
   playTeacher: { en: "Play", hi: "चलाएँ" },
@@ -41,8 +42,7 @@ const LABELS = {
   teacherReady: { en: "Ready", hi: "तैयार" },
   teacherSpeaking: { en: "Speaking", hi: "बोल रहा है" },
   teacherPaused: { en: "Paused", hi: "रोका गया" },
-  previousSection: { en: "Previous Section", hi: "पिछला खंड" },
-  review: { en: "Review", hi: "दोहराएँ" },
+  previousSection: { en: "Previous", hi: "पिछला" },
   continueSection: { en: "Continue Section", hi: "खंड जारी रखें" },
   startSection: { en: "Start Section", hi: "खंड शुरू करें" },
   next: { en: "Next Section", hi: "अगला खंड" },
@@ -192,6 +192,7 @@ export default function SectionPlayer({
 
   const voiceLabel = voiceState === "paused" ? label("resumeTeacher") : label("pauseTeacher");
   const pauseDisabled = voiceState === "idle";
+  const isLastSection = section.order === total;
 
   useEffect(() => {
     setImageFailed(false);
@@ -461,27 +462,29 @@ export default function SectionPlayer({
       </div>
 
       <div className="sp-actions">
-        <div className="sp-actions-row sp-actions-row-top">
-          {onPrevious ? (
-            <button className="sp-secondary-btn" onClick={onPrevious}>
-              <ChevronLeft size={16} /> {label("previousSection")}
-            </button>
-          ) : (
-            <div className="sp-row-spacer" />
-          )}
+        <div className="sp-actions-grid">
+          <div className="sp-actions-slot sp-actions-slot--left">
+            {onPrevious ? (
+              <button className="sp-secondary-btn" onClick={onPrevious}>
+                <ChevronLeft size={16} /> {label("previousSection")}
+              </button>
+            ) : null}
+          </div>
 
-          <button className="sp-next-btn" onClick={onNext}>
-            {label("next")} <ChevronRight size={16} />
-          </button>
-        </div>
+          <div className="sp-actions-slot sp-actions-slot--center">
+            {!isComplete ? (
+              <button className="sp-complete-btn" onClick={onMarkComplete}>
+                <CheckCircle2 size={16} /> {label("complete")}
+              </button>
+            ) : null}
+          </div>
 
-        {!isComplete && (
-          <div className="sp-actions-row sp-actions-row-bottom">
-            <button className="sp-complete-btn" onClick={onMarkComplete}>
-              <CheckCircle2 size={16} /> {label("complete")}
+          <div className="sp-actions-slot sp-actions-slot--right">
+            <button className="sp-next-btn" onClick={onNext}>
+              {isLastSection ? label("completeLesson") : label("next")} <ChevronRight size={16} />
             </button>
           </div>
-        )}
+        </div>
       </div>
 
       <SparkDoubtBubble

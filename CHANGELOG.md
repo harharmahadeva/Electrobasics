@@ -3,6 +3,7 @@
 ## 2026-07-07
 
 ### Fixed
+- Rebuilt the BE-001 SectionPlayer bottom controls into a compact premium footer with Previous, Complete Section, and Complete Lesson states.
 - Removed the lesson sidebar Spark help card and the module Spark cards so Spark is launched only as a floating assistant.
 - Cleaned the shared header into a simple left logo / right controls layout without the old center gap or search residue.
 - Reworked the Spark launcher and popup toward a black/cyan futuristic console with red limited to the scanner accent.
