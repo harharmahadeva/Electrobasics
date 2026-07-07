@@ -54,32 +54,6 @@
   margin-top: 1px;
 }
 
-.mtb-search {
-  flex: 1;
-  max-width: 480px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--md-border);
-  border-radius: 12px;
-  padding: 10px 15px;
-  color: var(--md-text-secondary);
-}
-
-.mtb-search span {
-  flex: 1;
-  font-size: 14px;
-}
-
-.mtb-search kbd {
-  font-size: 11px;
-  border: 1px solid var(--md-border);
-  border-radius: 6px;
-  padding: 2px 6px;
-}
-
 .mtb-right {
   display: flex;
   align-items: center;
@@ -159,12 +133,6 @@
   display: block;
   font-size: 11px;
   color: var(--md-yellow);
-}
-
-@media (max-width: 1000px) {
-  .mtb-search {
-    display: none;
-  }
 }
 
 @media (max-width: 700px) {

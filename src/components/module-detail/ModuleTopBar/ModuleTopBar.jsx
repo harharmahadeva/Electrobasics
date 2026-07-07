@@ -1,6 +1,6 @@
 import "./ModuleTopBar.css";
 import { useNavigate } from "react-router-dom";
-import { Zap, Search, Flame, Trophy, Bell, ChevronDown } from "lucide-react";
+import { Zap, Flame, Trophy, Bell, ChevronDown } from "lucide-react";
 
 export default function ModuleTopBar() {
   const navigate = useNavigate();
@@ -16,12 +16,6 @@ export default function ModuleTopBar() {
             <span>ElectroBasics</span>
             <small>Learn &bull; Build &bull; Innovate</small>
           </div>
-        </div>
-
-        <div className="mtb-search">
-          <Search size={16} />
-          <span>Search lessons, topics, tools...</span>
-          <kbd>Ctrl K</kbd>
         </div>
 
         <div className="mtb-right">

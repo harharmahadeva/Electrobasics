@@ -37,18 +37,20 @@ export default function SparkDoubtBubble({ context = {}, onOpen, className = "",
       <span className="spark-doubt-bubble__scan" aria-hidden="true">
         <span />
       </span>
-      <span className="spark-doubt-bubble__icon" aria-hidden="true">
-        <Sparkles size={14} />
-      </span>
-      <span className="spark-doubt-bubble__copy">
-        <strong>{mainLabel}</strong>
-        <span>{subLabel}</span>
-      </span>
-      <span className="spark-doubt-bubble__action" aria-hidden="true">
-        <MessageCircle size={14} />
+      <span className="spark-doubt-bubble__inner">
+        <span className="spark-doubt-bubble__icon" aria-hidden="true">
+          <Sparkles size={12} />
+        </span>
+        <span className="spark-doubt-bubble__copy">
+          <strong>{mainLabel}</strong>
+          <span>{subLabel}</span>
+        </span>
+        <span className="spark-doubt-bubble__action" aria-hidden="true">
+          <MessageCircle size={12} />
+        </span>
       </span>
       <span className="spark-doubt-bubble__status" aria-hidden="true">
-        <Zap size={12} /> {pickLabel(LABELS.ready, isHindi)}
+        <Zap size={10} /> {pickLabel(LABELS.ready, isHindi)}
       </span>
     </button>
   );

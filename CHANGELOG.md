@@ -3,6 +3,8 @@
 ## 2026-07-07
 
 ### Fixed
+- Removed the remaining module top bar search UI and kept all headers compact with only logo, language, notifications, and profile actions.
+- Reworked the Spark doubt bubble into a small black floating pill and centered the Spark popup as a premium modal or mobile bottom sheet.
 - Added fixed BE-001 teacher scripts for all 12 sections and a browser-only Listen to Spark Teacher control in SectionPlayer.
 - Added lesson-only teacher voice playback with Play, Pause/Resume, Replay, and Stop-on-navigation behavior using the browser SpeechSynthesis API.
 - Upgraded Spark lesson replies to use BE-001 lesson text, teacher scripts, key points, and mini-check context only, with a hard outside-scope block.

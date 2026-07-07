@@ -156,10 +156,6 @@ export default function SparkConsole({
     const leadMessage = activeMessages?.[0]?.text || openingReply;
     return (
       <>
-        <div className="spark-scanner" aria-hidden="true">
-          <span />
-        </div>
-
         <div className="spark-header">
           <div className="spark-title">
             <span className="spark-dot" aria-hidden="true">
@@ -178,6 +174,10 @@ export default function SparkConsole({
               <X size={18} />
             </button>
           )}
+        </div>
+
+        <div className="spark-scanner spark-scanner--header" aria-hidden="true">
+          <span />
         </div>
 
         <div className="spark-bubble spark-bubble--lead">
