@@ -39,7 +39,7 @@ export default function SparkDoubtBubble({
   const [position, setPosition] = useState(null);
 
   const handleOpen = onOpen || (() => spark.openSpark(context));
-  const launchLabel = title ? pickLabel(title, isHindi) : pickLabel(LABELS.clear, isHindi);
+  const launchLabel = pickLabel(LABELS.clear, isHindi);
   const isFloating = mode !== "inline";
   const bottomOffset = DEFAULT_MARGIN + Math.max(0, dockOffset);
 

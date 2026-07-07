@@ -1,34 +1,18 @@
-﻿import "./SparkConsole.css";
+import "./SparkConsole.css";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { Image, MessageCircle, Send, Sparkles, X, Zap } from "lucide-react";
+import { MessageCircle, Send, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import {
   buildSparkOpeningReply,
   buildSparkReply,
   normalizeSparkContext,
-  pickSparkText,
-  summarizeSparkText,
 } from "./sparkUtils";
 
 const LABELS = {
-  title: { en: "Spark AI Console", hi: "Spark AI Console" },
-  subtitle: { en: "Scanner Online", hi: "स्कैनर ऑन" },
-  context: { en: "Context", hi: "संदर्भ" },
-  source: { en: "Source", hi: "स्रोत" },
-  module: { en: "Module", hi: "मॉड्यूल" },
-  lesson: { en: "Lesson", hi: "पाठ" },
-  section: { en: "Section", hi: "खंड" },
-  ready: { en: "Scanner Online", hi: "स्कैनर ऑन" },
-  imageCaption: { en: "Image caption", hi: "चित्र" },
-  summary: { en: "Section summary", hi: "सार" },
   askPlaceholder: { en: "Ask your doubt", hi: "सवाल लिखें" },
-  cannedTitle: { en: "Spark response", hi: "Spark जवाब" },
   close: { en: "Close", hi: "बंद" },
   send: { en: "Send", hi: "भेजें" },
-  simple: { en: "Simple", hi: "सरल" },
-  example: { en: "Example", hi: "उदाहरण" },
-  quiz: { en: "Quiz", hi: "क्विज़" },
 };
 
 function isLangObject(value) {
@@ -38,10 +22,6 @@ function isLangObject(value) {
 function labelFrom(value, isHindi, fallback = "") {
   if (isLangObject(value)) return isHindi ? value.hi || value.en || fallback : value.en || value.hi || fallback;
   return value || fallback;
-}
-
-function getPreviewReply(context, isHindi) {
-  return buildSparkOpeningReply(context, isHindi);
 }
 
 export default function SparkConsole({
@@ -58,11 +38,10 @@ export default function SparkConsole({
   const { i18n } = useTranslation();
   const isHindi = i18n.language?.startsWith("hi");
   const normalizedContext = useMemo(() => normalizeSparkContext(context), [context]);
-  const openingReply = useMemo(() => getPreviewReply(normalizedContext, isHindi), [isHindi, normalizedContext]);
+  const openingReply = useMemo(() => buildSparkOpeningReply(normalizedContext, isHindi), [isHindi, normalizedContext]);
 
   const [localMessages, setLocalMessages] = useState([{ role: "spark", text: openingReply }]);
   const [localDraft, setLocalDraft] = useState("");
-  const [showContext, setShowContext] = useState(false);
   const draftRef = useRef(null);
   const controlledMessages = messages !== undefined;
   const activeMessages = controlledMessages ? messages : localMessages;
@@ -70,7 +49,6 @@ export default function SparkConsole({
   useEffect(() => {
     if (controlledMessages) return;
     setLocalMessages([{ role: "spark", text: openingReply }]);
-    setShowContext(false);
   }, [controlledMessages, openingReply]);
 
   useEffect(() => {
@@ -89,10 +67,6 @@ export default function SparkConsole({
 
   function label(key) {
     return labelFrom(LABELS[key], isHindi, key);
-  }
-
-  function updateDraft(value) {
-    setLocalDraft(value);
   }
 
   function pushMessage(text) {
@@ -116,134 +90,30 @@ export default function SparkConsole({
   }
 
   function renderWidget() {
-    const widgetLine = isHindi ? "à¤‡à¤¸ à¤ªà¤¾à¤  à¤•à¥‡ à¤¬à¤¾à¤°à¥‡ à¤®à¥‡à¤‚ Spark à¤¸à¥‡ à¤ªà¥‚à¤›à¥‡à¤‚à¥¤" : "Ask Spark about this lesson.";
     return (
-      <>
-        <div className="spark-header">
-          <div className="spark-title">
-            <div>
-              <h2>{label("title")}</h2>
-            </div>
-          </div>
-          <span className="spark-status">
-            <Zap size={13} /> {label("ready")}
-          </span>
-        </div>
-
-        <div className="spark-scanner" aria-hidden="true">
-          <span />
-        </div>
-
-        <p className="spark-widget-line">{widgetLine}</p>
-
-        <div className="spark-widget-footer">
-          <div className="spark-widget-input">
-            <span>{widgetLine}</span>
-            <button
-              type="button"
-              onClick={() => onOpen?.()}
-              aria-label={label("askPlaceholder")}
-            >
-              <MessageCircle size={15} />
-            </button>
-          </div>
-        </div>
-      </>
+      <div className="spark-widget-scanner" aria-hidden="true">
+        <span className="spark-widget-scanner__light" />
+        <span className="spark-widget-scanner__label">Clear Doubt</span>
+      </div>
     );
   }
 
   function content() {
     const leadMessage = activeMessages?.[0]?.text || openingReply;
     return (
-      <>
-        <div className="spark-header">
-          <div className="spark-title">
-            <span className="spark-dot" aria-hidden="true">
-              <Zap size={14} />
-            </span>
-            <div>
-              <h2>{label("title")}</h2>
-              <p>{label("subtitle")}</p>
-            </div>
-          </div>
-          <span className="spark-status">
-            <Zap size={13} /> {label("ready")}
-          </span>
-          {!compact && mode !== "card" && !fullPage && (
-            <button type="button" className="spark-close" onClick={onClose} aria-label={label("close")}>
-              <X size={18} />
-            </button>
-          )}
-        </div>
+      <div className="spark-dialog-shell">
+        <button type="button" className="spark-close" onClick={onClose} aria-label={label("close")}>
+          <X size={15} />
+        </button>
 
         <div className="spark-scanner spark-scanner--header" aria-hidden="true">
-          <span />
-        </div>
-
-        <div className="spark-bubble spark-bubble--lead">
-          <strong>{label("cannedTitle")}</strong>
-          <p>{leadMessage}</p>
-        </div>
-
-        <div className="spark-context-accordion">
-          <button
-            type="button"
-            className="spark-context-toggle"
-            onClick={() => setShowContext((prev) => !prev)}
-            aria-expanded={showContext}
-          >
-            <Sparkles size={14} />
-            <span>{label("context")}</span>
-          </button>
-
-          <div className={`spark-context ${showContext ? "is-open" : ""}`}>
-            <div className="spark-context-grid">
-              {normalizedContext.source && (
-                <span>
-                  <strong>{label("source")}:</strong> {normalizedContext.source}
-                </span>
-              )}
-              {normalizedContext.moduleId && (
-                <span>
-                  <strong>{label("module")}:</strong> {normalizedContext.moduleId}
-                  {normalizedContext.moduleTitle ? ` - ${pickSparkText(normalizedContext.moduleTitle, isHindi)}` : ""}
-                </span>
-              )}
-              {normalizedContext.lessonId && (
-                <span>
-                  <strong>{label("lesson")}:</strong> {normalizedContext.lessonId}
-                  {normalizedContext.lessonTitle ? ` - ${pickSparkText(normalizedContext.lessonTitle, isHindi)}` : ""}
-                </span>
-              )}
-              {normalizedContext.sectionId && (
-                <span>
-                  <strong>{label("section")}:</strong> {normalizedContext.sectionId}
-                </span>
-              )}
-            </div>
-
-            {normalizedContext.sectionTitle && (
-              <p className="spark-context-main">{pickSparkText(normalizedContext.sectionTitle, isHindi)}</p>
-            )}
-
-            {normalizedContext.textSummary && (
-              <p>
-                <strong>{label("summary")}:</strong> {summarizeSparkText(pickSparkText(normalizedContext.textSummary, isHindi), 220)}
-              </p>
-            )}
-
-            {normalizedContext.imageCaption && (
-              <p className="spark-image-caption">
-                <Image size={15} />
-                <span>
-                  <strong>{label("imageCaption")}:</strong> {pickSparkText(normalizedContext.imageCaption, isHindi)}
-                </span>
-              </p>
-            )}
-          </div>
+          <span className="spark-scanner__light" />
         </div>
 
         <div className="spark-message-list" aria-live="polite">
+          <div className="spark-message spark-message--spark spark-message--lead">
+            {leadMessage}
+          </div>
           {activeMessages?.slice(1).map((message, index) => (
             <div
               key={`${message.role}-${index}-${message.text.slice(0, 12)}`}
@@ -265,7 +135,7 @@ export default function SparkConsole({
             ref={draftRef}
             rows={2}
             value={localDraft}
-            onChange={(event) => updateDraft(event.target.value)}
+            onChange={(event) => setLocalDraft(event.target.value)}
             onKeyDown={(event) => {
               if (event.key === "Enter" && !event.shiftKey) {
                 event.preventDefault();
@@ -276,22 +146,10 @@ export default function SparkConsole({
             aria-label={label("askPlaceholder")}
           />
           <button type="submit" aria-label={label("send")}>
-            <Send size={16} />
+            <Send size={15} />
           </button>
         </form>
-
-        <div className="spark-prompts">
-          <button type="button" onClick={() => sendMessage(isHindi ? "à¤‡à¤¸à¤•à¥‹ à¤¸à¤°à¤² à¤¶à¤¬à¥à¤¦à¥‹à¤‚ à¤®à¥‡à¤‚ à¤¸à¤®à¤à¤¾à¤‡à¤" : "Explain this in simple words")}>
-            {label("simple")}
-          </button>
-          <button type="button" onClick={() => sendMessage(isHindi ? "à¤®à¥à¤à¥‡ à¤à¤• à¤‰à¤¦à¤¾à¤¹à¤°à¤£ à¤¦à¥€à¤œà¤¿à¤" : "Give me one example")}>
-            {label("example")}
-          </button>
-          <button type="button" onClick={() => sendMessage(isHindi ? "à¤®à¥à¤à¥‡ à¤à¤• à¤•à¥à¤µà¤¿à¤œà¤¼ à¤¦à¥€à¤œà¤¿à¤" : "Give me a quiz")}>
-            {label("quiz")}
-          </button>
-        </div>
-      </>
+      </div>
     );
   }
 
