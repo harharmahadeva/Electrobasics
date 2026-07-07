@@ -3,6 +3,7 @@
 ## 2026-07-07
 
 ### Fixed
+- Rebuilt the Spark launcher as a floating animated orb with a small desktop tooltip and a cleaner black/red chat dialog popup.
 - Restored the Spark launcher as a global floating assistant above dashboard, module, lesson, and section routes, and softened the popup into a compact dialog bubble.
 - Removed the Spark dashboard card and converted Spark access to a floating orb/dialog assistant so the dashboard grid reflows cleanly.
 - Tightened the Spark popup to a compact auto-height red scanner console with shorter lesson replies, smaller controls, and a brighter scan slot.
