@@ -14,7 +14,9 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 68px;
   padding: 10px clamp(16px, 2vw, 24px);
 }
 
@@ -48,38 +50,14 @@
 }
 
 .mtb-logo small {
-  display: block;
-  color: var(--md-text-secondary);
-  font-size: 11px;
-  margin-top: 1px;
+  display: none;
 }
 
 .mtb-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   flex-shrink: 0;
-}
-
-.mtb-widget {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.mtb-icon-orange { color: var(--md-orange); }
-.mtb-icon-yellow { color: var(--md-yellow); }
-
-.mtb-widget strong {
-  display: block;
-  font-size: 14px;
-  color: var(--md-text-primary);
-}
-
-.mtb-widget span {
-  display: block;
-  font-size: 10px;
-  color: var(--md-text-secondary);
 }
 
 .mtb-bell {
@@ -107,7 +85,7 @@
 .mtb-profile {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   cursor: pointer;
   border: none;
   background: none;
@@ -134,9 +112,7 @@
 }
 
 .mtb-profile small {
-  display: block;
-  font-size: 11px;
-  color: var(--md-yellow);
+  display: none;
 }
 
 .mtb-profile-wrap {
@@ -190,6 +166,7 @@
     gap: 8px;
     padding: 8px 12px;
     box-sizing: border-box;
+    min-height: 58px;
   }
 
   .mtb-logo {
@@ -205,8 +182,6 @@
     white-space: nowrap;
   }
 
-  .mtb-logo small,
-  .mtb-widget,
   .mtb-profile > div {
     display: none;
   }
@@ -221,6 +196,18 @@
     margin-left: auto;
     gap: 7px;
     min-width: 0;
+  }
+
+  .mtb-right .lang-toggle {
+    width: auto;
+    max-width: 96px;
+  }
+
+  .mtb-right .lang-toggle button {
+    flex: 0 0 auto;
+    min-width: 0;
+    padding: 5px 8px;
+    font-size: 11px;
   }
 
   .mtb-bell {

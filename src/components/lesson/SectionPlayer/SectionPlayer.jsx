@@ -2,9 +2,7 @@ import "./SectionPlayer.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
-  CheckCircle2,
   ChevronLeft,
-  ChevronRight,
   Pause,
   MessageCircle,
   Play,
@@ -43,9 +41,9 @@ const LABELS = {
   teacherSpeaking: { en: "Speaking", hi: "बोल रहा है" },
   teacherPaused: { en: "Paused", hi: "रोका गया" },
   previousSection: { en: "Previous", hi: "पिछला" },
-  continueSection: { en: "Continue Section", hi: "खंड जारी रखें" },
-  startSection: { en: "Start Section", hi: "खंड शुरू करें" },
-  next: { en: "Next Section", hi: "अगला खंड" },
+  continueSection: { en: "I understand, continue", hi: "मैं समझा, जारी रखें" },
+  continueDone: { en: "Continue", hi: "जारी रखें" },
+  finishLesson: { en: "Finish Lesson", hi: "पाठ समाप्त करें" },
   assetPending: { en: "Asset pending", hi: "संसाधन प्रतीक्षारत" },
   openImage: { en: "Open image", hi: "चित्र खोलें" },
   close: { en: "Close", hi: "बंद करें" },
@@ -66,11 +64,9 @@ export default function SectionPlayer({
   section,
   total,
   isComplete,
-  onMarkComplete,
-  onNext,
   onPrevious,
-  previousComplete = false,
   onAskSpark,
+  onPrimaryAction,
 }) {
   const { i18n } = useTranslation();
   const [selected, setSelected] = useState(null);
@@ -193,6 +189,11 @@ export default function SectionPlayer({
   const voiceLabel = voiceState === "paused" ? label("resumeTeacher") : label("pauseTeacher");
   const pauseDisabled = voiceState === "idle";
   const isLastSection = section.order === total;
+  const primaryLabel = isLastSection
+    ? label("finishLesson")
+    : isComplete
+      ? label("continueDone")
+      : label("continueSection");
 
   useEffect(() => {
     setImageFailed(false);
@@ -462,8 +463,8 @@ export default function SectionPlayer({
       </div>
 
       <div className="sp-actions">
-        <div className="sp-actions-grid">
-          <div className="sp-actions-slot sp-actions-slot--left">
+        <div className={`sp-actions-bar ${onPrevious ? "" : "is-single"}`}>
+          <div className="sp-actions-left">
             {onPrevious ? (
               <button className="sp-secondary-btn" onClick={onPrevious}>
                 <ChevronLeft size={16} /> {label("previousSection")}
@@ -471,23 +472,17 @@ export default function SectionPlayer({
             ) : null}
           </div>
 
-          <div className="sp-actions-slot sp-actions-slot--center">
-            {!isComplete ? (
-              <button className="sp-complete-btn" onClick={onMarkComplete}>
-                <CheckCircle2 size={16} /> {label("complete")}
-              </button>
-            ) : null}
-          </div>
-
-          <div className="sp-actions-slot sp-actions-slot--right">
-            <button className="sp-next-btn" onClick={onNext}>
-              {isLastSection ? label("completeLesson") : label("next")} <ChevronRight size={16} />
+          <div className="sp-actions-right">
+            <button className="sp-primary-btn" onClick={onPrimaryAction}>
+              {isLastSection ? label("finishLesson") : primaryLabel}
             </button>
           </div>
         </div>
       </div>
 
       <SparkDoubtBubble
+        className="is-section-player"
+        dockOffset={104}
         context={{
           source: "section",
           moduleId: "module-01",

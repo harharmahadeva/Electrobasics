@@ -3,6 +3,9 @@
 ## 2026-07-07
 
 ### Fixed
+- Made the Spark launcher draggable on desktop, docked it above lesson controls on SectionPlayer, and kept the mobile launcher centered above the safe area.
+- Simplified the BE-001 SectionPlayer footer to a single continuation action with a compact Previous button and removed the old split complete/next admin feel.
+- Cleaned the Module 01 top bar so it matches the shared header pattern with only logo, language toggle, notifications, and profile actions.
 - Rebuilt the BE-001 SectionPlayer bottom controls into a compact premium footer with Previous, Complete Section, and Complete Lesson states.
 - Removed the lesson sidebar Spark help card and the module Spark cards so Spark is launched only as a floating assistant.
 - Cleaned the shared header into a simple left logo / right controls layout without the old center gap or search residue.

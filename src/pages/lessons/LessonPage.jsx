@@ -126,21 +126,18 @@ export default function LessonPage() {
     navigate(`/learn/BE-001/section/${section.id}`);
   }
 
-  function handleMarkComplete() {
+  function handleContinueSection() {
     if (!activeSection) return;
-    setOptimisticCompletedSections((prev) =>
-      prev.includes(activeSection.order) ? prev : [...prev, activeSection.order]
-    );
-    completedSectionsRef.current = Array.from(new Set([...completedSectionsRef.current, activeSection.order]));
-    completeSection(be001.id, activeSection.order);
-  }
+    const isCurrentComplete = isSectionCompleteLive(activeSection.order);
 
-  function handleNext() {
-    if (!activeSection) return;
-    if (!isSectionCompleteLive(activeSection.order)) {
-      showToast(label("markCompleteFirst"));
-      return;
+    if (!isCurrentComplete) {
+      setOptimisticCompletedSections((prev) =>
+        prev.includes(activeSection.order) ? prev : [...prev, activeSection.order]
+      );
+      completedSectionsRef.current = Array.from(new Set([...completedSectionsRef.current, activeSection.order]));
+      completeSection(be001.id, activeSection.order);
     }
+
     if (activeSection.order === SECTIONS.length) {
       completeLesson(be001.id, be001.xp, "/learn/BE-002", {
         moduleId: module01.id,
@@ -239,10 +236,8 @@ export default function LessonPage() {
             section={activeSection}
             total={SECTIONS.length}
             isComplete={isSectionCompleteNow(activeSection.order)}
-            onMarkComplete={handleMarkComplete}
-            onNext={handleNext}
+            onPrimaryAction={handleContinueSection}
             onPrevious={previousSection ? () => openSection(previousSection) : undefined}
-            previousComplete={previousSection ? isSectionCompleteNow(previousSection.order) : false}
             onAskSpark={(extra) => launchSpark("section", activeSection, extra)}
           />
         </div>

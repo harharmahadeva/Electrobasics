@@ -1,7 +1,8 @@
 import "./ModuleTopBar.css";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Zap, Flame, Trophy, Bell, ChevronDown } from "lucide-react";
+import { Zap, Bell, ChevronDown } from "lucide-react";
+import LanguageToggle from "../../language/LanguageToggle";
 import { useAuth } from "../../../context/AuthContext";
 
 export default function ModuleTopBar() {
@@ -44,26 +45,11 @@ export default function ModuleTopBar() {
           </div>
           <div>
             <span>ElectroBasics</span>
-            <small>Learn &bull; Build &bull; Innovate</small>
           </div>
         </div>
 
         <div className="mtb-right">
-          <div className="mtb-widget">
-            <Flame size={18} className="mtb-icon-orange" />
-            <div>
-              <strong>12</strong>
-              <span>Day Streak</span>
-            </div>
-          </div>
-
-          <div className="mtb-widget">
-            <Trophy size={18} className="mtb-icon-yellow" />
-            <div>
-              <strong>450</strong>
-              <span>Total XP</span>
-            </div>
-          </div>
+          <LanguageToggle size="md" />
 
           <button className="mtb-bell">
             <Bell size={18} />
@@ -75,7 +61,6 @@ export default function ModuleTopBar() {
               <div className="mtb-avatar">{user?.name ? user.name.slice(0, 2).toUpperCase() : "SN"}</div>
               <div>
                 <strong>{user?.name || "Sandeep"}</strong>
-                <small>Level 3</small>
               </div>
               <ChevronDown size={16} />
             </button>

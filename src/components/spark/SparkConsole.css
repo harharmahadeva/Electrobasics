@@ -28,7 +28,7 @@
   height: auto;
   max-height: min(70dvh, calc(100dvh - 32px));
   min-height: 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.14);
   box-shadow:
     0 28px 80px rgba(0, 0, 0, 0.6),
     0 0 28px rgba(0, 229, 255, 0.06);
@@ -44,7 +44,7 @@
 .spark-widget {
   width: 100%;
   max-width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.12);
   border-radius: 18px;
   padding: 12px;
   text-align: left;
@@ -117,10 +117,10 @@
   height: calc(100% - 4px);
   border-radius: inherit;
   background:
-    linear-gradient(90deg, transparent 0%, rgba(255, 90, 90, 0.12) 18%, rgba(255, 119, 119, 0.96) 50%, rgba(255, 90, 90, 0.12) 82%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, rgba(255, 91, 91, 0.12) 18%, rgba(255, 91, 91, 0.94) 50%, rgba(255, 91, 91, 0.12) 82%, transparent 100%);
   box-shadow:
-    0 0 14px rgba(255, 77, 109, 0.55),
-    0 0 36px rgba(255, 77, 109, 0.22);
+    0 0 14px rgba(255, 91, 91, 0.48),
+    0 0 36px rgba(255, 91, 91, 0.16);
   animation: spark-scan 4.4s ease-in-out infinite;
 }
 
@@ -140,7 +140,7 @@
 
 .spark-scanner span::after {
   filter: blur(10px);
-  background: rgba(255, 77, 109, 0.24);
+  background: rgba(255, 91, 91, 0.22);
   transform: scaleY(0.55);
   top: 3px;
 }
@@ -262,7 +262,7 @@
   border-radius: 16px;
   padding: 12px 14px;
   background: rgba(3, 7, 12, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.12);
 }
 
 .spark-bubble strong {
@@ -466,7 +466,7 @@
 .spark-input {
   margin-top: auto;
   gap: 10px;
-  border: 1px solid rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.12);
   border-radius: 14px;
   padding: 6px 6px 6px 14px;
   background: rgba(3, 7, 12, 0.9);
@@ -514,7 +514,7 @@
 
 .spark-prompts button {
   cursor: pointer;
-  border: 1px solid rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.14);
   background: rgba(0, 229, 255, 0.06);
   color: #dffbff;
   border-radius: 999px;
@@ -525,7 +525,7 @@
 
 .spark-prompts--preview span {
   cursor: default;
-  border: 1px solid rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.14);
   background: rgba(0, 229, 255, 0.06);
   color: #dffbff;
   border-radius: 999px;
