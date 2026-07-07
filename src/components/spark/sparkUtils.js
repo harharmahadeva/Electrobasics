@@ -46,6 +46,17 @@ function knowledgeSummary(context, isHindi, limit = 260) {
   return [teacherScript, keyPoints, knowledge].filter(Boolean).join(" ");
 }
 
+function compactSparkAnswer(parts, limit = 220, maxSentences = 3) {
+  const text = parts.filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+  if (!text) return "";
+  const sentences = text
+    .split(/(?<=[.!?।])\s+/)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean);
+  const compact = sentences.slice(0, maxSentences).join(" ");
+  return compact.length > limit ? `${compact.slice(0, limit).trim()}...` : compact;
+}
+
 function outsideScopeMessage(isHindi) {
   return isHindi
     ? "मैं अभी उपलब्ध ElectroBasics lesson सामग्री से ही जवाब दे सकता हूँ। यह सवाल वर्तमान uploaded lesson content के बाहर है।"
@@ -89,45 +100,65 @@ export function buildSparkOpeningReply(context, isHindi) {
   const moduleTitle = pickSparkText(context.moduleTitle, isHindi, "Module 01");
   const lessonTitle = pickSparkText(context.lessonTitle, isHindi, "BE-001");
   const sectionTitle = pickSparkText(context.sectionTitle, isHindi, "");
-  const summary = summarizeSparkText(pickSparkText(context.textSummary, isHindi, ""));
+  const summary = summarizeSparkText(pickSparkText(context.textSummary, isHindi, ""), 120);
   const imageCaption = pickSparkText(context.imageCaption, isHindi, "");
-  const keyPoints = summarizeSparkText(pickSparkText(context.keyPoints, isHindi, ""), 180);
+  const keyPoints = summarizeSparkText(pickSparkText(context.keyPoints, isHindi, ""), 120);
   const miniCheckQuestion = pickSparkText(context.miniCheck?.question, isHindi, "");
-  const notes = knowledgeSummary(context, isHindi, 180);
 
   if (context.source === "dashboard") {
-    return isHindi
-      ? `मैं आपको Module 01, BE-001, और अगले सही कदम समझा सकता हूँ। ${notes}`
-      : `I can help you continue Module 01, open BE-001, or explain the next step. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? "मैं Module 01, BE-001, और अगले कदम को संक्षेप में समझा सकता हूँ।"
+        : "I can help you continue Module 01, open BE-001, or explain the next step.",
+      isHindi ? "ज़रूरत हो तो मैं इसे बहुत सरल तरीके से भी बताऊँगा।" : "I can keep it short and tutor-style.",
+    ], 150, 2);
   }
 
   if (context.source === "module") {
-    return isHindi
-      ? `${moduleTitle} शुरू करने के लिए BE-001 से शुरुआत करें, फिर safety, tools, और hands-on steps पर जाएँ। ${notes}`
-      : `${moduleTitle} starts with BE-001, then moves into safety, tools, and hands-on steps. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? `${moduleTitle} की शुरुआत BE-001 से होती है, फिर safety और tools आते हैं।`
+        : `${moduleTitle} starts with BE-001, then moves into safety and tools.`,
+      isHindi ? "मैं इसे एक छोटे beginner path की तरह समझा सकता हूँ।" : "I can turn it into a short beginner path.",
+    ], 150, 2);
   }
 
   if (context.source === "section") {
-    return isHindi
-      ? `${sectionTitle || lessonTitle} में मैं key points, quick hints, next step, Spark teacher script, और repo notes समझा सकता हूँ। ${notes}`
-      : `I can explain ${sectionTitle || lessonTitle}, the key points, the next step, the Spark teacher script, and the repo notes. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? `मैं ${sectionTitle || lessonTitle} के key points, next step, और teacher script समझा सकता हूँ।`
+        : `I can explain ${sectionTitle || lessonTitle}, the key points, the next step, and the teacher script.`,
+      miniCheckQuestion ? (isHindi ? `Quick check: ${miniCheckQuestion}` : `Quick check: ${miniCheckQuestion}`) : "",
+    ], 160, 2);
   }
 
   if (context.source === "image" || imageCaption) {
-    return isHindi
-      ? `यह चित्र ${imageCaption || sectionTitle || lessonTitle} को सरल तरीके से समझाने के लिए है। ${notes}`
-      : `This visual helps explain ${imageCaption || sectionTitle || lessonTitle}. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? `यह चित्र ${imageCaption || sectionTitle || lessonTitle} को सरल तरीके से समझाने के लिए है।`
+        : `This visual helps explain ${imageCaption || sectionTitle || lessonTitle}.`,
+      isHindi ? "मैं इसके साथ छोटा example भी जोड़ सकता हूँ।" : "I can add a short example if useful.",
+    ], 150, 2);
   }
 
   if (summary) {
-    return isHindi
-      ? `मैं इस पाठ में मदद कर सकता हूँ। शुरुआत summary, key points, mini check, और repo notes से करें। ${miniCheckQuestion ? `Quick check: ${miniCheckQuestion}.` : ""} ${notes}`
-      : `I can help with this lesson. Start with the summary, key points, mini check, and repo notes. ${miniCheckQuestion ? `Quick check: ${miniCheckQuestion}.` : ""} ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? "मैं इस पाठ को सरल, beginner-friendly तरीके से समझा सकता हूँ।"
+        : "I can help with this lesson in a simple beginner-friendly way.",
+      isHindi
+        ? "शुरुआत summary और key points से करें।"
+        : "Start with the summary and key points.",
+      miniCheckQuestion ? (isHindi ? `Quick check: ${miniCheckQuestion}` : `Quick check: ${miniCheckQuestion}`) : "",
+    ], 170, 3);
   }
 
-  return isHindi
-    ? `मैं beginner electronics, Module 01, BE-001, quizzes, images, और repo notes को सरल भाषा में समझा सकता हूँ। ${notes}`
-    : `I can help with beginner electronics, Module 01, BE-001, quizzes, images, and repo notes. ${notes}`;
+  return compactSparkAnswer([
+    isHindi
+      ? "मैं beginner electronics, Module 01, और BE-001 को सरल भाषा में समझा सकता हूँ।"
+      : "I can help with beginner electronics, Module 01, and BE-001 in simple terms.",
+    isHindi ? "अगर चाहें, मैं image या quiz पर भी फोकस करूँगा।" : "If useful, I can focus on the image or the quiz.",
+  ], 160, 2);
 }
 
 export function buildSparkReply(context, prompt, isHindi) {
@@ -137,9 +168,10 @@ export function buildSparkReply(context, prompt, isHindi) {
   const moduleTitle = pickSparkText(normalized.moduleTitle, isHindi, "Module 01");
   const lessonTitle = pickSparkText(normalized.lessonTitle, isHindi, "BE-001");
   const sectionTitle = pickSparkText(normalized.sectionTitle, isHindi, "");
-  const summary = summarizeSparkText(pickSparkText(normalized.textSummary, isHindi, ""), 260);
+  const summary = summarizeSparkText(pickSparkText(normalized.textSummary, isHindi, ""), 120);
   const imageCaption = pickSparkText(normalized.imageCaption, isHindi, "");
-  const notes = knowledgeSummary(normalized, isHindi, 260);
+  const keyPoints = summarizeSparkText(pickSparkText(normalized.keyPoints, isHindi, ""), 120);
+  const notes = knowledgeSummary(normalized, isHindi, 120);
 
   if (!text) {
     return buildSparkOpeningReply(normalized, isHindi);
@@ -162,54 +194,82 @@ export function buildSparkReply(context, prompt, isHindi) {
   }
 
   if (wantsImage) {
-    return isHindi
-      ? `इस visual का उद्देश्य ${imageCaption || sectionTitle || lessonTitle} को clearly दिखाना है। इसे summary के साथ पढ़ें। ${notes}`
-      : `This visual is meant to show ${imageCaption || sectionTitle || lessonTitle}. Read it together with the summary. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? `यह visual ${imageCaption || sectionTitle || lessonTitle} को clearly दिखाता है।`
+        : `This visual shows ${imageCaption || sectionTitle || lessonTitle}.`,
+      isHindi ? "इसे summary के साथ देखें." : "Read it with the summary.",
+    ], 150, 2);
   }
 
   if (wantsQuiz) {
-    return isHindi
-      ? `Quiz के लिए पहले summary, key points, और common mistakes देखें। फिर सही option चुनें और reason समझें। ${notes}`
-      : `For the quiz, review the summary, key points, and common mistakes first. Then choose the best option and explain why. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? "Quiz के लिए पहले summary, key points, और common mistakes देखें।"
+        : "For the quiz, review the summary, key points, and common mistakes first.",
+      isHindi ? "फिर सही option चुनकर reason बताइए।" : "Then choose the best option and explain why.",
+    ], 170, 2);
   }
 
   if (wantsNext) {
-    return isHindi
-      ? `अगला कदम: ${sectionTitle || lessonTitle} को पूरा करें, फिर next section या next lesson खोलें। ${notes}`
-      : `Next step: finish ${sectionTitle || lessonTitle}, then open the next section or next lesson. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? `अगला कदम: ${sectionTitle || lessonTitle} पूरा करें, फिर next section खोलें।`
+        : `Next step: finish ${sectionTitle || lessonTitle}, then open the next section.`,
+      isHindi ? "मैं अगले हिस्से को भी छोटा करके बता सकता हूँ।" : "I can also keep the next part short.",
+    ], 150, 2);
   }
 
   if (wantsSimple) {
-    return isHindi
-      ? `${sectionTitle || lessonTitle || moduleTitle} को बहुत सरल शब्दों में समझें: पहले idea, फिर example, फिर practice. ${notes}`
-      : `In simple words: learn the idea first, then an example, then practice it. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? `${sectionTitle || lessonTitle || moduleTitle} को सरल शब्दों में: पहले idea, फिर example, फिर practice।`
+        : `In simple words: learn the idea first, then an example, then practice it.`,
+      isHindi ? "मैं इसे और भी छोटा कर सकता हूँ।" : "I can make it even shorter if needed.",
+    ], 150, 2);
   }
 
   if (normalized.source === "dashboard") {
-    return isHindi
-      ? `Dashboard से आप Continue Learning में जाएँ, फिर Module 01 खोलें और BE-001 section शुरू करें। ${notes}`
-      : `From the dashboard, continue learning, open Module 01, then start BE-001. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? "Dashboard से Continue Learning खोलें, फिर Module 01 और BE-001 शुरू करें।"
+        : "From the dashboard, continue learning, then open Module 01 and start BE-001.",
+      isHindi ? "मैं next step को भी छोटा रखूँगा।" : "I’ll keep the next step short too.",
+    ], 160, 2);
   }
 
   if (normalized.source === "module") {
-    return isHindi
-      ? `${moduleTitle} में आपका focus अभी BE-001 पर होना चाहिए। Start Module से lesson खोलें और checklist पूरी करें। ${notes}`
-      : `For ${moduleTitle}, focus on BE-001 first. Start the module lesson and finish the checklist. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? `${moduleTitle} में अभी BE-001 पर focus करें।`
+        : `For ${moduleTitle}, focus on BE-001 first.`,
+      isHindi ? "Lesson खोलकर checklist पूरी करें।" : "Open the lesson and finish the checklist.",
+    ], 150, 2);
   }
 
   if (normalized.source === "section") {
-    return isHindi
-      ? `${sectionTitle || lessonTitle} के लिए summary: ${summary || "पहले समझें, फिर अभ्यास करें."} ${keyPoints ? `Key points: ${keyPoints}.` : ""} ${notes}`
-      : `${sectionTitle || lessonTitle} summary: ${summary || "understand it first, then practice."} ${keyPoints ? `Key points: ${keyPoints}.` : ""} ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? `${sectionTitle || lessonTitle} का short summary: ${summary || "पहले समझें, फिर अभ्यास करें."}`
+        : `${sectionTitle || lessonTitle} short summary: ${summary || "understand it first, then practice."}`,
+      keyPoints ? (isHindi ? `Key points: ${keyPoints}` : `Key points: ${keyPoints}`) : "",
+      notes ? (isHindi ? "और विवरण चाहिए? मैं इसे छोटा रखूँगा।" : "Need more detail? I can keep it short.") : "",
+    ], 190, 3);
   }
 
   if (normalized.source === "image") {
-    return isHindi
-      ? `इस image की मुख्य बात: ${imageCaption || sectionTitle || lessonTitle}. इसे text summary के साथ पढ़ें। ${notes}`
-      : `Main point of this image: ${imageCaption || sectionTitle || lessonTitle}. Read it with the text summary. ${notes}`;
+    return compactSparkAnswer([
+      isHindi
+        ? `इस image की मुख्य बात: ${imageCaption || sectionTitle || lessonTitle}.`
+        : `Main point of this image: ${imageCaption || sectionTitle || lessonTitle}.`,
+      isHindi ? "इसे text summary के साथ पढ़ें।" : "Read it with the text summary.",
+    ], 150, 2);
   }
 
-  return isHindi
-    ? `${sectionTitle || lessonTitle || moduleTitle} पर ध्यान दें, key points पढ़ें, और फिर mini check करें। ${notes}`
-    : `Focus on ${sectionTitle || lessonTitle || moduleTitle}, review the key points, then do the mini check. ${notes}`;
+  return compactSparkAnswer([
+    isHindi
+      ? `${sectionTitle || lessonTitle || moduleTitle} पर ध्यान दें, key points पढ़ें, फिर mini check करें।`
+      : `Focus on ${sectionTitle || lessonTitle || moduleTitle}, review the key points, then do the mini check.`,
+    isHindi ? "चाहें तो मैं एक example भी दे सकता हूँ।" : "I can add an example if useful.",
+  ], 170, 2);
 }

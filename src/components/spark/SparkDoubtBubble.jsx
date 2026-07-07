@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 import { useSpark } from "../../context/SparkContext";
 
 const LABELS = {
-  ask: { en: "Ask Spark", hi: "सवल पछ" },
-  clear: { en: "Clear Doubt", hi: "सपरक" },
+  spark: { en: "Spark", hi: "स्पार्क" },
+  clear: { en: "Clear Doubt", hi: "सवाल पूछें" },
   title: { en: "Spark AI Console", hi: "Spark AI Console" },
 };
 
@@ -40,8 +40,8 @@ export default function SparkDoubtBubble({
   const [position, setPosition] = useState(null);
 
   const handleOpen = onOpen || (() => spark.openSpark(context));
-  const mainLabel = title ? pickLabel(title, isHindi) : pickLabel(LABELS.clear, isHindi);
-  const subLabel = subtitle ? pickLabel(subtitle, isHindi) : pickLabel(LABELS.ask, isHindi);
+  const mainLabel = title ? pickLabel(title, isHindi) : pickLabel(LABELS.spark, isHindi);
+  const subLabel = subtitle ? pickLabel(subtitle, isHindi) : pickLabel(LABELS.clear, isHindi);
   const isFloating = mode !== "inline";
   const bottomOffset = DEFAULT_MARGIN + Math.max(0, dockOffset);
 
