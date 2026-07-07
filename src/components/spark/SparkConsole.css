@@ -1,3 +1,13 @@
+:root {
+  --spark-black: #030507;
+  --spark-panel: rgba(5, 8, 12, 0.94);
+  --spark-red: #ff1b2d;
+  --spark-red-soft: rgba(255, 27, 45, 0.35);
+  --spark-amber: #ffb21a;
+  --spark-text: #f4f7fb;
+  --spark-muted: #8d98a8;
+}
+
 .spark-panel-backdrop {
   position: fixed;
   inset: 0;
@@ -6,8 +16,8 @@
   justify-content: center;
   align-items: center;
   padding: 16px;
-  background: rgba(1, 4, 8, 0.52);
-  backdrop-filter: blur(16px);
+  background: rgba(1, 3, 5, 0.64);
+  backdrop-filter: blur(18px);
   animation: spark-backdrop-in 160ms ease-out;
 }
 
@@ -18,7 +28,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  color: #f8fafc;
+  color: var(--spark-text);
   pointer-events: auto;
   box-sizing: border-box;
   font-family: system-ui, "Noto Sans Devanagari", "Noto Sans", sans-serif;
@@ -30,17 +40,17 @@
   height: auto;
   max-height: min(70dvh, calc(100dvh - 32px));
   min-height: 0;
-  border: 1px solid rgba(0, 229, 255, 0.18);
+  border: 1px solid rgba(140, 18, 26, 0.45);
   box-shadow:
-    0 32px 96px rgba(0, 0, 0, 0.66),
-    0 0 34px rgba(0, 229, 255, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 32px 96px rgba(0, 0, 0, 0.74),
+    0 0 34px rgba(255, 27, 45, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
   padding: 10px;
-  border-radius: 24px;
+  border-radius: 22px;
   background:
-    radial-gradient(circle at top left, rgba(0, 229, 255, 0.08), transparent 34%),
-    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.06), transparent 24%),
-    linear-gradient(180deg, rgba(8, 12, 18, 0.99), rgba(3, 6, 10, 0.995));
+    radial-gradient(circle at top left, rgba(255, 27, 45, 0.08), transparent 34%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.05), transparent 24%),
+    linear-gradient(180deg, rgba(8, 11, 14, 0.99), rgba(3, 5, 7, 0.995));
   backdrop-filter: blur(24px);
   display: flex;
   flex-direction: column;
@@ -51,7 +61,7 @@
 .spark-widget {
   width: 100%;
   max-width: 100%;
-  border: 1px solid rgba(0, 229, 255, 0.14);
+  border: 1px solid rgba(140, 18, 26, 0.34);
   border-radius: 18px;
   padding: 12px;
   text-align: left;
@@ -62,8 +72,8 @@
   min-height: 0;
   max-height: none;
   background:
-    radial-gradient(circle at 20% 12%, rgba(0, 229, 255, 0.08), transparent 26%),
-    linear-gradient(180deg, rgba(10, 13, 20, 0.96), rgba(4, 7, 12, 0.98));
+    radial-gradient(circle at 20% 12%, rgba(255, 27, 45, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(10, 13, 16, 0.96), rgba(4, 6, 8, 0.98));
 }
 
 .spark-widget.is-compact {
@@ -79,8 +89,8 @@
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(rgba(34, 211, 238, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 211, 238, 0.016) 1px, transparent 1px);
+    linear-gradient(rgba(255, 27, 45, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 27, 45, 0.015) 1px, transparent 1px);
   background-size: 30px 30px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent);
 }
@@ -100,37 +110,38 @@
   min-height: auto;
   max-width: 1040px;
   margin: 0 auto;
-  border: 1px solid rgba(0, 229, 255, 0.16);
+  border: 1px solid rgba(140, 18, 26, 0.34);
   border-radius: 20px;
   box-shadow: 0 26px 84px rgba(0, 0, 0, 0.5);
 }
 
 .spark-scanner {
   position: relative;
-  height: 16px;
+  height: 14px;
   overflow: hidden;
   border-radius: 999px;
   background:
-    linear-gradient(180deg, rgba(3, 6, 10, 0.98), rgba(5, 8, 12, 0.98));
-  border: 1px solid rgba(0, 229, 255, 0.16);
+    linear-gradient(180deg, rgba(1, 2, 3, 0.98), rgba(7, 9, 11, 0.98));
+  border: 1px solid rgba(255, 27, 45, 0.12);
   box-shadow:
-    inset 0 0 10px rgba(0, 229, 255, 0.08),
+    inset 0 0 10px rgba(255, 27, 45, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.03),
-    0 0 20px rgba(0, 229, 255, 0.05);
+    0 0 20px rgba(255, 27, 45, 0.05);
 }
 
 .spark-scanner span {
   position: absolute;
   top: 2px;
   left: 0;
-  width: 28%;
+  width: 34%;
   height: calc(100% - 4px);
   border-radius: inherit;
   background:
-    linear-gradient(90deg, transparent 0%, rgba(255, 118, 118, 0.08) 16%, rgba(255, 86, 86, 0.96) 50%, rgba(255, 118, 118, 0.08) 84%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, rgba(255, 174, 174, 0.06) 18%, rgba(255, 27, 45, 0.98) 50%, rgba(255, 174, 174, 0.1) 82%, transparent 100%);
   box-shadow:
-    0 0 10px rgba(255, 91, 91, 0.45),
-    0 0 26px rgba(255, 91, 91, 0.18);
+    0 0 10px rgba(255, 27, 45, 0.5),
+    0 0 26px rgba(255, 27, 45, 0.2),
+    0 0 42px rgba(255, 27, 45, 0.12);
   animation: spark-scan 4.4s ease-in-out infinite;
 }
 
@@ -150,7 +161,7 @@
 
 .spark-scanner span::after {
   filter: blur(10px);
-  background: rgba(255, 91, 91, 0.18);
+  background: rgba(255, 27, 45, 0.2);
   transform: scaleY(0.55);
   top: 3px;
 }
@@ -188,13 +199,13 @@
   border-radius: 16px;
   display: grid;
   place-items: center;
-  color: #8feeff;
+  color: #ffd5d8;
   background:
-    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.16), transparent 20%),
-    linear-gradient(145deg, rgba(0, 229, 255, 0.12), rgba(10, 16, 24, 0.96));
-  border: 1px solid rgba(0, 229, 255, 0.22);
+    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.1), transparent 20%),
+    linear-gradient(145deg, rgba(255, 27, 45, 0.16), rgba(12, 16, 20, 0.98));
+  border: 1px solid rgba(255, 27, 45, 0.22);
   box-shadow:
-    0 0 18px rgba(0, 229, 255, 0.08),
+    0 0 18px rgba(255, 27, 45, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
@@ -220,7 +231,7 @@
 .spark-context p,
 .spark-response p,
 .spark-console-copy p {
-  color: #aab4c0;
+  color: var(--spark-muted);
   font-size: 12px;
   line-height: 1.45;
 }
@@ -235,10 +246,10 @@
   display: grid;
   place-items: center;
   cursor: pointer;
-  border: 1px solid rgba(0, 229, 255, 0.14);
+  border: 1px solid rgba(255, 27, 45, 0.16);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.03);
-  color: #cbd5e1;
+  color: #d6dbe3;
 }
 
 .spark-status {
@@ -246,24 +257,25 @@
   align-items: center;
   gap: 6px;
   margin-left: auto;
-  border: 1px solid rgba(0, 229, 255, 0.16);
+  border: none;
   border-radius: 999px;
-  padding: 5px 9px;
-  color: #b7f5ff;
-  background: rgba(0, 229, 255, 0.05);
-  font-size: 10px;
+  padding: 0;
+  color: rgba(255, 209, 214, 0.82);
+  background: transparent;
+  font-size: 9px;
   font-weight: 800;
   white-space: nowrap;
+  letter-spacing: 0.3px;
 }
 
 .spark-widget .spark-status {
-  padding: 3px 7px;
-  font-size: 9px;
+  padding: 0;
+  font-size: 8px;
 }
 
 .spark-widget-line {
   margin: 0;
-  color: #96a3b3;
+  color: var(--spark-muted);
   font-size: 11px;
   line-height: 1.35;
 }
@@ -274,18 +286,18 @@
   border-radius: 16px;
   padding: 10px 12px;
   background:
-    radial-gradient(circle at top left, rgba(0, 229, 255, 0.06), transparent 28%),
-    rgba(3, 7, 12, 0.88);
-  border: 1px solid rgba(0, 229, 255, 0.12);
+    radial-gradient(circle at top left, rgba(255, 27, 45, 0.05), transparent 28%),
+    rgba(3, 6, 8, 0.92);
+  border: 1px solid rgba(255, 27, 45, 0.12);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    inset 0 -1px 0 rgba(0, 229, 255, 0.04);
+    inset 0 -1px 0 rgba(255, 27, 45, 0.04);
 }
 
 .spark-bubble strong {
   display: block;
   margin-bottom: 6px;
-  color: #8feeff;
+  color: #ffd5d8;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -293,10 +305,10 @@
 
 .spark-bubble--lead {
   padding: 10px 12px;
-  border-color: rgba(0, 229, 255, 0.1);
+  border-color: rgba(255, 27, 45, 0.1);
   background:
-    radial-gradient(circle at top left, rgba(0, 229, 255, 0.05), transparent 28%),
-    rgba(3, 7, 12, 0.9);
+    radial-gradient(circle at top left, rgba(255, 27, 45, 0.05), transparent 28%),
+    rgba(3, 6, 8, 0.92);
 }
 
 .spark-context-accordion {
@@ -313,9 +325,9 @@
   align-self: flex-start;
   padding: 7px 11px;
   border-radius: 999px;
-  border: 1px solid rgba(0, 229, 255, 0.12);
-  background: rgba(0, 229, 255, 0.04);
-  color: #b7f5ff;
+  border: 1px solid rgba(255, 27, 45, 0.12);
+  background: rgba(255, 27, 45, 0.04);
+  color: #ffd5d8;
   font-size: 11px;
   font-weight: 700;
 }
@@ -353,13 +365,13 @@
   border-radius: 14px;
   padding: 8px 8px 8px 10px;
   background:
-    linear-gradient(180deg, rgba(3, 7, 12, 0.95), rgba(3, 7, 12, 0.84));
-  border: 1px solid rgba(34, 211, 238, 0.12);
+    linear-gradient(180deg, rgba(2, 4, 6, 0.96), rgba(4, 6, 8, 0.88));
+  border: 1px solid rgba(255, 27, 45, 0.12);
 }
 
 .spark-widget-input span {
   flex: 1;
-  color: #96a3b3;
+  color: var(--spark-muted);
   font-size: 11px;
   line-height: 1.45;
   overflow: hidden;
@@ -379,8 +391,11 @@
   border-radius: 9px;
   display: grid;
   place-items: center;
-  color: #04141a;
-  background: linear-gradient(145deg, #8feeff, #00d9ff);
+  color: #1f0608;
+  background: linear-gradient(145deg, #ffd0d3, #ff5f6f);
+  box-shadow:
+    0 0 0 1px rgba(255, 27, 45, 0.16),
+    0 0 16px rgba(255, 27, 45, 0.18);
   flex-shrink: 0;
 }
 
@@ -392,34 +407,34 @@
   width: 100%;
   padding: 10px 12px;
   border-radius: 14px;
-  color: #dffbff;
+  color: #ffe9ea;
   font-size: 11px;
   font-weight: 700;
-  background: rgba(0, 229, 255, 0.06);
-  border: 1px solid rgba(0, 229, 255, 0.14);
+  background: rgba(255, 27, 45, 0.06);
+  border: 1px solid rgba(255, 27, 45, 0.14);
 }
 
 .spark-context,
 .spark-response {
-  border: 1px solid rgba(34, 211, 238, 0.14);
+  border: 1px solid rgba(255, 27, 45, 0.14);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.03);
   padding: 12px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    inset 0 -1px 0 rgba(0, 229, 255, 0.03);
+    inset 0 -1px 0 rgba(255, 27, 45, 0.03);
 }
 
 .spark-response {
-  border-color: rgba(0, 229, 255, 0.16);
+  border-color: rgba(255, 27, 45, 0.16);
   background:
-    radial-gradient(circle at top left, rgba(0, 229, 255, 0.05), transparent 30%),
-    rgba(0, 229, 255, 0.035);
+    radial-gradient(circle at top left, rgba(255, 27, 45, 0.05), transparent 30%),
+    rgba(4, 6, 8, 0.92);
 }
 
 .spark-section-title {
   gap: 8px;
-  color: #8feeff;
+  color: #ffd5d8;
   font-size: 11px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -437,14 +452,14 @@
   min-width: 0;
   border-radius: 10px;
   padding: 7px 9px;
-  background: rgba(34, 211, 238, 0.05);
-  color: #d7eef4;
+  background: rgba(255, 27, 45, 0.04);
+  color: #f3dada;
   font-size: 11px;
   overflow-wrap: anywhere;
 }
 
 .spark-context-main {
-  color: #f8fafc !important;
+  color: var(--spark-text) !important;
   font-weight: 700;
   margin-bottom: 8px !important;
   line-height: 1.45;
@@ -477,38 +492,38 @@
 
 .spark-message--spark {
   align-self: flex-start;
-  background: rgba(3, 7, 12, 0.92);
-  border: 1px solid rgba(0, 229, 255, 0.12);
-  color: #dffbff;
+  background: rgba(4, 6, 8, 0.94);
+  border: 1px solid rgba(255, 27, 45, 0.12);
+  color: #f3f6fb;
 }
 
 .spark-message--user {
   align-self: flex-end;
-  background: rgba(0, 229, 255, 0.12);
-  border: 1px solid rgba(0, 229, 255, 0.2);
-  color: #daf9ff;
+  background: rgba(255, 27, 45, 0.12);
+  border: 1px solid rgba(255, 27, 45, 0.2);
+  color: #fff1f2;
 }
 
 .spark-input {
   margin-top: auto;
   gap: 8px;
-  border: 1px solid rgba(0, 229, 255, 0.14);
+  border: 1px solid rgba(255, 27, 45, 0.16);
   border-radius: 16px;
   padding: 7px 7px 7px 12px;
   background:
-    linear-gradient(180deg, rgba(3, 7, 12, 0.96), rgba(2, 5, 10, 0.96));
+    linear-gradient(180deg, rgba(2, 4, 6, 0.96), rgba(4, 6, 8, 0.96));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.03),
-    0 0 24px rgba(0, 229, 255, 0.04);
+    0 0 24px rgba(255, 27, 45, 0.05);
   display: flex;
   align-items: center;
 }
 
 .spark-input:focus-within {
-  border-color: rgba(0, 229, 255, 0.24);
+  border-color: rgba(255, 27, 45, 0.3);
   box-shadow:
-    0 0 0 1px rgba(0, 229, 255, 0.08),
-    0 0 28px rgba(0, 229, 255, 0.08),
+    0 0 0 1px rgba(255, 27, 45, 0.08),
+    0 0 28px rgba(255, 27, 45, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
@@ -518,7 +533,7 @@
   border: none;
   outline: none;
   background: transparent;
-  color: #f8fafc;
+  color: var(--spark-text);
   font-size: 12px;
   line-height: 1.4;
   resize: none;
@@ -528,7 +543,7 @@
 }
 
 .spark-input textarea::placeholder {
-  color: #96a3b3;
+  color: var(--spark-muted);
 }
 
 .spark-input button {
@@ -539,11 +554,11 @@
   display: grid;
   place-items: center;
   cursor: pointer;
-  color: #04141a;
-  background: linear-gradient(145deg, #b7f8ff, #42e8ff);
+  color: #1d080a;
+  background: linear-gradient(145deg, #ffd0d3, #ff5f6f);
   box-shadow:
-    0 0 0 1px rgba(0, 229, 255, 0.16),
-    0 0 18px rgba(0, 229, 255, 0.16);
+    0 0 0 1px rgba(255, 27, 45, 0.16),
+    0 0 18px rgba(255, 27, 45, 0.16);
 }
 
 .spark-prompts {
@@ -554,9 +569,9 @@
 
 .spark-prompts button {
   cursor: pointer;
-  border: 1px solid rgba(0, 229, 255, 0.14);
-  background: rgba(0, 229, 255, 0.06);
-  color: #dffbff;
+  border: 1px solid rgba(255, 27, 45, 0.14);
+  background: rgba(255, 27, 45, 0.06);
+  color: #ffe9ea;
   border-radius: 999px;
   padding: 7px 10px;
   font-size: 11px;
@@ -565,9 +580,9 @@
 
 .spark-prompts--preview span {
   cursor: default;
-  border: 1px solid rgba(0, 229, 255, 0.14);
-  background: rgba(0, 229, 255, 0.06);
-  color: #dffbff;
+  border: 1px solid rgba(255, 27, 45, 0.14);
+  background: rgba(255, 27, 45, 0.06);
+  color: #ffe9ea;
   border-radius: 999px;
   padding: 8px 12px;
   font-size: 12px;
@@ -592,11 +607,11 @@
     max-height: 70dvh;
     overflow-y: auto;
     overflow-x: hidden;
-    border: 1px solid rgba(0, 229, 255, 0.16);
+    border: 1px solid rgba(255, 27, 45, 0.2);
     border-radius: 22px;
     box-shadow:
       0 -18px 54px rgba(0, 0, 0, 0.5),
-      0 0 24px rgba(0, 229, 255, 0.06);
+      0 0 24px rgba(255, 27, 45, 0.08);
   }
 
   .spark-widget {
