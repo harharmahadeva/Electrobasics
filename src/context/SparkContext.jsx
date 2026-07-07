@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useMemo, useState } from "react
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import SparkPanel from "../components/spark/SparkPanel";
+import SparkDoubtBubble from "../components/spark/SparkDoubtBubble";
 import {
   buildSparkOpeningReply,
   buildSparkReply,
@@ -12,6 +13,7 @@ const SparkContext = createContext(null);
 
 export function SparkProvider({ children }) {
   const { i18n } = useTranslation();
+  const location = useLocation();
   const isHindi = i18n.language?.startsWith("hi");
   const [state, setState] = useState({
     open: false,
@@ -96,9 +98,52 @@ export function SparkProvider({ children }) {
     sendSparkMessage,
   }), [closeSpark, openSpark, sendSparkMessage, setDraft, state]);
 
+  const launcherContext = useMemo(() => {
+    const pathname = location.pathname || "";
+    if (pathname === "/spark" || pathname === "/login") return null;
+    if (pathname.startsWith("/learn/BE-001/section/")) {
+      const sectionId = pathname.split("/").pop();
+      return normalizeSparkContext({
+        source: "section",
+        moduleId: "module-01",
+        moduleTitle: "Welcome & Electronics Lab",
+        lessonId: "BE-001",
+        lessonTitle: "Welcome to ElectroBasics",
+        sectionId,
+      });
+    }
+    if (pathname.startsWith("/learn/BE-001")) {
+      return normalizeSparkContext({
+        source: "section",
+        moduleId: "module-01",
+        moduleTitle: "Welcome & Electronics Lab",
+        lessonId: "BE-001",
+        lessonTitle: "Welcome to ElectroBasics",
+      });
+    }
+    if (pathname.startsWith("/modules/module-01") || pathname.startsWith("/courses/module-01")) {
+      return normalizeSparkContext({
+        source: "module",
+        moduleId: "module-01",
+        moduleTitle: "Welcome & Electronics Lab",
+        lessonId: "BE-001",
+        lessonTitle: "Welcome to ElectroBasics",
+      });
+    }
+    if (pathname.startsWith("/modules") || pathname.startsWith("/courses")) {
+      return normalizeSparkContext({
+        source: "module",
+        moduleId: "module-01",
+        moduleTitle: "Welcome & Electronics Lab",
+      });
+    }
+    return normalizeSparkContext({ source: "dashboard" });
+  }, [location.pathname]);
+
   return (
     <SparkContext.Provider value={value}>
       {children}
+      <SparkLauncher context={launcherContext} onOpen={() => openSpark(launcherContext || {})} />
       <SparkOverlay />
     </SparkContext.Provider>
   );
@@ -136,4 +181,9 @@ function SparkOverlay() {
       onClose={closeSpark}
     />
   );
+}
+
+function SparkLauncher({ context, onOpen }) {
+  if (!context) return null;
+  return <SparkDoubtBubble context={context} onOpen={onOpen} />;
 }
