@@ -1,4 +1,4 @@
-import "./SparkConsole.css";
+﻿import "./SparkConsole.css";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Image, MessageCircle, Send, Sparkles, X, Zap } from "lucide-react";
@@ -12,23 +12,23 @@ import {
 } from "./sparkUtils";
 
 const LABELS = {
-  title: { en: "Spark AI Console", hi: "स्पार्क AI कंसोल" },
-  subtitle: { en: "Scanner Online", hi: "स्कैनर ऑनलाइन" },
-  context: { en: "Context", hi: "संदर्भ" },
-  source: { en: "Source", hi: "स्रोत" },
-  module: { en: "Module", hi: "मॉड्यूल" },
-  lesson: { en: "Lesson", hi: "पाठ" },
-  section: { en: "Section", hi: "खंड" },
-  ready: { en: "Scanner Online", hi: "स्कैनर ऑनलाइन" },
-  imageCaption: { en: "Image caption", hi: "चित्र कैप्शन" },
-  summary: { en: "Section summary", hi: "खंड सारांश" },
-  askPlaceholder: { en: "Ask your doubt", hi: "अपनी शंका पूछें" },
-  cannedTitle: { en: "Spark response", hi: "Spark उत्तर" },
-  close: { en: "Close", hi: "बंद करें" },
-  send: { en: "Send", hi: "भेजें" },
-  simple: { en: "Simple", hi: "सरल" },
-  example: { en: "Example", hi: "उदाहरण" },
-  quiz: { en: "Quiz", hi: "क्विज" },
+  title: { en: "Spark AI Console", hi: "Spark AI Console" },
+  subtitle: { en: "Scanner Online", hi: "\u0938\u094D\u0915\u0948\u0928\u0930 \u0913\u0928" },
+  context: { en: "Context", hi: "\u0938\u0902\u0926\u0930\u094D\u092D" },
+  source: { en: "Source", hi: "\u0938\u094D\u0930\u094B\u0924" },
+  module: { en: "Module", hi: "\u092E\u0949\u0921\u094D\u092F\u0942\u0932" },
+  lesson: { en: "Lesson", hi: "\u092A\u093E\u0920" },
+  section: { en: "Section", hi: "\u0916\u0902\u0921" },
+  ready: { en: "Scanner Online", hi: "\u0938\u094D\u0915\u0948\u0928\u0930 \u0913\u0928" },
+  imageCaption: { en: "Image caption", hi: "\u091A\u093F\u0924\u094D\u0930" },
+  summary: { en: "Section summary", hi: "\u0938\u093E\u0930" },
+  askPlaceholder: { en: "Ask your doubt", hi: "\u0938\u0935\u093E\u0932 \u0932\u093F\u0916\u0947\u0902" },
+  cannedTitle: { en: "Spark response", hi: "Spark \u091C\u0935\u093E\u092C" },
+  close: { en: "Close", hi: "\u092C\u0902\u0926" },
+  send: { en: "Send", hi: "\u092D\u0947\u091C\u0947\u0902" },
+  simple: { en: "Simple", hi: "\u0938\u0930\u0932" },
+  example: { en: "Example", hi: "\u0909\u0926\u093E\u0939\u0930\u0923" },
+  quiz: { en: "Quiz", hi: "\u0915\u094D\u0935\u093F\u091C" },
 };
 
 function isLangObject(value) {
@@ -116,7 +116,7 @@ export default function SparkConsole({
   }
 
   function renderWidget() {
-    const widgetLine = isHindi ? "इस पाठ के बारे में Spark से पूछें।" : "Ask Spark about this lesson.";
+    const widgetLine = isHindi ? "à¤‡à¤¸ à¤ªà¤¾à¤  à¤•à¥‡ à¤¬à¤¾à¤°à¥‡ à¤®à¥‡à¤‚ Spark à¤¸à¥‡ à¤ªà¥‚à¤›à¥‡à¤‚à¥¤" : "Ask Spark about this lesson.";
     return (
       <>
         <div className="spark-header">
@@ -281,13 +281,13 @@ export default function SparkConsole({
         </form>
 
         <div className="spark-prompts">
-          <button type="button" onClick={() => sendMessage(isHindi ? "इसको सरल शब्दों में समझाइए" : "Explain this in simple words")}>
+          <button type="button" onClick={() => sendMessage(isHindi ? "à¤‡à¤¸à¤•à¥‹ à¤¸à¤°à¤² à¤¶à¤¬à¥à¤¦à¥‹à¤‚ à¤®à¥‡à¤‚ à¤¸à¤®à¤à¤¾à¤‡à¤" : "Explain this in simple words")}>
             {label("simple")}
           </button>
-          <button type="button" onClick={() => sendMessage(isHindi ? "मुझे एक उदाहरण दीजिए" : "Give me one example")}>
+          <button type="button" onClick={() => sendMessage(isHindi ? "à¤®à¥à¤à¥‡ à¤à¤• à¤‰à¤¦à¤¾à¤¹à¤°à¤£ à¤¦à¥€à¤œà¤¿à¤" : "Give me one example")}>
             {label("example")}
           </button>
-          <button type="button" onClick={() => sendMessage(isHindi ? "मुझे एक क्विज़ दीजिए" : "Give me a quiz")}>
+          <button type="button" onClick={() => sendMessage(isHindi ? "à¤®à¥à¤à¥‡ à¤à¤• à¤•à¥à¤µà¤¿à¤œà¤¼ à¤¦à¥€à¤œà¤¿à¤" : "Give me a quiz")}>
             {label("quiz")}
           </button>
         </div>

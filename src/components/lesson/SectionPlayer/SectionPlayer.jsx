@@ -12,6 +12,7 @@ import {
 import Modal from "../../shared/Modal/Modal";
 import SparkDoubtBubble from "../../spark/SparkDoubtBubble";
 import { getBe001TeacherScript, getBe001TeacherScriptParts } from "../../../data/be001TeacherScripts";
+import { getPreferredTeacherVoice } from "../teacherVoice";
 
 const LABELS = {
   content: { en: "Lesson Text", hi: "पाठ सामग्री" },
@@ -75,6 +76,7 @@ export default function SectionPlayer({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
   const [voiceState, setVoiceState] = useState("idle");
+  const [availableVoices, setAvailableVoices] = useState([]);
   const utteranceRef = useRef(null);
   const isHindi = i18n.language?.startsWith("hi");
 
@@ -138,6 +140,11 @@ export default function SectionPlayer({
     return summary.join(" ");
   }, [isHindi, paragraphs, section.id, section.keyPoints, section.miniCheck?.question, section.title]);
 
+  const preferredVoice = useMemo(
+    () => getPreferredTeacherVoice(i18n.language, availableVoices),
+    [availableVoices, i18n.language]
+  );
+
   const stopSpeech = useCallback(() => {
     if (typeof window === "undefined" || !window.speechSynthesis) return;
     window.speechSynthesis.cancel();
@@ -149,9 +156,10 @@ export default function SectionPlayer({
     if (typeof window === "undefined" || !window.speechSynthesis || !teacherScript) return;
     stopSpeech();
     const utterance = new SpeechSynthesisUtterance(teacherScript);
-    utterance.lang = isHindi ? "hi-IN" : "en-US";
-    utterance.rate = 0.96;
-    utterance.pitch = 1;
+    utterance.voice = preferredVoice.voice || null;
+    utterance.lang = preferredVoice.lang || (isHindi ? "hi-IN" : "en-US");
+    utterance.rate = 0.95;
+    utterance.pitch = 1.06;
     utterance.onstart = () => setVoiceState("speaking");
     utterance.onpause = () => setVoiceState("paused");
     utterance.onresume = () => setVoiceState("speaking");
@@ -165,7 +173,7 @@ export default function SectionPlayer({
     };
     utteranceRef.current = utterance;
     window.speechSynthesis.speak(utterance);
-  }, [isHindi, stopSpeech, teacherScript]);
+  }, [preferredVoice.lang, preferredVoice.voice, stopSpeech, teacherScript, isHindi]);
 
   const togglePauseResume = useCallback(() => {
     if (typeof window === "undefined" || !window.speechSynthesis) return;
@@ -185,6 +193,21 @@ export default function SectionPlayer({
     stopSpeech();
     return () => stopSpeech();
   }, [section.id, stopSpeech]);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return undefined;
+    const synth = window.speechSynthesis;
+    const syncVoices = () => {
+      setAvailableVoices(synth.getVoices?.() || []);
+    };
+
+    syncVoices();
+    synth.addEventListener?.("voiceschanged", syncVoices);
+
+    return () => {
+      synth.removeEventListener?.("voiceschanged", syncVoices);
+    };
+  }, []);
 
   const voiceLabel = voiceState === "paused" ? label("resumeTeacher") : label("pauseTeacher");
   const pauseDisabled = voiceState === "idle";
@@ -219,6 +242,9 @@ export default function SectionPlayer({
           <div>
             <strong>{label("listenTeacher")}</strong>
             <p>{teacherParts?.teacherIntro ? pickLang(teacherParts.teacherIntro) : pickLang(section.caption, pickLang(section.title))}</p>
+            {import.meta.env.DEV && preferredVoice.voiceLabel && (
+              <small className="sp-teacher-voice-debug">{preferredVoice.voiceLabel}</small>
+            )}
           </div>
           <span className={`sp-teacher-status is-${voiceState}`}>
             {voiceState === "speaking" ? label("teacherSpeaking") : voiceState === "paused" ? label("teacherPaused") : label("teacherReady")}

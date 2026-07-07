@@ -1,14 +1,14 @@
-import "./SparkDoubtBubble.css";
+﻿import "./SparkDoubtBubble.css";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { MessageCircle, Sparkles, Zap } from "lucide-react";
+import { Sparkles, Zap } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useSpark } from "../../context/SparkContext";
 
 const LABELS = {
-  ask: { en: "Ask Spark", hi: "Spark से पूछें" },
-  clear: { en: "Clear Doubt", hi: "डाउट दूर करें" },
-  title: { en: "Spark AI Console", hi: "स्पार्क AI कंसोल" },
-  ready: { en: "Scanner Online", hi: "स्कैनर ऑनलाइन" },
+  ask: { en: "Ask Spark", hi: "\u0053\u0070\u0061\u0072\u006B \u0938\u0947 \u092A\u0942\u091B\u0947\u0902" },
+  clear: { en: "Clear Doubt", hi: "\u0938\u0935\u093E\u0932 \u092A\u0942\u091B\u0947\u0902" },
+  title: { en: "Spark AI Console", hi: "Spark AI Console" },
+  ready: { en: "Scanner Online", hi: "\u0938\u094D\u0915\u0948\u0928\u0930 \u0913\u0928" },
 };
 
 function isLangObject(value) {
@@ -44,7 +44,6 @@ export default function SparkDoubtBubble({
   const handleOpen = onOpen || (() => spark.openSpark(context));
   const mainLabel = title ? pickLabel(title, isHindi) : pickLabel(LABELS.clear, isHindi);
   const subLabel = subtitle ? pickLabel(subtitle, isHindi) : pickLabel(LABELS.ask, isHindi);
-
   const isFloating = mode !== "inline";
   const bottomOffset = DEFAULT_MARGIN + Math.max(0, dockOffset);
 
@@ -97,12 +96,12 @@ export default function SparkDoubtBubble({
 
     const insideBounds =
       stored.x >= DEFAULT_MARGIN &&
-      stored.y >= DEFAULT_MARGIN &&
+      stored.y >= bottomOffset &&
       stored.x <= maxX &&
       stored.y <= maxY;
 
     setPosition(insideBounds ? stored : defaultPosition);
-  }, [clamp, isFloating, isMobile]);
+  }, [bottomOffset, clamp, isFloating, isMobile]);
 
   useEffect(() => {
     if (typeof window === "undefined" || isMobile || !position) return;
@@ -145,7 +144,7 @@ export default function SparkDoubtBubble({
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [clamp, isFloating, isMobile]);
+  }, [bottomOffset, clamp, isFloating, isMobile]);
 
   function handlePointerDown(event) {
     if (!isFloating || isMobile || event.button !== 0) return;
@@ -226,15 +225,17 @@ export default function SparkDoubtBubble({
           <Sparkles size={12} />
         </span>
         <span className="spark-doubt-bubble__copy">
-          <strong>{mainLabel}</strong>
-          <span>{subLabel}</span>
-        </span>
-        <span className="spark-doubt-bubble__action" aria-hidden="true">
-          <MessageCircle size={12} />
+          <span className="spark-doubt-bubble__row">
+            <strong>{mainLabel}</strong>
+            <span className="spark-doubt-bubble__status" aria-hidden="true">
+              <Zap size={9} />
+            </span>
+          </span>
+          <span className="spark-doubt-bubble__subcopy">{subLabel}</span>
         </span>
       </span>
-      <span className="spark-doubt-bubble__status" aria-hidden="true">
-        <Zap size={10} /> {pickLabel(LABELS.ready, isHindi)}
+      <span className="spark-doubt-bubble__floating-label" aria-hidden="true">
+        {pickLabel(LABELS.ready, isHindi)}
       </span>
     </button>
   );

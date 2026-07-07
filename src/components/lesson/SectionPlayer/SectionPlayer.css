@@ -52,6 +52,15 @@
   line-height: 1.35;
 }
 
+.sp-teacher-voice-debug {
+  display: block;
+  margin-top: 4px;
+  color: var(--md-cyan);
+  font-size: 10px;
+  line-height: 1.25;
+  opacity: 0.72;
+}
+
 .sp-teacher-status {
   flex-shrink: 0;
   padding: 4px 8px;

@@ -21,6 +21,7 @@
   color: #f8fafc;
   pointer-events: auto;
   box-sizing: border-box;
+  font-family: system-ui, "Noto Sans Devanagari", "Noto Sans", sans-serif;
 }
 
 .spark-panel {
