@@ -3,6 +3,9 @@
 ## 2026-07-07
 
 ### Fixed
+- Removed the lesson sidebar Spark help card and the module Spark cards so Spark is launched only as a floating assistant.
+- Cleaned the shared header into a simple left logo / right controls layout without the old center gap or search residue.
+- Reworked the Spark launcher and popup toward a black/cyan futuristic console with red limited to the scanner accent.
 - Added a real sign-out menu to the module top bar so logout works consistently from dashboard, modules, and lesson pages without clearing progress.
 - Tightened SectionPlayer desktop spacing with smaller teacher voice controls, hidden complete button for completed sections, and cleaner previous/next wording.
 - Rebalanced the Spark doubt bubble and popup toward a black/cyan glass look so the collapsed state no longer reads as a red/pink card.

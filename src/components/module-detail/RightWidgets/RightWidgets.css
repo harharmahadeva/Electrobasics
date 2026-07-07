@@ -26,14 +26,6 @@
   border-color: rgba(0, 229, 255, 0.36);
 }
 
-.rw-spark-shell {
-  border-radius: 28px;
-}
-
-.rw-spark-shell .spark-widget {
-  width: 100%;
-}
-
 .rw-title {
   display: flex;
   align-items: center;

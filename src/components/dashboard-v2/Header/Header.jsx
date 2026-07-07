@@ -2,17 +2,14 @@ import "./Header.css";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Bell, Sun, Zap } from "lucide-react";
+import { Bell, Zap } from "lucide-react";
 import LanguageToggle from "../../language/LanguageToggle";
-import { usePageHeaderValue } from "../../../context/PageHeaderContext";
 import { useAuth } from "../../../context/AuthContext";
 
 export default function Header() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
-  const pageHeader = usePageHeaderValue();
-  const header = pageHeader?.header;
   const menuRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -52,25 +49,12 @@ export default function Header() {
             <span>ElectroBasics</span>
           </div>
 
-          {header ? (
-            <div className="eb-page-title">
-              <h1>{header.title}</h1>
-              {header.subtitle && <p>{header.subtitle}</p>}
-            </div>
-          ) : (
-            <div className="eb-header-spacer" aria-hidden="true" />
-          )}
-
           <LanguageToggle size="md" />
 
           <div className="eb-right">
             <button className="eb-icon-btn">
               <Bell size={18} />
               <span className="eb-badge">3</span>
-            </button>
-
-            <button className="eb-icon-btn">
-              <Sun size={18} />
             </button>
 
             <div className="profile-menu-wrap" ref={menuRef}>

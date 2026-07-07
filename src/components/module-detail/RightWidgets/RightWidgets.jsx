@@ -1,7 +1,5 @@
 import "./RightWidgets.css";
-import { Sparkles, BookOpen, Star, Clock, Gauge, LayoutGrid, Gift } from "lucide-react";
-import SparkWidget from "../../spark/SparkWidget";
-import { SPARK_KNOWLEDGE, mergeKnowledgeBuckets } from "../../../data/sparkKnowledge";
+import { BookOpen, Star, Clock, Gauge, LayoutGrid, Gift } from "lucide-react";
 
 export default function RightWidgets({ module, onProgress, onSpark, onReward }) {
   const { progress } = module;
@@ -45,24 +43,6 @@ export default function RightWidgets({ module, onProgress, onSpark, onReward }) 
           </div>
         </div>
       </button>
-
-      <div className="rw-spark-shell">
-        <SparkWidget
-          context={{
-            source: "module",
-            moduleId: module.id,
-            moduleTitle: module.title,
-            lessonId: "BE-001",
-            lessonTitle: "Welcome to ElectroBasics",
-            sectionTitle: "Spark says",
-            textSummary: module.sparkMessage,
-            imageCaption: module.description,
-            teacherScript: module.sparkMessage,
-            knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
-          }}
-          onOpen={onSpark}
-        />
-      </div>
 
       <div className="rw-card">
         <div className="rw-title">MODULE SUMMARY</div>

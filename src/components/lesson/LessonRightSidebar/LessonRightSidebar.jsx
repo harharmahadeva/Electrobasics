@@ -1,8 +1,6 @@
 import "./LessonRightSidebar.css";
 import { CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import SparkDoubtBubble from "../../spark/SparkDoubtBubble";
-import { SPARK_KNOWLEDGE, mergeKnowledgeBuckets } from "../../../data/sparkKnowledge";
 
 const LABELS = {
   sparkAi: { en: "SPARK AI", hi: "स्पार्क AI" },
@@ -26,36 +24,6 @@ export default function LessonRightSidebar({ lesson, checklist, completedCount, 
 
   return (
     <aside className="lrs">
-      <div className="lrs-card">
-        <SparkDoubtBubble
-          mode="inline"
-          context={{
-            source: "lesson",
-            moduleId: "module-01",
-            lessonId: lesson.id,
-            lessonTitle: lesson.title,
-            sectionTitle: lesson.title,
-            textSummary: lesson.overview || lesson.description || "",
-            imageCaption: lesson.sparkMessage || lesson.description || "",
-            teacherScript: lesson.sparkMessage || lesson.overview || lesson.description || "",
-            knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
-          }}
-          onOpen={() =>
-            onAskSpark?.({
-              source: "lesson",
-              moduleId: "module-01",
-              lessonId: lesson.id,
-              lessonTitle: lesson.title,
-              sectionTitle: lesson.title,
-              textSummary: lesson.overview || lesson.description || "",
-              imageCaption: lesson.sparkMessage || lesson.description || "",
-              teacherScript: lesson.sparkMessage || lesson.overview || lesson.description || "",
-              knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
-            })
-          }
-        />
-      </div>
-
       <div className="lrs-card">
         <div className="lrs-title">{label("checklist")}</div>
         <div className="lrs-checklist">

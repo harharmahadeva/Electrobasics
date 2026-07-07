@@ -73,10 +73,6 @@
   margin-top: 2px;
 }
 
-.module-sidebar .spark-widget {
-  width: 100%;
-}
-
 @media (max-width: 1200px) {
   .module-sidebar {
     display: none;

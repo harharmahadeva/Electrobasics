@@ -8,15 +8,13 @@ const LABELS = {
   back: { en: "Back to Module", hi: "मॉड्यूल पर वापस" },
   module: { en: "Module", hi: "मॉड्यूल" },
   lessons: { en: "Lessons", hi: "पाठ" },
-  help: { en: "Need Help?", hi: "मदद चाहिए?" },
-  ask: { en: "Ask Spark AI anytime!", hi: "कभी भी स्पार्क AI से पूछें!" },
 };
 
 function isLangObject(value) {
   return value && typeof value === "object" && !Array.isArray(value) && ("en" in value || "hi" in value);
 }
 
-export default function LessonSidebar({ module, currentLessonId, onHelp }) {
+export default function LessonSidebar({ module, currentLessonId }) {
   const navigate = useNavigate();
   const { i18n } = useTranslation();
   const { isLessonComplete } = useProgress();
@@ -58,10 +56,6 @@ export default function LessonSidebar({ module, currentLessonId, onHelp }) {
         })}
       </div>
 
-      <div className="ls-help-card" onClick={onHelp}>
-        <strong>{label("help")}</strong>
-        <span>{label("ask")}</span>
-      </div>
     </aside>
   );
 }

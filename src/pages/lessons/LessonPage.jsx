@@ -8,6 +8,7 @@ import LessonSidebar from "../../components/lesson/LessonSidebar/LessonSidebar";
 import LessonRightSidebar from "../../components/lesson/LessonRightSidebar/LessonRightSidebar";
 import SectionCard from "../../components/lesson/SectionCard/SectionCard";
 import SectionPlayer from "../../components/lesson/SectionPlayer/SectionPlayer";
+import SparkDoubtBubble from "../../components/spark/SparkDoubtBubble";
 import Modal from "../../components/shared/Modal/Modal";
 import BottomNav from "../../components/navigation/BottomNav";
 import { useToast } from "../../context/ToastContext";
@@ -258,7 +259,6 @@ export default function LessonPage() {
         <LessonSidebar
           module={module01}
           currentLessonId={be001.id}
-          onHelp={() => launchSpark("lesson", nextSection)}
         />
 
         <main className="lp-main">
@@ -327,9 +327,10 @@ export default function LessonPage() {
           lesson={be001}
           checklist={LESSON_CHECKLIST}
           completedCount={completedCount}
-          onAskSpark={(extra) => launchSpark("lesson", nextSection, extra)}
         />
       </div>
+
+      <SparkDoubtBubble onOpen={() => launchSpark("lesson", nextSection)} />
 
       {completionModal}
       <BottomNav />

@@ -6,6 +6,7 @@ import ModuleTopBar from "../../components/module-detail/ModuleTopBar/ModuleTopB
 import ModuleSidebar from "../../components/module-detail/ModuleSidebar/ModuleSidebar";
 import RightWidgets from "../../components/module-detail/RightWidgets/RightWidgets";
 import LessonRow from "../../components/module-detail/LessonRow/LessonRow";
+import SparkDoubtBubble from "../../components/spark/SparkDoubtBubble";
 import Modal from "../../components/shared/Modal/Modal";
 import BottomNav from "../../components/navigation/BottomNav";
 import { useProgress } from "../../context/ProgressContext";
@@ -93,7 +94,7 @@ export default function Module01DetailPage() {
       <ModuleTopBar />
 
       <div className="m01-body">
-        <ModuleSidebar active="All Modules" onHelp={() => launchSpark("module")} />
+        <ModuleSidebar active="All Modules" />
 
         <main className="m01-main">
           <button className="m01-back" onClick={() => navigate("/modules")}>
@@ -192,10 +193,11 @@ export default function Module01DetailPage() {
         <RightWidgets
           module={moduleWithProgress}
           onProgress={() => setActiveModal("progress")}
-          onSpark={() => launchSpark("module")}
           onReward={() => setActiveModal("reward")}
         />
       </div>
+
+      <SparkDoubtBubble onOpen={() => launchSpark("module")} />
 
       <Modal open={activeModal === "progress"} onClose={() => setActiveModal(null)} title="Module 01 Progress">
         <div className="m01-modal-list">
