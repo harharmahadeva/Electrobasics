@@ -4,7 +4,6 @@ import Hero from "../../components/dashboard-v2/Hero/Hero";
 import StreakCard from "../../components/dashboard-v2/StreakCard/StreakCard";
 import LevelCard from "../../components/dashboard-v2/LevelCard/LevelCard";
 import ContinueLearning from "../../components/dashboard-v2/ContinueLearning/ContinueLearning";
-import SparkTerminal from "../../components/dashboard-v2/SparkTerminal/SparkTerminal";
 import ProgressGauge from "../../components/dashboard-v2/ProgressGauge/ProgressGauge";
 import CourseLibrary from "../../components/dashboard-v2/CourseLibrary/CourseLibrary";
 import ActivityTimeline from "../../components/dashboard-v2/ActivityTimeline/ActivityTimeline";
@@ -22,7 +21,6 @@ export default function DashboardV2() {
 
       <div className="main-row">
         <ContinueLearning />
-        <SparkTerminal />
         <ProgressGauge />
       </div>
 

@@ -42,11 +42,11 @@
   position: fixed;
   z-index: 70;
   min-width: 0;
-  width: 190px;
-  max-width: min(190px, calc(100vw - 24px));
-  min-height: 64px;
-  padding: 8px 10px 9px;
-  border-radius: 18px;
+  width: 216px;
+  max-width: min(216px, calc(100vw - 24px));
+  min-height: 68px;
+  padding: 8px 12px;
+  border-radius: 24px;
   backdrop-filter: blur(16px);
   right: 32px;
   bottom: 32px;
@@ -57,13 +57,26 @@
     0 0 26px rgba(255, 27, 45, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.03),
     inset 0 -1px 0 rgba(255, 27, 45, 0.06);
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
   transition:
     box-shadow 160ms ease,
     transform 160ms ease;
+}
+
+.spark-doubt-bubble.is-floating::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  bottom: -8px;
+  width: 16px;
+  height: 16px;
+  transform: rotate(45deg);
+  background: linear-gradient(180deg, rgba(8, 10, 12, 0.98), rgba(3, 5, 7, 0.99));
+  border-right: 1px solid rgba(88, 14, 18, 0.32);
+  border-bottom: 1px solid rgba(88, 14, 18, 0.32);
+  box-shadow: 10px 10px 18px rgba(0, 0, 0, 0.12);
 }
 
 .spark-doubt-bubble.is-floating:hover {
@@ -78,21 +91,30 @@
   bottom: 104px;
 }
 
-.spark-doubt-bubble__device {
+.spark-doubt-bubble__orb {
   position: relative;
   flex: 0 0 auto;
-  width: 100%;
-  display: block;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.08), transparent 18%),
+    radial-gradient(circle at 50% 50%, rgba(255, 27, 45, 0.14), transparent 56%),
+    linear-gradient(180deg, rgba(2, 3, 4, 0.98), rgba(8, 10, 12, 0.98));
+  border: 1px solid rgba(255, 27, 45, 0.16);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.36),
+    0 0 18px rgba(255, 27, 45, 0.15);
 }
 
 .spark-doubt-bubble__scan {
-  position: relative;
-  display: block;
-  height: 12px;
+  position: absolute;
+  inset: 11px 7px;
   border-radius: 999px;
   background:
     linear-gradient(180deg, rgba(1, 2, 3, 0.98), rgba(8, 10, 12, 0.98));
-  border: 1px solid rgba(255, 27, 45, 0.18);
+  border: 1px solid rgba(255, 27, 45, 0.2);
   overflow: hidden;
   box-shadow:
     inset 0 0 0 1px rgba(0, 0, 0, 0.35),
@@ -136,18 +158,31 @@
 }
 
 @keyframes spark-bubble-scan {
-  0%, 100% { left: 0; }
-  50% { left: 62%; }
+  0%,
+  100% {
+    left: 0;
+  }
+  50% {
+    left: 58%;
+  }
 }
 
-.spark-doubt-bubble__copy {
+.spark-doubt-bubble__speech {
   position: relative;
   z-index: 1;
   min-width: 0;
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.spark-doubt-bubble__copy {
+  min-width: 0;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0;
+  gap: 1px;
   line-height: 1.02;
 }
 
@@ -177,10 +212,10 @@
     top: auto;
     bottom: calc(96px + env(safe-area-inset-bottom, 0));
     transform: translateX(-50%);
-    width: min(170px, calc(100vw - 32px));
+    width: min(184px, calc(100vw - 32px));
     max-width: calc(100vw - 32px);
-    min-height: 58px;
-    padding: 7px 10px 8px;
+    min-height: 60px;
+    padding: 7px 11px;
     touch-action: manipulation;
   }
 
@@ -188,12 +223,21 @@
     bottom: calc(104px + env(safe-area-inset-bottom, 0));
   }
 
+  .spark-doubt-bubble__orb {
+    width: 38px;
+    height: 38px;
+  }
+
+  .spark-doubt-bubble__scan {
+    inset: 10px 6px;
+  }
+
   .spark-doubt-bubble__copy strong {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .spark-doubt-bubble__subcopy {
-    font-size: 9px;
+    font-size: 8px;
   }
 
   .spark-doubt-bubble.is-floating[data-has-tight-copy="true"] .spark-doubt-bubble__subcopy {

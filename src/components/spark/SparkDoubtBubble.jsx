@@ -216,15 +216,17 @@ export default function SparkDoubtBubble({
       onPointerUp={handlePointerUp}
       onKeyDown={handleKeyDown}
     >
-      <span className="spark-doubt-bubble__device" aria-hidden="true">
+      <span className="spark-doubt-bubble__orb" aria-hidden="true">
         <span className="spark-doubt-bubble__scan">
           <span />
         </span>
       </span>
 
-      <span className="spark-doubt-bubble__copy">
-        <strong>{mainLabel}</strong>
-        <span className="spark-doubt-bubble__subcopy">{subLabel}</span>
+      <span className="spark-doubt-bubble__speech" aria-hidden="true">
+        <span className="spark-doubt-bubble__copy">
+          <strong>{mainLabel}</strong>
+          <span className="spark-doubt-bubble__subcopy">{subLabel}</span>
+        </span>
       </span>
     </button>
   );

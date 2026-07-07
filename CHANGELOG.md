@@ -3,6 +3,7 @@
 ## 2026-07-07
 
 ### Fixed
+- Removed the Spark dashboard card and converted Spark access to a floating orb/dialog assistant so the dashboard grid reflows cleanly.
 - Tightened the Spark popup to a compact auto-height red scanner console with shorter lesson replies, smaller controls, and a brighter scan slot.
 - Rebuilt the Spark launcher and popup as a black-and-red scanner console with compact Hindi copy and no cyan-dominant borders.
 - Shortened Spark Hindi copy in the floating bubble and popup so the launcher stays compact on desktop and 393px mobile without label overlap.
