@@ -10,7 +10,6 @@ import {
   ZoomIn,
 } from "lucide-react";
 import Modal from "../../shared/Modal/Modal";
-import SparkDoubtBubble from "../../spark/SparkDoubtBubble";
 import { getBe001TeacherScript, getBe001TeacherScriptParts } from "../../../data/be001TeacherScripts";
 import { getPreferredTeacherVoice } from "../teacherVoice";
 
@@ -505,37 +504,6 @@ export default function SectionPlayer({
           </div>
         </div>
       </div>
-
-      <SparkDoubtBubble
-        className="is-section-player"
-        dockOffset={104}
-        context={{
-          source: "section",
-          moduleId: "module-01",
-          lessonId: "BE-001",
-          sectionId: section.id,
-          sectionTitle: section.title,
-          textSummary: section.paragraphs,
-          imageCaption: section.caption,
-          keyPoints: section.keyPoints,
-          miniCheck: section.miniCheck,
-          teacherScript,
-        }}
-        onOpen={() =>
-          onAskSpark?.({
-            source: "section",
-            moduleId: "module-01",
-            lessonId: "BE-001",
-            sectionId: section.id,
-            sectionTitle: section.title,
-            textSummary: section.paragraphs,
-            imageCaption: section.caption,
-            keyPoints: section.keyPoints,
-            miniCheck: section.miniCheck,
-            teacherScript,
-          })
-        }
-      />
 
       <Modal
         open={showImageModal && !imageFailed}

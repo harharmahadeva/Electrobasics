@@ -3,6 +3,7 @@
 ## 2026-07-07
 
 ### Fixed
+- Removed the remaining page-level Spark launcher renders so the horizontal scanner bar comes from the global Spark provider only.
 - Rebuilt Spark as a black horizontal scanner bar with a compact scanner dialog bubble and removed the old orb/card/chatbox structure.
 - Replaced the Spark launcher with a horizontal red scanner bar and simplified the popup into a compact scanner dialog bubble.
 - Rebuilt the Spark launcher as a floating animated orb with a small desktop tooltip and a cleaner black/red chat dialog popup.
