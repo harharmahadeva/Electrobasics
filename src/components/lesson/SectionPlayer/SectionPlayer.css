@@ -1,6 +1,7 @@
 @import "../../module-detail/module-detail-tokens.css";
 
 .sp {
+  position: relative;
   height: 100%;
   min-height: 0;
   width: 100%;
@@ -22,14 +23,12 @@
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 14px;
-  padding: 12px 14px;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
   border-radius: 14px;
-  border: 1px solid rgba(0, 229, 255, 0.16);
-  background:
-    radial-gradient(circle at top left, rgba(255, 77, 109, 0.08), transparent 28%),
-    rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 229, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .sp-teacher-head {
@@ -42,25 +41,25 @@
 .sp-teacher-head strong {
   display: block;
   color: var(--md-text-primary);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.35;
 }
 
 .sp-teacher-head p {
   margin: 4px 0 0;
   color: var(--md-text-secondary);
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.45;
 }
 
 .sp-teacher-status {
   flex-shrink: 0;
-  padding: 5px 9px;
+  padding: 4px 8px;
   border-radius: 999px;
   border: 1px solid rgba(255, 77, 109, 0.16);
   color: #ff9cad;
   background: rgba(255, 77, 109, 0.06);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.4px;
   text-transform: uppercase;
@@ -79,23 +78,23 @@
 }
 
 .sp-teacher-actions {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .sp-teacher-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  min-height: 40px;
-  padding: 0 10px;
-  border-radius: 11px;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 9px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 77, 109, 0.16);
   background: rgba(255, 77, 109, 0.08);
   color: #ffd6de;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -153,7 +152,7 @@
   flex-direction: column;
   gap: 10px;
   position: sticky;
-  top: 0;
+  top: 12px;
   align-self: start;
   max-height: 100%;
 }
@@ -210,19 +209,21 @@
 
 .sp-image-open {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 8px;
+  bottom: 8px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 0;
   cursor: pointer;
-  border: 1px solid rgba(0, 229, 255, 0.26);
-  border-radius: 10px;
-  padding: 8px 10px;
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  border-radius: 999px;
+  width: 28px;
+  height: 28px;
   color: #fff;
   font-size: 12px;
   font-weight: 700;
-  background: rgba(5, 10, 18, 0.78);
+  background: rgba(5, 10, 18, 0.82);
   backdrop-filter: blur(8px);
 }
 
@@ -830,7 +831,7 @@
 
   .sp-teacher-card {
     padding: 10px 12px;
-    gap: 8px;
+    gap: 6px;
     margin-bottom: 10px;
     border-radius: 12px;
   }
@@ -844,11 +845,11 @@
   }
 
   .sp-teacher-actions {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
   }
 
   .sp-teacher-action {
-    min-height: 38px;
+    min-height: 34px;
     padding: 0 8px;
     font-size: 11px;
   }
@@ -985,6 +986,7 @@
   }
 
   .sp-image-open {
-    display: none;
+    width: 26px;
+    height: 26px;
   }
 }

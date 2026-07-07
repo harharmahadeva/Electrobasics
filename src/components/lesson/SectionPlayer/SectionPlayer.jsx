@@ -42,7 +42,6 @@ const LABELS = {
   teacherSpeaking: { en: "Speaking", hi: "बोल रहा है" },
   teacherPaused: { en: "Paused", hi: "रोका गया" },
   previousSection: { en: "Previous Section", hi: "पिछला खंड" },
-  reviewPrevious: { en: "Review Previous", hi: "पिछला दोहराएँ" },
   review: { en: "Review", hi: "दोहराएँ" },
   continueSection: { en: "Continue Section", hi: "खंड जारी रखें" },
   startSection: { en: "Start Section", hi: "खंड शुरू करें" },
@@ -226,13 +225,13 @@ export default function SectionPlayer({
 
         <div className="sp-teacher-actions">
           <button type="button" className="sp-teacher-action" onClick={speakTeacher}>
-            <Play size={15} /> {label("playTeacher")}
+            <Play size={14} /> {label("playTeacher")}
           </button>
           <button type="button" className="sp-teacher-action" onClick={togglePauseResume} disabled={pauseDisabled}>
-            <Pause size={15} /> {voiceLabel}
+            <Pause size={14} /> {voiceLabel}
           </button>
           <button type="button" className="sp-teacher-action" onClick={speakTeacher}>
-            <RotateCcw size={15} /> {label("replayTeacher")}
+            <RotateCcw size={14} /> {label("replayTeacher")}
           </button>
           <button
             type="button"
@@ -252,7 +251,7 @@ export default function SectionPlayer({
             })
             }
           >
-            <MessageCircle size={15} /> {label("askDoubt")}
+            <MessageCircle size={14} /> {label("askDoubt")}
           </button>
         </div>
       </div>
@@ -270,8 +269,8 @@ export default function SectionPlayer({
                   onError={() => setImageFailed(true)}
                 />
                 {imageLoaded && (
-                  <button className="sp-image-open" onClick={() => setShowImageModal(true)}>
-                    <ZoomIn size={14} /> {label("openImage")}
+                  <button className="sp-image-open" onClick={() => setShowImageModal(true)} aria-label={label("openImage")}>
+                    <ZoomIn size={13} />
                   </button>
                 )}
               </>
@@ -465,7 +464,7 @@ export default function SectionPlayer({
         <div className="sp-actions-row sp-actions-row-top">
           {onPrevious ? (
             <button className="sp-secondary-btn" onClick={onPrevious}>
-              <ChevronLeft size={16} /> {previousComplete ? label("reviewPrevious") : label("previousSection")}
+              <ChevronLeft size={16} /> {label("previousSection")}
             </button>
           ) : (
             <div className="sp-row-spacer" />
@@ -476,11 +475,13 @@ export default function SectionPlayer({
           </button>
         </div>
 
-        <div className="sp-actions-row sp-actions-row-bottom">
-          <button className={isComplete ? "sp-complete-btn is-done" : "sp-complete-btn"} onClick={onMarkComplete}>
-            <CheckCircle2 size={16} /> {isComplete ? label("completeDone") : label("complete")}
-          </button>
-        </div>
+        {!isComplete && (
+          <div className="sp-actions-row sp-actions-row-bottom">
+            <button className="sp-complete-btn" onClick={onMarkComplete}>
+              <CheckCircle2 size={16} /> {label("complete")}
+            </button>
+          </div>
+        )}
       </div>
 
       <SparkDoubtBubble
