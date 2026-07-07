@@ -3,6 +3,7 @@
 ## 2026-07-07
 
 ### Fixed
+- Replaced the Spark launcher with a horizontal red scanner bar and simplified the popup into a compact scanner dialog bubble.
 - Rebuilt the Spark launcher as a floating animated orb with a small desktop tooltip and a cleaner black/red chat dialog popup.
 - Restored the Spark launcher as a global floating assistant above dashboard, module, lesson, and section routes, and softened the popup into a compact dialog bubble.
 - Removed the Spark dashboard card and converted Spark access to a floating orb/dialog assistant so the dashboard grid reflows cleanly.

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useSpark } from "../../context/SparkContext";
 
 const LABELS = {
-  clear: { en: "Clear Doubt", hi: "सवाल पूछें" },
+  clear: { en: "Clear Doubt", hi: "सवल पछ" },
   title: { en: "Spark AI Console", hi: "Spark AI Console" },
 };
 
@@ -39,7 +39,7 @@ export default function SparkDoubtBubble({
   const [position, setPosition] = useState(null);
 
   const handleOpen = onOpen || (() => spark.openSpark(context));
-  const tooltipLabel = title ? pickLabel(title, isHindi) : pickLabel(LABELS.clear, isHindi);
+  const launchLabel = title ? pickLabel(title, isHindi) : pickLabel(LABELS.clear, isHindi);
   const isFloating = mode !== "inline";
   const bottomOffset = DEFAULT_MARGIN + Math.max(0, dockOffset);
 
@@ -214,17 +214,15 @@ export default function SparkDoubtBubble({
       onPointerUp={handlePointerUp}
       onKeyDown={handleKeyDown}
     >
-      <span className="spark-doubt-bubble__orb" aria-hidden="true">
+      <span className="spark-doubt-bubble__scanner" aria-hidden="true">
         <span className="spark-doubt-bubble__scan">
-          <span />
+          <span className="spark-doubt-bubble__scan-light" />
         </span>
       </span>
 
-      {!isMobile && (
-        <span className="spark-doubt-bubble__tooltip" aria-hidden="true">
-          {tooltipLabel}
-        </span>
-      )}
+      <span className="spark-doubt-bubble__label" aria-hidden="true">
+        {launchLabel}
+      </span>
     </button>
   );
 }

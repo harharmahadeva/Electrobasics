@@ -1,31 +1,52 @@
 .spark-doubt-bubble {
   position: relative;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
   box-sizing: border-box;
   cursor: pointer;
-  overflow: visible;
+  overflow: hidden;
   user-select: none;
   touch-action: none;
-  font-family: system-ui, "Noto Sans Devanagari", "Noto Sans", sans-serif;
   border: none;
-  padding: 0;
-  background: transparent;
+  padding: 0 12px 0 10px;
+  background:
+    radial-gradient(circle at 18% 50%, rgba(255, 255, 255, 0.04), transparent 18%),
+    linear-gradient(180deg, rgba(10, 12, 14, 0.98), rgba(2, 3, 4, 0.99));
   color: var(--spark-text, #f4f7fb);
+  font-family: system-ui, "Noto Sans Devanagari", "Noto Sans", sans-serif;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.48),
+    0 0 24px rgba(255, 27, 45, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 0 rgba(255, 27, 45, 0.08);
+}
+
+.spark-doubt-bubble::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 27, 45, 0.03), transparent 18%, transparent 82%, rgba(255, 27, 45, 0.02));
+  pointer-events: none;
 }
 
 .spark-doubt-bubble.is-inline {
   width: 100%;
   min-height: 54px;
+  border-radius: 18px;
 }
 
 .spark-doubt-bubble.is-floating {
   position: fixed;
   z-index: 70;
-  width: 68px;
-  height: 68px;
+  width: 220px;
+  height: 46px;
   right: 32px;
   bottom: 32px;
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
   transition:
     transform 160ms ease,
     box-shadow 160ms ease,
@@ -33,147 +54,115 @@
 }
 
 .spark-doubt-bubble.is-floating:hover {
-  transform: scale(1.035);
+  transform: scale(1.02);
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.55),
+    0 0 28px rgba(255, 27, 45, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .spark-doubt-bubble.is-section-player {
   bottom: 104px;
 }
 
-.spark-doubt-bubble__orb {
+.spark-doubt-bubble__scanner {
   position: relative;
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 24px;
+  border-radius: 999px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 36%, rgba(255, 255, 255, 0.08), transparent 16%),
-    radial-gradient(circle at 50% 50%, rgba(255, 27, 45, 0.14), transparent 42%),
-    linear-gradient(180deg, rgba(7, 9, 12, 0.98), rgba(2, 3, 4, 0.98));
-  border: 1px solid rgba(255, 27, 45, 0.24);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(9, 11, 13, 0.98));
+  border: 1px solid rgba(255, 27, 45, 0.14);
   box-shadow:
-    0 18px 38px rgba(0, 0, 0, 0.5),
-    0 0 28px rgba(255, 27, 45, 0.22),
-    0 0 52px rgba(255, 27, 45, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    inset 0 -1px 0 rgba(255, 27, 45, 0.12);
+    inset 0 0 0 1px rgba(0, 0, 0, 0.44),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02),
+    0 0 18px rgba(255, 27, 45, 0.08);
 }
 
-.spark-doubt-bubble__orb::before {
+.spark-doubt-bubble__scanner::before {
   content: "";
   position: absolute;
-  inset: 8px;
+  inset: 2px;
   border-radius: inherit;
   background:
-    radial-gradient(circle at 50% 50%, rgba(255, 27, 45, 0.12), transparent 58%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(255, 27, 45, 0.02));
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 27, 45, 0.1),
-    inset 0 0 18px rgba(255, 27, 45, 0.08);
+    linear-gradient(180deg, rgba(255, 27, 45, 0.03), transparent 30%, transparent 70%, rgba(255, 27, 45, 0.03)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent 24%, transparent 76%, rgba(255, 255, 255, 0.02));
+  pointer-events: none;
 }
 
 .spark-doubt-bubble__scan {
   position: absolute;
-  inset: 19px 10px;
-  border-radius: 999px;
-  overflow: hidden;
+  inset: 5px 7px;
+  border-radius: inherit;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(8, 10, 12, 0.98));
-  border: 1px solid rgba(255, 27, 45, 0.2);
+    linear-gradient(180deg, rgba(1, 2, 3, 0.98), rgba(8, 10, 12, 0.98));
+  overflow: hidden;
   box-shadow:
-    inset 0 0 0 1px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.02),
-    0 0 18px rgba(255, 27, 45, 0.16);
+    inset 0 0 0 1px rgba(0, 0, 0, 0.42),
+    0 0 14px rgba(255, 27, 45, 0.08);
 }
 
-.spark-doubt-bubble__scan span {
+.spark-doubt-bubble__scan-light {
   position: absolute;
   top: 1px;
   left: 0;
-  width: 38%;
+  width: 34%;
   height: calc(100% - 2px);
   border-radius: inherit;
   background:
-    linear-gradient(90deg, transparent 0%, rgba(255, 128, 128, 0.12) 18%, rgba(255, 27, 45, 1) 50%, rgba(255, 160, 160, 0.16) 80%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, rgba(255, 132, 132, 0.1) 16%, rgba(255, 27, 45, 1) 50%, rgba(255, 168, 168, 0.16) 82%, transparent 100%);
   box-shadow:
-    0 0 12px rgba(255, 27, 45, 0.62),
-    0 0 26px rgba(255, 27, 45, 0.3),
+    0 0 12px rgba(255, 27, 45, 0.68),
+    0 0 26px rgba(255, 27, 45, 0.32),
     0 0 42px rgba(255, 27, 45, 0.16);
-  animation: spark-bubble-scan 3.4s ease-in-out infinite;
+  animation: spark-scan-sweep 3.2s ease-in-out infinite;
 }
 
-.spark-doubt-bubble__scan span::before,
-.spark-doubt-bubble__scan span::after {
+.spark-doubt-bubble__scan-light::before,
+.spark-doubt-bubble__scan-light::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
 }
 
-.spark-doubt-bubble__scan span::before {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  opacity: 0.58;
+.spark-doubt-bubble__scan-light::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  opacity: 0.48;
 }
 
-.spark-doubt-bubble__scan span::after {
-  filter: blur(12px);
-  background: rgba(255, 27, 45, 0.3);
+.spark-doubt-bubble__scan-light::after {
+  filter: blur(10px);
+  background: rgba(255, 27, 45, 0.24);
 }
 
-@keyframes spark-bubble-scan {
+@keyframes spark-scan-sweep {
   0%,
   100% {
     left: 0;
   }
   50% {
-    left: 62%;
+    left: 66%;
   }
 }
 
-.spark-doubt-bubble__tooltip {
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 10px);
-  transform: translateX(-50%) translateY(4px) scale(0.98);
-  opacity: 0;
-  pointer-events: none;
-  white-space: nowrap;
-  max-width: min(220px, calc(100vw - 32px));
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 7px 10px;
-  border-radius: 999px;
-  background: rgba(2, 4, 6, 0.92);
-  border: 1px solid rgba(255, 27, 45, 0.12);
-  box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.35),
-    0 0 18px rgba(255, 27, 45, 0.12);
+.spark-doubt-bubble__label {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  min-width: 0;
+  max-width: 70px;
   color: #f6f7fa;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.2px;
-  transition:
-    opacity 140ms ease,
-    transform 140ms ease;
-}
-
-.spark-doubt-bubble__tooltip::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -5px;
-  width: 10px;
-  height: 10px;
-  transform: translateX(-50%) rotate(45deg);
-  background: rgba(2, 4, 6, 0.92);
-  border-right: 1px solid rgba(255, 27, 45, 0.12);
-  border-bottom: 1px solid rgba(255, 27, 45, 0.12);
-}
-
-.spark-doubt-bubble.is-floating:hover .spark-doubt-bubble__tooltip,
-.spark-doubt-bubble.is-floating:focus-visible .spark-doubt-bubble__tooltip {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0) scale(1);
+  letter-spacing: 0.1px;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
 }
 
 @media (max-width: 700px) {
@@ -183,8 +172,9 @@
     top: auto;
     bottom: calc(96px + env(safe-area-inset-bottom, 0));
     transform: translateX(-50%);
-    width: 60px;
-    height: 60px;
+    width: 180px;
+    height: 42px;
+    padding: 0 10px 0 8px;
     touch-action: manipulation;
   }
 
@@ -192,23 +182,23 @@
     bottom: calc(104px + env(safe-area-inset-bottom, 0));
   }
 
-  .spark-doubt-bubble__orb {
-    width: 60px;
-    height: 60px;
+  .spark-doubt-bubble__scanner {
+    height: 22px;
   }
 
   .spark-doubt-bubble__scan {
-    inset: 17px 9px;
+    inset: 4px 6px;
   }
 
-  .spark-doubt-bubble__tooltip {
-    display: none;
+  .spark-doubt-bubble__label {
+    max-width: 64px;
+    font-size: 10px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .spark-doubt-bubble,
-  .spark-doubt-bubble__scan span {
+  .spark-doubt-bubble__scan-light {
     animation: none !important;
     transition: none !important;
   }
