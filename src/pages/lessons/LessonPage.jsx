@@ -16,6 +16,7 @@ import { useSpark } from "../../context/SparkContext";
 import { module01 } from "../../data/module01";
 import { be001, LESSON_CHECKLIST, SECTIONS } from "../../data/be001";
 import { SPARK_KNOWLEDGE, mergeKnowledgeBuckets } from "../../data/sparkKnowledge";
+import { getBe001TeacherScript } from "../../data/be001TeacherScripts";
 
 const LABELS = {
   backToBe001: { en: "Back to BE-001", hi: "BE-001 पर वापस" },
@@ -169,6 +170,9 @@ export default function LessonPage() {
       sectionTitle: section?.title || be001.title,
       textSummary: section?.paragraphs || label("intro"),
       imageCaption: section?.caption,
+      keyPoints: section?.keyPoints,
+      miniCheck: section?.miniCheck,
+      teacherScript: getBe001TeacherScript(section?.id || "section-01", isHindi),
       knowledge,
       ...extra,
     });

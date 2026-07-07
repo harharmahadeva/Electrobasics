@@ -82,6 +82,7 @@ export default function Module01DetailPage() {
       sectionTitle: m.title,
       textSummary: m.overview,
       imageCaption: source === "image" ? m.description : m.sparkMessage,
+      teacherScript: m.sparkMessage || m.overview || m.description,
       knowledge,
       ...extra,
     });

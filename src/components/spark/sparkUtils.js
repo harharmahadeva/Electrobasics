@@ -28,7 +28,10 @@ export function normalizeSparkContext(context = {}) {
     sectionTitle: context.sectionTitle || "",
     textSummary: context.textSummary ?? context.sectionSummary ?? context.summary ?? "",
     imageCaption: context.imageCaption || context.caption || "",
+    keyPoints: context.keyPoints || "",
+    miniCheck: context.miniCheck || null,
     knowledge: context.knowledge || "",
+    teacherScript: context.teacherScript || "",
   };
 }
 
@@ -37,7 +40,49 @@ function hasKeyword(text, keywords) {
 }
 
 function knowledgeSummary(context, isHindi, limit = 260) {
-  return summarizeSparkText(pickSparkText(context.knowledge, isHindi, ""), limit);
+  const teacherScript = summarizeSparkText(pickSparkText(context.teacherScript, isHindi, ""), limit);
+  const keyPoints = summarizeSparkText(pickSparkText(context.keyPoints, isHindi, ""), limit);
+  const knowledge = summarizeSparkText(pickSparkText(context.knowledge, isHindi, ""), limit);
+  return [teacherScript, keyPoints, knowledge].filter(Boolean).join(" ");
+}
+
+function outsideScopeMessage(isHindi) {
+  return isHindi
+    ? "मैं अभी उपलब्ध ElectroBasics lesson सामग्री से ही जवाब दे सकता हूँ। यह सवाल वर्तमान uploaded lesson content के बाहर है।"
+    : "I can answer from the ElectroBasics lesson material available right now. This question is outside the current uploaded lesson content.";
+}
+
+function isOutsideScopePrompt(text) {
+  const lower = String(text || "").toLowerCase();
+  return hasKeyword(lower, [
+    "weather",
+    "capital",
+    "news",
+    "stock",
+    "finance",
+    "bitcoin",
+    "crypto",
+    "politics",
+    "government",
+    "movie",
+    "song",
+    "recipe",
+    "travel",
+    "flight",
+    "sports",
+    "football",
+    "cricket",
+    "tennis",
+    "code",
+    "coding",
+    "javascript",
+    "python",
+    "programming",
+    "health",
+    "medical",
+    "law",
+    "legal",
+  ]);
 }
 
 export function buildSparkOpeningReply(context, isHindi) {
@@ -46,6 +91,8 @@ export function buildSparkOpeningReply(context, isHindi) {
   const sectionTitle = pickSparkText(context.sectionTitle, isHindi, "");
   const summary = summarizeSparkText(pickSparkText(context.textSummary, isHindi, ""));
   const imageCaption = pickSparkText(context.imageCaption, isHindi, "");
+  const keyPoints = summarizeSparkText(pickSparkText(context.keyPoints, isHindi, ""), 180);
+  const miniCheckQuestion = pickSparkText(context.miniCheck?.question, isHindi, "");
   const notes = knowledgeSummary(context, isHindi, 180);
 
   if (context.source === "dashboard") {
@@ -62,8 +109,8 @@ export function buildSparkOpeningReply(context, isHindi) {
 
   if (context.source === "section") {
     return isHindi
-      ? `${sectionTitle || lessonTitle} में मैं key points, quick hints, next step, और repo notes समझा सकता हूँ। ${notes}`
-      : `I can explain ${sectionTitle || lessonTitle}, the key points, the next step, and the repo notes. ${notes}`;
+      ? `${sectionTitle || lessonTitle} में मैं key points, quick hints, next step, Spark teacher script, और repo notes समझा सकता हूँ। ${notes}`
+      : `I can explain ${sectionTitle || lessonTitle}, the key points, the next step, the Spark teacher script, and the repo notes. ${notes}`;
   }
 
   if (context.source === "image" || imageCaption) {
@@ -74,8 +121,8 @@ export function buildSparkOpeningReply(context, isHindi) {
 
   if (summary) {
     return isHindi
-      ? `मैं इस पाठ में मदद कर सकता हूँ। शुरुआत summary, key points, और repo notes से करें। ${notes}`
-      : `I can help with this lesson. Start with the summary, key points, and repo notes. ${notes}`;
+      ? `मैं इस पाठ में मदद कर सकता हूँ। शुरुआत summary, key points, mini check, और repo notes से करें। ${miniCheckQuestion ? `Quick check: ${miniCheckQuestion}.` : ""} ${notes}`
+      : `I can help with this lesson. Start with the summary, key points, mini check, and repo notes. ${miniCheckQuestion ? `Quick check: ${miniCheckQuestion}.` : ""} ${notes}`;
   }
 
   return isHindi
@@ -103,6 +150,10 @@ export function buildSparkReply(context, prompt, isHindi) {
   const wantsNext = hasKeyword(lower, ["next", "after this", "what next", "आगे", "अगला", "next step", "then what"]);
   const wantsImage = hasKeyword(lower, ["image", "picture", "diagram", "visual", "photo", "asset", "चित्र", "इमेज"]);
   const wantsSimple = hasKeyword(lower, ["simple", "easy", "easy words", "basic", "सरल", "आसान"]);
+
+  if (isOutsideScopePrompt(lower)) {
+    return outsideScopeMessage(isHindi);
+  }
 
   if (wantsHindi) {
     return isHindi
@@ -148,8 +199,8 @@ export function buildSparkReply(context, prompt, isHindi) {
 
   if (normalized.source === "section") {
     return isHindi
-      ? `${sectionTitle || lessonTitle} के लिए summary: ${summary || "पहले समझें, फिर अभ्यास करें."} ${notes}`
-      : `${sectionTitle || lessonTitle} summary: ${summary || "understand it first, then practice."} ${notes}`;
+      ? `${sectionTitle || lessonTitle} के लिए summary: ${summary || "पहले समझें, फिर अभ्यास करें."} ${keyPoints ? `Key points: ${keyPoints}.` : ""} ${notes}`
+      : `${sectionTitle || lessonTitle} summary: ${summary || "understand it first, then practice."} ${keyPoints ? `Key points: ${keyPoints}.` : ""} ${notes}`;
   }
 
   if (normalized.source === "image") {

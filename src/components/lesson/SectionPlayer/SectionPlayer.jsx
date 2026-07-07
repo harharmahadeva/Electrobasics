@@ -1,15 +1,19 @@
 import "./SectionPlayer.css";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
+  Pause,
   MessageCircle,
+  Play,
+  RotateCcw,
   ZoomIn,
 } from "lucide-react";
 import Modal from "../../shared/Modal/Modal";
 import SparkDoubtBubble from "../../spark/SparkDoubtBubble";
+import { getBe001TeacherScript, getBe001TeacherScriptParts } from "../../../data/be001TeacherScripts";
 
 const LABELS = {
   content: { en: "Lesson Text", hi: "पाठ सामग्री" },
@@ -28,6 +32,15 @@ const LABELS = {
   askSpark: { en: "Ask Spark", hi: "स्पार्क से पूछें" },
   complete: { en: "Mark Section Complete", hi: "खंड पूरा करें" },
   completeDone: { en: "Completed", hi: "पूरा हुआ" },
+  listenTeacher: { en: "Listen to Spark Teacher", hi: "Spark Teacher सुनें" },
+  playTeacher: { en: "Play", hi: "चलाएँ" },
+  pauseTeacher: { en: "Pause", hi: "रोकें" },
+  resumeTeacher: { en: "Resume", hi: "जारी रखें" },
+  replayTeacher: { en: "Replay", hi: "फिर से सुनें" },
+  askDoubt: { en: "Ask Doubt", hi: "शंका पूछें" },
+  teacherReady: { en: "Ready", hi: "तैयार" },
+  teacherSpeaking: { en: "Speaking", hi: "बोल रहा है" },
+  teacherPaused: { en: "Paused", hi: "रोका गया" },
   previousSection: { en: "Previous Section", hi: "पिछला खंड" },
   reviewPrevious: { en: "Review Previous", hi: "पिछला दोहराएँ" },
   review: { en: "Review", hi: "दोहराएँ" },
@@ -66,6 +79,8 @@ export default function SectionPlayer({
   const [imageFailed, setImageFailed] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
+  const [voiceState, setVoiceState] = useState("idle");
+  const utteranceRef = useRef(null);
   const isHindi = i18n.language?.startsWith("hi");
 
   function pickLang(value, fallback = "") {
@@ -113,6 +128,72 @@ export default function SectionPlayer({
   const imageSrc = resolveImageUrl(section.image);
   const imageFit = section.imageFit || "cover";
 
+  const teacherParts = useMemo(() => getBe001TeacherScriptParts(section.id), [section.id]);
+  const teacherScript = useMemo(() => {
+    const fixed = getBe001TeacherScript(section.id, isHindi);
+    if (fixed) return fixed;
+
+    const summary = [
+      pickLang(section.title),
+      ...languageArray(section.keyPoints).slice(0, 3),
+      ...paragraphs.slice(0, 2),
+      pickLang(section.miniCheck?.question || ""),
+    ].filter(Boolean);
+
+    return summary.join(" ");
+  }, [isHindi, paragraphs, section.id, section.keyPoints, section.miniCheck?.question, section.title]);
+
+  const stopSpeech = useCallback(() => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    utteranceRef.current = null;
+    setVoiceState("idle");
+  }, []);
+
+  const speakTeacher = useCallback(() => {
+    if (typeof window === "undefined" || !window.speechSynthesis || !teacherScript) return;
+    stopSpeech();
+    const utterance = new SpeechSynthesisUtterance(teacherScript);
+    utterance.lang = isHindi ? "hi-IN" : "en-US";
+    utterance.rate = 0.96;
+    utterance.pitch = 1;
+    utterance.onstart = () => setVoiceState("speaking");
+    utterance.onpause = () => setVoiceState("paused");
+    utterance.onresume = () => setVoiceState("speaking");
+    utterance.onend = () => {
+      utteranceRef.current = null;
+      setVoiceState("idle");
+    };
+    utterance.onerror = () => {
+      utteranceRef.current = null;
+      setVoiceState("idle");
+    };
+    utteranceRef.current = utterance;
+    window.speechSynthesis.speak(utterance);
+  }, [isHindi, stopSpeech, teacherScript]);
+
+  const togglePauseResume = useCallback(() => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    const synth = window.speechSynthesis;
+    if (synth.paused) {
+      synth.resume();
+      setVoiceState("speaking");
+      return;
+    }
+    if (synth.speaking) {
+      synth.pause();
+      setVoiceState("paused");
+    }
+  }, []);
+
+  useEffect(() => {
+    stopSpeech();
+    return () => stopSpeech();
+  }, [section.id, stopSpeech]);
+
+  const voiceLabel = voiceState === "paused" ? label("resumeTeacher") : label("pauseTeacher");
+  const pauseDisabled = voiceState === "idle";
+
   useEffect(() => {
     setImageFailed(false);
     setImageLoaded(false);
@@ -130,6 +211,50 @@ export default function SectionPlayer({
             {n}
           </span>
         ))}
+      </div>
+
+      <div className="sp-teacher-card">
+        <div className="sp-teacher-head">
+          <div>
+            <strong>{label("listenTeacher")}</strong>
+            <p>{teacherParts?.teacherIntro ? pickLang(teacherParts.teacherIntro) : pickLang(section.caption, pickLang(section.title))}</p>
+          </div>
+          <span className={`sp-teacher-status is-${voiceState}`}>
+            {voiceState === "speaking" ? label("teacherSpeaking") : voiceState === "paused" ? label("teacherPaused") : label("teacherReady")}
+          </span>
+        </div>
+
+        <div className="sp-teacher-actions">
+          <button type="button" className="sp-teacher-action" onClick={speakTeacher}>
+            <Play size={15} /> {label("playTeacher")}
+          </button>
+          <button type="button" className="sp-teacher-action" onClick={togglePauseResume} disabled={pauseDisabled}>
+            <Pause size={15} /> {voiceLabel}
+          </button>
+          <button type="button" className="sp-teacher-action" onClick={speakTeacher}>
+            <RotateCcw size={15} /> {label("replayTeacher")}
+          </button>
+          <button
+            type="button"
+            className="sp-teacher-action sp-teacher-action--ask"
+            onClick={() =>
+              onAskSpark?.({
+                source: "section",
+                moduleId: "module-01",
+                lessonId: "BE-001",
+                sectionId: section.id,
+              sectionTitle: section.title,
+              textSummary: section.paragraphs,
+              imageCaption: section.caption,
+              keyPoints: section.keyPoints,
+              miniCheck: section.miniCheck,
+              teacherScript,
+            })
+            }
+          >
+            <MessageCircle size={15} /> {label("askDoubt")}
+          </button>
+        </div>
       </div>
 
       <div className="sp-columns">
@@ -352,23 +477,6 @@ export default function SectionPlayer({
         </div>
 
         <div className="sp-actions-row sp-actions-row-bottom">
-          <button
-            className="sp-ask-spark"
-            onClick={() =>
-              onAskSpark?.({
-                source: "section",
-                moduleId: "module-01",
-                lessonId: "BE-001",
-                sectionId: section.id,
-                sectionTitle: section.title,
-                textSummary: section.paragraphs,
-                imageCaption: section.caption,
-              })
-            }
-          >
-            <MessageCircle size={16} /> {label("askSpark")}
-          </button>
-
           <button className={isComplete ? "sp-complete-btn is-done" : "sp-complete-btn"} onClick={onMarkComplete}>
             <CheckCircle2 size={16} /> {isComplete ? label("completeDone") : label("complete")}
           </button>
@@ -384,6 +492,9 @@ export default function SectionPlayer({
           sectionTitle: section.title,
           textSummary: section.paragraphs,
           imageCaption: section.caption,
+          keyPoints: section.keyPoints,
+          miniCheck: section.miniCheck,
+          teacherScript,
         }}
         onOpen={() =>
           onAskSpark?.({
@@ -394,6 +505,9 @@ export default function SectionPlayer({
             sectionTitle: section.title,
             textSummary: section.paragraphs,
             imageCaption: section.caption,
+            keyPoints: section.keyPoints,
+            miniCheck: section.miniCheck,
+            teacherScript,
           })
         }
       />
@@ -425,6 +539,9 @@ export default function SectionPlayer({
                   sectionTitle: section.title,
                   textSummary: section.paragraphs,
                   imageCaption: section.caption,
+                  keyPoints: section.keyPoints,
+                  miniCheck: section.miniCheck,
+                  teacherScript,
                 })
               }
             >

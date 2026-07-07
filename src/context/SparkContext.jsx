@@ -29,7 +29,9 @@ export function SparkProvider({ children }) {
         prev.context.moduleId === normalized.moduleId &&
         prev.context.lessonId === normalized.lessonId &&
         prev.context.sectionId === normalized.sectionId &&
-        prev.context.imageCaption === normalized.imageCaption;
+        prev.context.imageCaption === normalized.imageCaption &&
+        prev.context.teacherScript === normalized.teacherScript &&
+        prev.context.knowledge === normalized.knowledge;
 
       if (sameContext && !prompt && prev.messages.length) {
         return {

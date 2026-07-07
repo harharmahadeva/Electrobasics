@@ -37,6 +37,7 @@ export default function LessonRightSidebar({ lesson, checklist, completedCount, 
             sectionTitle: lesson.title,
             textSummary: lesson.overview || lesson.description || "",
             imageCaption: lesson.sparkMessage || lesson.description || "",
+            teacherScript: lesson.sparkMessage || lesson.overview || lesson.description || "",
             knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
           }}
           onOpen={() =>
@@ -48,6 +49,7 @@ export default function LessonRightSidebar({ lesson, checklist, completedCount, 
               sectionTitle: lesson.title,
               textSummary: lesson.overview || lesson.description || "",
               imageCaption: lesson.sparkMessage || lesson.description || "",
+              teacherScript: lesson.sparkMessage || lesson.overview || lesson.description || "",
               knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
             })
           }

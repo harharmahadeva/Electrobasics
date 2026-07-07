@@ -13,6 +13,7 @@ export default function SparkTerminal() {
     sectionTitle: "Dashboard help",
     textSummary: "Help the learner continue Module 01 or understand BE-001.",
     imageCaption: "Dashboard preview",
+    teacherScript: "Module 01 starts with BE-001, safety, tools and small beginner steps.",
     knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
   };
 

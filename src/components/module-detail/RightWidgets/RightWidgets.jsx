@@ -57,6 +57,7 @@ export default function RightWidgets({ module, onProgress, onSpark, onReward }) 
             sectionTitle: "Spark says",
             textSummary: module.sparkMessage,
             imageCaption: module.description,
+            teacherScript: module.sparkMessage,
             knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
           }}
           onOpen={onSpark}

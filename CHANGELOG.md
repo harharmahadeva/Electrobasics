@@ -3,6 +3,10 @@
 ## 2026-07-07
 
 ### Fixed
+- Added fixed BE-001 teacher scripts for all 12 sections and a browser-only Listen to Spark Teacher control in SectionPlayer.
+- Added lesson-only teacher voice playback with Play, Pause/Resume, Replay, and Stop-on-navigation behavior using the browser SpeechSynthesis API.
+- Upgraded Spark lesson replies to use BE-001 lesson text, teacher scripts, key points, and mini-check context only, with a hard outside-scope block.
+- Added a local-time dashboard greeting for Sandeep with compact Continue Learning, Resume Last Section, and Ask Spark actions.
 - Removed the top header search bar and kept the desktop/mobile header compact with logo, language toggle, notifications, and profile actions only.
 - Seeded Spark with repo-backed BE-001 and Module 01 knowledge so the floating doubt bubble answers from the lesson/module source already in the repo.
 - Added a floating Spark doubt bubble for lesson and section pages, replacing the embedded lesson console with a compact launcher and popup.

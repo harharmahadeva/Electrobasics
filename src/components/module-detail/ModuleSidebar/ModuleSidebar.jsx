@@ -56,6 +56,7 @@ export default function ModuleSidebar({ active = "All Modules", onHelp }) {
           sectionTitle: "Need help",
           textSummary: "Ask Spark for help with the module, tools, safety, or next steps.",
           imageCaption: "Module sidebar help",
+          teacherScript: "Module 01 is a beginner orientation module focused on safety, tools and the next small step.",
           knowledge: mergeKnowledgeBuckets(SPARK_KNOWLEDGE.module01, SPARK_KNOWLEDGE.be001),
         }}
         onOpen={onHelp}
