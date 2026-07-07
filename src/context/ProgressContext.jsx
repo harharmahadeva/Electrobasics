@@ -8,6 +8,7 @@ const LEGACY_STORAGE_KEY = "eb-progress";
 const STORAGE_PREFIX = "eb-progress";
 const ProgressContext = createContext(null);
 const VALID_BE001_SECTIONS = new Set(SECTIONS.map((section) => section.id));
+const BE001_SECTION_ROUTE_PREFIX = "/learn/BE-001/section/";
 
 function getUserStorageKey(userId) {
   return userId ? `${STORAGE_PREFIX}:${String(userId).trim().toLowerCase()}` : null;
@@ -45,6 +46,45 @@ function migrateLegacyProgress(userId) {
 
 function toArray(value) {
   return Array.isArray(value) ? value : [];
+}
+
+function getSectionOrder(sectionId) {
+  return SECTIONS.find((section) => section.id === sectionId)?.order || 0;
+}
+
+function isValidBe001SectionRoute(route, completedSections = []) {
+  if (typeof route !== "string" || !route.startsWith(BE001_SECTION_ROUTE_PREFIX)) return false;
+  const sectionId = route.slice(BE001_SECTION_ROUTE_PREFIX.length);
+  if (!VALID_BE001_SECTIONS.has(sectionId)) return false;
+
+  const sectionOrder = getSectionOrder(sectionId);
+  if (!sectionOrder) return false;
+
+  const highestCompleted = toArray(completedSections).reduce((max, value) => {
+    const numeric = Number(value) || 0;
+    return numeric > max ? numeric : max;
+  }, 0);
+
+  return sectionOrder <= Math.max(1, highestCompleted + 1);
+}
+
+function resolveBe001ResumeRoute(entry) {
+  if (!entry || entry.lessonId !== "BE-001") return "";
+
+  const explicitRoute = typeof entry.route === "string" ? entry.route.trim() : "";
+  if (explicitRoute === "/learn/BE-001") return explicitRoute;
+  if (isValidBe001SectionRoute(explicitRoute, entry.completedSections)) return explicitRoute;
+
+  const sectionId = typeof entry.sectionId === "string" ? entry.sectionId.trim() : "";
+  if (VALID_BE001_SECTIONS.has(sectionId) && isValidBe001SectionRoute(`${BE001_SECTION_ROUTE_PREFIX}${sectionId}`, entry.completedSections)) {
+    return `${BE001_SECTION_ROUTE_PREFIX}${sectionId}`;
+  }
+
+  if (toArray(entry.completedSections).length) {
+    return "/learn/BE-001/section/section-01";
+  }
+
+  return "/learn/BE-001";
 }
 
 function getCompletedLessons(progress) {
@@ -118,15 +158,8 @@ function progressToRows(progress, userId) {
 
 function getValidResumeRoute(entry) {
   if (!entry) return "";
-  if (entry.lessonId === "BE-001") {
-    if (entry.sectionId && VALID_BE001_SECTIONS.has(entry.sectionId)) {
-      return `/learn/BE-001/section/${entry.sectionId}`;
-    }
-    if (entry.route === "/learn/BE-001") return entry.route;
-    return "/learn/BE-001";
-  }
+  if (entry.lessonId === "BE-001") return resolveBe001ResumeRoute(entry);
   if (entry.lessonId === "BE-002") return "/learn/BE-002";
-  if (entry.route?.startsWith("/modules/")) return entry.route;
   return "";
 }
 
@@ -168,9 +201,8 @@ function getLatestEntry(progress) {
 
 function getDefaultResumeRoute(progress) {
   const latest = getLatestEntry(progress);
-  if (!latest) return "/modules/module-01";
-  if (latest.lessonId === "BE-001" && latest.lessonComplete) return "/learn/BE-002";
-  return getValidResumeRoute(latest) || "/modules/module-01";
+  if (!latest) return "/learn/BE-001";
+  return getValidResumeRoute(latest) || "/learn/BE-001";
 }
 
 function mergeProgress(localProgress, remoteProgress) {
